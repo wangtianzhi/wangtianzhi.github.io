@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="已经拥有人鱼线即将拥有公狗腰的王天智">
     <meta name="description" itemprop="description" content="湖北省武汉市中国地质大学西区53栋604最帅">
-    <meta name="keywords" content=",nodejs">
+    <meta name="keywords" content=",Vue">
 
     <!-- Site Verification -->
     
@@ -68,7 +68,7 @@
     <meta property="og:title" content="20180326 今天学Vue 很开心 | 拜你所赐我变成这样">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="湖北省武汉市中国地质大学西区53栋604最帅">
-    <meta property="og:article:tag" content="nodejs"> 
+    <meta property="og:article:tag" content="Vue"> 
 
     
         <meta property="article:published_time" content="3月 26, 2018" />
@@ -419,7 +419,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/nodejs/">nodejs</a>
+        <a class="post_tag-link" href="/tags/Vue/">Vue</a>
     </ul>
     
 
@@ -492,14 +492,24 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><hr>
-<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>这不是我第一次接触 Vue，之前接触过皮毛</p>
+        <h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>发现昨天忘写流水账了，今天加上</p>
+<p>昨天，周一，早晨升旗，升完旗理论上是不能走，但我带了波节奏带走一批人吃饭去了，班长很着急</p>
+<p>一二节没课，弄了会博客，三四节算法，没犯困，发哥讲的很复杂，其实稍微想想就明白，前提是你要别被老师牵着鼻子走，而且智商高于平均智商</p>
+<p>中午呼噜呼噜</p>
+<p>下午测量学，讲的很慢，拿纸写游戏需求</p>
+<p>测量学完了去健身，给新来的秀秀</p>
+<p>晚上编程，nodejs告一段落，会服务器的基本操作就够应付现在了，转战Vue</p>
+<p>仍然无聊</p>
+<hr>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>这不是我第一次接触 Vue，之前接触过点</p>
 <hr>
 <h4 id="顺便说一下"><a href="#顺便说一下" class="headerlink" title="顺便说一下"></a>顺便说一下</h4><p>用于构建用户界面的渐进式框架，特点是自底向上逐层应用，核心库只关注图层，易上手，便于与第三方库和既有项目整合</p>
 <p>Vue是未来前端框架应用的趋势</p>
 <p>这次与上次学 Vue 比，明显理解起来更加轻松，看着不像之前云里雾里，尤其是组件系统，因为组件、Vue对象实例、HTML中的DOM之间相互有联系，再加上组件内部也互相有联系，所以理解起来比较困难，上次就卡在这里了，这次为此梳理了个图</p>
-<p><img src="http://b289.photo.store.qq.com/psb?/V11VPaqg3WmrZw/uvtOHdqlsot0w6D7g9yoNqOCkGwdMbLv21jP.R1L2nI!/b/dCEBAAAAAAAA&amp;bo=gAJVA4ACVQMBACc!&amp;rf=viewer_311" alt="avatar"><br>图少了一点，key 中的todo.id id也是和groceryList 绑定的</p>
+<p><img src="/img/content/nodejs1.jpg" alt="avatar"><br>图少了一点，key 中的todo.id id也是和groceryList 绑定的</p>
 <p>这个图我想着要怎么上传最合适，不想占地方，最后的方法是，在qq上发个只有自己可见的说说，上传这张图，再把链接拉过来</p>
+<p>然而被空间拦住了</p>
+<p>还是用本地储存得了</p>
 <p>下面范范整一下核心内容，其实就是把官网的搬过来再加上自己理解，说真的，学Vue没啥比直接看官网看API更快的。视频教程只是实在理解不下去辅助用的，最终还是回归文档</p>
 <h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;</span><br><span class="line">// 或</span><br><span class="line">&lt;script src=&quot;https://unpkg.com/vue&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="声明式渲染与绑定"><a href="#声明式渲染与绑定" class="headerlink" title="声明式渲染与绑定"></a>声明式渲染与绑定</h4><p>Vue.js 核心是允许采用简洁模板语法来声明式的将数据渲染进DOM的系统</p>
@@ -777,6 +787,16 @@ data: {
                     <i class="material-icons sidebar-material-icons">person</i>
                 
                 时间线
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/index.html" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                标签云
             </a>
         </li>
         
