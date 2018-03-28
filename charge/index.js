@@ -42,9 +42,9 @@ $(document).ready(function () {
 		$("span").show();
 	});
 
-	if (openid == null) {
-		location.replace("http://time-capsule.icug.net.cn/qrcode.html");
-	}
+	// if (openid == null) {
+	// 	location.replace("http://time-capsule.icug.net.cn/qrcode.html");
+	// }
 	var mytime = new Date();
 	if (mytime.getHours() > 23 || mytime.getHours() < 6 || (mytime.getHours() == 22 && mytime.getMinutes() >= 30)) {
 		$.alert("请注意，22:30到6:00间系统无法充值，仅可查询一卡通余额。");
