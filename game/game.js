@@ -87,7 +87,7 @@ $(document).ready(function () {
 			asteroids.push(new Asteroid(x, y, radius, vX));
 		}
 
-		document.getElementById("gameUI").onmousedown = function upArray() {
+		var ondown = function upArray() {
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
 				clearInterval(downInterval);
@@ -118,7 +118,7 @@ $(document).ready(function () {
 				player.snakeMoveUp = true;
 				clearInterval(downInterval);
 				upInterval = setInterval(function () {
-						arrowArrayY.unshift(player.y);
+					arrowArrayY.unshift(player.y);
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
@@ -126,8 +126,7 @@ $(document).ready(function () {
 			}
 
 		};
-
-		document.getElementById("gameUI").onmouseup = function downArray() {
+		var onup = function downArray() {
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
 				clearInterval(upInterval);
@@ -158,7 +157,10 @@ $(document).ready(function () {
 
 			}
 		};
-
+		document.getElementById("gameUI").onmousedown = ondown();
+		document.getElementById("gameUI").ontouchstart = ondown();
+		document.getElementById("gameUI").onmouseup = onup();
+		document.getElementById("gameUI").ontouchend = onup();
 
 			if (!playGame) {
 				playGame = true;
