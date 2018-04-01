@@ -88,6 +88,7 @@ $(document).ready(function () {
 		}
 
 		var ondown = function upArray(e) {
+			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
 				clearInterval(downInterval);
@@ -128,6 +129,7 @@ $(document).ready(function () {
 
 		};
 		var onup = function downArray(e) {
+			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
 				clearInterval(upInterval);
