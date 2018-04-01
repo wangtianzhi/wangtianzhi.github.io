@@ -15,7 +15,7 @@ var Player = function (x, y) {
 	this.vY = 0;
 	this.aX = 0;
 	this.aY = 0;
-	this.shapeFlag = 3;
+	this.shapeFlag = 4;
 	this.squareJump = true;
 	this.arrowMoveUp = false;
 	this.snakeMoveUp = false;
@@ -87,10 +87,11 @@ $(document).ready(function () {
 			asteroids.push(new Asteroid(x, y, radius, vX));
 		}
 
-		var ondown = function upArray() {
+		var ondown = function upArray(e) {
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
 				clearInterval(downInterval);
+
 				upInterval = setInterval(function () {
 					if (arrowArrayY[0] < player.y) {
 						arrowArrayY.shift();
@@ -101,7 +102,7 @@ $(document).ready(function () {
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
-				}, 16);
+				}, 20);
 			} else if (player.shapeFlag == 1) {
 				if (!player.squareJump) {
 					player.vY = -13;
@@ -126,7 +127,7 @@ $(document).ready(function () {
 			}
 
 		};
-		var onup = function downArray() {
+		var onup = function downArray(e) {
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
 				clearInterval(upInterval);
@@ -140,7 +141,7 @@ $(document).ready(function () {
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
-				}, 16);
+				}, 20);
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = false;
 				clearInterval(upInterval);
@@ -157,10 +158,10 @@ $(document).ready(function () {
 
 			}
 		};
-		document.getElementById("gameUI").onmousedown = ondown();
-		document.getElementById("gameUI").ontouchstart = ondown();
-		document.getElementById("gameUI").onmouseup = onup();
-		document.getElementById("gameUI").ontouchend = onup();
+		document.getElementById("gameUI").onmousedown = ondown;
+		document.getElementById("gameUI").ontouchstart = ondown;
+		document.getElementById("gameUI").onmouseup = onup;
+		document.getElementById("gameUI").ontouchend = onup;
 
 			if (!playGame) {
 				playGame = true;
@@ -187,6 +188,8 @@ $(document).ready(function () {
 			e.preventDefault();
 			uiComplete.hide();
 			clearTimeout(scoreTimeout);
+			clearInterval(upInterval);
+			clearInterval(downInterval);
 			player.shapeFlag = Math.ceil(Math.random()*4);
 			if(player.shapeFlag == 0)
 			 {player.shapeFlag=4;}
@@ -215,6 +218,8 @@ $(document).ready(function () {
 				change ++;
 				if(change %4 == 0) {
 					console.log("change");
+					clearInterval(upInterval);
+					clearInterval(downInterval);
 					for(var i = 0; i< arrowArrayY.length;i++) {
 						arrowArrayY.pop();
 					}
@@ -487,7 +492,7 @@ $(document).ready(function () {
 
 		if (playGame) {
 			// Run the animation loop again in 33 milliseconds
-			setTimeout(animate, 14);
+			setTimeout(animate, 10);
 		}
 	}
 
