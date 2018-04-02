@@ -30,7 +30,34 @@ player = new Player(350, windowHeight / 2);
 var vs = Math.sqrt(player.vY * player.vY * 2);
 
 
+
 $(document).ready(function () {
+	var ui = $("#gameUI");
+	var uiIntro = $("#gameIntro");
+	var uiStats = $("#gameStats");
+	var uiComplete = $("#gameComplete");
+	var uiPlay = $("#gamePlay");
+	var uiReset = $(".gameReset");    // 所有重置
+	var uiScore = $(".gameScore");    // 所有分数
+	var soundBackground = $("#gameSoundBackground").get(0);
+	var soundThrust = $("#gameSoundThrust").get(0);
+	var soundDeath = $("#gameSoundDeath").get(0);
+
+	var reset = function (e) {
+		e.preventDefault();
+		uiComplete.hide();
+		clearTimeout(scoreTimeout);
+		clearInterval(upInterval);
+		clearInterval(downInterval);
+		player.shapeFlag = Math.ceil(Math.random()*4);
+		if(player.shapeFlag == 0)
+		{player.shapeFlag=4;}
+		startGame();
+		for(var i = 0; i< arrowArrayY.length;i++) {
+			arrowArrayY.pop();
+		}
+	}
+
 	var canvas = $("#gameCanvas");
 	var context = canvas.get(0).getContext("2d");
 	var canvasWidth = canvas.width();
@@ -51,16 +78,6 @@ $(document).ready(function () {
 	};
 
 	// 游戏UI
-	var ui = $("#gameUI");
-	var uiIntro = $("#gameIntro");
-	var uiStats = $("#gameStats");
-	var uiComplete = $("#gameComplete");
-	var uiPlay = $("#gamePlay");
-	var uiReset = $(".gameReset");    // 所有重置
-	var uiScore = $(".gameScore");    // 所有分数
-	var soundBackground = $("#gameSoundBackground").get(0);
-	var soundThrust = $("#gameSoundThrust").get(0);
-	var soundDeath = $("#gameSoundDeath").get(0);
 
 
 	// 重置和启动游戏
@@ -186,35 +203,11 @@ $(document).ready(function () {
 			uiIntro.hide();
 			startGame();
 		});
-		uiReset.click(function (e) {
-			e.preventDefault();
-			uiComplete.hide();
-			clearTimeout(scoreTimeout);
-			clearInterval(upInterval);
-			clearInterval(downInterval);
-			player.shapeFlag = Math.ceil(Math.random()*4);
-			if(player.shapeFlag == 0)
-			 {player.shapeFlag=4;}
-			startGame();
-			for(var i = 0; i< arrowArrayY.length;i++) {
-				arrowArrayY.pop();
-			}
-		}).onmousedown(
-			function (e) {
-				e.preventDefault();
-				uiComplete.hide();
-				clearTimeout(scoreTimeout);
-				clearInterval(upInterval);
-				clearInterval(downInterval);
-				player.shapeFlag = Math.ceil(Math.random()*4);
-				if(player.shapeFlag == 0)
-				{player.shapeFlag=4;}
-				startGame();
-				for(var i = 0; i< arrowArrayY.length;i++) {
-					arrowArrayY.pop();
-				}
-			}
-		);
+
+
+		uiReset.click(reset);
+		uiReset.ontouchstart = reset;
+
 	}
 
 	function timer() {
@@ -234,7 +227,6 @@ $(document).ready(function () {
 			var changeTimeout = setTimeout(function () {
 				change ++;
 				if(change %4 == 0) {
-					console.log("change");
 					clearInterval(upInterval);
 					clearInterval(downInterval);
 					for(var i = 0; i< arrowArrayY.length;i++) {
@@ -287,7 +279,7 @@ $(document).ready(function () {
 				clearTimeout(scoreTimeout);
 				uiStats.hide();
 				uiComplete.show();
-
+				document.getElementById("gameReset").ontouchstart = reset;
 				// Reset sounds
 				soundBackground.pause();
 
@@ -341,7 +333,6 @@ $(document).ready(function () {
 		}
 		else if (player.shapeFlag == 2) {
 			player.y += player.vY;
-			console.log(player.vY);
 			if (player.y - player.halfHeight < 20) {
 				borderFlag = true;
 				player.circleJump = 2;
