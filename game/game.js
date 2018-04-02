@@ -199,7 +199,22 @@ $(document).ready(function () {
 			for(var i = 0; i< arrowArrayY.length;i++) {
 				arrowArrayY.pop();
 			}
-		});
+		}).onmousedown(
+			function (e) {
+				e.preventDefault();
+				uiComplete.hide();
+				clearTimeout(scoreTimeout);
+				clearInterval(upInterval);
+				clearInterval(downInterval);
+				player.shapeFlag = Math.ceil(Math.random()*4);
+				if(player.shapeFlag == 0)
+				{player.shapeFlag=4;}
+				startGame();
+				for(var i = 0; i< arrowArrayY.length;i++) {
+					arrowArrayY.pop();
+				}
+			}
+		);
 	}
 
 	function timer() {
