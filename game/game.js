@@ -451,7 +451,7 @@ $(document).ready(function () {
 						distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
 					}
 					if (distanceY == 0) {
-						distanceY = 5;
+						distanceY = 6;
 					}
 					distanceY = Math.abs(distanceY);
 					lineStartx = lineStartx - distanceY;
