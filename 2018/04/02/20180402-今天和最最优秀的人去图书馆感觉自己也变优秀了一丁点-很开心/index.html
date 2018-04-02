@@ -330,7 +330,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流水账"><span class="post-toc-number">1.</span> <span class="post-toc-text">流水账</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue"><span class="post-toc-number">2.</span> <span class="post-toc-text">Vue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#条件渲染"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">条件渲染</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列表渲染"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">列表渲染</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流水账"><span class="post-toc-number">1.</span> <span class="post-toc-text">流水账</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Canvas"><span class="post-toc-number">2.</span> <span class="post-toc-text">Canvas</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue"><span class="post-toc-number">3.</span> <span class="post-toc-text">Vue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#条件渲染"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">条件渲染</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列表渲染"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">列表渲染</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#key"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">key</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组更新检测"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">数组更新检测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#变异方法"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">变异方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#非编译方法"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">非编译方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#注意"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">注意</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#题外话"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">题外话</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#typeof"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">typeof</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#jQuery-isPlainObject"><span class="post-toc-number">3.5.2.</span> <span class="post-toc-text">jQuery.isPlainObject</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#回到Vue"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">回到Vue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一段取值范围的v-for"><span class="post-toc-number">3.6.1.</span> <span class="post-toc-text">一段取值范围的v-for</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#v-for-with-v-if"><span class="post-toc-number">3.6.2.</span> <span class="post-toc-text">v-for with v-if</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#组件"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#全局注册"><span class="post-toc-number">3.7.1.</span> <span class="post-toc-text">全局注册</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#局部注册"><span class="post-toc-number">3.7.2.</span> <span class="post-toc-text">局部注册</span></a></li></ol></li></ol></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -489,14 +489,35 @@
 <p>早晨以为有早操，六点一刻起来刷牙洗脸，回头一看寝室没动静，再一看手机 早操取消</p>
 <p>操他妈的</p>
 <p>七点多去搬仪器</p>
-<p>搬到那发现少了个电池少了个卷尺，可能是他们拿包时拿错了</p>
+<p>搬到那发现<em>少了个电池少了个卷尺</em>，可能是他们拿包时拿错了</p>
 <p>仪器的电池得不少钱，我们找了找别的组的已经交了的仪器，有个组多一个电池，我说“那是我们的，我们和那个组换了换仪器”，老师说”好”，于是赔了卷尺的2块钱高高兴兴回去了</p>
 <p>我们真是群伟大的地质工作者</p>
-<p>算法，讲贪心算法，老师让讨论，那个姓李的同桌很自私，不愿意说出自己对世界七大数学难题的深刻理解，明明自己已经全部解开了</p>
+<p>算法，讲贪心算法，老师让讨论，那个姓李的同桌很自私，不愿意说出自己对世界七大数学难题的深刻理解</p>
 <p>背包，矩阵乘法分组，LSC，回头背过</p>
 <p>中午和同桌买饭，碰到外校的来考试，借我们卡刷，转给我们钱</p>
 <p>吃完和刘老板去图书馆，大中午的，图书馆真凉快</p>
 <p>现在是中午</p>
+<p>现在是晚上9:45 图书馆</p>
+<p>中午没睡觉下午也不觉得困，可能是因为测量学和同桌友好交流的很开心</p>
+<p>测量学老师又透了10分的题，算下来整张卷子快透光了</p>
+<p>第九周考试</p>
+<p>测量学之后拿完快递去和司机去健身房，</p>
+<p>那件连帽小背心还挺骚气的</p>
+<p>主要练肩，之前没着重练过，很疼</p>
+<p>吃了晚饭买水果去图书馆</p>
+<p>直到现在</p>
+<h3 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h3><p>今天没有学Canvas，补上昨天的理解</p>
+<p><img src="/img/content/dontforget.png" alt="Dont Forget"></p>
+<p>可以看到玩家后面有条轨迹</p>
+<p>那个轨迹花了我一下午的时间</p>
+<p>Canvas只能逐帧渲染</p>
+<p>所以我设了个数组，在onmouseup/onmousedown事件绑定了重复调用的计时器，每几毫秒便调用一次，获取当前y值，存数组里，这会是一个非常长的数组，之后根据数组逐帧绘画</p>
+<p>但是运算量很大，如果想要平滑的效果，需要极高的性能，我试过每1毫秒渲染一次，其实60帧每秒就够了，但是为了画曲线，必须要更精确的时间，因为其实它不是曲线，它是无数条线段，计时器时间间隔越小，就越平滑</p>
+<p>下面是5毫秒的效果</p>
+<p><img src="/img/content/dontforget2.png" alt="5ms"></p>
+<p>我试过1毫秒，非常棒，和完美的曲线一样</p>
+<p>运行了半分钟，电脑嗡嗡嗡要炸了一样</p>
+<p>游戏才刚开始做，不打算以此某生，权当爱好，每天做一点</p>
 <h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><h4 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h4><p>v-if/v-else和平时理解的差不多，v-else-if是2.1.0版本新增的</p>
 <p>刚才打版本两个字时，发现搜狗输入法的第二项是输入法的版本号：</p>
 <p>4.6.0.5592系统词频: 20180103组词数据: 20180103辅助码  : 20150602编译时间: Mar  1 2018 19:32:21平台版本: OS X 10.13.3(17D47)</p>
@@ -530,7 +551,147 @@
 <pre><code>&lt;div v-for=&quot;item of items&quot;&gt;&lt;/div&gt;
 </code></pre><hr>
 <p>对象的v-for</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;v-for-object&quot; class=&quot;demo&quot;&gt;</span><br><span class="line">  &lt;li v-for=&quot;value in object&quot;&gt;</span><br><span class="line">    &#123;&#123; value &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">var example3 = new Vue(&#123;</span><br><span class="line">  element: &quot;#v-for-object&quot;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    object: &#123;</span><br><span class="line">      firstName: &apos;Wang&apos;,</span><br><span class="line">      lastName: &apos;Badanzhi&apos;,</span><br><span class="line">      age: 30</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p>提供第二个参数为键名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;(value, key) in object&quot;&gt;</span><br><span class="line">  &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>第三个参数为索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-for=&quot;(value, key, index) in object&quot;&gt;</span><br><span class="line">  &#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125;: &#123;&#123; value &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>以上value/key/index可以随意更改，安顺序排就行</p>
+<hr>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>Vue.js 用v-for更新渲染过的元素列表时，默认用“就地复用”策略，如果数据项顺序改变，不用移动DOM元素来匹配，而是简单复用每个元素，并确保在特定索引下显示已经被渲染过的每个元素</p>
+<p>默认模式是高效的，但只适用于<em>不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出</em></p>
+<p>为了重用和重新排序现有元素，以便追踪每个节点身份，需要给每项提供一个唯一的key属性，最好每项都有唯一的key。需要用v-bind绑定</p>
+<pre><code>&lt;div v-for=&quot;item in items&quot; key=&quot;item.id&quot;&gt;&lt;/div&gt;
+</code></pre><blockquote>
+<p>尽可能在使用 v-for 时提供 key，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。</p>
+</blockquote>
+<hr>
+<h4 id="数组更新检测"><a href="#数组更新检测" class="headerlink" title="数组更新检测"></a>数组更新检测</h4><h5 id="变异方法"><a href="#变异方法" class="headerlink" title="变异方法"></a>变异方法</h5><p>会改变原数组，也会将触发视图更新</p>
+<ol>
+<li>push()</li>
+<li>pop()</li>
+<li>shift()</li>
+<li>unshift()</li>
+<li>splice()</li>
+<li>sort()</li>
+<li>reverse() </li>
+</ol>
+<p>例如，在控制台输入</p>
+<pre><code>example1.items.push({ message: &apos;Baz&apos; })
+</code></pre><h5 id="非编译方法"><a href="#非编译方法" class="headerlink" title="非编译方法"></a>非编译方法</h5><p>不会改变原始数组，但会返回一个新数组，可以替换原有数组</p>
+<ol>
+<li>filter()</li>
+<li>concat()</li>
+<li>slice()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">example1.items = example1.items.filter(function(item) &#123;</span><br><span class="line">  return item.message.match(/Foo/)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>Vue不能检测以下变动的数组</p>
+<ol>
+<li><p>由索引值直接设置一个项</p>
+<p> vm.items[indexOfItem] = new Value</p>
+</li>
+<li><p>修改数组长度时</p>
+<p> vm.items.length = newLength</p>
+</li>
+</ol>
+<p>为了解决第一类问题</p>
+<pre><code>Vue.set(vm.items, indexOfItem, newValue)
+//或
+vm.$set(vm.items, indexOfItem, newValue)
+// 或
+Vue.items.splice(indexOfItem, 1, newValue)
+</code></pre><p>为了解决第二类问题</p>
+<pre><code>vm.items.splice(newLength)
+</code></pre><hr>
+<p>Vue不能检测对象属性的添加或删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">      a = 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">// &apos;vm.a&apos; 现在是响应的</span><br><span class="line">vm.b = 2 不是响应的</span><br></pre></td></tr></table></figure></p>
+<p>对于已创建的实例，Vue不能动态的添加根级别的响应式属性，但可以用</p>
+<pre><code>Vue.set(object, key, value)
+</code></pre><p>向嵌套对象添加响应式属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    userProfile: &#123;</span><br><span class="line">      name = &apos;wangbadanzhi&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vue.set(vm.userProfile, &apos;age&apos;, 27)</span><br><span class="line">vm.$set(vm.userProfile, &apos;age&apos;, 27)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h4><p>object.assign() 从后向前复制，如果后面的前面没有，则追加到末尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const object1 = &#123;</span><br><span class="line">  a:1,</span><br><span class="line">  b:2,</span><br><span class="line">  c:3</span><br><span class="line">&#125;;</span><br><span class="line">const object2 = Object.assign(&#123;c:4, d:5&#125;, object1);</span><br></pre></td></tr></table></figure>
+<p>有关JSON的一点东西</p>
+<pre><code>JSON.parse(jsonstr);    // 可以将json字符串转换成json对象
+JSON.stringify(jsonobj);    // 反过来
+</code></pre><h5 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h5><p>返回值有六种可能</p>
+<p>number/string/boolean/object/function/undefined</p>
+<p>可以用typeof来获取一个变量是否存在</p>
+<pre><code>if(typeof a!= &quot;undefined&quot;){}
+</code></pre><p>而不要用if(a)，因为这样如果a不存在(未声明)会报错</p>
+<p>对于Array/Null这样的特殊对象一律返回object，如果要想判断是否是数组，可以用instanceof判断，如</p>
+<pre><code>var a = new Array();
+alert(a instanceof Array);
+</code></pre><p>会返回true，</p>
+<pre><code>alert(a instanceof Object);
+</code></pre><p>也是true，因为Array的prototype属性构造于Object，Array的父级是Function</p>
+<p>提到prototype，它是个很简单的属性，用于为对象添加属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function employee(name,job,born)</span><br><span class="line">&#123;</span><br><span class="line">this.name=name;</span><br><span class="line">this.job=job;</span><br><span class="line">this.born=born;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var bill=new employee(&quot;Bill Gates&quot;,&quot;Engineer&quot;,1985);</span><br><span class="line"></span><br><span class="line">employee.prototype.salary=null;</span><br><span class="line">bill.salary=20000;</span><br><span class="line"></span><br><span class="line">document.write(bill.salary);</span><br></pre></td></tr></table></figure>
+<p>输出20000<br>可以不加圆括号</p>
+<h5 id="jQuery-isPlainObject"><a href="#jQuery-isPlainObject" class="headerlink" title="jQuery.isPlainObject"></a>jQuery.isPlainObject</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.isPlainObject(&#123;&#125;);    // true</span><br><span class="line">$.isPlainObject(new Object());    //true</span><br><span class="line">$.isPlainObject(&#123;name: &quot;CodePlayer&quot;&#125;);    //true</span><br><span class="line">$.isPlainObject(&#123;fuck: function()&#123;&#125;&#125;);    //true</span><br><span class="line">$.isPlainObject(&quot;wangtianzhi&quot;);   //false</span><br><span class="line">$.isPlainObject([]);    //false</span><br><span class="line">$.isPlainObject(function()&#123;&#125;);    //false</span><br><span class="line">$.isPlainObject(document.location); //false  在IE中返回true，IE真是调皮</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="回到Vue"><a href="#回到Vue" class="headerlink" title="回到Vue"></a>回到Vue</h4><p>和object.assign()类似，如果要为已有对象负于多个新值，要添加新的响应式属性</p>
+<p>不要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(vm.userProfile, &#123;</span><br><span class="line">  age: 27,</span><br><span class="line">  favoriteColor: &apos;Vue Green&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.userProfile = Object.assign(&#123;&#125;, vm.userProfile, &#123;</span><br><span class="line">  age: 27,</span><br><span class="line">  favoriteColor: &apos;Vue Green&apos;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>显示过滤/排序结果</p>
+<p>如果要显示一个数组的过滤/排序副本，而不改变原始数据，赢创建返回过滤/排序数组的计算属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;n in evenNumbers&quot;&gt;&#123;&#123; n &#125;&#125;&lt;/li&gt;</span><br><span class="line"></span><br><span class="line">data: &#123;</span><br><span class="line">  number: [1, 2, 3, 4, 5]</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  evenNumbers: function() &#123;</span><br><span class="line">    return this.number.filter(function(number) &#123;</span><br><span class="line">      return number % 2 === 0;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述提到了array.filter</p>
+<pre><code>array.filter(function(currentValue, index, arr), thisValue)
+</code></pre><ol>
+<li>currentValue: 必须，currentValue是数组中的每个当前元素</li>
+<li>index: 可选，当前元素索引值</li>
+<li>arr，可选当前元素属于的数组对象</li>
+<li>thisValue 可选，对象作为执行回调时使用，传递给函数，用作this的值，如果省略，this为undefined</li>
+</ol>
+<hr>
+<h5 id="一段取值范围的v-for"><a href="#一段取值范围的v-for" class="headerlink" title="一段取值范围的v-for"></a>一段取值范围的v-for</h5><p>可以取一段整数，这种情况下它会重复多次模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;span v-for=&quot;n in 10&quot;&gt;&#123;&#123; n &#125;&#125;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>结果：12345678910</p>
+<p>v-for on a template<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;template v-for=&quot;item in items&quot;&gt;</span><br><span class="line">    &lt;li&gt;&#123;&#123; item.msg &#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="v-for-with-v-if"><a href="#v-for-with-v-if" class="headerlink" title="v-for with v-if"></a>v-for with v-if</h5><p>v-for优先级比v-if更高，意味着v-if将重复运行于每个v-for循环中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=&quot;todo in todos&quot; v-if=&quot;!todo.isComplete&quot;&gt;</span><br><span class="line">  &#123;&#123; todo &#125;&#125;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>如果想用v-if跳过循环，可以将v-if置于外层元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul v-if=&quot;todos.length&quot;&gt;</span><br><span class="line">  &lt;li v-for=&quot;todo in todos&quot;&gt;</span><br><span class="line">    &#123;&#123; todo &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;p v-else&gt;No todos left!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><p>按理说还要组件之前还有事件处理和表单输入绑定，但那些内容动不动就是”这些是和组件有关的内容，请先看组件的”，我心里痒痒，就先跳过那两块</p>
+<p>组件 Component 是Vue的代表性功能之一，可以拓展HTML元素，封装重用代码</p>
+<p>较高层面上，组件是自定义元素</p>
+<p>所有的 Vue 组件同时也都是 Vue 的实例，所以可接受相同的选项对象</p>
+<h5 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;my-component&apos;, &#123;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对于自定义标签的命名 Vue.js 不强制遵循 W3C 规则 (小写，并且包含一个短杠)，尽管这被认为是最佳实践</p>
+</blockquote>
+<p>注册之后便可以在一个实例模板中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;example&quot;&gt;</span><br><span class="line">  &lt;my-component&gt;&lt;/my-component&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;my-component&apos;, &#123;</span><br><span class="line">  template: &apos;&lt;div&gt;fuck&lt;/div&gt;&apos;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &apos;#example&apos;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Child = &#123;</span><br><span class="line">  template: &apos;&lt;div&gt;A custom component!&lt;/div&gt;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  // ...</span><br><span class="line">  components: &#123;</span><br><span class="line">    // &lt;my-component&gt; 将只在父组件模板中可用</span><br><span class="line">    &apos;my-component&apos;: Child</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这种封装也适用于其它可注册的 Vue 功能，比如指令。</p>
+<p>些元素内部不能使用自定义标签或者自定义标签内也不能放某些特殊的标签，这时候就要用is代替一下，让html语法符合规则验证。is属于指定要在内部使用的标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">  &lt;my-row&gt;...&lt;/my-row&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p>是不行的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">  &lt;tr is=&quot;my-row&quot;&gt;&lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<p>才可以</p>
+<blockquote>
+<p>如果使用来自以下来源之一的字符串模板，则没有这些限制：<br>  <script type="text/x-template"><br>  JavaScript 内联模板字符串<br>  .vue 组件<br>  因此，请尽可能使用字符串模板。</p>
+</blockquote>
+<h5 id="data里的内容必须是函数"><a href="#data里的内容必须是函数" class="headerlink" title="data里的内容必须是函数"></a>data里的内容必须是函数</h5><p>否则会报错</p>
+<p>如果非得返回自己，应该返回个全新的数据对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data: function () &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    counter: 0</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组件组合"><a href="#组件组合" class="headerlink" title="组件组合"></a>组件组合</h4><p>简单来说就是</p>
+<p>prop 向下传递，事件向上传递。父组件通过 prop 给子组件下发数据，子组件通过事件给父组件发送消息</p>
+<p>剩下的明天再说</p>
+<h3 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h3><p>解耦 是将程序积木化</p>
+<p>各个积木可以组合成一个形状，又可以拆分，彼此互不影响，但只要形状合适(接口合适)，就能灵活的组合在一起，这是理想状态</p>
+<p>而解耦是在逐渐达到这个理想状态的过程</p>
+<h3 id=""><a href="#" class="headerlink" title="===/=="></a>===/==</h3><p>===是严格运算符，==是相等运算符</p>
+<p>简单说，===要求类型和值都相等，==要求值相等，类型会自动换</p>
+<blockquote>
+<p>举个简单的例子，团队协作中你肯定需要读别人的代码。而当你看到“==”时，要判断清楚作者的代码意图是确实需要转型，还是无所谓要不要转型只是随手写了，还是不应该转型但是写错了……所花费的脑力和时间比明确的“===”（加上可能需要的明确转型）要多得多。要记得团队中的每个人（包括原作者自己）都需要付出这理解和维护成本。——贺师俊</p>
+</blockquote>
+</script></p></blockquote>
     
 
     
