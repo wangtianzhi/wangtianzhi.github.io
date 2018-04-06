@@ -29,6 +29,29 @@ player = new Player(350, windowHeight / 2);
 
 var vs = Math.sqrt(player.vY * player.vY * 2);
 
+var arrowArrayUp = function(Array, Player){
+	if (a[0] < p.y) {
+						a.shift();
+						a.unshift(p.y);
+					} else {
+						a.unshift(p.y);
+					}
+					if (a.length > 300) {
+						a.pop();
+					}
+}
+
+var arrowArrayDown = function(Array, Player) {
+	if (a[0] < p.y) {
+						a.shift();
+						a.unshift(p.y);
+					} else {
+						a.unshift(p.y);
+					}
+					if (a.length > 300) {
+						a.pop();
+					}
+}
 
 
 $(document).ready(function () {
@@ -108,9 +131,21 @@ $(document).ready(function () {
 			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
+				// 最后执行一遍计时器
+				if (arrowArrayY[0] > player.y) {
+						arrowArrayY.shift();
+						arrowArrayY.unshift(player.y);
+					} else {
+						arrowArrayY.unshift(player.y);
+					}
+					if (arrowArrayY.length > 300) {
+						arrowArrayY.pop();
+					}
+					// 执行完了
 				clearInterval(downInterval);
 
-				upInterval = setInterval(function () {
+				upInterval = setInterval(
+					function () {
 					if (arrowArrayY[0] < player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
@@ -120,7 +155,8 @@ $(document).ready(function () {
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
-				}, 20);
+				}
+				, 32);
 			} else if (player.shapeFlag == 1) {
 				if (!player.squareJump) {
 					player.vY = -13;
@@ -149,6 +185,17 @@ $(document).ready(function () {
 			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
+				// 最后执行一遍
+				if (arrowArrayY[0] < player.y) {
+						arrowArrayY.shift();
+						arrowArrayY.unshift(player.y);
+					} else {
+						arrowArrayY.unshift(player.y);
+					}
+					if (arrowArrayY.length > 300) {
+						arrowArrayY.pop();
+					}
+
 				clearInterval(upInterval);
 				downInterval = setInterval(function () {
 					if (arrowArrayY[0] > player.y) {
@@ -160,7 +207,7 @@ $(document).ready(function () {
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
-				}, 20);
+				}, 32);
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = false;
 				clearInterval(upInterval);
@@ -233,7 +280,7 @@ $(document).ready(function () {
 						arrowArrayY.pop();
 					}
 					player.squareJump = true;
-					player.shapeFlag = Math.ceil(Math.random()*4);
+					//player.shapeFlag = Math.ceil(Math.random()*4);
 					if(player.shapeFlag == 0)
 					{player.shapeFlag=4;}
 				}
@@ -443,7 +490,6 @@ $(document).ready(function () {
 			}
 			context.closePath();
 			context.fill();
-			borderFlag = false;
 			// 画折线
 			var lineStartx = player.x - player.halfWidth;
 			context.beginPath();
@@ -456,8 +502,8 @@ $(document).ready(function () {
 					} else {
 						distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
 					}
-					if (distanceY == 0) {
-						distanceY = 6;
+					if (borderFlag&&distanceY==0) {
+						distanceY = 10;
 					}
 					distanceY = Math.abs(distanceY);
 					lineStartx = lineStartx - distanceY;
@@ -468,6 +514,8 @@ $(document).ready(function () {
 			context.strokeStyle = "white";
 			context.lineWidth = 10;
 			context.stroke();
+			borderFlag = false;
+
 		}
 			// context.beginPath();
 			// for (var i = 0; i < array.length; i++) {
@@ -500,7 +548,7 @@ $(document).ready(function () {
 
 		if (playGame) {
 			// Run the animation loop again in 33 milliseconds
-			setTimeout(animate, 10);
+			setTimeout(animate, 16);
 		}
 	}
 
