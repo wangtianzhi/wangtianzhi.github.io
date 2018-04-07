@@ -43,12 +43,12 @@ a.button:hover {
 }
 
 #game {
-	height: 600px;
-	left: 50%;
-	margin: -300px 0 0 -400px;
+	height: 490px;
+
+
 	position: relative;
-	top: 50%;
-	width: 800px;
+
+	width: 1000px;
 }
 
 #gameCanvas {
@@ -56,9 +56,9 @@ a.button:hover {
 }
 
 #gameUI {
-	height: 600px;
+	height: 490px;
 	position: absolute; /* Places UI on top of the canvas */
-	width: 800px;
+	width: 1000px;
 }
 
 
@@ -79,4 +79,8 @@ a.button:hover {
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+#gameCanvas {
+/*  	width: 100%;
+	height: 100%; */
 }

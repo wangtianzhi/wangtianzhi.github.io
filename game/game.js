@@ -18,6 +18,7 @@ var Player = function (x, y) {
 	this.shapeFlag = 4;
 	this.squareJump = true;
 	this.arrowMoveUp = false;
+	this.arrowSpeed = false;
 	this.snakeMoveUp = false;
 	this.circleJump = 1;
 	this.flameLength = 20;
@@ -29,7 +30,22 @@ player = new Player(350, windowHeight / 2);
 
 var vs = Math.sqrt(player.vY * player.vY * 2);
 
-var arrowArrayUp = function(Array, Player){
+var arrowArrayUp = function(a, p){
+
+	if (a[0] < p.y) {
+						a.shift();
+						a.unshift(p.y);
+					} else {
+						a.unshift(p.y);
+					}
+					if (a.length > 300) {
+						a.pop();
+					}
+					
+}
+
+var arrowArrayDown = function(a, p) {
+
 	if (a[0] < p.y) {
 						a.shift();
 						a.unshift(p.y);
@@ -40,19 +56,6 @@ var arrowArrayUp = function(Array, Player){
 						a.pop();
 					}
 }
-
-var arrowArrayDown = function(Array, Player) {
-	if (a[0] < p.y) {
-						a.shift();
-						a.unshift(p.y);
-					} else {
-						a.unshift(p.y);
-					}
-					if (a.length > 300) {
-						a.pop();
-					}
-}
-
 
 $(document).ready(function () {
 	var ui = $("#gameUI");
@@ -65,6 +68,15 @@ $(document).ready(function () {
 	var soundBackground = $("#gameSoundBackground").get(0);
 	var soundThrust = $("#gameSoundThrust").get(0);
 	var soundDeath = $("#gameSoundDeath").get(0);
+	var canvas = $("#gameCanvas");
+	var uiHeight = document.body.clientHeight;  // 获取高度
+	var uiWidth = document.body.clientWidth;
+	// 	$("#game").css("height", uiHeight).css("width", uiWidth);
+	// ui.css("height", uiHeight).css("width", uiWidth);
+	 // $("#gameCanvas").css("height", uiHeight+"px").css("width",uiWidth+"px");
+
+
+	console.log(uiWidth);
 
 	var reset = function (e) {
 		e.preventDefault();
@@ -85,6 +97,7 @@ $(document).ready(function () {
 	var context = canvas.get(0).getContext("2d");
 	var canvasWidth = canvas.width();
 	var canvasHeight = canvas.height();
+	console.log(canvasHeight);
 	// 游戏设置
 	var playGame;
 	var asteroids;
@@ -132,31 +145,23 @@ $(document).ready(function () {
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
 				// 最后执行一遍计时器
-				if (arrowArrayY[0] > player.y) {
-						arrowArrayY.shift();
-						arrowArrayY.unshift(player.y);
-					} else {
-						arrowArrayY.unshift(player.y);
-					}
-					if (arrowArrayY.length > 300) {
-						arrowArrayY.pop();
-					}
+				arrowArrayDown(arrowArrayY, player);
 					// 执行完了
 				clearInterval(downInterval);
+				upInterval = setInterval(function(){
 
-				upInterval = setInterval(
-					function () {
-					if (arrowArrayY[0] < player.y) {
+	if (arrowArrayY[0] < player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
 					} else {
 						arrowArrayY.unshift(player.y);
 					}
 					if (arrowArrayY.length > 300) {
-						arrowArrayY.pop();
+					arrowArrayY.pop();
 					}
-				}
-				, 32);
+					
+}, 32);
+
 			} else if (player.shapeFlag == 1) {
 				if (!player.squareJump) {
 					player.vY = -13;
@@ -164,9 +169,11 @@ $(document).ready(function () {
 				}
 			} else if (player.shapeFlag == 2) {
 				if (player.circleJump == 1) {
-					player.vY = -13;
+					player.vY = -4;
+					player.aY = -1;
 				} else if (player.circleJump == 2) {
-					player.vY = 13;
+					player.vY = 4;
+					player.aY = 1;
 				}
 
 			} else if (player.shapeFlag == 3) {
@@ -185,41 +192,31 @@ $(document).ready(function () {
 			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
-				// 最后执行一遍
-				if (arrowArrayY[0] < player.y) {
-						arrowArrayY.shift();
-						arrowArrayY.unshift(player.y);
-					} else {
-						arrowArrayY.unshift(player.y);
-					}
-					if (arrowArrayY.length > 300) {
-						arrowArrayY.pop();
-					}
-
+				arrowArrayUp(arrowArrayY,player);
 				clearInterval(upInterval);
-				downInterval = setInterval(function () {
-					if (arrowArrayY[0] > player.y) {
+
+				downInterval = setInterval(function(){
+
+	if (arrowArrayY[0] > player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
 					} else {
 						arrowArrayY.unshift(player.y);
 					}
 					if (arrowArrayY.length > 300) {
-						arrowArrayY.pop();
-					}
-				}, 32);
+					arrowArrayY.pop();
+					}}, 32);
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = false;
 				clearInterval(upInterval);
 				downInterval = setInterval(function () {
-					if (arrowArrayY[0] > player.y) {
+
 						arrowArrayY.unshift(player.y);
-					} else {
-						arrowArrayY.unshift(player.y);
-					}
+
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
+
 				}, 5);
 
 			}
@@ -280,7 +277,7 @@ $(document).ready(function () {
 						arrowArrayY.pop();
 					}
 					player.squareJump = true;
-					//player.shapeFlag = Math.ceil(Math.random()*4);
+					player.shapeFlag = Math.ceil(Math.random()*4);
 					if(player.shapeFlag == 0)
 					{player.shapeFlag=4;}
 				}
@@ -379,7 +376,9 @@ $(document).ready(function () {
 
 		}
 		else if (player.shapeFlag == 2) {
+
 			player.y += player.vY;
+			player.vY +=player.aY;
 			if (player.y - player.halfHeight < 20) {
 				borderFlag = true;
 				player.circleJump = 2;
@@ -392,6 +391,7 @@ $(document).ready(function () {
 
 			if (borderFlag) {
 				player.vY = 0;
+				player.aY = 0;
 			}
 			borderFlag = false;
 
@@ -427,6 +427,10 @@ $(document).ready(function () {
 			context.closePath();
 			context.fill();
 			var lineStartx = player.x - player.halfWidth;
+
+			// 画曲线
+
+
 			context.beginPath();
 			context.moveTo(player.x, player.y);
 			if (arrowArrayY.length > 4) {
@@ -445,11 +449,13 @@ $(document).ready(function () {
 					lineStartx = lineStartx - distanceY;
 
 					context.lineTo(lineStartx, arrowArrayY[i]);
+					
 				}
-			}
-			context.strokeStyle = "white";
+				context.strokeStyle = "white";
 			context.lineWidth = player.width;
 			context.stroke();
+			}
+			
 		}
 
 
@@ -494,6 +500,10 @@ $(document).ready(function () {
 			var lineStartx = player.x - player.halfWidth;
 			context.beginPath();
 			context.moveTo(player.x - player.halfWidth, player.y);
+					
+			var k = 0;
+
+
 			if (arrowArrayY.length > 4) {
 				for (var i = 0; i < arrowArrayY.length; i++) {
 					var distanceY;
@@ -502,9 +512,11 @@ $(document).ready(function () {
 					} else {
 						distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
 					}
-					if (borderFlag&&distanceY==0) {
+					if (distanceY == 0&&(arrowArrayY[i]<=player.height+20+1||arrowArrayY[i]>=canvasHeight-20-player.height-1)) {
 						distanceY = 10;
+
 					}
+
 					distanceY = Math.abs(distanceY);
 					lineStartx = lineStartx - distanceY;
 
@@ -512,28 +524,11 @@ $(document).ready(function () {
 				}
 			}
 			context.strokeStyle = "white";
-			context.lineWidth = 10;
+			context.lineWidth = 5+10*Math.random();
 			context.stroke();
 			borderFlag = false;
 
 		}
-			// context.beginPath();
-			// for (var i = 0; i < array.length; i++) {
-			// 	var lineLength = array[i];
-			// 	if (lineLength > 0) {
-			// 		var linex = lineLength * 0.07;
-			// 		var liney = lineLength * 0.07;
-			// 		lineStartx -= linex;
-			// 		lineStarty += liney;
-			// 		context.lineTo(lineStartx, lineStarty);
-			// 	} else {
-			// 		lineLength = -1 * lineLength;
-			// 		var linex = lineLength * 0.07;
-			// 		var liney = lineLength * 0.07;
-			// 		lineStartx -= linex;
-			// 		lineStarty -= liney;
-			// 		context.lineTo(lineStartx, lineStarty);
-			// 	}
 
 
 		// Add any new asteroids
