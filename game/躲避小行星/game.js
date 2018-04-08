@@ -3,6 +3,7 @@ var upInterval;
 var downInterval;
 var arrowArrayY = Array(310);
 var player;
+var change = 0;
 var Player = function (x, y) {
 	this.x = x;
 	this.y = y;
@@ -15,8 +16,9 @@ var Player = function (x, y) {
 	this.aX = 0;
 	this.aY = 0;
 	this.shapeFlag = 4;
-	this.squareJump = false;
+	this.squareJump = true;
 	this.arrowMoveUp = false;
+	this.arrowSpeed = false;
 	this.snakeMoveUp = false;
 	this.circleJump = 1;
 	this.flameLength = 20;
@@ -24,17 +26,78 @@ var Player = function (x, y) {
 
 var windowHeight = window.innerHeight;
 $("gameCanvas").css("height", windowHeight);
-console.log(windowHeight);
 player = new Player(350, windowHeight / 2);
 
 var vs = Math.sqrt(player.vY * player.vY * 2);
 
+var arrowArrayUp = function(a, p){
+
+	if (a[0] < p.y) {
+						a.shift();
+						a.unshift(p.y);
+					} else {
+						a.unshift(p.y);
+					}
+					if (a.length > 300) {
+						a.pop();
+					}
+					
+}
+
+var arrowArrayDown = function(a, p) {
+
+	if (a[0] < p.y) {
+						a.shift();
+						a.unshift(p.y);
+					} else {
+						a.unshift(p.y);
+					}
+					if (a.length > 300) {
+						a.pop();
+					}
+}
 
 $(document).ready(function () {
+	var ui = $("#gameUI");
+	var uiIntro = $("#gameIntro");
+	var uiStats = $("#gameStats");
+	var uiComplete = $("#gameComplete");
+	var uiPlay = $("#gamePlay");
+	var uiReset = $(".gameReset");    // 所有重置
+	var uiScore = $(".gameScore");    // 所有分数
+	var soundBackground = $("#gameSoundBackground").get(0);
+	var soundThrust = $("#gameSoundThrust").get(0);
+	var soundDeath = $("#gameSoundDeath").get(0);
+	var canvas = $("#gameCanvas");
+	var uiHeight = document.body.clientHeight;  // 获取高度
+	var uiWidth = document.body.clientWidth;
+	// 	$("#game").css("height", uiHeight).css("width", uiWidth);
+	// ui.css("height", uiHeight).css("width", uiWidth);
+	 // $("#gameCanvas").css("height", uiHeight+"px").css("width",uiWidth+"px");
+
+
+	console.log(uiWidth);
+
+	var reset = function (e) {
+		e.preventDefault();
+		uiComplete.hide();
+		clearTimeout(scoreTimeout);
+		clearInterval(upInterval);
+		clearInterval(downInterval);
+		player.shapeFlag = Math.ceil(Math.random()*4);
+		if(player.shapeFlag == 0)
+		{player.shapeFlag=4;}
+		startGame();
+		for(var i = 0; i< arrowArrayY.length;i++) {
+			arrowArrayY.pop();
+		}
+	}
+
 	var canvas = $("#gameCanvas");
 	var context = canvas.get(0).getContext("2d");
 	var canvasWidth = canvas.width();
 	var canvasHeight = canvas.height();
+	console.log(canvasHeight);
 	// 游戏设置
 	var playGame;
 	var asteroids;
@@ -51,16 +114,6 @@ $(document).ready(function () {
 	};
 
 	// 游戏UI
-	var ui = $("#gameUI");
-	var uiIntro = $("#gameIntro");
-	var uiStats = $("#gameStats");
-	var uiComplete = $("#gameComplete");
-	var uiPlay = $("#gamePlay");
-	var uiReset = $(".gameReset");    // 所有重置
-	var uiScore = $(".gameScore");    // 所有分数
-	var soundBackground = $("#gameSoundBackground").get(0);
-	var soundThrust = $("#gameSoundThrust").get(0);
-	var soundDeath = $("#gameSoundDeath").get(0);
 
 
 	// 重置和启动游戏
@@ -77,31 +130,38 @@ $(document).ready(function () {
 		uiStats.show();
 		playGame = false;
 		asteroids = new Array();
-		numAsteroids = 10;
+		numAsteroids = 5;
 		score = 0;
 		for (var i = 0; i < numAsteroids; i++) {
-			var radius = 5 + (Math.random() * 10); // 5~15
+			var radius = 5 + (Math.random() * 4); // 5~15
 			var x = canvasWidth + radius + Math.floor(Math.random() * canvasWidth);
 			var y = Math.floor(Math.random() * canvasHeight);
-			var vX = -5 - (Math.random() * 5);
+			var vX = -3 - (Math.random() * 5);
 			asteroids.push(new Asteroid(x, y, radius, vX));
 		}
 
-		document.getElementById("gameUI").onmousedown = function upArray() {
+		var ondown = function upArray(e) {
+			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
+				// 最后执行一遍计时器
+				arrowArrayDown(arrowArrayY, player);
+					// 执行完了
 				clearInterval(downInterval);
-				upInterval = setInterval(function () {
-					if (arrowArrayY[0] < player.y) {
+				upInterval = setInterval(function(){
+
+	if (arrowArrayY[0] < player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
 					} else {
 						arrowArrayY.unshift(player.y);
 					}
 					if (arrowArrayY.length > 300) {
-						arrowArrayY.pop();
+					arrowArrayY.pop();
 					}
-				}, 16);
+					
+}, 32);
+
 			} else if (player.shapeFlag == 1) {
 				if (!player.squareJump) {
 					player.vY = -13;
@@ -109,18 +169,18 @@ $(document).ready(function () {
 				}
 			} else if (player.shapeFlag == 2) {
 				if (player.circleJump == 1) {
-					player.vY = -13;
+					player.vY = -4;
+					player.aY = -1;
 				} else if (player.circleJump == 2) {
-					player.vY = 13;
+					player.vY = 4;
+					player.aY = 1;
 				}
 
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = true;
 				clearInterval(downInterval);
 				upInterval = setInterval(function () {
-						arrowArrayY.unshift(player.y);
-						console.log(arrowArrayY);
-						console.log(arrowArrayY.length);
+					arrowArrayY.unshift(player.y);
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
@@ -128,51 +188,54 @@ $(document).ready(function () {
 			}
 
 		};
-
-		document.getElementById("gameUI").onmouseup = function downArray() {
+		var onup = function downArray(e) {
+			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
+				arrowArrayUp(arrowArrayY,player);
 				clearInterval(upInterval);
-				console.log(player.y);
-				downInterval = setInterval(function () {
-					if (arrowArrayY[0] > player.y) {
+
+				downInterval = setInterval(function(){
+
+	if (arrowArrayY[0] > player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
 					} else {
 						arrowArrayY.unshift(player.y);
 					}
 					if (arrowArrayY.length > 300) {
-						arrowArrayY.pop();
-					}
-				}, 16);
+					arrowArrayY.pop();
+					}}, 32);
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = false;
 				clearInterval(upInterval);
 				downInterval = setInterval(function () {
-					if (arrowArrayY[0] > player.y) {
+
 						arrowArrayY.unshift(player.y);
-					} else {
-						arrowArrayY.unshift(player.y);
-					}
+
 					if (arrowArrayY.length > 300) {
 						arrowArrayY.pop();
 					}
+
 				}, 5);
 
 			}
 		};
+		document.getElementById("gameUI").onmousedown = ondown;
+		document.getElementById("gameUI").ontouchstart = ondown;
+		document.getElementById("gameUI").onmouseup = onup;
+		document.getElementById("gameUI").ontouchend = onup;
 
-		$(window).keydown(function (e) {
 			if (!playGame) {
 				playGame = true;
 				soundBackground.currentTime = 0;
 				soundBackground.play();
 				animate();
 				timer();
+				changetimer();
 			}
-		});
 
-		animate();
+
 	}
 
 	// 初始化游戏环境
@@ -184,22 +247,41 @@ $(document).ready(function () {
 			uiIntro.hide();
 			startGame();
 		});
-		uiReset.click(function (e) {
-			e.preventDefault();
-			uiComplete.hide();
-			clearTimeout(scoreTimeout);
-			startGame();
-		});
+
+
+		uiReset.click(reset);
+		uiReset.ontouchstart = reset;
+
 	}
 
 	function timer() {
 		if (playGame) {
 			scoreTimeout = setTimeout(function () {
 				uiScore.html(++score);
-				if (score % 5 == 0) {
-					numAsteroids += 5;
+				if (score % 6 == 0) {
+					numAsteroids += 1;
 				}
 				timer();
+			}, 1000);
+		}
+	}
+
+	function changetimer() {
+		if(playGame) {
+			var changeTimeout = setTimeout(function () {
+				change ++;
+				if(change %4 == 0) {
+					clearInterval(upInterval);
+					clearInterval(downInterval);
+					for(var i = 0; i< arrowArrayY.length;i++) {
+						arrowArrayY.pop();
+					}
+					player.squareJump = true;
+					player.shapeFlag = Math.ceil(Math.random()*4);
+					if(player.shapeFlag == 0)
+					{player.shapeFlag=4;}
+				}
+				changetimer();
 			}, 1000);
 		}
 	}
@@ -241,7 +323,7 @@ $(document).ready(function () {
 				clearTimeout(scoreTimeout);
 				uiStats.hide();
 				uiComplete.show();
-
+				document.getElementById("gameReset").ontouchstart = reset;
 				// Reset sounds
 				soundBackground.pause();
 
@@ -294,8 +376,9 @@ $(document).ready(function () {
 
 		}
 		else if (player.shapeFlag == 2) {
+
 			player.y += player.vY;
-			console.log(player.vY);
+			player.vY +=player.aY;
 			if (player.y - player.halfHeight < 20) {
 				borderFlag = true;
 				player.circleJump = 2;
@@ -308,6 +391,7 @@ $(document).ready(function () {
 
 			if (borderFlag) {
 				player.vY = 0;
+				player.aY = 0;
 			}
 			borderFlag = false;
 
@@ -343,6 +427,10 @@ $(document).ready(function () {
 			context.closePath();
 			context.fill();
 			var lineStartx = player.x - player.halfWidth;
+
+			// 画曲线
+
+
 			context.beginPath();
 			context.moveTo(player.x, player.y);
 			if (arrowArrayY.length > 4) {
@@ -361,11 +449,13 @@ $(document).ready(function () {
 					lineStartx = lineStartx - distanceY;
 
 					context.lineTo(lineStartx, arrowArrayY[i]);
+					
 				}
-			}
-			context.strokeStyle = "white";
+				context.strokeStyle = "white";
 			context.lineWidth = player.width;
 			context.stroke();
+			}
+			
 		}
 
 
@@ -406,11 +496,14 @@ $(document).ready(function () {
 			}
 			context.closePath();
 			context.fill();
-			borderFlag = false;
 			// 画折线
 			var lineStartx = player.x - player.halfWidth;
 			context.beginPath();
 			context.moveTo(player.x - player.halfWidth, player.y);
+					
+			var k = 0;
+
+
 			if (arrowArrayY.length > 4) {
 				for (var i = 0; i < arrowArrayY.length; i++) {
 					var distanceY;
@@ -419,9 +512,11 @@ $(document).ready(function () {
 					} else {
 						distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
 					}
-					if (distanceY == 0) {
-						distanceY = 5;
+					if (distanceY == 0&&(arrowArrayY[i]<=player.height+20+1||arrowArrayY[i]>=canvasHeight-20-player.height-1)) {
+						distanceY = 10;
+
 					}
+
 					distanceY = Math.abs(distanceY);
 					lineStartx = lineStartx - distanceY;
 
@@ -429,26 +524,11 @@ $(document).ready(function () {
 				}
 			}
 			context.strokeStyle = "white";
-			context.lineWidth = 10;
+			context.lineWidth = 5+10*Math.random();
 			context.stroke();
+			borderFlag = false;
+
 		}
-			// context.beginPath();
-			// for (var i = 0; i < array.length; i++) {
-			// 	var lineLength = array[i];
-			// 	if (lineLength > 0) {
-			// 		var linex = lineLength * 0.07;
-			// 		var liney = lineLength * 0.07;
-			// 		lineStartx -= linex;
-			// 		lineStarty += liney;
-			// 		context.lineTo(lineStartx, lineStarty);
-			// 	} else {
-			// 		lineLength = -1 * lineLength;
-			// 		var linex = lineLength * 0.07;
-			// 		var liney = lineLength * 0.07;
-			// 		lineStartx -= linex;
-			// 		lineStarty -= liney;
-			// 		context.lineTo(lineStartx, lineStarty);
-			// 	}
 
 
 		// Add any new asteroids
@@ -463,7 +543,7 @@ $(document).ready(function () {
 
 		if (playGame) {
 			// Run the animation loop again in 33 milliseconds
-			setTimeout(animate, 10);
+			setTimeout(animate, 16);
 		}
 	}
 

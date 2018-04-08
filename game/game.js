@@ -15,7 +15,7 @@ var Player = function (x, y) {
 	this.vY = 0;
 	this.aX = 0;
 	this.aY = 0;
-	this.shapeFlag = 4;
+	this.shapeFlag = 1;
 	this.squareJump = true;
 	this.arrowMoveUp = false;
 	this.arrowSpeed = false;
@@ -369,8 +369,13 @@ $(document).ready(function () {
 			borderFlag = false;
 
 			context.fillStyle = "white";
-			context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
+			// context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
 
+			context.save();
+			context.translate(player.x, player.y); 
+			context.rotate(45*Math.PI/180);
+			context.fillRect( - player.halfWidth, - player.halfWidth, player.width, player.width);
+			context.restore();
 			// console.log("a" +player.aY);
 			// console.log("v" + player.vY);
 
