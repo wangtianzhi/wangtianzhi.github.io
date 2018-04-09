@@ -2,13 +2,14 @@ var borderFlag = false;
 var upInterval;
 var downInterval;
 var arrowArrayY = Array(310);
+var arrowArrayLength = 100;
 var player;
 var change = 0;
-var Player = function (x, y) {
+var Player = function(x, y) {
 	this.x = x;
 	this.y = y;
-	this.width = 32;
-	this.height = 32;
+	this.width = 36;
+	this.height = 36;
 	this.halfWidth = this.width / 2;
 	this.halfHeight = this.height / 2;
 	this.vX = 6;
@@ -22,7 +23,9 @@ var Player = function (x, y) {
 	this.snakeMoveUp = false;
 	this.circleJump = 1;
 	this.flameLength = 20;
+	this.squareAngle = 0;
 };
+
 
 var windowHeight = window.innerHeight;
 $("gameCanvas").css("height", windowHeight);
@@ -30,65 +33,66 @@ player = new Player(350, windowHeight / 2);
 
 var vs = Math.sqrt(player.vY * player.vY * 2);
 
-var arrowArrayUp = function(a, p){
+var arrowArrayUp = function(a, p) {
 
 	if (a[0] < p.y) {
-						a.shift();
-						a.unshift(p.y);
-					} else {
-						a.unshift(p.y);
-					}
-					if (a.length > 300) {
-						a.pop();
-					}
-					
+		a.shift();
+		a.unshift(p.y);
+	} else {
+		a.unshift(p.y);
+	}
+	if (a.length > arrowArrayLength) {
+		a.pop();
+	}
+
 }
 
 var arrowArrayDown = function(a, p) {
 
 	if (a[0] < p.y) {
-						a.shift();
-						a.unshift(p.y);
-					} else {
-						a.unshift(p.y);
-					}
-					if (a.length > 300) {
-						a.pop();
-					}
+		a.shift();
+		a.unshift(p.y);
+	} else {
+		a.unshift(p.y);
+	}
+	if (a.length > arrowArrayLength) {
+		a.pop();
+	}
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 	var ui = $("#gameUI");
 	var uiIntro = $("#gameIntro");
 	var uiStats = $("#gameStats");
 	var uiComplete = $("#gameComplete");
 	var uiPlay = $("#gamePlay");
-	var uiReset = $(".gameReset");    // 所有重置
-	var uiScore = $(".gameScore");    // 所有分数
+	var uiReset = $(".gameReset"); // 所有重置
+	var uiScore = $(".gameScore"); // 所有分数
 	var soundBackground = $("#gameSoundBackground").get(0);
 	var soundThrust = $("#gameSoundThrust").get(0);
 	var soundDeath = $("#gameSoundDeath").get(0);
 	var canvas = $("#gameCanvas");
-	var uiHeight = document.body.clientHeight;  // 获取高度
+	var uiHeight = document.body.clientHeight; // 获取高度
 	var uiWidth = document.body.clientWidth;
 	// 	$("#game").css("height", uiHeight).css("width", uiWidth);
 	// ui.css("height", uiHeight).css("width", uiWidth);
-	 // $("#gameCanvas").css("height", uiHeight+"px").css("width",uiWidth+"px");
+	// $("#gameCanvas").css("height", uiHeight+"px").css("width",uiWidth+"px");
 
 
 	console.log(uiWidth);
 
-	var reset = function (e) {
+	var reset = function(e) {
 		e.preventDefault();
 		uiComplete.hide();
 		clearTimeout(scoreTimeout);
 		clearInterval(upInterval);
 		clearInterval(downInterval);
-		player.shapeFlag = Math.ceil(Math.random()*4);
-		if(player.shapeFlag == 0)
-		{player.shapeFlag=4;}
+		player.shapeFlag = Math.ceil(Math.random() * 4);
+		if (player.shapeFlag == 0) {
+			player.shapeFlag = 4;
+		}
 		startGame();
-		for(var i = 0; i< arrowArrayY.length;i++) {
+		for (var i = 0; i < arrowArrayY.length; i++) {
 			arrowArrayY.pop();
 		}
 	}
@@ -102,26 +106,55 @@ $(document).ready(function () {
 	var playGame;
 	var asteroids;
 	var numAsteroids;
+	var block;
 	var score;
 	var scoreTimeout;
 	// var arrowDown = 40;
 
-	var Asteroid = function (x, y, radius, vX) {
+	// 判断是否到边界或者上下有方块
+	function Border(player) {
+		if (player.y - player.halfHeight < 20) {
+				borderFlag = true;
+				player.y = 20 + player.halfHeight;
+			} else if (player.y + player.halfHeight > canvasHeight - 20) {
+				player.y = canvasHeight - 20 - player.halfHeight;
+				borderFlag = true;
+			}
+			return borderFlag;
+	}
+
+	var Asteroid = function(x, y, radius, vX) {
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
 		this.vX = vX;
 	};
 
-	// 游戏UI
+	var Block = function(x, y, width, height, vX, vY) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		this.vX = vX;
+		this.vY = vY;
+	}
 
+	// 游戏UI
+		blocks = new Array();
+		var blockWidth = 44;
+		var blockHeight = 44;
+		var blockX1 = canvasWidth;
+		var blockY1 = canvasHeight - 20;
+		var blockVx1 = -3;
+		var blockVy1 = 0;
+		blocks.push([1, 1, 1], [0, 1, 1], [0, 0, 1]);
 
 	// 重置和启动游戏
 	function startGame() {
 		var canvas = $("#gameCanvas");
 		var context = canvas.get(0).getContext("2d");
 
-// 画布尺寸
+		// 画布尺寸
 		var canvasWidth = canvas.width();
 		var canvasHeight = canvas.height();
 		// 重置游戏状态
@@ -140,31 +173,32 @@ $(document).ready(function () {
 			asteroids.push(new Asteroid(x, y, radius, vX));
 		}
 
+
 		var ondown = function upArray(e) {
 			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = true;
 				// 最后执行一遍计时器
 				arrowArrayDown(arrowArrayY, player);
-					// 执行完了
+				// 执行完了
 				clearInterval(downInterval);
-				upInterval = setInterval(function(){
+				upInterval = setInterval(function() {
 
-	if (arrowArrayY[0] < player.y) {
+					if (arrowArrayY[0] < player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
 					} else {
 						arrowArrayY.unshift(player.y);
 					}
-					if (arrowArrayY.length > 300) {
-					arrowArrayY.pop();
+					if (arrowArrayY.length > arrowArrayLength) {
+						arrowArrayY.pop();
 					}
-					
-}, 32);
+
+				}, 32);
 
 			} else if (player.shapeFlag == 1) {
 				if (!player.squareJump) {
-					player.vY = -13;
+					player.vY = -14;
 					player.squareJump = true;
 				}
 			} else if (player.shapeFlag == 2) {
@@ -179,9 +213,9 @@ $(document).ready(function () {
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = true;
 				clearInterval(downInterval);
-				upInterval = setInterval(function () {
+				upInterval = setInterval(function() {
 					arrowArrayY.unshift(player.y);
-					if (arrowArrayY.length > 300) {
+					if (arrowArrayY.length > arrowArrayLength) {
 						arrowArrayY.pop();
 					}
 				}, 5);
@@ -192,28 +226,29 @@ $(document).ready(function () {
 			e.preventDefault();
 			if (player.shapeFlag == 4) {
 				player.arrowMoveUp = false;
-				arrowArrayUp(arrowArrayY,player);
+				arrowArrayUp(arrowArrayY, player);
 				clearInterval(upInterval);
 
-				downInterval = setInterval(function(){
+				downInterval = setInterval(function() {
 
-	if (arrowArrayY[0] > player.y) {
+					if (arrowArrayY[0] > player.y) {
 						arrowArrayY.shift();
 						arrowArrayY.unshift(player.y);
 					} else {
 						arrowArrayY.unshift(player.y);
 					}
-					if (arrowArrayY.length > 300) {
-					arrowArrayY.pop();
-					}}, 32);
+					if (arrowArrayY.length > arrowArrayLength) {
+						arrowArrayY.pop();
+					}
+				}, 32);
 			} else if (player.shapeFlag == 3) {
 				player.snakeMoveUp = false;
 				clearInterval(upInterval);
-				downInterval = setInterval(function () {
+				downInterval = setInterval(function() {
 
-						arrowArrayY.unshift(player.y);
+					arrowArrayY.unshift(player.y);
 
-					if (arrowArrayY.length > 300) {
+					if (arrowArrayY.length > arrowArrayLength) {
 						arrowArrayY.pop();
 					}
 
@@ -226,14 +261,14 @@ $(document).ready(function () {
 		document.getElementById("gameUI").onmouseup = onup;
 		document.getElementById("gameUI").ontouchend = onup;
 
-			if (!playGame) {
-				playGame = true;
-				soundBackground.currentTime = 0;
-				soundBackground.play();
-				animate();
-				timer();
-				changetimer();
-			}
+		if (!playGame) {
+			playGame = true;
+			soundBackground.currentTime = 0;
+			soundBackground.play();
+			animate();
+			timer();
+			changetimer();
+		}
 
 
 	}
@@ -242,7 +277,7 @@ $(document).ready(function () {
 	function init() {
 		uiStats.hide();
 		uiComplete.hide();
-		uiPlay.click(function (e) {
+		uiPlay.click(function(e) {
 			e.preventDefault();
 			uiIntro.hide();
 			startGame();
@@ -256,7 +291,7 @@ $(document).ready(function () {
 
 	function timer() {
 		if (playGame) {
-			scoreTimeout = setTimeout(function () {
+			scoreTimeout = setTimeout(function() {
 				uiScore.html(++score);
 				if (score % 6 == 0) {
 					numAsteroids += 1;
@@ -267,19 +302,20 @@ $(document).ready(function () {
 	}
 
 	function changetimer() {
-		if(playGame) {
-			var changeTimeout = setTimeout(function () {
-				change ++;
-				if(change %4 == 0) {
+		if (playGame) {
+			var changeTimeout = setTimeout(function() {
+				change++;
+				if (change % 4 == 0) {
 					clearInterval(upInterval);
 					clearInterval(downInterval);
-					for(var i = 0; i< arrowArrayY.length;i++) {
+					for (var i = 0; i < arrowArrayY.length; i++) {
 						arrowArrayY.pop();
 					}
 					player.squareJump = true;
-					player.shapeFlag = Math.ceil(Math.random()*4);
-					if(player.shapeFlag == 0)
-					{player.shapeFlag=4;}
+					player.shapeFlag = Math.ceil(Math.random() * 4);
+					if (player.shapeFlag == 0) {
+						player.shapeFlag = 4;
+					}
 				}
 				changetimer();
 			}, 1000);
@@ -337,6 +373,19 @@ $(document).ready(function () {
 			context.fill();
 		}
 
+		// block
+		context.fillStyle = "rgb(255, 255, 255)";
+
+		for (var k = 0; k < blocks.length; k++) {
+			for (var m = 0; m < blocks[0].length; m++) {
+				if (blocks[k][m] === 1) {
+					context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+				}
+			}
+
+		}
+			blockX1 += blockVx1;
+			blockY1 += blockVy1;
 		// Update player
 		if (player.x - player.halfWidth < 20) {
 			player.x = 20 + player.halfWidth;
@@ -347,21 +396,21 @@ $(document).ready(function () {
 
 		if (player.shapeFlag == 1) {
 			if (player.squareJump) {
-				player.aY = 0.46;
+				player.aY = 0.7;
 			}
 
 			player.vY += player.aY;
 			player.y += player.vY;
 
-			if (player.y - player.halfHeight < 20) {
-				borderFlag = true;
-				player.y = 20 + player.halfHeight;
-			} else if (player.y + player.halfHeight > canvasHeight - 20) {
-				player.y = canvasHeight - 20 - player.halfHeight;
-				borderFlag = true;
-			}
+			// if (player.y - player.halfHeight < 20) {
+			// 	borderFlag = true;
+			// 	player.y = 20 + player.halfHeight;
+			// } else if (player.y + player.halfHeight > canvasHeight - 20) {
+			// 	player.y = canvasHeight - 20 - player.halfHeight;
+			// 	borderFlag = true;
+			// }
 
-			if (borderFlag) {
+			if (Border(player)) {
 				player.vY = 0;
 				player.aY = 0;
 				player.squareJump = false;
@@ -370,20 +419,24 @@ $(document).ready(function () {
 
 			context.fillStyle = "white";
 			// context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
-
+			// 旋转方形
 			context.save();
-			context.translate(player.x, player.y); 
-			context.rotate(45*Math.PI/180);
-			context.fillRect( - player.halfWidth, - player.halfWidth, player.width, player.width);
+			context.translate(player.x, player.y);
+			if (player.squareJump || (player.squareAngle % 90 <= 60&&player.squareAngle%90>=30)) {
+				player.squareAngle += 9;
+				if (player.squareAngle === 360) {
+					player.squareAngle = 0;
+				}
+				context.rotate(player.squareAngle * Math.PI / 180);
+			}
+			else {player.squareAngle = 0;}
+			context.fillRect(-player.halfWidth, -player.halfWidth, player.width, player.width);
 			context.restore();
-			// console.log("a" +player.aY);
-			// console.log("v" + player.vY);
 
-		}
-		else if (player.shapeFlag == 2) {
+		} else if (player.shapeFlag == 2) {
 
 			player.y += player.vY;
-			player.vY +=player.aY;
+			player.vY += player.aY;
 			if (player.y - player.halfHeight < 20) {
 				borderFlag = true;
 				player.circleJump = 2;
@@ -415,14 +468,8 @@ $(document).ready(function () {
 			player.y += player.vY;
 			player.y += player.vY;
 
-			if (player.y - player.halfHeight < 20) {
-				borderFlag = true;
-				player.y = 20 + player.halfHeight;
-			} else if (player.y + player.halfHeight > canvasHeight - 20) {
-				player.y = canvasHeight - 20 - player.halfHeight;
-				borderFlag = true;
-			}
-			if (borderFlag) {
+			
+			if (Border(player)) {
 				player.aY = 0;
 				player.vY = 0;
 			}
@@ -454,13 +501,13 @@ $(document).ready(function () {
 					lineStartx = lineStartx - distanceY;
 
 					context.lineTo(lineStartx, arrowArrayY[i]);
-					
+
 				}
 				context.strokeStyle = "white";
-			context.lineWidth = player.width;
-			context.stroke();
+				context.lineWidth = player.width;
+				context.stroke();
 			}
-			
+
 		}
 
 
@@ -468,25 +515,18 @@ $(document).ready(function () {
 			player.vX = 0;
 			player.vY = 0;
 			if (player.arrowMoveUp) {
-				player.vY = -5;
+				player.vY = -10;
 			} else {
-				player.vY = 5;
+				player.vY = 10;
 			}
-// 437.5 / s
-//6
+			// 437.5 / s
+			//6
 			player.y += player.vY;
-			if (player.y - player.halfHeight < 20) {
-				borderFlag = true;
-				player.y = 20 + player.halfHeight;
-			} else if (player.y + player.halfHeight > canvasHeight - 20) {
-				player.y = canvasHeight - 20 - player.halfHeight;
-				borderFlag = true;
-			}
 
 			var w = player.width * 0.26;
 			context.fillStyle = "white";
 			context.beginPath();
-			if (borderFlag) {
+			if (	Border(player)) {
 				context.moveTo(player.x + player.halfWidth, player.y);
 				context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
 				context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
@@ -505,7 +545,7 @@ $(document).ready(function () {
 			var lineStartx = player.x - player.halfWidth;
 			context.beginPath();
 			context.moveTo(player.x - player.halfWidth, player.y);
-					
+
 			var k = 0;
 
 
@@ -517,8 +557,8 @@ $(document).ready(function () {
 					} else {
 						distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
 					}
-					if (distanceY == 0&&(arrowArrayY[i]<=player.height+20+1||arrowArrayY[i]>=canvasHeight-20-player.height-1)) {
-						distanceY = 10;
+					if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
+						distanceY = 20;
 
 					}
 
@@ -529,7 +569,7 @@ $(document).ready(function () {
 				}
 			}
 			context.strokeStyle = "white";
-			context.lineWidth = 5+10*Math.random();
+			context.lineWidth = 5 + 10 * Math.random();
 			context.stroke();
 			borderFlag = false;
 
@@ -553,5 +593,4 @@ $(document).ready(function () {
 	}
 
 	init();
-})
-;
+});
