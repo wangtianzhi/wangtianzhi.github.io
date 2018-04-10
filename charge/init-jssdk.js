@@ -7,7 +7,8 @@ $(document).ready(function () {
 
 	$.ajax({
 		type: 'post',
-		url: 'https://api.network.cugapp.com/api/platform/wechat/mp/mixed/get_jssdk_config_and_userinfo',
+		// url: 'https://api.network.cugapp.com/api/platform/wechat/mp/mixed/get_jssdk_config_and_userinfo',
+		url: 'http://apidoc.cugapp.com/html/web/controller/share/share.html#5ac2176497677e3c8b3d33df',
 		data: {
 			'mp_wechat_id': "cugapp",
 			'url': window.location.href

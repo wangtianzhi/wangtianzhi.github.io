@@ -1,5 +1,3 @@
-var beforeMoney;
-
 function getQueryString(name) {
 	var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
 	var r = window.location.search.substr(1).match(reg);
@@ -29,9 +27,23 @@ $.hideLoading = function () {
 }
 
 $(document).ready(function () {
-	var openid = getQueryString("openid");
+	// console.log(window.location.href);
+	// location.replace("https://icug.net.cn/wechat/oauth_callback?work_url=http://www.cug.edu.cn");
+	// mozilla/5.0 (linux; u; android 4.1.2; zh-cn; mi-one plus build/jzo54k) applewebkit/534.30 (khtml, like gecko) version/4.0 mobile safari/534.30 micromessenger/5.0.1.352
+	 // location.replace("http://www.cug.edu.cn/?openid=oDah-0V_yvadtuM9uunxGPF44Dio");
+	 // $.ajax({
+	 // 	url: "https://icug.net.cn/wechat/oauth_callback?work_url=http://www.baidu.com",
+	 // 	type: "GET",
+	 // 	dataType: "json",
+	 // 	success: function(data) {
+	 // 		console.log(data);
+	 // 	}
+	 // })
+	// var openid = getQueryString("openid");
+	var openid = "oDah-0V_yvadtuM9uunxGPF44Dio";
 	var code = getQueryString("code");
 	var password = "";
+
 
 	$("#money-page").hide();
 	$("#success").hide();
@@ -69,12 +81,12 @@ $(document).ready(function () {
 					$("#money-page").toggle();
 					balance = parseInt(res.db_balance);
 					unsettleMoney = parseInt(res.unsettle_amount);
-					beforeMoney = balance / 100;
 					dislplay_balance = (balance / 100) + " 元";
 					dislplay_unsettle = (unsettleMoney / 100) + " 元";
 					$("#left-money").replaceWith(dislplay_balance);
 					$("#unsettle-money").replaceWith(dislplay_unsettle);
 				} else {
+					console.log(res.status);
 					$.toast("查找不到用户", "cancel");
 					return;
 				}
