@@ -16,12 +16,13 @@ var Player = function(x, y) {
 	this.vY = 0;
 	this.aX = 0;
 	this.aY = 0;
-	this.shapeFlag = 1;
+	this.shapeFlag = 4;
 	this.squareJump = true;
+	this.circleIsJump = true;
 	this.arrowMoveUp = false;
 	this.arrowSpeed = false;
 	this.snakeMoveUp = false;
-	this.circleJump = 1;
+	this.circleJump = true;
 	this.flameLength = 20;
 	this.squareAngle = 0;
 };
@@ -78,6 +79,23 @@ $(document).ready(function() {
 	// ui.css("height", uiHeight).css("width", uiWidth);
 	// $("#gameCanvas").css("height", uiHeight+"px").css("width",uiWidth+"px");
 
+	var dead = function() {
+		// Stop thrust sound
+		soundThrust.pause();
+
+		// Play death sound
+		soundDeath.currentTime = 0;
+		soundDeath.play();
+
+		// Game over
+		playGame = false;
+		clearTimeout(scoreTimeout);
+		uiStats.hide();
+		uiComplete.show();
+		document.getElementById("gameReset").ontouchstart = reset;
+		// Reset sounds
+		soundBackground.pause();
+	}
 
 	console.log(uiWidth);
 
@@ -91,6 +109,8 @@ $(document).ready(function() {
 		if (player.shapeFlag == 0) {
 			player.shapeFlag = 4;
 		}
+		blockX1 = canvasWidth;
+		blockY1 = canvasHeight - 20;
 		startGame();
 		for (var i = 0; i < arrowArrayY.length; i++) {
 			arrowArrayY.pop();
@@ -112,15 +132,49 @@ $(document).ready(function() {
 	// var arrowDown = 40;
 
 	// 判断是否到边界或者上下有方块
-	function Border(player) {
-		if (player.y - player.halfHeight < 20) {
-				borderFlag = true;
-				player.y = 20 + player.halfHeight;
-			} else if (player.y + player.halfHeight > canvasHeight - 20) {
-				player.y = canvasHeight - 20 - player.halfHeight;
-				borderFlag = true;
+	function Border(player, blocks) {
+		borderFlag = false;
+
+		if (player.y - player.halfHeight <= 20) {
+			borderFlag = true;
+			// if(player.shapeFlag === 2) {
+			// 					player.circleJump = 2;
+
+			// }
+			player.y = 20 + player.halfHeight;
+		} else if (player.y + player.halfHeight >=canvasHeight - 20) {
+			player.y = canvasHeight - 20 - player.halfHeight;
+			// if(player.shapeFlag === 2) {
+			// 					player.circleJump = 1;
+
+			// }
+
+			borderFlag = true;
+		}
+
+
+		if (playGame) {
+			for (var k = 0; k < blocks.length; k++) {
+				for (var m = 0; m < blocks[0].length; m++) {
+					if (blocks[k][m] === 1) {
+						if ( player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight) )<= 15) &&  player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) {
+							player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
+							// player.circleJump = true;
+
+							borderFlag = true;
+						}
+					}
+				}
+
 			}
-			return borderFlag;
+		}
+			console.log(borderFlag);
+
+		if (borderFlag && player.shapeFlag == 1)
+			{player.squareJump = false;}
+		if (borderFlag && player.shapeFlag == 2) 
+			{					player.circleIsJump = false;}
+		return borderFlag;
 	}
 
 	var Asteroid = function(x, y, radius, vX) {
@@ -140,14 +194,28 @@ $(document).ready(function() {
 	}
 
 	// 游戏UI
-		blocks = new Array();
-		var blockWidth = 44;
-		var blockHeight = 44;
-		var blockX1 = canvasWidth;
-		var blockY1 = canvasHeight - 20;
-		var blockVx1 = -3;
-		var blockVy1 = 0;
-		blocks.push([1, 1, 1], [0, 1, 1], [0, 0, 1]);
+	blocks = new Array();
+	var blockWidth = 44;
+	var blockHeight = 44;
+	var blockX1 = canvasWidth;
+	var blockY1 = canvasHeight - 20;
+	var blockVx1 = -4;
+	var blockVy1 = 0;
+	blocks.push(
+		[1,1,1,1,1,1,1,1,1], 
+		[0,1,1,1,1,1,1,1,1], 
+		[0,0,1,1,1,1,1,1,1],
+		[0,0,0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0,1,0],
+		[0,0,0,1,1,1,1,1,0],
+		[0,0,0,1,0,0,1,1,0],
+		[0,0,0,1,0,0,1,1,0],
+		[1,1,1,1,1,1,1,1,1,],
+		[1,1,1,1,1,1,1,1,1,],
+		[1,1,1,1,1,1,1,1,1,],
+		[1,1,1,1,1,1,1,1,1,]
+
+		);
 
 	// 重置和启动游戏
 	function startGame() {
@@ -197,17 +265,23 @@ $(document).ready(function() {
 				}, 32);
 
 			} else if (player.shapeFlag == 1) {
+				console.log(player.squareJump);
 				if (!player.squareJump) {
 					player.vY = -14;
 					player.squareJump = true;
 				}
 			} else if (player.shapeFlag == 2) {
-				if (player.circleJump == 1) {
-					player.vY = -4;
-					player.aY = -1;
-				} else if (player.circleJump == 2) {
-					player.vY = 4;
-					player.aY = 1;
+				console.log(player.circleIsJump);
+				if (player.circleJump === true && player.circleIsJump === false) {
+					player.circleJump = false;
+					player.circleIsJump = true;
+					player.vY = 14;
+				}
+				if (player.circleJump === false && player.circleIsJump === false) {
+					player.circleJump = true;
+					player.circleIsJump = true;
+					player.vY = -14;
+
 				}
 
 			} else if (player.shapeFlag == 3) {
@@ -312,7 +386,7 @@ $(document).ready(function() {
 						arrowArrayY.pop();
 					}
 					player.squareJump = true;
-					player.shapeFlag = Math.ceil(Math.random() * 4);
+					// player.shapeFlag = Math.ceil(Math.random() * 4);
 					if (player.shapeFlag == 0) {
 						player.shapeFlag = 4;
 					}
@@ -323,11 +397,12 @@ $(document).ready(function() {
 	}
 
 	function animate() {
+
 		context.clearRect(0, 0, canvasWidth, canvasHeight);
 		// Loop through every asteroid
 
 		var asteroidsLength = asteroids.length;
-		for (var i = 0; i < asteroidsLength; i++) {
+		for (var i = 0; i < 1; i++) {
 			var tmpAsteroid = asteroids[i];
 
 			// Calculate new position
@@ -347,23 +422,7 @@ $(document).ready(function() {
 			var distance = Math.sqrt((dX * dX) + (dY * dY));
 
 			if (distance < player.halfWidth * 0.8 + tmpAsteroid.radius) {
-				// Stop thrust sound
-				soundThrust.pause();
-
-				// Play death sound
-				soundDeath.currentTime = 0;
-				soundDeath.play();
-
-				// Game over
-				playGame = false;
-				clearTimeout(scoreTimeout);
-				uiStats.hide();
-				uiComplete.show();
-				document.getElementById("gameReset").ontouchstart = reset;
-				// Reset sounds
-				soundBackground.pause();
-
-				// Reset event handlers
+				dead();
 			}
 
 			context.fillStyle = "rgb(255, 255, 255)";
@@ -375,17 +434,36 @@ $(document).ready(function() {
 
 		// block
 		context.fillStyle = "rgb(255, 255, 255)";
-
+		blockX1 += blockVx1;
+		blockY1 += blockVy1;
 		for (var k = 0; k < blocks.length; k++) {
 			for (var m = 0; m < blocks[0].length; m++) {
 				if (blocks[k][m] === 1) {
 					context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+					// if ((player.y + player.halfHeight) - (blockY1 - (k + 1) * blockHeight) <= 15) {
+					// 	player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
+					// 	borderFlag = true;
+					// }
+
+
+					if ((player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) &&
+						((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15)) {
+						dead();
+					}
+
 				}
 			}
 
 		}
-			blockX1 += blockVx1;
-			blockY1 += blockVy1;
+
+		// for (var k = 0; k< blocks.length; k++) {
+		// 	for (var m = 0; m< blocks[0,length]; m++) {
+		// 		if(blocks[n][m] === 1) {
+		// 			var blockDistance = 
+		// 		}
+		// 	}
+		// }
+
 		// Update player
 		if (player.x - player.halfWidth < 20) {
 			player.x = 20 + player.halfWidth;
@@ -395,22 +473,18 @@ $(document).ready(function() {
 
 
 		if (player.shapeFlag == 1) {
+
+			if (!Border(player, blocks))
+				player.squareJump = true;
+
+
 			if (player.squareJump) {
 				player.aY = 0.7;
 			}
-
 			player.vY += player.aY;
 			player.y += player.vY;
 
-			// if (player.y - player.halfHeight < 20) {
-			// 	borderFlag = true;
-			// 	player.y = 20 + player.halfHeight;
-			// } else if (player.y + player.halfHeight > canvasHeight - 20) {
-			// 	player.y = canvasHeight - 20 - player.halfHeight;
-			// 	borderFlag = true;
-			// }
-
-			if (Border(player)) {
+			if (Border(player, blocks)) {
 				player.vY = 0;
 				player.aY = 0;
 				player.squareJump = false;
@@ -422,36 +496,69 @@ $(document).ready(function() {
 			// 旋转方形
 			context.save();
 			context.translate(player.x, player.y);
-			if (player.squareJump || (player.squareAngle % 90 <= 60&&player.squareAngle%90>=30)) {
+			if (player.squareJump || (player.squareAngle % 90 <= 60 && player.squareAngle % 90 >= 30)) {
 				player.squareAngle += 9;
 				if (player.squareAngle === 360) {
 					player.squareAngle = 0;
 				}
 				context.rotate(player.squareAngle * Math.PI / 180);
+			} else {
+				player.squareAngle = 0;
 			}
-			else {player.squareAngle = 0;}
 			context.fillRect(-player.halfWidth, -player.halfWidth, player.width, player.width);
 			context.restore();
 
 		} else if (player.shapeFlag == 2) {
 
-			player.y += player.vY;
-			player.vY += player.aY;
-			if (player.y - player.halfHeight < 20) {
-				borderFlag = true;
-				player.circleJump = 2;
-				player.y = 20 + player.halfHeight;
-			} else if (player.y + player.halfHeight > canvasHeight - 20) {
-				player.y = canvasHeight - 20 - player.halfHeight;
-				player.circleJump = 1;
-				borderFlag = true;
-			}
+			if (!Border(player, blocks))
+				player.circleIsJump = true;
 
-			if (borderFlag) {
+
+			if (player.circleIsJump) {
+
+				if (player.circleJump == true ) {
+
+
+					player.aY = -1;
+				} else if (player.circleJump == false ) {
+					
+					player.aY = 1;
+				}
+			}
+			player.vY += player.aY;
+			player.y += player.vY;
+
+			if (Border(player, blocks)) {
 				player.vY = 0;
 				player.aY = 0;
+				player.circleIsJump = false;
 			}
-			borderFlag = false;
+
+			// if (!Border(player, blocks)) {
+			// 	console.log(player.vY);
+
+			// 	if (player.circleJump == true ) {
+			// 		if(player.vY === 0)
+			// 		player.vY = -4;
+			// 		player.aY = -1;
+			// 	} else if (player.circleJump == false ) {
+
+			// 		if (player.vY === 0) 
+			// 			player.vY = 4;
+					
+			// 		player.aY = 1;
+			// 	}
+
+			// 	player.y += player.vY;
+
+
+			// 	player.vY += player.aY;
+
+			// } else {
+			// 	player.vY = 0;
+			// 	player.aY = 0;
+			// 	player.circleIsJump = false;
+			// }
 
 			context.beginPath();
 			context.arc(player.x, player.y, player.halfWidth, 0, Math.PI * 2, true);
@@ -468,8 +575,8 @@ $(document).ready(function() {
 			player.y += player.vY;
 			player.y += player.vY;
 
-			
-			if (Border(player)) {
+
+			if (Border(player, blocks)) {
 				player.aY = 0;
 				player.vY = 0;
 			}
@@ -526,7 +633,7 @@ $(document).ready(function() {
 			var w = player.width * 0.26;
 			context.fillStyle = "white";
 			context.beginPath();
-			if (	Border(player)) {
+			if (Border(player, blocks)) {
 				context.moveTo(player.x + player.halfWidth, player.y);
 				context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
 				context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);

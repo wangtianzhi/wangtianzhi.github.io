@@ -1,0 +1,18 @@
+<canvas id="canvasId" width="400" height="400"></canvas>
+
+<script type="text/javascript">
+var canvas = document.getElementById("canvasId");
+var ctx = canvas.getContext("2d");
+var img = new Image();
+img.src = "http://avatar.csdn.net/5/6/7/1_jslang.jpg";
+img.onload = function (){
+
+    ctx.save();//保存状态
+    ctx.translate(200,200);//设置画布上的(0,0)位置，也就是旋转的中心点
+    ctx.rotate(45*Math.PI/180);
+    ctx.fillRect(20, 20,200,200);
+    ctx.fillStyle="black";
+
+    ctx.restore();//恢复状态
+}
+</script>
