@@ -153,11 +153,28 @@ $(document).ready(function() {
 		}
 
 
-		if (playGame&&player.shapeFlag!==4) {
+		if (playGame&&player.shapeFlag===1) {
 			for (var k = 0; k < blocks.length; k++) {
 				for (var m = 0; m < blocks[0].length; m++) {
 					if (blocks[k][m] === 1) {
 						if ( player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight) )<= 15) &&  player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) {
+							player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
+							// player.circleJump = true;
+
+							borderFlag = true;
+						}
+					}
+				}
+
+			}
+		}
+		if (playGame&&(player.shapeFlag===2||player.shapeFlag===3)) {
+			for (var k = 0; k < blocks.length; k++) {
+				for (var m = 0; m < blocks[0].length; m++) {
+					if (blocks[k][m] === 1) {
+						if ( player.vY >= 0 
+							&& (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight) )<= 15) 
+							&&  player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) {
 							player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
 							// player.circleJump = true;
 
@@ -201,18 +218,22 @@ $(document).ready(function() {
 	var blockY1 = canvasHeight - 20;
 	var blockVx1 = -4;
 	var blockVy1 = 0;
-	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
-	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]); 
-	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
-	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-	blocks.unshift([0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0]);
-	blocks.unshift([0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1]);
-	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,0,0,1,1]);
-	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,0,0,1,1]);
-	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]); 
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0]);
+	blocks.unshift([0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0]);
+	blocks.unshift([0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,0]);
+	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,0,0,1,0,1,0,1,0,1,0,1,0,1,0]);
+	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,0,0,1,0,1,0,1,0,1,0,1,1,1,0]);
+	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0]);
 
 		// );
 
