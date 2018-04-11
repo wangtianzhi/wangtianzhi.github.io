@@ -16,7 +16,7 @@ var Player = function(x, y) {
 	this.vY = 0;
 	this.aX = 0;
 	this.aY = 0;
-	this.shapeFlag = 4;
+	this.shapeFlag = 1;
 	this.squareJump = true;
 	this.circleIsJump = true;
 	this.arrowMoveUp = false;
@@ -153,7 +153,7 @@ $(document).ready(function() {
 		}
 
 
-		if (playGame) {
+		if (playGame&&player.shapeFlag!==4) {
 			for (var k = 0; k < blocks.length; k++) {
 				for (var m = 0; m < blocks[0].length; m++) {
 					if (blocks[k][m] === 1) {
@@ -201,21 +201,20 @@ $(document).ready(function() {
 	var blockY1 = canvasHeight - 20;
 	var blockVx1 = -4;
 	var blockVy1 = 0;
-	blocks.push(
-		[1,1,1,1,1,1,1,1,1], 
-		[0,1,1,1,1,1,1,1,1], 
-		[0,0,1,1,1,1,1,1,1],
-		[0,0,0,0,0,0,0,0,0],
-		[0,0,0,0,0,0,0,1,0],
-		[0,0,0,1,1,1,1,1,0],
-		[0,0,0,1,0,0,1,1,0],
-		[0,0,0,1,0,0,1,1,0],
-		[1,1,1,1,1,1,1,1,1,],
-		[1,1,1,1,1,1,1,1,1,],
-		[1,1,1,1,1,1,1,1,1,],
-		[1,1,1,1,1,1,1,1,1,]
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]); 
+	blocks.unshift([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	blocks.unshift([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+	blocks.unshift([0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0]);
+	blocks.unshift([0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1]);
+	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,0,0,1,1]);
+	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,0,0,1,1]);
+	blocks.unshift([1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1]);
 
-		);
+		// );
 
 	// 重置和启动游戏
 	function startGame() {
@@ -402,7 +401,7 @@ $(document).ready(function() {
 		// Loop through every asteroid
 
 		var asteroidsLength = asteroids.length;
-		for (var i = 0; i < 1; i++) {
+		for (var i = 0; i < asteroidsLength; i++) {
 			var tmpAsteroid = asteroids[i];
 
 			// Calculate new position
@@ -421,7 +420,7 @@ $(document).ready(function() {
 			var dY = player.y - tmpAsteroid.y;
 			var distance = Math.sqrt((dX * dX) + (dY * dY));
 
-			if (distance < player.halfWidth * 0.8 + tmpAsteroid.radius) {
+			if (distance < player.halfWidth * 0.6 + tmpAsteroid.radius) {
 				dead();
 			}
 
@@ -440,16 +439,15 @@ $(document).ready(function() {
 			for (var m = 0; m < blocks[0].length; m++) {
 				if (blocks[k][m] === 1) {
 					context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-					// if ((player.y + player.halfHeight) - (blockY1 - (k + 1) * blockHeight) <= 15) {
-					// 	player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
-					// 	borderFlag = true;
-					// }
 
-
-					if ((player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) &&
-						((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15)) {
+					if ((player.x + player.halfWidth*0.6 >= blockX1 + m * blockWidth && player.x - player.halfWidth *0.6<= blockX1 + (m + 1) * blockWidth) &&
+						((player.y + player.halfHeight*0.6 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight*0.6 - (blockY1 - k * blockHeight) < -15)) {
 						dead();
 					}
+					// else {
+					// 	if((player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth)
+					// 		&& (player.y))
+					// }
 
 				}
 			}
