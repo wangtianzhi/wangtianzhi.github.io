@@ -413,7 +413,7 @@ $(document).ready(function() {
 						arrowArrayY.pop();
 					}
 					player.squareJump = true;
-					// player.shapeFlag = Math.ceil(Math.random() * 4);
+					player.shapeFlag = Math.ceil(Math.random() * 4);
 					if (player.shapeFlag == 0) {
 						player.shapeFlag = 4;
 					}
@@ -429,7 +429,7 @@ $(document).ready(function() {
 		// Loop through every asteroid
 
 		var asteroidsLength = asteroids.length;
-		for (var i = 0; i < 0; i++) {
+		for (var i = 0; i < asteroidsLength; i++) {
 			var tmpAsteroid = asteroids[i];
 
 			// Calculate new position
