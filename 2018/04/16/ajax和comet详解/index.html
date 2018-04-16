@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解 | 
+        
+        骂就完事了
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="湖北省武汉市中国地质大学西区53栋604最帅">
+    <meta name="keywords" content=",javascript,ajax,json,comet">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: black !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: black !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: black !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/beijing.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="骂就完事了">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/04/16/ajax和comet详解/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="骂就完事了">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/04/16/ajax和comet详解/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解 | 骂就完事了">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="湖北省武汉市中国地质大学西区53栋604最帅">
+    <meta property="og:article:tag" content="javascript"> <meta property="og:article:tag" content="ajax"> <meta property="og:article:tag" content="json"> <meta property="og:article:tag" content="comet"> 
+
+    
+        <meta property="article:published_time" content="Mon Apr 16 2018 20:20:47 GMT+0800">
+        <meta property="article:modified_time" content="Mon Apr 16 2018 22:01:28 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/16/ajax和comet详解/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/16/ajax和comet详解/index.html",
+    "headline": "今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解",
+    "datePublished": "Mon Apr 16 2018 20:20:47 GMT+0800",
+    "dateModified": "Mon Apr 16 2018 22:01:28 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "王八蛋智",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.png"
+        },
+        "description": "要不要找找彩蛋？"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "骂就完事了",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",javascript,ajax,json,comet",
+    "description": "湖北省武汉市中国地质大学西区53栋604最帅",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流水账"><span class="post-toc-number">1.</span> <span class="post-toc-text">流水账</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON"><span class="post-toc-number">2.</span> <span class="post-toc-text">JSON</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#概述"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Stringify-parse"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Stringify/parse</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Ajax与Comet"><span class="post-toc-number">3.</span> <span class="post-toc-text">Ajax与Comet</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XMLHttpRequest"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">XMLHttpRequest</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP头部"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">HTTP头部</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#GET"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">GET</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#POST"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">POST</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XHR-2级"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">XHR 2级</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进度"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">进度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#跨域"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">跨域</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用Preflighted-Requests的透明服务器验证机制自定义头部，方法，以及不同类型主题内容"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">用Preflighted Requests的透明服务器验证机制自定义头部，方法，以及不同类型主题内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#带凭据的请求"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">带凭据的请求</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#跨浏览器的CORS"><span class="post-toc-number">3.10.</span> <span class="post-toc-text">跨浏览器的CORS</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他跨域技术"><span class="post-toc-number">4.</span> <span class="post-toc-text">其他跨域技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器发送事件"><span class="post-toc-number">5.</span> <span class="post-toc-text">服务器发送事件</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>王八蛋智</strong>
+        <span>4月 16, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ajax/">ajax</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/comet/">comet</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/javascript/">javascript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/json/">json</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解&url=http://yoursite.com/2018/04/16/ajax和comet详解/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/16/ajax和comet详解/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/04/16/ajax和comet详解/index.html&title=今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=骂就完事了&title=今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解&summary=湖北省武汉市中国地质大学西区53栋604最帅&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/04/16/ajax和comet详解/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2018/04/16/ajax和comet详解/index.html&text=今天听了一首非常好听的歌 很开心 以及JSON,ajax和comet详解" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>这篇文章的类型和其他的文章不一样，因为其他虽然也有技术类内容，但是要么是自己写的实例源码，要么是从网上边理解边用自己的语言写的，学到哪写到哪</p>
+<p>这一篇是有针对性的，完全是ajax和comet的内容，而且不会停留在入门阶段，所以把它归在技术类用于区分</p>
+<p>但是开始之前，照例是一段无聊的流水账</p>
+<p>早晨早操，印象里起的很早，六点不到就醒了，半天不响音乐以为不上早操</p>
+<p>吃完饭，七点半多，一二节没课，抹点东西直接去了教室，一直在看从宿舍书库拿的JavaScript高级程序设计，这算是第一次抛弃网上教程抛弃网课，从一本书中认真学东西</p>
+<p>之后算法，什么他妈狗屁玩意</p>
+<p>中午吃饭去修了修鞋取了快递睡会觉下午数字信号处理学，蒙了</p>
+<p>这本书内容和我想的不一样，我以为是些硬件概念内容，结果发现它更像离散和高数的结合体</p>
+<p>老师还不错，只是那个女老师让我一开始以为是个披着长发的男老师</p>
+<p>上完课照例和他去健身</p>
+<p>健身房里不出意外的碰见了他在练肩</p>
+<p>还有他在单车房骑车，没骑了一会不见踪影，怕不是把动感单车骑回寝室了</p>
+<p>还碰到了他，他今天总算不能嘲讽我穿的不像来健身的了，毕竟我穿了小背♂心</p>
+<p>他不洗澡所以先走了，他来的晚所以还在练，我和他洗完澡后和他吃饭，回寝室</p>
+<p>洗了衣服赶紧去图书馆</p>
+<p>最大的体验是，看书学效率极高</p>
+<p>那首好听的歌叫Gypsy Bard，先听的<img src="http://music.163.com/song/412911346/?userid=335409905" alt="翻唱版本"></p>
+<p>后听的!(原版)(<a href="http://music.163.com/song/410628699/?userid=335409905" target="_blank" rel="noopener">http://music.163.com/song/410628699/?userid=335409905</a>)</p>
+<p>旋律调皮，歌词也很招人喜欢</p>
+<p>网易云虽然5.0更新后傻逼了点把短视频优先级挑的比歌还高，但是算法仍然得人心</p>
+<p>顺便一提，我可没允许它升级到5.0过，它怎么就自己升级了，这是在践踏用户权限，操它妈的</p>
+<hr>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>JavaScript Object Notation，JS对象表示法，简称JSON，这是<strong>圈内人</strong>的说法，外行的傻逼们不懂</p>
+<p>它可以表示以下三种类型的值</p>
+<ol>
+<li>简单值，<strong>不支持undefined</strong></li>
+<li>对象</li>
+<li>数组</li>
+</ol>
+<p>既然要写的深些，这些基础的自然不用多说</p>
+<p>需要注意的点:</p>
+<ol>
+<li>JSON必须使用双引号</li>
+<li>没有声明</li>
+<li>没有分号</li>
+</ol>
+<p>JSON之所以流行，重要原因是jSON数据结构解析为JS对象的复杂度，比XML解析成DOM文档而从中提取数据简单多得多</p>
+<pre><code>//JSON
+books[2].title
+//XML
+document.getElementsByTagName(&quot;book&quot;)[2].getAttribute(&quot;title&quot;)
+</code></pre><p>JSON就成了Web服务开发中交换数据的事实标准</p>
+<hr>
+<h4 id="Stringify-parse"><a href="#Stringify-parse" class="headerlink" title="Stringify/parse"></a>Stringify/parse</h4><pre><code>var jsonText = JSON.stringify(book);
+</code></pre><p>JSON.stringify()把一个JS对象序列化生成一个JSON字符串，<strong>不包含任何空格和缩进</strong></p>
+<ul>
+<li><p>过滤结果</p>
+<ol>
+<li>将第二个参数设置为想要得到的属性(key)即可，可以是数组</li>
+<li>如果第二个参数是函数，需要注意如果返回undefined，则会删除该属性和值</li>
+<li>第三个参数用于缩进，如果有第三个参数，默认会断行，也可以设置为任意字符串来替代空格，长度最大不超过10</li>
+<li>如果还不能满足，可以使用toJSON，toJSON设置为JSON对象的内的一个子对象</li>
+<li><p>序列化的顺序是，toJSON=&gt;第二个参数=&gt;第三个参数</p>
+<p>function(key, value) {<br> if(key === “auther”)<br>   return value.join(“,”);<br> else if (key === “money”)<br>   return undefined;<br> else<br>   return value;<br> }</p>
+<p>JSON.stringify(book, null, 4)<br>JSON.stringify(book, null, “–”)</p>
+<p>{toJSON: function() {return this.title;}}</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>FireFox 3.5/3.6第二个参数如果设置为函数有bug，4.0被修复</p>
+<hr>
+<p>将jSON字符串直接传递给JSON.parse()就可以得到相应的JS值</p>
+<p>第二个参数的效果和stringify一样</p>
+<pre><code>var bookCopy = JSON.parse(jsonText);
+</code></pre><hr>
+<h3 id="Ajax与Comet"><a href="#Ajax与Comet" class="headerlink" title="Ajax与Comet"></a>Ajax与Comet</h3><hr>
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h4><p>IE7之前是没有XHR的，只能用</p>
+<pre><code>typeof ActiveXString != &quot;undefined&quot;
+</code></pre><p>来检测</p>
+<p>IE7有自己的个性，ActiveXString的创建方式不是重点，<del>毕竟IE没人用</del></p>
+<hr>
+<p>要发送特定请求，一个是open，一个是send</p>
+<pre><code>open(&quot;get&quot;, &quot;example.php&quot;, false);
+send(null);
+</code></pre><p>open的第三个参数是是否异步</p>
+<p>如果没有要传入服务器的数据，send必须是null，因为这个参数对某些浏览器是必须的</p>
+<p>收到响应后，数据会自动填充xhr对象的属性</p>
+<ol>
+<li>responseText 响应主体返回的文本</li>
+<li>responseXML 保存相应数据的XML DOM文档，对非XML数据来说，是null</li>
+<li>status HTTP状态，200代表成功，304表示请求的资源没有更改，可以直接用缓存，一般是如果&gt;=200且&lt;300或==304，则判断有效</li>
+<li>statusText HTTP状态的说明</li>
+</ol>
+<p>建议使用status来判断，而不是statusText，因为后者在跨浏览器中不可靠</p>
+<hr>
+<ul>
+<li><p>readyState</p>
+<ol>
+<li>0 未初始化 代表未调用open()</li>
+<li>1 启动 调用open，但未调用send</li>
+<li>2 发送 send了，但没响应</li>
+<li>3 接收 接收到部分</li>
+<li>4 完成 全部响应</li>
+</ol>
+</li>
+<li><p>readystatechange事件，看名字就知道是干啥的，每当readyState改变就触发onreadystatechange</p>
+</li>
+</ul>
+<p>用的是DOM0级，因为并非所有浏览器都是支持DOM2级</p>
+<p>没用this，因为作用域问题，如果用this，会导致执行失败</p>
+<hr>
+<p>取消异步</p>
+<pre><code>xhr.abort()
+</code></pre><h4 id="HTTP头部"><a href="#HTTP头部" class="headerlink" title="HTTP头部"></a>HTTP头部</h4><p>一堆常见的不再列举了</p>
+<p>值得一提的是Referer属性，HTTP规范把它拼错了，正确的是referrer，我们只能将错就错了</p>
+<p>必须在open后send前调用xhr.setRequestHeader(“myHeader”, “MyValue”)</p>
+<p>服务器端响应的头部信息通过xhr.getResponseHeader(“myHeader”)/xhr.getAllResponseHeaders()接收</p>
+<p>一般用all</p>
+<hr>
+<h4 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h4><p>最常见，可以将查询的字符集追加到URL末尾，如果要追加，必须正确的编码</p>
+<p>可以通过一个函数编写url</p>
+<pre><code>function addURLParam(url, name, value) {
+  url+=(url.indexOf(&quot;?&quot;) === -1 ? &quot;?&quot; : &quot;&amp;&quot;);
+  url+=encodeURLComponent(name)+&quot;=&quot;+encodeURLComponent(value);
+  return url;
+}
+</code></pre><hr>
+<h4 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h4><p>将数据作为请求的主体提交，可以包含极多数据，格式不受限制，默认情况下服务器对POST和Web表单不会一视同仁，所以必须有程序来处理POST，不过我们也可以用XHR模仿表单提交，需要将Content-Type头部信息设置</p>
+<p>如果需要序列化，用serialize()</p>
+<pre><code>var form = document.getElementById(&quot;user-info&quot;);
+xhr.send(serialize(form));
+</code></pre><hr>
+<h4 id="XHR-2级"><a href="#XHR-2级" class="headerlink" title="XHR 2级"></a>XHR 2级</h4><ul>
+<li><p>FormData，也是使用键值对来表示表单信息，可以用form初始化，用FormData的好处是不用设置请求头部</p>
+<p>  var form = document.getElementById(“user-info”);<br>  xhr.send(new FormData(form));</p>
+</li>
+<li><p>timeout，超时设定，open后send前</p>
+<p>  xhr.timeout = 1000;<br>  xhr.ontimeout = function() {alert(“♂”);}</p>
+</li>
+<li><p>overrideMimeType，重写返回响应的MIME类型</p>
+<p>  xhr.overrideMimeType(“text/xml”);</p>
+</li>
+</ul>
+<h4 id="进度"><a href="#进度" class="headerlink" title="进度"></a>进度</h4><p>有6个进度事件</p>
+<p>loadstart/progress/error/abort/load/loadend</p>
+<p>progress接收响应间不间断触发，345总要触发一个，触发后触发6</p>
+<ul>
+<li><p>load 有了onload，就不用onreadystatechange了，具体用法一样</p>
+</li>
+<li><p>progress 接受一个event，target是XHR对象，三个属性，lengthComputable/position/totalSize，第一个是进度信息是否可用，第二个是当前加载字节，第三个是总字节，可以用来做进度条，<strong>这个必须在open之前</strong>，如果响应头部包含Content-Length，可以用来计算从响应中已经接受到的数据的百分比（即必须有这个头部，才能使用第三个属性）</p>
+</li>
+</ul>
+<h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><p>CORS，跨域源资源共享</p>
+<p>Ajax的主要限制在于跨域安全策略，什么是CORS，谷歌上都有我就不搬了</p>
+<p>IE对CORS的实现：XDR类型，与XHR相似，但能实现安全可靠的跨域通信</p>
+<p>其他浏览器：</p>
+<p>将open的第二个参数设置为绝对URL即可，贤之士不能用setRequestHeader()自定义头部，不能发送接收Cookie，getAllResponseHeaders()总会返回空字符串</p>
+<h4 id="用Preflighted-Requests的透明服务器验证机制自定义头部，方法，以及不同类型主题内容"><a href="#用Preflighted-Requests的透明服务器验证机制自定义头部，方法，以及不同类型主题内容" class="headerlink" title="用Preflighted Requests的透明服务器验证机制自定义头部，方法，以及不同类型主题内容"></a>用Preflighted Requests的透明服务器验证机制自定义头部，方法，以及不同类型主题内容</h4><p>内容以后补充</p>
+<h4 id="带凭据的请求"><a href="#带凭据的请求" class="headerlink" title="带凭据的请求"></a>带凭据的请求</h4><p>将withCredentials设置为true即可</p>
+<h4 id="跨浏览器的CORS"><a href="#跨浏览器的CORS" class="headerlink" title="跨浏览器的CORS"></a>跨浏览器的CORS</h4><p>检测是否有withCredentials和XDomainRequest是否存在即可兼顾所有浏览器</p>
+<hr>
+<h3 id="其他跨域技术"><a href="#其他跨域技术" class="headerlink" title="其他跨域技术"></a>其他跨域技术</h3><p>图像Ping，藏在img里，最常用于点击页面或广告的曝光次数</p>
+<p>JSONP，通过动态的script标签，标签的.src设置成url加一个回调函数来跨域</p>
+<p>Comet，指更高级的Ajax，也叫服务器推送，近乎实时的推送</p>
+<p>两种，长轮询和流（短轮询）</p>
+<p>短的是定时请求，响应</p>
+<p>长的是请求后，一直等到有数据可发送才响应，响应后立刻再次发送请求</p>
+<p>可以检测readyStatus是否变成3，来实现</p>
+<hr>
+<h3 id="服务器发送事件"><a href="#服务器发送事件" class="headerlink" title="服务器发送事件"></a>服务器发送事件</h3><p>围绕Comet的SSE</p>
+<p>Web Sockes</p>
+<p>他们的安全性</p>
+<p>因为图书馆马上关门了，所以最后写的很简单，点到为止，以后有时间再重新填上这个坑</p>
+<p>这么看起来，今天学的东西还真不少，牛逼</p>
+<p>Gypsy Bard 是 小马宝莉 里的音乐</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTYyNC8xMjE2MA==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2040/03/10/游戏更新日志/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/15/今天过得很开心-很开心/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.png" alt="王八蛋智's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        wtz502206330@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links/index.html" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/index.html" title="时间线">
+                
+                    <i class="material-icons sidebar-material-icons">schedule</i>
+                
+                时间线
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/index.html" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">reorder</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/game/index.html" title="游戏">
+                
+                    <i class="material-icons sidebar-material-icons">games</i>
+                
+                游戏
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/charge/index.html" title="测试">
+                
+                    <i class="material-icons sidebar-material-icons">star rate</i>
+                
+                测试
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">70</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wangtianzhi/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/wang-tian-zhi-23/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/32071721/#/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>骂就完事了
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
