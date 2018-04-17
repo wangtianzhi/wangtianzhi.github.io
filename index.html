@@ -358,15 +358,13 @@
 
 
     <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-                <span id="busuanzi_container_site_uv">
-                            <span id="busuanzi_value_site_uv"></span>&nbsp;浏览量
-                        </span>
+    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600" style="padding: 0; ">
+                
 
-                            <div class="widget-wrap">
-            <h5 class="widget-title">浏览数目</h3>
+                            <div class="widget-wrap"  style="margin-top:-50%; padding-left: 0px; width:100%">
+           <p style="font-size:16px">本站总访问量<span id="busuanzi_value_site_pv" style="font-size:20px"></span>次</p>
             <div class="widget">
-            <ul class="popularlist">
+            <ul class="popularlist" style="list-style-type:none;padding:0;">
             </ul>
             </div>
         </div>
@@ -1285,6 +1283,7 @@ It will not impact the appearance and can give developers a lot of support :)
 </div>
 
 <!--page counter part-->
+
 <script>
 function addCount (Counter) {
         url=$('.article-date').attr('href').trim();
@@ -1341,9 +1340,9 @@ $(function(){
                         url=counter.get("url");
                         time=counter.get("time");
                         // add to the popularlist widget
-                        showcontent=title+" ("+time+")";
+                        showcontent=title+"：浏览"+time+"次";
                         //notice the "" in href
-                        $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                        $('.popularlist').append('<li><a style="display:block;font-weight:bold;color:#FFFFFF;background-color:#8E8E8E;width:100%;text-align:center;padding:4px;text-decoration:none;text-transform:uppercase;" href="'+url+'">'+showcontent+'</a></li>');
                     }
                 },
             error: function(error){

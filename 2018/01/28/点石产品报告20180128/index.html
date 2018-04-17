@@ -837,6 +837,7 @@ It will not impact the appearance and can give developers a lot of support :)
 </div>
 
 <!--page counter part-->
+
 <script>
 function addCount (Counter) {
         url=$('.article-date').attr('href').trim();
@@ -893,9 +894,9 @@ $(function(){
                         url=counter.get("url");
                         time=counter.get("time");
                         // add to the popularlist widget
-                        showcontent=title+" ("+time+")";
+                        showcontent=title+"：浏览"+time+"次";
                         //notice the "" in href
-                        $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                        $('.popularlist').append('<li><a style="display:block;font-weight:bold;color:#FFFFFF;background-color:#8E8E8E;width:100%;text-align:center;padding:4px;text-decoration:none;text-transform:uppercase;" href="'+url+'">'+showcontent+'</a></li>');
                     }
                 },
             error: function(error){
