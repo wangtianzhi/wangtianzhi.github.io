@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            今天学会改博客模板 很开心 | 
+        
+        骂就完事了
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="湖北省武汉市中国地质大学西区53栋604最帅">
+    <meta name="keywords" content=",javascript,博客">
+    <meta name="theme-color" content="black">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: black;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: black !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: black !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: black !important;
+  }
+
+  .toTop {
+    background: black !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: black;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: black;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: black;
+  }
+
+  .post-toc a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: black;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="骂就完事了">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/">
+    <meta name="msapplication-navbutton-color" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="骂就完事了">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="今天学会改博客模板 很开心 | 骂就完事了">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="湖北省武汉市中国地质大学西区53栋604最帅">
+    <meta property="og:article:tag" content="javascript"> <meta property="og:article:tag" content="博客"> 
+
+    
+        <meta property="article:published_time" content="Tue Apr 17 2018 18:43:36 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 17 2018 21:37:35 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html",
+    "headline": "今天学会改博客模板 很开心",
+    "datePublished": "Tue Apr 17 2018 18:43:36 GMT+0800",
+    "dateModified": "Tue Apr 17 2018 21:37:35 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "王八蛋智",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.png"
+        },
+        "description": "要不要找找彩蛋？"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "骂就完事了",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",javascript,博客",
+    "description": "湖北省武汉市中国地质大学西区53栋604最帅",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流水账"><span class="post-toc-number">1.</span> <span class="post-toc-text">流水账</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于博客"><span class="post-toc-number">2.</span> <span class="post-toc-text">关于博客</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#博客框架"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">博客框架</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JS中变量作用域和内存问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">JS中变量作用域和内存问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#检测类型"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">检测类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#执行环境及作用域"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">执行环境及作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#延长作用域链"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">延长作用域链</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#没有块级作用域"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">没有块级作用域</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#垃圾收集"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">垃圾收集</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#性能问题"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">性能问题</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#管理内存"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">管理内存</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                今天学会改博客模板 很开心
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>王八蛋智</strong>
+        <span>4月 17, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/javascript/">javascript</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/博客/">博客</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/04/17/今天又听了好多遍那首歌-很开心/" class="leancloud-views_num" data-flag-title="今天学会改博客模板 很开心">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=今天学会改博客模板 很开心&url=http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html&title=今天学会改博客模板 很开心" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=骂就完事了&title=今天学会改博客模板 很开心&summary=湖北省武汉市中国地质大学西区53栋604最帅&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2018/04/17/今天又听了好多遍那首歌-很开心/index.html&text=今天学会改博客模板 很开心" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>早晨早操后没课，去教室整博客，之后三四节是郭明强老师的嵌入式，他今天也发挥出了正常水平，讲课全靠对口型，舍不得让我们听见声音，所以我仍然在整博客</p>
+<p>中午下课又留在教室和他学习一会，十二点二十和他吃饭，回寝室，睡觉，下午起来发现陈亮老师给我的消息，大概跟我说了下项目，又听两个跟着他学的朋友讲了讲，现在先学着，基础不是重点，学好框架是重中之重(<del>杨毅脸</del>)，六七八月开始做</p>
+<p>框架主要用SSM或React，现在更流行React，我也希望是用React这种JS框架来做，毕竟我目标是前端，Vue算是入门了，Anguler和Vue差不多，React也跟着做个项目的话就算齐活了</p>
+<p>下午去图书馆，继续补JS基础，我是瞎着翻的，昨天看的21章，今天看的第4章</p>
+<p>现在我可以随意更改博客界面了，要不要做个玩具熊的Jump Scare？</p>
+<p>也许我已经做了？</p>
+<hr>
+<h3 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h3><p>鼓捣了一上午，主要是引入访问量功能，hexo是个静态框架，没法自带访问量功能，所以引入第三方库</p>
+<p>第一个想到的是LeanCloud，用工具这个词来形容它比较好，这种神奇的工具甚至有时可以替代一个项目的后端，它提供REST API和SDK，如果只是用REST API的话，学习成本也不高，是个不错的东西，只是 没多少人用它做所有后端，我想更多是数据存储和分析功能，也就是个<strong>大数据库</strong>的功能</p>
+<p>一句话形容：一站式后端云服务，包括云存储、数据分析、用户关系、消息推送、即时通信等现代应用基础模块，满足移动开发所有需求。</p>
+<p>以下是一些理解优缺点，<del>大</del>部分内容来自逼乎老哥<strong>磊磊</strong></p>
+<ul>
+<li><p>稳定，基于Clojure开发，比自己瞎几把写的PHP啊Node啊Python不知道强多少倍，企业级另说</p>
+</li>
+<li><p>相信大部分个人开发者选择LeanCloud的第一原因，是追求：快速。表面也确实如此，lc提供了各种服务，正所谓专业的人做专业的事，开发者只需要集中精力在前端/客户端的开发，顺利的话，可能一两天就能利用LeanCloud搭建起了原型，对应用层面的开发者来说，似乎一个人就能完成一整个应用，确实很有吸引力。</p>
+</li>
+<li><p>后端服务，并不能代替后端知识。虽然Leancloud对各种后端服务进行简化和抽象，直接通过提供的SDK调用方法就行了，但开发者仍需要掌握后端中的一些通用知识，才能够玩转。比如说使用最多数据存储服务，实际上对应的就是数据库的概念，开发者首先需要掌握数据库的基本概念（且越深入越好），才能用好数据存储服务。</p>
+</li>
+<li><p>黑盒。Leancloud对开发者可见的，只有文档了，开发者并不知道调用时发生了什么，一切顺利的情况下还好，如果报错了，就只能到文档中寻找答案，如果恰好这时候文档没找到答案，就比较悲催了，只能发工单（vip）或者到论坛提问，效率是比较低的。这也是前面说的，开发起来感觉累。而如果是自己写后端服务，碰到问题可以到搜索引擎中寻找答案。</p>
+</li>
+<li><p>技能的局限性。深入使用了LeanCloud之后，也许能做到对 LeanCloud 中各种功能和使用方法很了解，但如果有一天迁移了平台，或者自己写服务器，那这部分LeanCloud的知识几乎就没用了。熟练掌握LeanCloud数据存储服务的价值远比不上熟练使用MySQL。</p>
+</li>
+</ul>
+<hr>
+<p>总之，我用lC建了个小应用，用来储存和处理我的访问量信息，代码量不多，主要是获取APPID和KEY后和我的网页绑定，之后再用提供的API获取数据库中的信息，写到页面上</p>
+<p>缺点是不好统计整个页面的信息</p>
+<p>而且也会有bug，比如同一页面访问量有时分开计算，重写两次，这需要我上数据库自己清掉</p>
+<p>所以我又用了卜算子，这个极其简单，两行代码就可以搞定，所以现在的主页上，总访问量是卜算子统计的，分开的访问量是LeanCloud统计的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">function addCount (Counter) &#123;</span><br><span class="line">        url=$(&apos;.article-date&apos;).attr(&apos;href&apos;).trim();</span><br><span class="line">        title = $(&apos;.article-title&apos;).text().trim();</span><br><span class="line">        var query=new AV.Query(Counter);</span><br><span class="line">        //use url as unique idnetfication</span><br><span class="line">        query.equalTo(&quot;url&quot;,url);</span><br><span class="line">        query.find(&#123;</span><br><span class="line">            success: function(results)&#123;</span><br><span class="line">                if(results.length&gt;0)</span><br><span class="line">                &#123;</span><br><span class="line">                    var counter=results[0];</span><br><span class="line">                    counter.fetchWhenSave(true); //get recent result</span><br><span class="line">                    counter.increment(&quot;time&quot;);</span><br><span class="line">                    counter.save();</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    var newcounter=new Counter();</span><br><span class="line">                    newcounter.set(&quot;title&quot;,title);</span><br><span class="line">                    newcounter.set(&quot;url&quot;,url);</span><br><span class="line">                    newcounter.set(&quot;time&quot;,1);</span><br><span class="line">                    newcounter.save(null,&#123;</span><br><span class="line">                        success: function(newcounter)&#123;</span><br><span class="line">                        //alert(&apos;New object created&apos;);</span><br><span class="line">                        &#125;,</span><br><span class="line">                        error: function(newcounter,error)&#123;</span><br><span class="line">                        alert(&apos;Failed to create&apos;);</span><br><span class="line">                        &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            error: function(error)&#123;</span><br><span class="line">                //find null is not a error</span><br><span class="line">                alert(&apos;Error:&apos;+error.code+&quot; &quot;+error.message);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br><span class="line">$(function()&#123;</span><br><span class="line">        var Counter=AV.Object.extend(&quot;Counter&quot;);</span><br><span class="line">        //only increse visit counting when intering a page</span><br><span class="line">        if ($(&apos;.article-title&apos;).length == 1)</span><br><span class="line">           addCount(Counter);</span><br><span class="line">        var query=new AV.Query(Counter);</span><br><span class="line">        query.descending(&quot;time&quot;);</span><br><span class="line">        // the sum of popular posts</span><br><span class="line">        query.limit(10); </span><br><span class="line">        query.find(&#123;</span><br><span class="line">            success: function(results)&#123;</span><br><span class="line">                    for(var i=0;i&lt;results.length;i++)    </span><br><span class="line">                    &#123;</span><br><span class="line">                        var counter=results[i];</span><br><span class="line">                        title=counter.get(&quot;title&quot;);</span><br><span class="line">                        url=counter.get(&quot;url&quot;);</span><br><span class="line">                        time=counter.get(&quot;time&quot;);</span><br><span class="line">                        // add to the popularlist widget</span><br><span class="line">                        showcontent=title+&quot;：浏览&quot;+time+&quot;次&quot;;</span><br><span class="line">                        //notice the &quot;&quot; in href</span><br><span class="line">                        $(&apos;.popularlist&apos;).append(&apos;&lt;li&gt;&lt;a style=&quot;display:block;font-weight:bold;color:#FFFFFF;background-color:#8E8E8E;width:100%;text-align:center;padding:4px;text-decoration:none;text-transform:uppercase;&quot; href=&quot;&apos;+url+&apos;&quot;&gt;&apos;+showcontent+&apos;&lt;/a&gt;&lt;/li&gt;&apos;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">            error: function(error)&#123;</span><br><span class="line">                alert(&quot;Error:&quot;+error.code+&quot; &quot;+error.message);</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">        &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="博客框架"><a href="#博客框架" class="headerlink" title="博客框架"></a>博客框架</h4><p>学了前端之后理解这些不难，无非就是把不同的板块分开处理，找到链接每处ejs的代表含义就没问题</p>
+<p>通过这个的学习，我给博客加了音乐，从网易云引入的到博客框架的，也把访问量<del>替代了我的自拍</del>放在info上，就是 不太好看，我需要个设计</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;fuck&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;gaster&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">window.onload=function() &#123;</span><br><span class="line">    var gaster = document.createElement(&quot;div&quot;);</span><br><span class="line">    var body = document.getElementsByTagName(&quot;body&quot;)[0];</span><br><span class="line">    body.appendChild(gaster);</span><br><span class="line">    // var gaster = document.getElementById(&quot;gaster&quot;);</span><br><span class="line">    gaster.innerHTML=&quot;&lt;img src=&apos;/img/content/gaster2.png&apos; style=&apos;width:100%;position:fixed;&apos;/&gt;&quot;;</span><br><span class="line">    gaster.setAttribute(&apos;style&apos;, &apos;z-index:99; position: absolute; left: 0; top: 0;width:100%;height:100%;display: none;&apos;);</span><br><span class="line">    document.getElementById(&quot;fuck&quot;).innerHTML=&apos;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=0 height=0 src=&quot;//music.163.com/outchain/player?type=2&amp;id=481037898&amp;auto=1&amp;height=32&quot;&gt;&lt;/iframe&gt;&apos;;</span><br><span class="line"></span><br><span class="line">var count = 0;</span><br><span class="line">var time;</span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line"></span><br><span class="line">  time = setInterval(function() &#123;</span><br><span class="line">    count ++;</span><br><span class="line">    if(gaster.style.display === &quot;none&quot;)&#123;</span><br><span class="line"></span><br><span class="line">    gaster.style.display = &quot;block&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">      gaster.style.display = &quot;none&quot;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    if(count === 15) &#123;</span><br><span class="line">      gaster.style.display = &quot;none&quot;;</span><br><span class="line">      clearInterval(time);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,97);</span><br><span class="line"></span><br><span class="line">&#125;,11820 );</span><br><span class="line">&#125;</span><br><span class="line">    // setTimeout(document.getElementsByTagName(&quot;body&quot;)[0].innerHTML+=&apos;&apos; ,5000)</span><br><span class="line">    // setTimeout(function()&#123;document.getElementsByTagName(&quot;body&quot;)[0].style.display = &quot;none&quot;&#125;,16000);</span><br><span class="line">    // setTimeout(function()&#123;document.getElementsByTagName(&quot;body&quot;)[0].style.display = &quot;none&quot;&#125;,8000);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="JS中变量作用域和内存问题"><a href="#JS中变量作用域和内存问题" class="headerlink" title="JS中变量作用域和内存问题"></a>JS中变量作用域和内存问题</h3><p>时间不多了我简单写</p>
+<p>用一个变量赋值另一个变量，如果是基本类型，是非引用的，两者无关</p>
+<p>而如果是引用类型，比如对象，是公用同一储存空间的，可以理解为指针</p>
+<p>我相信我的表达能力和你的理解能力和一段时间后的我的理解能力，所以不写例子了</p>
+<hr>
+<p>在函数中，对象是按值传递的，不是按参数传递的</p>
+<p>所以参数的值不会影响，可以理解为局部变量</p>
+<hr>
+<h4 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h4><p>typeof === string/number/boolean/undefined/object</p>
+<p>但如果我们想知道它是什么类型的对象，用instanceof</p>
+<p>(person instanceof Object/Array/RegExp) === true/false</p>
+<p>按规定，所有引用类型的值都是Object的实例</p>
+<hr>
+<h4 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h4><p>每个函数都有一个执行环境，每个执行环境都有一个变量对象，变量对象我们无法访问，全局执行环境是最外层的环境</p>
+<p>执行流进入一个函数时，函数的环境会被推入一个环境栈，执行完函数后弹出</p>
+<p>作用域链，最顶层是window，包含关系从上到下，搜索变量时从下往上</p>
+<p>每个环境都有一个活动对象，如果这个环境是函数，那么活动对象最开始只包括一个：arguments对象</p>
+<hr>
+<h5 id="延长作用域链"><a href="#延长作用域链" class="headerlink" title="延长作用域链"></a>延长作用域链</h5><p>try-catch中的catch快</p>
+<p>with语句</p>
+<p>这俩都会在作用域链的前端加一个变量对象，对with来说，会将该对象加到作用域链中，对catch来说，会创建一个新的变量对象，其中包含它抛出的错误和说明</p>
+<hr>
+<h5 id="没有块级作用域"><a href="#没有块级作用域" class="headerlink" title="没有块级作用域"></a>没有块级作用域</h5><p>它不是按{}分域的，所以说</p>
+<pre><code>if(true) {var color = &quot;blue&quot;;}
+alert(color);
+</code></pre><p>是会弹出blue的</p>
+<p>它是按函数分域的</p>
+<p>也就是环境</p>
+<p>注意，如果在函数里用var声明，那么函数外面无法访问，但是如果函数里面不用var，直接声明，那么它会当做全局变量处理，外面可以访问，不要这样做，会出错，最好在最外面预先声明</p>
+<hr>
+<h4 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h4><p>JS会自己清内存</p>
+<p>两种</p>
+<p>标记清除，所有变量对象都先被标记，进入环境就取消标记，退出就添加标记，定期清理有标记的</p>
+<p>引用计数，每次被引用时计数加一，但不好用，因为可能有循环引用，导致永远不会清除</p>
+<p>只要在IE中涉及到COM，就会导致循环引用</p>
+<h5 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h5><p>IE被骂的原因之一是它的垃圾收集器一旦超过256个变量或4096个对象或64KB字符串，就会调用，但很多网页的量一直比这个多，结果垃圾清理器反复调用还清不了多少东西，卡的要死</p>
+<p>后来IE7改了，分配给垃圾清理器的内存少的话就提高上限，内存多就反过来，好多了</p>
+<h5 id="管理内存"><a href="#管理内存" class="headerlink" title="管理内存"></a>管理内存</h5><p>为了确保性能，可以解引用</p>
+<p>就是让一个对象=null</p>
+<p>它不能直接回收内存，只能把它脱离环境，促使它被定期的垃圾收集器处理掉</p>
+<hr>
+<script>
+
+
+window.onload=function() {
+    var gaster = document.createElement("div");
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(gaster);
+    // var gaster = document.getElementById("gaster");
+    gaster.innerHTML="<img src='/img/content/tiaosha2.png' style='width:100%;position:fixed;'/>";
+    gaster.setAttribute('style', 'z-index:99; position: absolute; left: 0; top: 0;width:100%;height:100%;display: none;');
+
+
+var time;
+setTimeout(function() { gaster.style.display = "block";},13820 );
+setTimeout(function() { gaster.style.display = "none";},20820 );
+
+}
+
+</script>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTYyNC8xMjE2MA==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2040/03/10/游戏更新日志/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/16/ajax和comet详解/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.png" alt="王八蛋智's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        wtz502206330@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links/index.html" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/index.html" title="时间线">
+                
+                    <i class="material-icons sidebar-material-icons">schedule</i>
+                
+                时间线
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/index.html" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">reorder</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/game/index.html" title="游戏">
+                
+                    <i class="material-icons sidebar-material-icons">games</i>
+                
+                游戏
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/charge/index.html" title="测试">
+                
+                    <i class="material-icons sidebar-material-icons">star rate</i>
+                
+                测试
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">71</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+<!--page counter part-->
+
+<script>
+function addCount (Counter) {
+        url=$('.article-date').attr('href').trim();
+        title = $('.article-title').text().trim();
+        var query=new AV.Query(Counter);
+        //use url as unique idnetfication
+        query.equalTo("url",url);
+        query.find({
+            success: function(results){
+                if(results.length>0)
+                {
+                    var counter=results[0];
+                    counter.fetchWhenSave(true); //get recent result
+                    counter.increment("time");
+                    counter.save();
+                }
+                else
+                {
+                    var newcounter=new Counter();
+                    newcounter.set("title",title);
+                    newcounter.set("url",url);
+                    newcounter.set("time",1);
+                    newcounter.save(null,{
+                        success: function(newcounter){
+                        //alert('New object created');
+                        },
+                        error: function(newcounter,error){
+                        alert('Failed to create');
+                        }
+                        });
+                }
+            },
+            error: function(error){
+                //find null is not a error
+                alert('Error:'+error.code+" "+error.message);
+            }
+        });
+}
+$(function(){
+        var Counter=AV.Object.extend("Counter");
+        //only increse visit counting when intering a page
+        if ($('.article-title').length == 1)
+           addCount(Counter);
+        var query=new AV.Query(Counter);
+        query.descending("time");
+        // the sum of popular posts
+        query.limit(10); 
+        query.find({
+            success: function(results){
+                    for(var i=0;i<results.length;i++)    
+                    {
+                        var counter=results[i];
+                        title=counter.get("title");
+                        url=counter.get("url");
+                        time=counter.get("time");
+                        // add to the popularlist widget
+                        showcontent=title+"：浏览"+time+"次";
+                        //notice the "" in href
+                        $('.popularlist').append('<li><a style="display:block;font-weight:bold;color:#FFFFFF;background-color:#8E8E8E;width:100%;text-align:center;padding:4px;text-decoration:none;text-transform:uppercase;" href="'+url+'">'+showcontent+'</a></li>');
+                    }
+                },
+            error: function(error){
+                alert("Error:"+error.code+" "+error.message);
+            }
+            }
+        )
+        });
+</script>
+                    
+
+                    <!--Footer-->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wangtianzhi/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/wang-tian-zhi-23/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/32071721/#/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>骂就完事了
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': 'black'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px black, 0 0 15px black'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': 'black',
+        'border-left-color': 'black'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('E4SUL9Uqxrj0CF0cvfun1iHo-gzGzoHsz', '37PoUXbYgPnY8bktdaMSAEfl');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

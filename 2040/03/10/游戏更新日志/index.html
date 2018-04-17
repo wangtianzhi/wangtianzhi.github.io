@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Sat Mar 10 2040 20:55:28 GMT+0800">
-        <meta property="article:modified_time" content="Tue Apr 17 2018 18:42:07 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 17 2018 22:02:22 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "http://yoursite.com/2040/03/10/游戏更新日志/index.html",
     "headline": "【置顶】游戏更新日志",
     "datePublished": "Sat Mar 10 2040 20:55:28 GMT+0800",
-    "dateModified": "Tue Apr 17 2018 18:42:07 GMT+0800",
+    "dateModified": "Tue Apr 17 2018 22:02:22 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王八蛋智",
@@ -553,20 +553,22 @@
 <p>刺和弹簧，刺有正反，弹簧也有，很简单，弹簧给它个瞬间速度就好，添加了上方方块的下面碰撞检测，现在玩家飞不到方块里面了，以后会添加重力转变剩下的模式可以贴着上方的方块走</p>
 <p><img src="/img/content/game6.png" alt="game6"></p>
 <p>除了箭头和方块，以及分身</p>
+<p>20180415</p>
+<p>减少了线条数组容量，减少了曲线的点和线条的宽度，增加了曲线的曲率和加速度，增加了方块的加速度，现在方块和圆处于同一个重力模型下，可以更好的适配，减少了方块的初速度，scale真是个傻逼的函数，canvas没有很好的还原功能，save和restore只能触发最近的保存点，那么放大缩小就极其难受，每帧放大/缩小1.05倍，再加上水平位移14.5和垂直位移22，达到比较好的视觉效果</p>
+<p>做游戏的过程感觉逻辑思维获得明显锻炼，实际的实现触碰到许多问题，被实时想出方案就觉，但是编程基础没有多少提升，Canvas终究只是一个小版块，Vue学习的第一个阶段已经完成，算是入门了，越来越感受到基础JS的重要性，</p>
 <p><div id="fuck"></div></p>
 <p><div id="gaster"></div></p>
+<audio id="music" autoplay><br>   <source src="/music/GasterBattle.mp3" type="audio/mpeg">\<br><br>  您的浏览器不支持 audio 元素。<br></audio>
+
 <script>
 
-
-window.onload=function() {
-
+alert("打开声音");
     var gaster = document.createElement("div");
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(gaster);
     // var gaster = document.getElementById("gaster");
     gaster.innerHTML="<img src='/img/content/gaster2.png' style='width:100%;position:fixed;'/>";
     gaster.setAttribute('style', 'z-index:99; position: absolute; left: 0; top: 0;width:100%;height:100%;display: none;');
-    document.getElementById("fuck").innerHTML='<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="//music.163.com/outchain/player?type=2&id=481037898&auto=1&height=32"></iframe>';
 
 var count = 0;
 var time;
@@ -587,13 +589,12 @@ setTimeout(function() {
       clearInterval(time);
     }
 
-  },97);
+  },99);
 
-},11820 );
-}
-    // setTimeout(document.getElementsByTagName("body")[0].innerHTML+='' ,5000)
-    // setTimeout(function(){document.getElementsByTagName("body")[0].style.display = "none"},16000);
-    // setTimeout(function(){document.getElementsByTagName("body")[0].style.display = "none"},8000);
+},11180 );
+  document.getElementById("music").play();
+music.onpause=function () {  
+    music.play()}; 
 
 </script>
         
@@ -643,7 +644,7 @@ setTimeout(function() {
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/16/ajax和comet详解/" id="post_nav-older" class="next-content">
+        <a href="/2018/04/17/今天又听了好多遍那首歌-很开心/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -735,7 +736,7 @@ setTimeout(function() {
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">17</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -802,7 +803,7 @@ setTimeout(function() {
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">70</span>
+                <span class="sidebar-badge">71</span>
             </a>
         </li>
         
