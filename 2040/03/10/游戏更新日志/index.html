@@ -61,7 +61,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="湖北省武汉市中国地质大学西区53栋604最帅">
     <meta name="keywords" content=",canvas">
-    <meta name="theme-color" content="#0097A7">
+    <meta name="theme-color" content="black">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
     <meta http-equiv="Cache-Control" content="no-transform" />
@@ -106,7 +106,7 @@
   }
 
   a {
-    color: #00838F;
+    color: black;
   }
 
   .mdl-card__media,
@@ -139,25 +139,25 @@
   }
 
   .toTop {
-    background: #757575 !important;
+    background: black !important;
   }
 
   .material-layout .material-post>.material-nav,
   .material-layout .material-index>.material-nav,
   .material-nav a {
-    color: #757575;
+    color: black;
   }
 
   #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
+    background-color: black;
   }
 
   #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
+    color: black;
   }
 
   .post-toc a:hover {
-    color: #00838F;
+    color: black;
     text-decoration: underline;
   }
 
@@ -168,7 +168,12 @@
 
     <style>
       body{
-        background-image: url(/img/beijing.png);
+        background-color: black;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
       }
     </style>
 
@@ -217,7 +222,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="骂就完事了">
     <meta name="msapplication-starturl" content="http://yoursite.com/2040/03/10/游戏更新日志/">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="msapplication-navbutton-color" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="骂就完事了">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -240,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Sat Mar 10 2040 20:55:28 GMT+0800">
-        <meta property="article:modified_time" content="Tue Apr 17 2018 10:57:58 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 17 2018 18:42:07 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -263,7 +268,7 @@
     "mainEntityOfPage": "http://yoursite.com/2040/03/10/游戏更新日志/index.html",
     "headline": "【置顶】游戏更新日志",
     "datePublished": "Sat Mar 10 2040 20:55:28 GMT+0800",
-    "dateModified": "Tue Apr 17 2018 10:57:58 GMT+0800",
+    "dateModified": "Tue Apr 17 2018 18:42:07 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王八蛋智",
@@ -516,9 +521,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="游戏更新日志"><a href="#游戏更新日志" class="headerlink" title="游戏更新日志"></a>游戏更新日志</h4><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="0" height="0" src="//music.163.com/outchain/player?type=2&id=481037898&auto=1&height=32"></iframe>
-
-<p>20180126 </p>
+        <h4 id="游戏更新日志"><a href="#游戏更新日志" class="headerlink" title="游戏更新日志"></a>游戏更新日志</h4><p>20180126 </p>
 <p>开始构思</p>
 <p>201802 </p>
 <p>一直构思，挑选bgm，很多时候重复听一首歌，重复许多遍，脑子里想这首歌应该配什么场景</p>
@@ -550,7 +553,49 @@
 <p>刺和弹簧，刺有正反，弹簧也有，很简单，弹簧给它个瞬间速度就好，添加了上方方块的下面碰撞检测，现在玩家飞不到方块里面了，以后会添加重力转变剩下的模式可以贴着上方的方块走</p>
 <p><img src="/img/content/game6.png" alt="game6"></p>
 <p>除了箭头和方块，以及分身</p>
+<p><div id="fuck"></div></p>
+<p><div id="gaster"></div></p>
+<script>
 
+
+window.onload=function() {
+
+    var gaster = document.createElement("div");
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(gaster);
+    // var gaster = document.getElementById("gaster");
+    gaster.innerHTML="<img src='/img/content/gaster2.png' style='width:100%;position:fixed;'/>";
+    gaster.setAttribute('style', 'z-index:99; position: absolute; left: 0; top: 0;width:100%;height:100%;display: none;');
+    document.getElementById("fuck").innerHTML='<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="//music.163.com/outchain/player?type=2&id=481037898&auto=1&height=32"></iframe>';
+
+var count = 0;
+var time;
+setTimeout(function() {
+
+  time = setInterval(function() {
+    count ++;
+    if(gaster.style.display === "none"){
+
+    gaster.style.display = "block";
+  }
+    else {
+      gaster.style.display = "none";
+
+    }
+    if(count === 15) {
+      gaster.style.display = "none";
+      clearInterval(time);
+    }
+
+  },97);
+
+},11820 );
+}
+    // setTimeout(document.getElementsByTagName("body")[0].innerHTML+='' ,5000)
+    // setTimeout(function(){document.getElementsByTagName("body")[0].style.display = "none"},16000);
+    // setTimeout(function(){document.getElementsByTagName("body")[0].style.display = "none"},8000);
+
+</script>
         
     
 
@@ -994,14 +1039,14 @@ $(function(){
     });
     NProgress.start();
     $('#nprogress .bar').css({
-        'background': '#29d'
+        'background': 'black'
     });
     $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+        'box-shadow': '0 0 10px black, 0 0 15px black'
     });
     $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
+        'border-top-color': 'black',
+        'border-left-color': 'black'
     });
     setTimeout(function() {
         NProgress.done();
