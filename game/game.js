@@ -159,14 +159,15 @@ $(document).ready(function() {
 	function gravity() {
 
 	}
+
 	function move() {
-		if(!player.moveTurn){
+		if (!player.moveTurn) {
 			player.vY += player.aY;
-			player.y += player.vY;}
-			else {
-				player.vY -= player.aY;
+			player.y += player.vY;
+		} else {
+			player.vY -= player.aY;
 			player.y -= player.vY;
-			}
+		}
 	}
 	// 判断是否到边界或者上下有方块
 	function Border(player, blocks) {
@@ -254,22 +255,34 @@ $(document).ready(function() {
 	var blockY1 = canvasHeight - 20;
 	var blockVx1 = -8;
 	var blockVy1 = 0;
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 0, 0, 1]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 14]);
-	blocks.unshift([0,0,0,0,0,21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 12, 0, 13, 0, 0, 14, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
-	blocks.unshift([0,0,5,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
-	blocks.unshift([5,0,0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 4]);
-	blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1]);
-	blocks.unshift([0,0,0,0,0,4, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 0, 0, 1]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 14]);
+	// blocks.unshift([0,0,0,0,0,21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 12, 0, 13, 0, 0, 14, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
+	// blocks.unshift([0,0,5,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
+	// blocks.unshift([5,0,0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 4]);
+	// blocks.unshift([0,0,0,0,0,0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1]);
+	// blocks.unshift([0,0,0,0,0,4, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]);
+
+
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+	blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 5, 5, 1, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 0, 0]);
 
 	// );
 
@@ -451,17 +464,19 @@ $(document).ready(function() {
 			}, 1000);
 		}
 	}
+
 	function scaleContext(ctx, x, y, proportion, scaleNum) {
 		ctx.translate(x, y);
-								player.scaleCount += scaleNum;
-								context.scale(proportion, proportion);
-								if (player.scaleCount === 15) {
-									player.big = true;
-	} else if(player.scaleCount === 0) {
-		player.big = false;
+		player.scaleCount += scaleNum;
+		context.scale(proportion, proportion);
+		if (player.scaleCount === 15) {
+			player.big = true;
+		} else if (player.scaleCount === 0) {
+			player.big = false;
+		}
+
 	}
 
-}
 	function animate() {
 		if (resetFlag) {
 			canvas = $("#gameCanvas");
@@ -481,20 +496,20 @@ $(document).ready(function() {
 				var hitX = player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth;
 				var hitXlong = player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 3) * blockWidth;
 
-				var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) &&((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-				var hitXYjumpVoid = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) &&((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15);
-				var hitXYjumpLand = (player.x + player.halfWidth * 0.5 >= blockX1 + (m + 0.2) * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) &&((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+				var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+				var hitXYjumpVoid = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15);
+				var hitXYjumpLand = (player.x + player.halfWidth * 0.5 >= blockX1 + (m + 0.2) * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
 				switch (blocks[k][m]) {
 
-				// 缩放
+					// 缩放
 					case 21:
 						if (!player.big && hitXlong)
-								scaleContext(context, -14.5, -22, 1.05, 1);
+							scaleContext(context, -14.5, -22, 1.05, 1);
 						break;
 
 					case 22:
-						if (player.big && hitXlong) 
-								scaleContext(context, 14.5, 22, 0.95238, -1);
+						if (player.big && hitXlong)
+							scaleContext(context, 14.5, 22, 0.95238, -1);
 						break;
 
 						//方块
@@ -554,7 +569,23 @@ $(document).ready(function() {
 							}
 						}
 						break;
+						// 地上半三角
+						case 5:
+						context.beginPath();
 
+						context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.5) * blockHeight);
+						context.lineTo(blockX1 + m * blockWidth, blockY1 - k * blockHeight);
+						context.lineTo(blockX1 + (m + 1) * blockWidth, blockY1 - k * blockHeight);
+
+						context.closePath();
+							context.fillStyle = "red";
+
+						context.fill();
+						context.fillStyle = "white";
+						if (hitXYdead) {
+							dead();
+						}
+						break;
 						//变形
 					case 11:
 						if (hitX) {
@@ -581,11 +612,11 @@ $(document).ready(function() {
 						break;
 						// 二段跳
 					case 5:
-						if ((player.shapeFlag === 1 || player.shapeFlag === 2) && ondownFlag&&hitXYjumpVoid) {
+						if ((player.shapeFlag === 1 || player.shapeFlag === 2) && ondownFlag && hitXYjumpVoid) {
 							player.vY = -12;
 						}
 						context.beginPath();
-						context.arc(blockX1 + (m+0.5) * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth/2, 0, Math.PI * 2, true);
+						context.arc(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth / 2, 0, Math.PI * 2, true);
 						context.closePath();
 						context.fillStyle = "yellow";
 						context.fill();
@@ -620,7 +651,7 @@ $(document).ready(function() {
 		// Loop through every asteroid
 
 		var asteroidsLength = asteroids.length;
-		for (var i = 0; i < asteroidsLength; i++) {
+		for (var i = 0; i < 0; i++) {
 			var tmpAsteroid = asteroids[i];
 
 			// Calculate new position
