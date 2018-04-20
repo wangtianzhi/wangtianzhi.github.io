@@ -245,7 +245,7 @@
 
     
         <meta property="article:published_time" content="Sat Mar 10 2040 20:55:28 GMT+0800">
-        <meta property="article:modified_time" content="Wed Apr 18 2018 23:00:27 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 20 2018 20:02:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -268,7 +268,7 @@
     "mainEntityOfPage": "http://yoursite.com/2040/03/10/游戏更新日志/index.html",
     "headline": "【置顶】游戏更新日志",
     "datePublished": "Sat Mar 10 2040 20:55:28 GMT+0800",
-    "dateModified": "Wed Apr 18 2018 23:00:27 GMT+0800",
+    "dateModified": "Fri Apr 20 2018 20:02:50 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "王八蛋智",
@@ -558,9 +558,21 @@
 <p>做游戏的过程感觉逻辑思维获得明显锻炼，实际的实现触碰到许多问题，被实时想出方案就觉，但是编程基础没有多少提升，Canvas终究只是一个小版块，Vue学习的第一个阶段已经完成，算是入门了，越来越感受到基础JS的重要性，</p>
 <p>20180418</p>
 <p>现在代码的可读性更高了，维护和更改的成本也变低了，封装了常用的一些函数，将常用的判断Flag声明成变量，同时添加了二段跳机制，是个黄圈，以后会将画面改善。下一个目标是做出来重力翻转系统</p>
-<p><div id="fuck"></div></p>
-<p><div id="gaster"></div></p>
-<audio id="music" autoplay><br>   <source src="/music/GasterBattle.mp3" type="audio/mpeg"><br>  您的浏览器不支持 audio 元素。<br></audio>
+<p>20180419</p>
+<p>微派的CEO大哥给我提了些意见，现在这个游戏的定位是一款移动端的休闲游戏，所以做出许多调整，具体如下：</p>
+<ol>
+<li>降低难度，现在玩家如果持续按住屏幕，会一直跳，而不是按住只跳一次。其实并不提倡玩家按住屏幕，也很少有需要不间断的跳的地方，这个改动是为了增加判定点，即在一些极端的地方，比如只有一个格的反应时间，玩家可能会提前按下屏幕一小会，这个改动让玩家即使提前按，也可以跳起来，难度降低很多，不再针对硬核玩家极限操作</li>
+<li>只保留一个模式，当时说的是折线，但我认为方块模式才是这游戏的精髓，剩下的都是锦上添花，我只是比较喜欢折线，但如果做游戏，还是类似马里奥的方块模式好，这样和弹簧/多段跳的配合更好</li>
+<li>地图上的调整，更长，难度渐进，接下来会具体说明</li>
+</ol>
+<p>游戏特性：</p>
+<!-- 
+<div id="fuck"></div>
+<div id="gaster"></div>
+<audio id="music" autoplay>
+   <source src="/music/GasterBattle.mp3" type="audio/mpeg">
+  您的浏览器不支持 audio 元素。
+</audio>
 
 <script>
 
@@ -602,7 +614,7 @@ var time;
 music.onpause=function () {  
     music.play()}; 
 
-</script>
+</script> -->
         
     
 
@@ -650,7 +662,7 @@ music.onpause=function () {
 
     <!-- Next Nav -->
     
-        <a href="/2018/04/19/今天去了微派-很开心/" id="post_nav-older" class="next-content">
+        <a href="/2018/04/20/今天在做游戏-很开心/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -742,7 +754,7 @@ music.onpause=function () {
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">19</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">20</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -809,7 +821,7 @@ music.onpause=function () {
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">73</span>
+                <span class="sidebar-badge">74</span>
             </a>
         </li>
         

@@ -6,12 +6,31 @@
       <title>【置顶】游戏更新日志</title>
       <link href="/2040/03/10/%E6%B8%B8%E6%88%8F%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/"/>
       <url>/2040/03/10/%E6%B8%B8%E6%88%8F%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</url>
-      <content type="html"><![CDATA[<h4 id="游戏更新日志"><a href="#游戏更新日志" class="headerlink" title="游戏更新日志"></a>游戏更新日志</h4><p>20180126 </p><p>开始构思</p><p>201802 </p><p>一直构思，挑选bgm，很多时候重复听一首歌，重复许多遍，脑子里想这首歌应该配什么场景</p><p>20180324 </p><p>之前因为眼睛的激光手术，Vue学习和校园卡充值项目，拖到现在正式开始做</p><p>20180328</p><p>完成最初始的小demo，一个小火箭，一堆圆球</p><p>20180330</p><p>将火箭的运行方式改为帅的一塌糊涂的折线，难度极大，因为要绘制折线，必须逐像素确定位置，做了很久</p><p>20180401</p><p>四个模式都完成了，方形/圆/曲线/折线，并且可以切换，切换时可以有bug，但过程还算流程，不太打算改了，最大的问题是折线进行时的渲染，性能不好的话会画的曲流拐弯难看的不行，也许和我的动画帧数与计算的计时器调用频率有关，也许两者达到某个关系即可非常流畅，这两天试试</p><p>20180406</p><p>更新了折线，通过计时器的改进，现在点击松开切换不会卡顿了，也不会再有难看的不规则线条，但是出现了新的问题，折线在边界处会让整个线条完全扯淡的瞎转(好像问题更大了)，在网页上实现比在程序中要难不少，解决方案是，让折线碰到边界时，死掉，这就完美了，明天再实现</p><p>改进前</p><p><img src="/img/content/game3.png" alt="caonima"></p><p>改进后</p><p><img src="/img/content/game2.png" alt="zhexian"></p><p>20180407</p><p>彻底解决箭头状态在边缘时的动画效果问题，原来是之前封装到计时器函数的调用出了问题，搞了半天也没解决，经过测试，那个函数只被调用一次就停了，最后的方案是取消封装，反正只用那么一两次，搁在外面凑活下也没问题，下一步是封装各种障碍物，刺/方块/Gaster Blaster/斜坡，其中方块可以组成多种形状，以及辅助用的版块，大中小弹簧/二次跳跃点/翻转重力/翻转左右/加速减速/复制玩家，以及死亡，现在的折现线条可以闪烁了</p><p>20180408</p><p>圆不是匀速运动了，现在有加速度，同时减少了初速度</p><p>20180409</p><p>小方块添加了跳跃旋转的动画，用昨天的那种麻烦的旋转方法，算好速度加速度跳跃时间，每帧转9°，落下后如果在30°到60°间，则继续转，否则直接跳到90°的倍数，这么做是为了画面流畅，如果方块在平面上转，太违和了，如果不转直接到90°，又不流畅，中和下来，这是最好的办法添加了可以踩的方块，这是这游戏的精髓，游戏最主要的模式是方形，那必须像马里奥一样造出立体的地图，用方块即可，以后还会有刺/斜面，地图初始化方式是，一个超长的数组，储存地图信息，0是空，1是方块，然后每帧前进vx</p><p><img src="/img/content/game4.png" alt="fangkuai"></p><p>20180410</p><p>现在玩家可以被迎面而来的方块撞死了，也可以跳到方块上，在方块上起跳，或者不跳，等方块走过自由落体，从没想过做一个小物理引擎这么困难，要考虑的情况太多了，各种碰撞检测，每个方块的上下左右，还要重写之前的跳跃逻辑，如果检测到边缘，跳跃硬设为false，如果玩家自己跳跃，自然是true，但是如果方块走开而玩家没有跳，需要重新检测，还要检测玩家有没有碰到上面的方块，以及怎样才算碰到，碰撞体积，落在方块上和被撞死的检测有什么不同，最后的方案是，方块进入玩家体内15后才算被撞死，这样区别撞死和落在上面的不同，实际情况还要复杂的多，因为有圆形，每次跳跃后aX反向，那circleJump和circleIsJump又是个很复杂的逻辑，这个比方形难得多。地图用数组储存，这是刚开始，以后数组会越来越大，暂定2代表尖刺，3代表弹簧</p><p><img src="/img/content/game5.png" alt="ditu"></p><p>20180412</p><p>刺和弹簧，刺有正反，弹簧也有，很简单，弹簧给它个瞬间速度就好，添加了上方方块的下面碰撞检测，现在玩家飞不到方块里面了，以后会添加重力转变剩下的模式可以贴着上方的方块走</p><p><img src="/img/content/game6.png" alt="game6"></p><p>除了箭头和方块，以及分身</p><p>20180415</p><p>减少了线条数组容量，减少了曲线的点和线条的宽度，增加了曲线的曲率和加速度，增加了方块的加速度，现在方块和圆处于同一个重力模型下，可以更好的适配，减少了方块的初速度，scale真是个傻逼的函数，canvas没有很好的还原功能，save和restore只能触发最近的保存点，那么放大缩小就极其难受，每帧放大/缩小1.05倍，再加上水平位移14.5和垂直位移22，达到比较好的视觉效果</p><p>做游戏的过程感觉逻辑思维获得明显锻炼，实际的实现触碰到许多问题，被实时想出方案就觉，但是编程基础没有多少提升，Canvas终究只是一个小版块，Vue学习的第一个阶段已经完成，算是入门了，越来越感受到基础JS的重要性，</p><p>20180418</p><p>现在代码的可读性更高了，维护和更改的成本也变低了，封装了常用的一些函数，将常用的判断Flag声明成变量，同时添加了二段跳机制，是个黄圈，以后会将画面改善。下一个目标是做出来重力翻转系统</p><p><div id="fuck"></div></p><p><div id="gaster"></div></p><audio id="music" autoplay><br>   <source src="/music/GasterBattle.mp3" type="audio/mpeg"><br>  您的浏览器不支持 audio 元素。<br></audio><script>alert("打开声音");    var gaster = document.createElement("div");    var body = document.getElementsByTagName("body")[0];    body.appendChild(gaster);    // var gaster = document.getElementById("gaster");    gaster.innerHTML="<img src='/img/content/gaster2.png' style='width:100%;position:fixed;'/>";    gaster.setAttribute('style', 'z-index:99; position: absolute; left: 0; top: 0;width:100%;height:100%;display: none;');var count = 0;var time;    setTimeout(function() {  time = setInterval(function() {    count ++;    if(gaster.style.display === "none"){    gaster.style.display = "block";  }    else {      gaster.style.display = "none";    }    if(count === 15) {      gaster.style.display = "none";      clearInterval(time);    }  },99);},11580 );  document.addEventListener('touchstart', function() {  document.getElementById("music").play();  });music.onpause=function () {      music.play()}; </script>]]></content>
+      <content type="html"><![CDATA[<h4 id="游戏更新日志"><a href="#游戏更新日志" class="headerlink" title="游戏更新日志"></a>游戏更新日志</h4><p>20180126 </p><p>开始构思</p><p>201802 </p><p>一直构思，挑选bgm，很多时候重复听一首歌，重复许多遍，脑子里想这首歌应该配什么场景</p><p>20180324 </p><p>之前因为眼睛的激光手术，Vue学习和校园卡充值项目，拖到现在正式开始做</p><p>20180328</p><p>完成最初始的小demo，一个小火箭，一堆圆球</p><p>20180330</p><p>将火箭的运行方式改为帅的一塌糊涂的折线，难度极大，因为要绘制折线，必须逐像素确定位置，做了很久</p><p>20180401</p><p>四个模式都完成了，方形/圆/曲线/折线，并且可以切换，切换时可以有bug，但过程还算流程，不太打算改了，最大的问题是折线进行时的渲染，性能不好的话会画的曲流拐弯难看的不行，也许和我的动画帧数与计算的计时器调用频率有关，也许两者达到某个关系即可非常流畅，这两天试试</p><p>20180406</p><p>更新了折线，通过计时器的改进，现在点击松开切换不会卡顿了，也不会再有难看的不规则线条，但是出现了新的问题，折线在边界处会让整个线条完全扯淡的瞎转(好像问题更大了)，在网页上实现比在程序中要难不少，解决方案是，让折线碰到边界时，死掉，这就完美了，明天再实现</p><p>改进前</p><p><img src="/img/content/game3.png" alt="caonima"></p><p>改进后</p><p><img src="/img/content/game2.png" alt="zhexian"></p><p>20180407</p><p>彻底解决箭头状态在边缘时的动画效果问题，原来是之前封装到计时器函数的调用出了问题，搞了半天也没解决，经过测试，那个函数只被调用一次就停了，最后的方案是取消封装，反正只用那么一两次，搁在外面凑活下也没问题，下一步是封装各种障碍物，刺/方块/Gaster Blaster/斜坡，其中方块可以组成多种形状，以及辅助用的版块，大中小弹簧/二次跳跃点/翻转重力/翻转左右/加速减速/复制玩家，以及死亡，现在的折现线条可以闪烁了</p><p>20180408</p><p>圆不是匀速运动了，现在有加速度，同时减少了初速度</p><p>20180409</p><p>小方块添加了跳跃旋转的动画，用昨天的那种麻烦的旋转方法，算好速度加速度跳跃时间，每帧转9°，落下后如果在30°到60°间，则继续转，否则直接跳到90°的倍数，这么做是为了画面流畅，如果方块在平面上转，太违和了，如果不转直接到90°，又不流畅，中和下来，这是最好的办法添加了可以踩的方块，这是这游戏的精髓，游戏最主要的模式是方形，那必须像马里奥一样造出立体的地图，用方块即可，以后还会有刺/斜面，地图初始化方式是，一个超长的数组，储存地图信息，0是空，1是方块，然后每帧前进vx</p><p><img src="/img/content/game4.png" alt="fangkuai"></p><p>20180410</p><p>现在玩家可以被迎面而来的方块撞死了，也可以跳到方块上，在方块上起跳，或者不跳，等方块走过自由落体，从没想过做一个小物理引擎这么困难，要考虑的情况太多了，各种碰撞检测，每个方块的上下左右，还要重写之前的跳跃逻辑，如果检测到边缘，跳跃硬设为false，如果玩家自己跳跃，自然是true，但是如果方块走开而玩家没有跳，需要重新检测，还要检测玩家有没有碰到上面的方块，以及怎样才算碰到，碰撞体积，落在方块上和被撞死的检测有什么不同，最后的方案是，方块进入玩家体内15后才算被撞死，这样区别撞死和落在上面的不同，实际情况还要复杂的多，因为有圆形，每次跳跃后aX反向，那circleJump和circleIsJump又是个很复杂的逻辑，这个比方形难得多。地图用数组储存，这是刚开始，以后数组会越来越大，暂定2代表尖刺，3代表弹簧</p><p><img src="/img/content/game5.png" alt="ditu"></p><p>20180412</p><p>刺和弹簧，刺有正反，弹簧也有，很简单，弹簧给它个瞬间速度就好，添加了上方方块的下面碰撞检测，现在玩家飞不到方块里面了，以后会添加重力转变剩下的模式可以贴着上方的方块走</p><p><img src="/img/content/game6.png" alt="game6"></p><p>除了箭头和方块，以及分身</p><p>20180415</p><p>减少了线条数组容量，减少了曲线的点和线条的宽度，增加了曲线的曲率和加速度，增加了方块的加速度，现在方块和圆处于同一个重力模型下，可以更好的适配，减少了方块的初速度，scale真是个傻逼的函数，canvas没有很好的还原功能，save和restore只能触发最近的保存点，那么放大缩小就极其难受，每帧放大/缩小1.05倍，再加上水平位移14.5和垂直位移22，达到比较好的视觉效果</p><p>做游戏的过程感觉逻辑思维获得明显锻炼，实际的实现触碰到许多问题，被实时想出方案就觉，但是编程基础没有多少提升，Canvas终究只是一个小版块，Vue学习的第一个阶段已经完成，算是入门了，越来越感受到基础JS的重要性，</p><p>20180418</p><p>现在代码的可读性更高了，维护和更改的成本也变低了，封装了常用的一些函数，将常用的判断Flag声明成变量，同时添加了二段跳机制，是个黄圈，以后会将画面改善。下一个目标是做出来重力翻转系统</p><p>20180419</p><p>微派的CEO大哥给我提了些意见，现在这个游戏的定位是一款移动端的休闲游戏，所以做出许多调整，具体如下：</p><ol><li>降低难度，现在玩家如果持续按住屏幕，会一直跳，而不是按住只跳一次。其实并不提倡玩家按住屏幕，也很少有需要不间断的跳的地方，这个改动是为了增加判定点，即在一些极端的地方，比如只有一个格的反应时间，玩家可能会提前按下屏幕一小会，这个改动让玩家即使提前按，也可以跳起来，难度降低很多，不再针对硬核玩家极限操作</li><li>只保留一个模式，当时说的是折线，但我认为方块模式才是这游戏的精髓，剩下的都是锦上添花，我只是比较喜欢折线，但如果做游戏，还是类似马里奥的方块模式好，这样和弹簧/多段跳的配合更好</li><li>地图上的调整，更长，难度渐进，接下来会具体说明</li></ol><p>游戏特性：</p><!-- <div id="fuck"></div><div id="gaster"></div><audio id="music" autoplay>   <source src="/music/GasterBattle.mp3" type="audio/mpeg">  您的浏览器不支持 audio 元素。</audio><script>alert("打开声音");    var gaster = document.createElement("div");    var body = document.getElementsByTagName("body")[0];    body.appendChild(gaster);    // var gaster = document.getElementById("gaster");    gaster.innerHTML="<img src='/img/content/gaster2.png' style='width:100%;position:fixed;'/>";    gaster.setAttribute('style', 'z-index:99; position: absolute; left: 0; top: 0;width:100%;height:100%;display: none;');var count = 0;var time;    setTimeout(function() {  time = setInterval(function() {    count ++;    if(gaster.style.display === "none"){    gaster.style.display = "block";  }    else {      gaster.style.display = "none";    }    if(count === 15) {      gaster.style.display = "none";      clearInterval(time);    }  },99);},11580 );  document.addEventListener('touchstart', function() {  document.getElementById("music").play();  });music.onpause=function () {      music.play()}; </script> -->]]></content>
       
       
         <tags>
             
             <tag> canvas </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>今天在做游戏 很开心</title>
+      <link href="/2018/04/20/%E4%BB%8A%E5%A4%A9%E5%9C%A8%E5%81%9A%E6%B8%B8%E6%88%8F-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/04/20/%E4%BB%8A%E5%A4%A9%E5%9C%A8%E5%81%9A%E6%B8%B8%E6%88%8F-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>早操英语看古老的西部牛仔电影，之后算法，中午睡觉，下午数字信号学，取快递，三磅蛋白粉，和他去健身，他可劲奶我，叫我即将拥有工作的王天智，晚上图书馆做游戏</p><p>下午有个来武汉玩的傻吊叫我去光谷玩，我说做游戏没时间</p><p>今天课很满，没多少时间，要不然可以多做些的</p><h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p>今天上课写了不少游戏的策划，以及游戏的地图，有一些关于游戏特性的点</p><p>在图书馆做游戏，主要是性能优化和地图构造，现在有一定可玩性了</p><ul><li>To Do List:<ol><li>√ 数组重置，因为这和测试不一样了，超长的地图，如果仍然逐帧渲染每一个方块，判断类型内存肯定吃不消的，</li></ol></li></ul>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 游戏 </tag>
+            
+            <tag> canvas </tag>
+            
+            <tag> 产品 </tag>
             
         </tags>
       
@@ -62,9 +81,9 @@
       
         <tags>
             
-            <tag> javascript </tag>
-            
             <tag> 博客 </tag>
+            
+            <tag> javascript </tag>
             
         </tags>
       
@@ -382,11 +401,11 @@
       
         <tags>
             
-            <tag> 校园卡充值 </tag>
+            <tag> NOBIBI </tag>
             
             <tag> jssdk </tag>
             
-            <tag> NOBIBI </tag>
+            <tag> 校园卡充值 </tag>
             
         </tags>
       
@@ -422,9 +441,9 @@
             
             <tag> vue </tag>
             
-            <tag> 校园卡充值 </tag>
-            
             <tag> jssdk </tag>
+            
+            <tag> 校园卡充值 </tag>
             
         </tags>
       
