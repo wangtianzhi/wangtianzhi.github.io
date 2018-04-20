@@ -124,7 +124,7 @@ $(document).ready(function() {
     blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0]);
     blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 5, 5, 1, 5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 5, 5, 5, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 2, 2]);
 
-    blockX1 = canvasWidth - 2000;
+    blockX1 = canvasWidth;
     blockY1 = canvasHeight - 20;
     // console.log(player.scaleCount);
     //  for (var i = 0; i< player.scaleCount;i++){
@@ -235,7 +235,7 @@ $(document).ready(function() {
   trBlocks = new Array();
   var blockWidth = 44;
   var blockHeight = 44;
-  var blockX1 = canvasWidth - 2000;
+  var blockX1 = canvasWidth;
   var blockY1 = canvasHeight - 20;
   var blockVx1 = -8;
   var blockVy1 = 0;
