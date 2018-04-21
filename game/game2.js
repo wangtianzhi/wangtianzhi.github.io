@@ -7,6 +7,8 @@ var player;
 var resetFlag = true;
 var change = 0;
 var ondownFlag = false;
+var background = new Image();
+background.src = "/img/game/background2.png";
 var X;
 var Player = function(x, y) {
   this.x = x;
@@ -137,13 +139,13 @@ $(document).ready(function() {
     // var canvas = gameDiv.removeChild('#gameCanvas');
     // gameDiv.appendChild(canvas);
     player.scaleCount = 0;
-    $('#gameCanvas').remove();
-    $('#gameDiv').append('<canvas id="gameCanvas" width="980px" height="490px"></canvas>');
+    // $('#gameCanvas').remove();
+    // $('#gameDiv').append('<canvas id="gameCanvas" width="980px" height="490px"></canvas>');
 
     player.scaleCount = 0;
     player.big = false;
     startGame();
-    resetFlag = true;
+    // resetFlag = true;
     for (var i = 0; i < arrowArrayY.length; i++) {
       arrowArrayY.pop();
     }
@@ -363,29 +365,27 @@ $(document).ready(function() {
   }
 
   function animate() {
-    if (resetFlag) {
-      canvas = $("#gameCanvas");
-      context = canvas.get(0).getContext("2d");
-      resetFlag = false;
+    // if (resetFlag) {
+    //   canvas = $("#gameCanvas");
+    //   context = canvas.get(0).getContext("2d");
+    //   resetFlag = false;
 
-    }
+    // }
 
-    context.clearRect(-200, -200, canvasWidth + 500, canvasHeight + 500);
+    context.clearRect(0, 0, canvasWidth, canvasHeight);
+    context.drawImage(background, 0, 0);
     context.fillStyle = "rgb(255, 255, 255)";
     // block
-    context.fillStyle = "rgb(255, 255, 255)";
+
     blockX1 += blockVx1;
     blockY1 += blockVy1;
     for (var k = 0; k < blocks.length; k++) {
       for (var m = 0; m < blocks[0].length; m++) {
         var block = blocks[k][m];
-        var hitX = player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth;
-        var hitXlong = player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 3) * blockWidth;
-        var blockInCanvas = blockX1 + m * blockWidth <= canvasWidth && blockX1 + m * blockWidth >= 0;
-        var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-        var hitXYjumpVoid = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15);
-        var hitXYjumpLand = (player.x + player.halfWidth * 0.5 >= blockX1 + (m + 0.2) * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-        if (blockInCanvas) {
+        // var hitX = player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth;
+        // var hitXlong = player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 3) * blockWidth;
+        // blockinCanvas
+        if (blockX1 + m * blockWidth <= canvasWidth && blockX1 + m * blockWidth >= 0) {
           if (block > 0) {
             //方块
             if (block === 1) {
@@ -408,6 +408,8 @@ $(document).ready(function() {
               context.fillStyle = "red";
               context.fill();
               context.fillStyle = "white";
+              var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+
               if (hitXYdead) {
                 dead();
               }
@@ -424,6 +426,8 @@ $(document).ready(function() {
               context.fillStyle = "red";
               context.fill();
               context.fillStyle = "white";
+        var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+
               if (hitXYdead) {
                 dead();
               }
@@ -434,6 +438,8 @@ $(document).ready(function() {
               context.fillStyle = "yellow";
               context.fillRect(blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.3) * blockHeight, 0.6 * blockWidth, 0.3 * blockHeight);
               context.fillStyle = "white";
+              var hitXYjumpLand = (player.x + player.halfWidth * 0.5 >= blockX1 + (m + 0.2) * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+
               if (hitXYjumpLand) {
 
                 player.vY = -19;
@@ -454,6 +460,8 @@ $(document).ready(function() {
 
               context.fill();
               context.fillStyle = "white";
+        var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+
               if (hitXYdead) {
                 dead();
               }
@@ -461,6 +469,8 @@ $(document).ready(function() {
 
             // 二段跳
             if (block === 6) {
+        var hitXYjumpVoid = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15);
+
               if (ondownFlag && hitXYjumpVoid) {
                 player.vY = -12;
               }
@@ -474,6 +484,8 @@ $(document).ready(function() {
             // 半方块
             if (block === 7) {
               context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight / 2);
+        var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
+
               if (hitXYdead) {
                 dead();
               }
@@ -555,7 +567,6 @@ $(document).ready(function() {
               blocks[2].splice(len + 1, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0);
               blocks[1].splice(len + 1, 0, 0, 0, 0, 0, 1, 7, 7, 7, 7, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0);
               blocks[0].splice(len + 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 5, 5, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
             }
           }
         }
