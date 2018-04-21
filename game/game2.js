@@ -516,7 +516,7 @@ $(document).ready(function() {
               draw1 = false;
               backgroundX = 0;
               soundBackground.pause();
-              soundPressStart.currentTime = 17.5;
+              soundPressStart.currentTime = 17;
               soundPressStart.play();
 
 
