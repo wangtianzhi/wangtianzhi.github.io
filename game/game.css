@@ -7,16 +7,7 @@ body {
 	color: #fff;
 	font-family: Verdana, Arial, sans-serif;
 	font-size: 18px;	
-transform: rotate(90deg);
-transform-origin: left bottom;
--ms-transform: rotate(90deg); /* Internet Explorer 9 */
--ms-transform-origin: left bottom; /* Internet Explorer 9 */
--moz-transform: rotate(90deg); /* Firefox */
--moz-transform-origin: left bottom; /* Firefox */
--webkit-transform: rotate(90deg); /* Safari & Chrome */
--webkit-transform-origin: left bottom; /* Safari & Chrome */
--o-transform: rotate(90deg); /* Opera */
--o-transform-origin: left bottom; /* Opera */
+
 }
 
 h1 {

@@ -82,6 +82,20 @@ $(document).ready(function() {
 	var canvas = $("#gameCanvas");
 	var context = canvas.get(0).getContext("2d");
 
+ var conW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;  
+    var conH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;  
+    // transform: rotate(90deg); width: 667px; height: 375px;transform-origin:28% 50%;  
+    //var iosTopHe = 0;//若有其他样式判断，写于此  
+      
+    $("body").css({  
+        "transform":"rotate(90deg) translate("+((conH-conW)/2)+"px,"+((conH-conW)/2)+"px)",  
+        "width":conH+"px",  
+        "height":conW+"px",  
+        //"margin-top":iosTopHe+"px",  
+        // "border-left":iosTopHe+"px solid #000",  
+        "transform-origin":"center center",  
+        "-webkit-transform-origin": "center center"  
+    });  
 	var uiHeight = document.body.clientHeight; // 获取高度
 	var uiWidth = document.body.clientWidth;
 	// 	$("#game").css("height", uiHeight).css("width", uiWidth);
