@@ -87,15 +87,15 @@ $(document).ready(function() {
     // transform: rotate(90deg); width: 667px; height: 375px;transform-origin:28% 50%;  
     //var iosTopHe = 0;//若有其他样式判断，写于此  
       
-    $("body").css({  
-        "transform":"rotate(90deg) translate("+((conH-conW)/2)+"px,"+((conH-conW)/2)+"px)",  
-        "width":conH+"px",  
-        "height":conW+"px",  
-        //"margin-top":iosTopHe+"px",  
-        // "border-left":iosTopHe+"px solid #000",  
-        "transform-origin":"center center",  
-        "-webkit-transform-origin": "center center"  
-    });  
+    // $("body").css({  
+    //     "transform":"rotate(90deg) translate("+((conH-conW)/2)+"px,"+((conH-conW)/2)+"px)",  
+    //     "width":conH+"px",  
+    //     "height":conW+"px",  
+    //     //"margin-top":iosTopHe+"px",  
+    //     // "border-left":iosTopHe+"px solid #000",  
+    //     "transform-origin":"center center",  
+    //     "-webkit-transform-origin": "center center"  
+    // });  
 	var uiHeight = document.body.clientHeight; // 获取高度
 	var uiWidth = document.body.clientWidth;
 	// 	$("#game").css("height", uiHeight).css("width", uiWidth);
