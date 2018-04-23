@@ -166,13 +166,13 @@ $(document).ready(function() {
     if (uiScore.html() <= 10) {
       scoreSay.html("是不是手滑了");
     } else if (uiScore.html() <= 20) {
-      scoreSay.html("还算可以");
+      scoreSay.html("凑活吧");
     } else if (uiScore.html() <= 30) {
-      scoreSay.html("有点厉害了啊");
+      scoreSay.html("还行");
     } else if (uiScore.html() <= 40) {
-      scoreSay.html("你是真的帅");
+      scoreSay.html("可以啊");
     } else if (uiScore.html() <= 50) {
-      scoreSay.html("你没开挂吧");
+      scoreSay.html("有点厉害了");
     } else if (uiScore.html() <= 60) {
       scoreSay.html("一般是没人能看到这句话的，如果你看到了，使劲跟别人吹去吧");
     } else if (uiScore.html() > 60) {
