@@ -127,10 +127,10 @@ $(document).ready(function() {
   var audio2 = document.getElementById("gameSoundBackground2");
 
 audio1.addEventListener("canplaythrough", function() {
-  alert("bgm1加载完毕");
+
 });
 audio2.addEventListener("canplaythrough", function() {
-  alert("bgm2加载完毕");
+
 
 });
 
