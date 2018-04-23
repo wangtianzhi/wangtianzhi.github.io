@@ -119,14 +119,12 @@ $(document).ready(function() {
   var uiDoublePlay = $("#gameDoublePlay");
   var soundBackground = $("#gameSoundBackground").get(0);
   var soundBackground2 = $("#gameSoundBackground2").get(0);
-  soundBackground.play();
-  soundBackground.pause();
-  soundBackground2.play();
-  soundBackground2.pause();
+ 
   var audio1 = document.getElementById("gameSoundBackground");
   var audio2 = document.getElementById("gameSoundBackground2");
 
 audio1.addEventListener("canplaythrough", function() {
+
 
 });
 audio2.addEventListener("canplaythrough", function() {
@@ -275,7 +273,7 @@ audio2.addEventListener("canplaythrough", function() {
     document.getElementById("gameReset").ontouchstart = reset;
     // Reset sounds
     soundBackground.pause();
-    soundBackground2.pause();
+    // soundBackground2.pause();
   }
 
 
@@ -740,9 +738,9 @@ audio2.addEventListener("canplaythrough", function() {
 
               if (hitXYjumpLand) {
                 blocks[k][m] = 0;
-                soundBackground.pause();
-                soundBackground2.currentTime = 0;
-                soundBackground2.play();
+                // soundBackground.pause();
+                // soundBackground2.currentTime = 0;
+                // soundBackground2.play();
               }
             }
 
