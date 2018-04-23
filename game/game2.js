@@ -960,7 +960,7 @@ $(document).ready(function() {
 
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
-      setTimeout(animate, 10);
+      setTimeout(animate, 16);
     }
   }
 
