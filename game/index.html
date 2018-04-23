@@ -20,11 +20,9 @@
 				<p>这是第<span id="busuanzi_value_page_pv"></span>次测试</p>
 				<p><a href="" id="gamePlay" class="button">正常模式</a></p>
 				<p><a href="" id="gameTestPlay" class="button">不死模式</a></p>
-
+				<p><a href="double.html" id="gameDoublePlay" class="button">双人模式（未完成）</a></p>
 				<p>感谢测试</p>
-				<br>
 				<p>按住可以一直跳，但不建议你总是这样</p>
-				<br>
 				<p>黄色小方块是弹簧，碰到会弹起；在黄色圆圈处点屏幕会在空中跳起</p>
 
 			</div>
@@ -45,18 +43,13 @@
 		<canvas id="gameCanvas" width="980px" height="490px">
 		</canvas>
 	</div>
-		<audio id="gameSoundBackground" loop>
+		<audio id="gameSoundBackground" preload="auto" loop>
 			<source src="sounds/background.mp3">
 		</audio>
-		<audio id="gameSoundThrust" loop>
-			<source src="sounds/thrust.mp3">
 
+<audio id="gameSoundBackground2" preload="auto" loop>
+			<source src="sounds/background2.mp3">
 		</audio>
-		<audio id="gameSoundDeath" loop>
-			<source src="sounds/death.mp3">
-
-		</audio>
-
 		
 
 
