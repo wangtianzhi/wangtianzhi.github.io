@@ -76,7 +76,7 @@ var Player = function(x, y) {
 
 var windowHeight = window.innerHeight;
 $("gameCanvas").css("height", windowHeight);
-player = new Player(350, windowHeight / 2);
+player = new Player(200, windowHeight / 2);
 
 var vs = Math.sqrt(player.vY * player.vY * 2);
 
