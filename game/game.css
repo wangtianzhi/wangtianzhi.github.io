@@ -43,6 +43,11 @@ a.button:hover {
 	text-decoration: none;
 }
 
+#gameComplete {
+		background: black;
+
+}
+
 #game {
 	height: 490px;
 

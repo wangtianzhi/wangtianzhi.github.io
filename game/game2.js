@@ -14,7 +14,8 @@ var draw2 = false;
 var gFlag = false;
 var blackFlag = false;
 var notHorizon = true;
-var canDead = false;
+var canDead = true;
+var deadCount = 0;
 var topLen;
 var background = new Image();
 background.src = "/img/game/background5.png";
@@ -106,6 +107,7 @@ $(document).ready(function() {
   var uiPlay = $("#gamePlay");
   var uiReset = $(".gameReset"); // 所有重置
   var uiScore = $(".gameScore"); // 所有分数
+  var uiTestPlay = $("#gameTestPlay");
   var soundBackground = $("#gameSoundBackground").get(0);
   var soundThrust = $("#gameSoundThrust").get(0);
   var soundDeath = $("#gameSoundDeath").get(0);
@@ -142,7 +144,7 @@ $(document).ready(function() {
     // Stop thrust sound
     soundThrust.pause();
 
-
+    deadCount++;
     // Play death sound
     soundDeath.currentTime = 0;
     soundDeath.play();
@@ -151,6 +153,22 @@ $(document).ready(function() {
     playGame = false;
     clearTimeout(scoreTimeout);
     uiStats.hide();
+    $("#deadCount").html(deadCount);
+    if(deadCount === 5) {
+      $("#deadd").html("死五次不算什么，加油，你还能死更多次");
+    } 
+    if(deadCount === 10) {
+      $("#deadd").html("死十次了，没事，这才刚开始");
+    } 
+    if(deadCount === 15) {
+      $("#deadd").html("十五次，你要再死更多，我要数不过来了");
+    } 
+    if(deadCount === 20) {
+      $("#deadd").html("二十次，我真的数不过来了，你自己数吧");
+    } 
+    if(deadCount === 21) {
+      $("#deadd").html("二十一次，算了还是我来吧，我怕你数不对");
+    } 
     uiComplete.show();
     document.getElementById("gameReset").ontouchstart = reset;
     // Reset sounds
@@ -370,7 +388,12 @@ $(document).ready(function() {
       uiIntro.hide();
       startGame();
     });
-
+    uiTestPlay.click(function(e) {
+      e.preventDefault();
+      uiIntro.hide();
+      startGame();
+      canDead = false;
+    });
 
     uiReset.click(reset);
     uiReset.ontouchstart = reset;
