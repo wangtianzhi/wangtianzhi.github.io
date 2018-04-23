@@ -119,7 +119,20 @@ $(document).ready(function() {
   var uiDoublePlay = $("#gameDoublePlay");
   var soundBackground = $("#gameSoundBackground").get(0);
   var soundBackground2 = $("#gameSoundBackground2").get(0);
+  soundBackground.play();
+  soundBackground.pause();
+  soundBackground2.play();
+  soundBackground2.pause();
+  var audio1 = document.getElementById("gameSoundBackground");
+  var audio2 = document.getElementById("gameSoundBackground2");
 
+audio1.addEventListener("canplaythrough", function() {
+  alert("bgm1加载完毕");
+});
+audio2.addEventListener("canplaythrough", function() {
+  alert("bgm2加载完毕");
+
+});
 
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
