@@ -31,6 +31,8 @@ var heidaoci = new Image();
 heidaoci.src = "/img/game/heidaoci.png";
 var heifangkuai = new Image();
 heifangkuai.src = "/img/game/heifangkuai.png"
+var yuanquan = new Image();
+yuanquan.src = "/img/game/yuanquan.png"
 
 
 var blackPlayerImg = new Image();
@@ -153,12 +155,34 @@ $(document).ready(function() {
     $("#dead").show();
     deadCount++;
 
-
+    var scoreSay = document.getElementById("scoreSay");
     // Game over
     playGame = false;
     clearTimeout(scoreTimeout);
     uiStats.hide();
     $("#deadCount").html(deadCount);
+    if(uiScore.html() <= 10) {
+      scoreSay.innerHTML = "是不是手滑了";
+    }
+    else if(uiScore.html() <= 20) {
+      scoreSay.innerHTML = "还算可以";
+    }
+    else if(uiScore.html() <= 30) {
+      scoreSay.innerHTML = "有点厉害了啊";
+    }
+    else if(uiScore.html() <= 40) {
+      scoreSay.innerHTML = "你是真的帅";
+    }
+    else if(uiScore.html() <= 50) {
+      scoreSay.innerHTML = "你没开挂吧";
+    }
+    else if(uiScore.html() <= 60) {
+      scoreSay.innerHTML = "一般是没人能看到这句话的，如果你看到了，使劲跟别人吹去吧";
+    }
+    else if(uiScore.html() > 60) {
+      scoreSay.innerHTML = "卧 了 个 槽 ！！！";
+    }
+
     if (deadCount === 3) {
       $("#deadd").show();
       $("#dead").hide();
@@ -529,7 +553,7 @@ $(document).ready(function() {
             //地上的三角
             if (block === 2) {
               if (!blackFlag) {
-                context.drawImage(baiseci, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.6) * blockHeight, 0.6*blockWidth, 0.6*blockHeight);
 
               } else
                 // context.stroke();
@@ -547,7 +571,7 @@ $(document).ready(function() {
             if (block === 3) {
 
               if (!blackFlag) {
-                context.drawImage(baisedaoci, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+                context.drawImage(baisedaoci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth*0.6, 0.6*blockHeight);
 
               } else {
                 // context.stroke();
@@ -592,7 +616,7 @@ $(document).ready(function() {
 
               // context.closePath();
               if (!blackFlag) {
-                context.drawImage(baiseci, blockX1 + m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
+                context.drawImage(baiseci, blockX1 + (m+0.2) * blockWidth, blockY1 - (k + 0.4) * blockHeight, 0.6*blockWidth, 0.4 * blockHeight);
 
               } else
                 context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
@@ -615,15 +639,17 @@ $(document).ready(function() {
                 else
                   player.vY = 12;
               }
-              context.beginPath();
+              
+              if (!blackFlag) {
+                context.beginPath();
               context.arc(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth / 2, 0, Math.PI * 2, true);
               context.closePath();
-              if (!blackFlag) {
                 context.fillStyle = "yellow";
                 context.fill();
                 context.fillStyle = "white";
               } else
-                context.stroke();
+                context.drawImage(yuanquan, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+
             }
             // 半方块
             if (block === 7) {
@@ -812,7 +838,7 @@ $(document).ready(function() {
               blocks[5].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
               blocks[4].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,  0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0);
               blocks[3].splice(len + 1, 0, 7, 7, 7, 7, 7, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 0,  0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0);
-              blocks[2].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 7, 7, 7, 7, 7, 7, 7, 1, 7, 7, 7, 7, 7, 7, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+              blocks[2].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 7, 7, 7, 7, 7, 7, 7, 1, 7, 7, 7, 7, 7, 7, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0);
               blocks[1].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
               blocks[0].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,  5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
 
@@ -898,8 +924,8 @@ $(document).ready(function() {
               blocks[5].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
               blocks[4].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4);
               blocks[3].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 1);
-              blocks[2].splice(len + 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0);
-              blocks[1].splice(len + 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+              blocks[2].splice(len + 1, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 7, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0);
+              blocks[1].splice(len + 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
               blocks[0].splice(len + 1, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
             }
             if (block === -8) {
