@@ -18,6 +18,13 @@ p {
 	margin: 0 20px;
 }
 
+.a {
+	margin-bottom: 20px;
+}
+
+.b {
+	margin-top: 20px;
+}
 a {
 	color: #fff;
 	text-decoration: none;
@@ -30,7 +37,7 @@ a:hover {
 a.button {
 	background: #185da8;
 	border-radius: 5px;
-	display: block;
+	display: inline;
 	font-size: 30px;
 	margin: 20px auto;
 	padding: 10px;
@@ -77,7 +84,7 @@ a.button:hover {
 
 #gameStats {
 	font-size: 14px;
-	margin: 20px 0;
+	margin: 11px 0;
 }
 
 #gameStats .gameReset {
