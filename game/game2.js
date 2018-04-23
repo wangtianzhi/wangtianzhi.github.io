@@ -216,6 +216,7 @@ $(document).ready(function() {
 
     player.scaleCount = 0;
     player.big = false;
+    blackFlag = false;
     startGame();
     // resetFlag = true;
     for (var i = 0; i < arrowArrayY.length; i++) {
