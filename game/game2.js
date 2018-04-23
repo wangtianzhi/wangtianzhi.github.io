@@ -13,7 +13,7 @@ var draw1 = true;
 var draw2 = false;
 var gFlag = false;
 var blackFlag = false;
-var notHorizon = false;
+var notHorizon = true;
 var canDead = false;
 var topLen;
 var background = new Image();
@@ -406,9 +406,9 @@ $(document).ready(function() {
     context.clearRect(0, 0, canvasWidth + 100, canvasHeight + 100);
     context.fillStyle = "#003366";
     if (draw1)
-      context.drawImage(background, backgroundX, 0, 3266, 1000);
+      context.drawImage(background, backgroundX, 0, 32660, 500);
     else if (draw2)
-      context.drawImage(background2, backgroundX, 0, 3266, 1000);
+      context.drawImage(background2, backgroundX, 0, 32660, 500);
     if(!blackFlag){
     context.fillRect(0, canvasHeight - 20, canvasWidth, 20);
     context.fillRect(0, 0, canvasWidth, 29.2);
