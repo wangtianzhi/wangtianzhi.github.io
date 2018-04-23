@@ -552,15 +552,15 @@ $(document).ready(function() {
             //地上的三角
             if (block === 2) {
               if (!blackFlag) {
-                // context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.6) * blockHeight, 0.6 * blockWidth, 0.6 * blockHeight);
-   context.beginPath();
+                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.6) * blockHeight, 0.6 * blockWidth, 0.6 * blockHeight);
+   // context.beginPath();
 
-              context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.6) * blockHeight);
-              context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
-              context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
+   //            context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.6) * blockHeight);
+   //            context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
+   //            context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
 
-              context.closePath();
-              context.fill();
+   //            context.closePath();
+   //            context.fill();
               } else
                 // context.stroke();
                 context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
@@ -577,15 +577,15 @@ $(document).ready(function() {
             if (block === 3) {
 
               if (!blackFlag) {
-                // context.drawImage(baisedaoci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth * 0.6, 0.6 * blockHeight);
-context.beginPath();
+                context.drawImage(baisedaoci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth * 0.6, 0.6 * blockHeight);
+// context.beginPath();
 
-              context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
-              context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - (k+1) * blockHeight);
-              context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - (k+1) * blockHeight);
+//               context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
+//               context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - (k+1) * blockHeight);
+//               context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - (k+1) * blockHeight);
 
-              context.closePath();
-              context.fill();
+//               context.closePath();
+//               context.fill();
               } else {
                 // context.stroke();
                 context.drawImage(heidaoci, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
@@ -629,15 +629,15 @@ context.beginPath();
 
               // context.closePath();
               if (!blackFlag) {
-                context.beginPath();
+              //   context.beginPath();
 
-              context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
-              context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
-              context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
+              // context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
+              // context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
+              // context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
 
-              context.closePath();
-              context.fill();
-                // context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.4) * blockHeight, 0.6 * blockWidth, 0.4 * blockHeight);
+              // context.closePath();
+              // context.fill();
+                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.4) * blockHeight, 0.6 * blockWidth, 0.4 * blockHeight);
 
               } else
                 context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
@@ -676,7 +676,7 @@ context.beginPath();
             if (block === 7) {
               if (!blackFlag)
                 // context.drawImage(baisefangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
-                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 0.3) * blockHeight, blockWidth, 0.3 * blockHeight);
+                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
 
 
               else {
