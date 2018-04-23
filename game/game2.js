@@ -198,7 +198,7 @@ $(document).ready(function() {
     if(deadCount === 50) {
       $("#deadd").show();
     $("#dead").hide();
-      $("#deadd").html("你就没有更重要的事情可做吗？");
+      $("#deadd").html("It's high noon");
     } 
     if(deadCount === 60) {
       $("#deadd").show();
@@ -224,8 +224,13 @@ $(document).ready(function() {
       $("#deadd").show();
     $("#dead").hide();
       $("#deadd").html("朋友，截个图发给我，我想认识认识你");
+    }
+if(deadCount > 100) {
+      $("#deadd").show();
+    $("#dead").hide();
+      $("#deadd").html("你就没有更重要的事可做吗");
     } 
-    uiComplete.show();
+        uiComplete.show();
     document.getElementById("gameReset").ontouchstart = reset;
     // Reset sounds
     soundBackground.pause();
