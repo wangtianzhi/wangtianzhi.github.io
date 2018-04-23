@@ -273,7 +273,7 @@ audio2.addEventListener("canplaythrough", function() {
     document.getElementById("gameReset").ontouchstart = reset;
     // Reset sounds
     soundBackground.pause();
-    // soundBackground2.pause();
+    soundBackground2.pause();
   }
 
 
@@ -738,9 +738,9 @@ audio2.addEventListener("canplaythrough", function() {
 
               if (hitXYjumpLand) {
                 blocks[k][m] = 0;
-                // soundBackground.pause();
-                // soundBackground2.currentTime = 0;
-                // soundBackground2.play();
+                soundBackground.pause();
+                soundBackground2.currentTime = 0;
+                soundBackground2.play();
               }
             }
 
