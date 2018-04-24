@@ -1030,7 +1030,7 @@ $(document).ready(function() {
     }
 
 
-    if (!Border(player, blocks))
+    if (!borderFlag)
       player.squareJump = true;
 
 
@@ -1050,7 +1050,7 @@ $(document).ready(function() {
       player.aY = 0;
       player.squareJump = false;
     }
-    borderFlag = false;
+    // borderFlag = false;
 
     context.fillStyle = "white";
     // context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
