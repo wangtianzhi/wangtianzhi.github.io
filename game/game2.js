@@ -65,6 +65,7 @@ var Player = function(x, y) {
   this.snakeMoveUp = false;
   this.circleJump = true;
   this.flameLength = 20;
+  this.shapeFlag = 4;
   this.squareAngle = 0;
   this.big = false;
   this.scaleCount = 0;
@@ -285,7 +286,7 @@ $(document).ready(function() {
     gFlag = false;
     blockX1 = canvasWidth;
     blockY1 = canvasHeight - 20;
-
+    player.shapeFlag = 1;
 
 
     blackFlag = false;
@@ -331,7 +332,7 @@ $(document).ready(function() {
       borderFlag = true;
     }
 
-
+    if(player.shapeFlag === 1){
     if (playGame) {
       for (var k = 0; k < blocks.length; k++) {
         for (var m = 0; m < blocks[0].length; m++) {
@@ -353,7 +354,7 @@ $(document).ready(function() {
         }
       }
     }
-
+}
 
     if (borderFlag)
       player.squareJump = false;
@@ -425,6 +426,28 @@ $(document).ready(function() {
       setTimeout(function() {
         ondownShortFlag = false
       }, 130);
+
+      if (player.shapeFlag == 4) {
+        player.arrowMoveUp = true;
+        // 最后执行一遍计时器
+        arrowArrayDown(arrowArrayY, player);
+        // 执行完了
+        clearInterval(downInterval);
+        upInterval = setInterval(function() {
+
+          if (arrowArrayY[0] < player.y) {
+            arrowArrayY.shift();
+            arrowArrayY.unshift(player.y);
+          } else {
+            arrowArrayY.unshift(player.y);
+          }
+          if (arrowArrayY.length > arrowArrayLength) {
+            arrowArrayY.pop();
+          }
+
+        }, 32);
+
+      } 
       // if (!player.squareJump) {
       //   player.vY = -14;
       //   player.squareJump = true;
@@ -434,11 +457,30 @@ $(document).ready(function() {
     var onup = function downArray(e) {
       e.preventDefault();
       ondownFlag = false;
+       if (player.shapeFlag == 4) {
+        player.arrowMoveUp = false;
+        arrowArrayUp(arrowArrayY, player);
+        clearInterval(upInterval);
+
+        downInterval = setInterval(function() {
+
+          if (arrowArrayY[0] > player.y) {
+            arrowArrayY.shift();
+            arrowArrayY.unshift(player.y);
+          } else {
+            arrowArrayY.unshift(player.y);
+          }
+          if (arrowArrayY.length > arrowArrayLength) {
+            arrowArrayY.pop();
+          }
+        }, 32);
+      }
     };
     document.onmousedown = ondown;
     document.ontouchstart = ondown;
     document.onmouseup = onup;
     document.ontouchend = onup;
+   
 
     if (!playGame) {
       playGame = true;
@@ -523,6 +565,7 @@ $(document).ready(function() {
 
     blockX1 += blockVx1;
     blockY1 += blockVy1;
+
     for (var k = 0; k < blocks.length; k++) {
       for (var m = 0; m < blocks[0].length; m++) {
         var block = blocks[k][m];
@@ -532,10 +575,7 @@ $(document).ready(function() {
             //方块
             if (block === 1) {
               var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-              if (doubleFlag) {
-                var hitXYdead2 = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
 
-              }
               if (!blackFlag) {
                 context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
 
@@ -544,7 +584,7 @@ $(document).ready(function() {
               } else {
                 context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
               }
-              if ((hitXYdead2 || hitXYdead) && canDead) {
+              if ( hitXYdead && canDead) {
                 dead();
               }
 
@@ -1011,6 +1051,8 @@ $(document).ready(function() {
       }
 
     }
+
+    if(player.shapeFlag === 1) {
     if (ondownFlag) {
 
       if (!gFlag) {
@@ -1080,6 +1122,73 @@ $(document).ready(function() {
 
     }
     context.restore();
+
+  }
+
+    if (player.shapeFlag == 4) {
+
+      player.aY = 0;
+      if (player.arrowMoveUp) {
+        player.vY = -10;
+      } else {
+        player.vY = 10;
+      }
+
+      move();
+
+      var w = player.width * 0.26;
+      context.fillStyle = "white";
+      context.beginPath();
+      if (Border(player, blocks)) {
+        context.moveTo(player.x + player.halfWidth, player.y);
+        context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
+        context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
+      } else if (!player.arrowMoveUp) {
+        context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
+        context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
+        context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
+      } else {
+        context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
+        context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
+        context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
+      }
+      context.closePath();
+      context.fill();
+      // 画折线
+      var lineStartx = player.x - player.halfWidth;
+      context.beginPath();
+      context.moveTo(player.x - player.halfWidth, player.y);
+
+      var k = 0;
+
+
+      if (arrowArrayY.length > 4) {
+        for (var i = 0; i < arrowArrayY.length; i++) {
+          var distanceY;
+          if (i == 0 && arrowArrayY[0] > 0) {
+            distanceY = arrowArrayY[0] - player.y;
+          } else {
+            distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
+          }
+          if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
+            distanceY = 20;
+
+          }
+
+          distanceY = Math.abs(distanceY);
+          lineStartx = lineStartx - distanceY;
+
+          context.lineTo(lineStartx, arrowArrayY[i]);
+        }
+      }
+      context.strokeStyle = "white";
+      context.lineWidth = 5 + 10 * Math.random();
+      context.stroke();
+      borderFlag = false;
+
+    }
+
+  
 
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
