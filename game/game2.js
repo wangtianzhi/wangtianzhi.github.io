@@ -355,7 +355,7 @@ $(document).ready(function() {
     blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
     blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
     blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
     blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
     draw1 = true;
     draw2 = false;
@@ -398,33 +398,13 @@ $(document).ready(function() {
   }
   // 判断是否到边界或者上下有方块
   function Border(player, blocks) {
-    borderFlag = false;
-
-    if (player.y - player.halfHeight <= 29) {
-      borderFlag = true;
-      player.y = 30 + player.halfHeight;
-
-    } else if (player.y + player.halfHeight >= canvasHeight - 20) {
-      player.y = canvasHeight - 21 - player.halfHeight;
-      borderFlag = true;
-    }
 
 
     if (playGame) {
       for (var k = 0; k < blocks.length; k++) {
         for (var m = 0; m < blocks[0].length; m++) {
           if (blocks[k][m] === 1 || blocks[k][m] === 7) {
-            if (!gFlag) {
-              if (player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
-                player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
-                borderFlag = true;
-              }
-            } else {
-              if (player.vY <= 0 && (Math.abs((blockY1 - k * blockHeight) - (player.y - player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
-                player.y = blockY1 - k * blockHeight + player.halfHeight;
-                borderFlag = true;
-              }
-            }
+            
           }
         }
       }
@@ -474,7 +454,7 @@ $(document).ready(function() {
   blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
   blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
   blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
   blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
 
   // 重置和启动游戏
@@ -601,6 +581,51 @@ $(document).ready(function() {
     blockX1 += blockVx1;
     blockY1 += blockVy1;
 
+        if (ondownFlag) {
+
+      if (!gFlag) {
+        if (!player.squareJump) {
+          player.vY = -14;
+          player.squareJump = true;
+        }
+
+      } else if (gFlag) {
+        if (!player.squareJump) {
+
+          player.vY = 14;
+          player.squareJump = true;
+        }
+
+      }
+    }
+
+
+    if (!borderFlag)
+      player.squareJump = true;
+
+
+    if (player.squareJump) {
+      if (!gFlag) {
+        player.aY = 1;
+
+      } else if (gFlag) {
+
+        player.aY = -1;
+      }
+    }
+    move();
+
+    borderFlag = false;
+
+    if (player.y - player.halfHeight <= 29) {
+      borderFlag = true;
+      player.y = 30 + player.halfHeight;
+
+    } else if (player.y + player.halfHeight >= canvasHeight - 20) {
+      player.y = canvasHeight - 21 - player.halfHeight;
+      borderFlag = true;
+    }
+
     for (var k = 0; k < blocks.length; k++) {
       for (var m = 0; m < blocks[0].length; m++) {
         var block = blocks[k][m];
@@ -609,6 +634,18 @@ $(document).ready(function() {
           if (block > 0) {
             //方块
             if (block === 1) {
+              if (!gFlag) {
+              if (player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
+                player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
+                borderFlag = true;
+              }
+            } else {
+              if (player.vY <= 0 && (Math.abs((blockY1 - k * blockHeight) - (player.y - player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
+                player.y = blockY1 - k * blockHeight + player.halfHeight;
+                borderFlag = true;
+              }
+            }
+
               var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
 
               if (!blackFlag) {
@@ -720,6 +757,18 @@ $(document).ready(function() {
             }
             // 半方块
             else if (block === 7) {
+              if (!gFlag) {
+              if (player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
+                player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
+                borderFlag = true;
+              }
+            } else {
+              if (player.vY <= 0 && (Math.abs((blockY1 - k * blockHeight) - (player.y - player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
+                player.y = blockY1 - k * blockHeight + player.halfHeight;
+                borderFlag = true;
+              }
+            }
+
               if (!blackFlag)
                 context.drawImage(baifangkuaiCanvas , blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
                 // context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
@@ -1078,41 +1127,9 @@ $(document).ready(function() {
 
 
 
-    if (ondownFlag) {
-
-      if (!gFlag) {
-        if (!player.squareJump) {
-          player.vY = -14;
-          player.squareJump = true;
-        }
-
-      } else if (gFlag) {
-        if (!player.squareJump) {
-
-          player.vY = 14;
-          player.squareJump = true;
-        }
-
-      }
-    }
 
 
-    if (!borderFlag)
-      player.squareJump = true;
-
-
-    if (player.squareJump) {
-      if (!gFlag) {
-        player.aY = 1;
-
-      } else if (gFlag) {
-
-        player.aY = -1;
-      }
-    }
-    move();
-
-    if (Border(player, blocks)) {
+    if (borderFlag) {
       player.vY = 0;
       player.aY = 0;
       player.squareJump = false;
