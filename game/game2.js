@@ -14,7 +14,7 @@ var draw1 = true;
 var draw2 = false;
 var gFlag = false;
 var blackFlag = false;
-var notHorizon = true;
+var notHorizon = false;
 var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
@@ -127,6 +127,84 @@ $(document).ready(function() {
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
 
+  var baifangkuaiCanvas = document.getElementById("baifangkuaiCanvas");
+  var offctx = baifangkuaiCanvas.getContext("2d");
+
+  // offctx.drawImage(baisefangkuai, 0 ,0, 44, 44);
+  offctx.lineWidth = 5;
+  offctx.strokeStyle = "black";
+  offctx.fillStyle = "white";
+  offctx.rect(2, 2, 42, 42);
+  offctx.stroke();
+  offctx.fill();
+
+
+
+  var baiseciCanvas = document.getElementById("baiseciCanvas");
+  var baisecictx = baiseciCanvas.getContext("2d");
+  baisecictx.fillStyle = "white";
+  baisecictx.lineWidth = 5;
+  baisecictx.beginPath();
+
+  baisecictx.moveTo(0.5 * 44, 0.4 * 44);
+  baisecictx.lineTo(0.2 * 44, 44);
+  baisecictx.lineTo(0.8 * 44, 44);
+
+  baisecictx.closePath();
+  baisecictx.stroke();
+  baisecictx.fill();
+
+
+
+  var baisedaociCanvas = document.getElementById("baisedaociCanvas");
+  var baisedaocictx = baisedaociCanvas.getContext("2d");
+  baisedaocictx.fillStyle = "white";
+  baisedaocictx.lineWidth = 5;
+  baisedaocictx.beginPath();
+
+  baisedaocictx.moveTo(0.5 * 44, 0.6 * 44);
+  baisedaocictx.lineTo(0.2 * 44, 0);
+  baisedaocictx.lineTo(0.8 * 44, 0);
+
+  baisedaocictx.closePath();
+  baisedaocictx.stroke();
+  baisedaocictx.fill();
+
+  var heisedaociCanvas = document.getElementById("heisedaociCanvas");
+  var heisedaocictx = heisedaociCanvas.getContext("2d");
+
+  heisedaocictx.lineWidth = 5;
+  heisedaocictx.beginPath();
+  heisedaocictx.moveTo(0.5 * 44, 0.6 * 44);
+  heisedaocictx.lineTo(0.2 * 44, 0);
+  heisedaocictx.lineTo(0.8 * 44, 0);
+  heisedaocictx.closePath();
+  heisedaocictx.strokeStyle ="white";
+  heisedaocictx.stroke();
+
+  var heiseciCanvas = document.getElementById("heiseciCanvas");
+  var heisecictx = heiseciCanvas.getContext("2d");
+
+  heisecictx.lineWidth = 5;
+  heisecictx.beginPath();
+  heisecictx.moveTo(0.5 * 44, 0.4 * 44);
+  heisecictx.lineTo(0.2 * 44, 44);
+  heisecictx.lineTo(0.8 * 44, 44);
+  heisecictx.closePath();
+  heisecictx.strokeStyle ="white";
+
+  heisecictx.stroke();
+
+  var heisefangkuaiCanvas = document.getElementById("heisefangkuaiCanvas");
+  var heisefangkuaictx = heisefangkuaiCanvas.getContext("2d");
+
+  // heisefangkuaictx.drawImage(baisefangkuai, 0 ,0, 44, 44);
+  heisefangkuaictx.lineWidth = 5;
+  heisefangkuaictx.rect(2, 2, 42, 42);
+  heisefangkuaictx.strokeStyle ="white";
+
+  heisefangkuaictx.stroke();
+  heisefangkuaictx.fill();
 
 
   var canvasWidth = canvas.width();
@@ -271,16 +349,16 @@ $(document).ready(function() {
     clearInterval(upInterval);
     clearInterval(downInterval);
     blocks = new Array();
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
     draw1 = true;
     draw2 = false;
     gFlag = false;
@@ -536,12 +614,12 @@ $(document).ready(function() {
               var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
 
               if (!blackFlag) {
-                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-
+                // context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+                context.drawImage(baifangkuaiCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight);
                 // context.drawImage(baisefangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
 
               } else {
-                context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+                context.drawImage(heisefangkuaiCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight);
               }
               if (hitXYdead && canDead) {
                 dead();
@@ -551,7 +629,7 @@ $(document).ready(function() {
             //地上的三角
             else if (block === 2) {
               if (!blackFlag) {
-                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.6) * blockHeight, 0.6 * blockWidth, 0.6 * blockHeight);
+                context.drawImage(baiseciCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight);
                 // context.beginPath();
 
                 //            context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.6) * blockHeight);
@@ -562,7 +640,7 @@ $(document).ready(function() {
                 //            context.fill();
               } else
                 // context.stroke();
-                context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+                context.drawImage(heiseciCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight);
 
 
               var hitXYdead = (player.x + player.halfWidth * 0.4 >= blockX1 + (m + 0.4) * blockWidth && player.x - player.halfWidth * 0.4 <= blockX1 + (m + 0.6) * blockWidth) && ((player.y + player.halfHeight * 0.4 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.4 - (blockY1 - k * blockHeight) < -15);
@@ -576,7 +654,7 @@ $(document).ready(function() {
             else if (block === 3) {
 
               if (!blackFlag) {
-                context.drawImage(baisedaoci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth * 0.6, 0.6 * blockHeight);
+                context.drawImage(baisedaociCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight);
                 // context.beginPath();
 
                 //               context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
@@ -587,7 +665,7 @@ $(document).ready(function() {
                 //               context.fill();
               } else {
                 // context.stroke();
-                context.drawImage(heidaoci, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
+                context.drawImage(heisedaociCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight);
 
               }
 
@@ -629,10 +707,10 @@ $(document).ready(function() {
               // context.closePath();
               if (!blackFlag) {
 
-                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.4) * blockHeight, 0.6 * blockWidth, 0.4 * blockHeight);
+                context.drawImage(baiseciCanvas, blockX1 +m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
 
               } else
-                context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
+                context.drawImage(heiseciCanvas, blockX1 + m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
 
 
               var hitXYdead = (player.x + player.halfWidth * 0.4 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.4 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.4 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.4 - (blockY1 - k * blockHeight) < -15);
@@ -667,12 +745,12 @@ $(document).ready(function() {
             // 半方块
             else if (block === 7) {
               if (!blackFlag)
-                // context.drawImage(baisefangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
-                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
+                context.drawImage(baifangkuaiCanvas , blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
+                // context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
 
 
               else {
-                context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
+                context.drawImage(heisefangkuaiCanvas, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
               }
               var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
 
