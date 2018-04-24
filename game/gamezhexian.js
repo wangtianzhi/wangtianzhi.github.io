@@ -65,7 +65,7 @@ var Player = function(x, y) {
   this.snakeMoveUp = false;
   this.circleJump = true;
   this.flameLength = 20;
-
+  this.shapeFlag = 1;
   this.squareAngle = 0;
   this.big = false;
   this.scaleCount = 0;
@@ -271,22 +271,22 @@ $(document).ready(function() {
     clearInterval(upInterval);
     clearInterval(downInterval);
     blocks = new Array();
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+    blocks.unshift([2, 13, 0, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
     draw1 = true;
     draw2 = false;
     gFlag = false;
     blockX1 = canvasWidth;
     blockY1 = canvasHeight - 20;
-
+    player.shapeFlag = 1;
 
 
     blackFlag = false;
@@ -333,27 +333,27 @@ $(document).ready(function() {
       borderFlag = true;
     }
 
-
-    if (playGame) {
-      for (var k = 0; k < blocks.length; k++) {
-        for (var m = 0; m < blocks[0].length; m++) {
-          if (blocks[k][m] === 1 || blocks[k][m] === 7) {
-            if (!gFlag) {
-              if (player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
-                player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
-                borderFlag = true;
-              }
-            } else {
-              if (player.vY <= 0 && (Math.abs((blockY1 - k * blockHeight) - (player.y - player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
-                player.y = blockY1 - k * blockHeight + player.halfHeight;
-                borderFlag = true;
+    if (player.shapeFlag === 1) {
+      if (playGame) {
+        for (var k = 0; k < blocks.length; k++) {
+          for (var m = 0; m < blocks[0].length; m++) {
+            if (blocks[k][m] === 1 || blocks[k][m] === 7) {
+              if (!gFlag) {
+                if (player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
+                  player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
+                  borderFlag = true;
+                }
+              } else {
+                if (player.vY <= 0 && (Math.abs((blockY1 - k * blockHeight) - (player.y - player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
+                  player.y = blockY1 - k * blockHeight + player.halfHeight;
+                  borderFlag = true;
+                }
               }
             }
           }
         }
       }
     }
-
 
     if (borderFlag)
       player.squareJump = false;
@@ -390,16 +390,16 @@ $(document).ready(function() {
 
   context.lineWidth = 3;
   context.strokeStyle = "white";
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 13,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
 
   // 重置和启动游戏
   function startGame() {
@@ -426,7 +426,27 @@ $(document).ready(function() {
         ondownShortFlag = false
       }, 130);
 
+      if (player.shapeFlag == 4) {
+        player.arrowMoveUp = true;
+        // 最后执行一遍计时器
+        arrowArrayDown(arrowArrayY, player);
+        // 执行完了
+        clearInterval(downInterval);
+        upInterval = setInterval(function() {
 
+          if (arrowArrayY[0] < player.y) {
+            arrowArrayY.shift();
+            arrowArrayY.unshift(player.y);
+          } else {
+            arrowArrayY.unshift(player.y);
+          }
+          if (arrowArrayY.length > arrowArrayLength) {
+            arrowArrayY.pop();
+          }
+
+        }, 32);
+
+      }
       // if (!player.squareJump) {
       //   player.vY = -14;
       //   player.squareJump = true;
@@ -436,7 +456,24 @@ $(document).ready(function() {
     var onup = function downArray(e) {
       e.preventDefault();
       ondownFlag = false;
+      if (player.shapeFlag == 4) {
+        player.arrowMoveUp = false;
+        arrowArrayUp(arrowArrayY, player);
+        clearInterval(upInterval);
 
+        downInterval = setInterval(function() {
+
+          if (arrowArrayY[0] > player.y) {
+            arrowArrayY.shift();
+            arrowArrayY.unshift(player.y);
+          } else {
+            arrowArrayY.unshift(player.y);
+          }
+          if (arrowArrayY.length > arrowArrayLength) {
+            arrowArrayY.pop();
+          }
+        }, 32);
+      }
     };
     document.onmousedown = ondown;
     document.ontouchstart = ondown;
@@ -628,7 +665,14 @@ $(document).ready(function() {
 
               // context.closePath();
               if (!blackFlag) {
+                //   context.beginPath();
 
+                // context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
+                // context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
+                // context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
+
+                // context.closePath();
+                // context.fill();
                 context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.4) * blockHeight, 0.6 * blockWidth, 0.4 * blockHeight);
 
               } else
@@ -1026,77 +1070,144 @@ $(document).ready(function() {
 
     }
 
+    if (player.shapeFlag === 1) {
+      if (ondownFlag) {
 
+        if (!gFlag) {
+          if (!player.squareJump) {
+            player.vY = -14;
+            player.squareJump = true;
+          }
 
-    if (ondownFlag) {
+        } else if (gFlag) {
+          if (!player.squareJump) {
 
-      if (!gFlag) {
-        if (!player.squareJump) {
-          player.vY = -14;
-          player.squareJump = true;
+            player.vY = 14;
+            player.squareJump = true;
+          }
+
         }
+      }
 
-      } else if (gFlag) {
-        if (!player.squareJump) {
 
-          player.vY = 14;
-          player.squareJump = true;
+      if (!borderFlag)
+        player.squareJump = true;
+
+
+      if (player.squareJump) {
+        if (!gFlag) {
+          player.aY = 1;
+
+        } else if (gFlag) {
+
+          player.aY = -1;
         }
+      }
+      move();
+
+      if (Border(player, blocks)) {
+        player.vY = 0;
+        player.aY = 0;
+        player.squareJump = false;
+      }
+      // borderFlag = false;
+
+      context.fillStyle = "white";
+      // context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
+      // 旋转方形
+      context.save();
+      context.translate(player.x, player.y);
+      if (player.squareJump || (player.squareAngle % 90 <= 60 && player.squareAngle % 90 >= 30)) {
+        player.squareAngle += 9;
+        if (player.squareAngle === 360) {
+          player.squareAngle = 0;
+        }
+      } else if (player.squareAngle % 90 >= 60) {
+
+        player.squareAngle = (Math.floor(player.squareAngle / 90) + 1) * 90;
+      } else {
+        player.squareAngle = Math.floor(player.squareAngle / 90) * 90;
 
       }
-    }
+      context.rotate(player.squareAngle * Math.PI / 180);
 
+      // context.fillRect(-player.halfWidth, -player.halfWidth, player.width, player.width);
+      if (!blackFlag)
+        context.drawImage(playerImg, -player.halfWidth, -player.halfWidth, player.width, player.width);
+      else {
+        context.drawImage(blackPlayerImg, -player.halfWidth, -player.halfWidth, player.width, player.width);
+        context.drawImage(blackPlayerImg, -player.halfWidth + 9, -player.halfWidth + 9, player.width - 18, player.width - 18);
 
-    if (!borderFlag)
-      player.squareJump = true;
-
-
-    if (player.squareJump) {
-      if (!gFlag) {
-        player.aY = 1;
-
-      } else if (gFlag) {
-
-        player.aY = -1;
       }
-    }
-    move();
+      context.restore();
 
-    if (Border(player, blocks)) {
-      player.vY = 0;
+    }
+
+    if (player.shapeFlag == 4) {
+
       player.aY = 0;
-      player.squareJump = false;
-    }
-    // borderFlag = false;
-
-    context.fillStyle = "white";
-    // context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
-    // 旋转方形
-    context.save();
-    context.translate(player.x, player.y);
-    if (player.squareJump || (player.squareAngle % 90 <= 60 && player.squareAngle % 90 >= 30)) {
-      player.squareAngle += 9;
-      if (player.squareAngle === 360) {
-        player.squareAngle = 0;
+      if (player.arrowMoveUp) {
+        player.vY = -10;
+      } else {
+        player.vY = 10;
       }
-    } else if (player.squareAngle % 90 >= 60) {
 
-      player.squareAngle = (Math.floor(player.squareAngle / 90) + 1) * 90;
-    } else {
-      player.squareAngle = Math.floor(player.squareAngle / 90) * 90;
+      move();
+
+      var w = player.width * 0.26;
+      context.fillStyle = "white";
+      context.beginPath();
+      if (Border(player, blocks)) {
+        context.moveTo(player.x + player.halfWidth, player.y);
+        context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
+        context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
+      } else if (!player.arrowMoveUp) {
+        context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
+        context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
+        context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
+      } else {
+        context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
+        context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
+        context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
+      }
+      context.closePath();
+      context.fill();
+      // 画折线
+      var lineStartx = player.x - player.halfWidth;
+      context.beginPath();
+      context.moveTo(player.x - player.halfWidth, player.y);
+
+      var k = 0;
+
+
+      if (arrowArrayY.length > 4) {
+        for (var i = 0; i < arrowArrayY.length; i++) {
+          var distanceY;
+          if (i == 0 && arrowArrayY[0] > 0) {
+            distanceY = arrowArrayY[0] - player.y;
+          } else {
+            distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
+          }
+          if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
+            distanceY = 20;
+
+          }
+
+          distanceY = Math.abs(distanceY);
+          lineStartx = lineStartx - distanceY;
+
+          context.lineTo(lineStartx, arrowArrayY[i]);
+        }
+      }
+      context.strokeStyle = "white";
+      context.lineWidth = 5 + 10 * Math.random();
+      context.stroke();
+      borderFlag = false;
 
     }
-    context.rotate(player.squareAngle * Math.PI / 180);
 
-    // context.fillRect(-player.halfWidth, -player.halfWidth, player.width, player.width);
-    if (!blackFlag)
-      context.drawImage(playerImg, -player.halfWidth, -player.halfWidth, player.width, player.width);
-    else {
-      context.drawImage(blackPlayerImg, -player.halfWidth, -player.halfWidth, player.width, player.width);
-      context.drawImage(blackPlayerImg, -player.halfWidth + 9, -player.halfWidth + 9, player.width - 18, player.width - 18);
 
-    }
-    context.restore();
+
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
       setTimeout(animate, 16);
