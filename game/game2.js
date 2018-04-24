@@ -253,7 +253,7 @@ $(document).ready(function() {
     } else if (uiScore.html() <= 60) {
       scoreSay.html("一般是没人能看到这句话的，如果你看到了，使劲跟别人吹去吧");
     } else if (uiScore.html() > 60) {
-      scoreSay.html("卧 了 个 槽 ！！！");
+      scoreSay.html("聂聂我知道是你，别玩了，认真听课");
     }
 
     if (deadCount === 3) {
