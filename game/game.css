@@ -18,6 +18,17 @@ p {
 	margin: 0 20px;
 }
 
+#gameCanvas{
+        animation: prompt 3s linear 0s infinite;
+    }
+    @-webkit-keyframes prompt{
+    0%{background:#33CCFF;}
+    25%{background:#3399FF;}
+    50%{background:#3366FF;}
+    75%{background:#3399FF;}
+    100%{background:#33CCFF;}
+    }
+
 .a {
 	margin-bottom: 20px;
 }
@@ -67,9 +78,6 @@ a.button:hover {
 	width: 1000px;
 }
 
-#gameCanvas {
-	/* background: #001022; */
-}
 
 #gameUI {
 	height: 490px;
