@@ -1227,6 +1227,13 @@
   
     
     <entry>
+      <title>links</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -1237,13 +1244,6 @@
       <title>timeline</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     

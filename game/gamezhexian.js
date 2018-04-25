@@ -46,7 +46,7 @@ baiseci.src = "/img/game/baiseci.png";
 var baisedaoci = new Image();
 baisedaoci.src = "/img/game/baisedaoci.png";
 
-var X;
+
 var Player = function(x, y) {
   this.x = x;
   this.y = y;
@@ -56,30 +56,16 @@ var Player = function(x, y) {
   this.halfHeight = this.height / 2;
   this.vX = 6;
   this.vY = 0;
-  this.aX = 0;
-  this.aY = 0;
-  this.squareJump = true;
-  this.circleIsJump = true;
   this.arrowMoveUp = false;
   this.arrowSpeed = false;
   this.snakeMoveUp = false;
-  this.circleJump = true;
-  this.flameLength = 20;
-  this.shapeFlag = 1;
-  this.squareAngle = 0;
-  this.big = false;
-  this.scaleCount = 0;
-  this.scaleBigX = 0;
-  this.scaleBigY = 0;
-  this.moveTurn = false;
+
 };
 
 
 var windowHeight = window.innerHeight;
 $("gameCanvas").css("height", windowHeight);
-player = new Player(300, windowHeight / 2);
-
-var vs = Math.sqrt(player.vY * player.vY * 2);
+player = new Player(350, windowHeight / 2);
 
 var arrowArrayUp = function(a, p) {
 
@@ -135,8 +121,7 @@ $(document).ready(function() {
 
   var conW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   var conH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  // transform: rotate(90deg); width: 667px; height: 375px;transform-origin:28% 50%;  
-  //var iosTopHe = 0;//若有其他样式判断，写于此  
+
   if (notHorizon) {
     $("body").css({
       "transform": "rotate(90deg) translate(" + ((conH - conW) / 2) + "px," + ((conH - conW) / 2) + "px)",
@@ -148,9 +133,6 @@ $(document).ready(function() {
       "-webkit-transform-origin": "center center"
     });
   }
-  //  $("#game").css("height", uiHeight).css("width", uiWidth);
-  // ui.css("height", uiHeight).css("width", uiWidth);
-  // $("#gameCanvas").css("height", uiHeight+"px").css("width",uiWidth+"px");
 
   var dead = function() {
 
@@ -265,28 +247,29 @@ $(document).ready(function() {
 
 
   var reset = function(e) {
+
     e.preventDefault();
     uiComplete.hide();
     clearTimeout(scoreTimeout);
     clearInterval(upInterval);
     clearInterval(downInterval);
     blocks = new Array();
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-    blocks.unshift([2, 13, 0, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
+  blocks.unshift([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
     draw1 = true;
     draw2 = false;
     gFlag = false;
     blockX1 = canvasWidth;
     blockY1 = canvasHeight - 20;
-    player.shapeFlag = 1;
+
 
 
     blackFlag = false;
@@ -310,9 +293,6 @@ $(document).ready(function() {
   var score;
   var scoreTimeout;
   // var arrowDown = 40;
-  function gravity() {
-
-  }
 
   function move() {
 
@@ -333,49 +313,9 @@ $(document).ready(function() {
       borderFlag = true;
     }
 
-    if (player.shapeFlag === 1) {
-      if (playGame) {
-        for (var k = 0; k < blocks.length; k++) {
-          for (var m = 0; m < blocks[0].length; m++) {
-            if (blocks[k][m] === 1 || blocks[k][m] === 7) {
-              if (!gFlag) {
-                if (player.vY >= 0 && (Math.abs((blockY1 - (k + 1) * blockHeight) - (player.y + player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
-                  player.y = blockY1 - (k + 1) * blockHeight - player.halfHeight;
-                  borderFlag = true;
-                }
-              } else {
-                if (player.vY <= 0 && (Math.abs((blockY1 - k * blockHeight) - (player.y - player.halfHeight)) <= 15) && player.x + player.halfWidth * 1.1 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 1.1 <= blockX1 + (m + 1) * blockWidth) {
-                  player.y = blockY1 - k * blockHeight + player.halfHeight;
-                  borderFlag = true;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    if (borderFlag)
-      player.squareJump = false;
-
     return borderFlag;
   }
 
-  var Asteroid = function(x, y, radius, vX) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.vX = vX;
-  };
-
-  var Block = function(x, y, width, height, vX, vY) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.vX = vX;
-    this.vY = vY;
-  }
 
 
   // 游戏UI
@@ -390,16 +330,16 @@ $(document).ready(function() {
 
   context.lineWidth = 3;
   context.strokeStyle = "white";
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+  blocks.unshift([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
-  blocks.unshift([2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 13,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]);
+  blocks.unshift([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0]);
 
   // 重置和启动游戏
   function startGame() {
@@ -426,7 +366,7 @@ $(document).ready(function() {
         ondownShortFlag = false
       }, 130);
 
-      if (player.shapeFlag == 4) {
+
         player.arrowMoveUp = true;
         // 最后执行一遍计时器
         arrowArrayDown(arrowArrayY, player);
@@ -446,7 +386,7 @@ $(document).ready(function() {
 
         }, 32);
 
-      }
+      
       // if (!player.squareJump) {
       //   player.vY = -14;
       //   player.squareJump = true;
@@ -456,7 +396,7 @@ $(document).ready(function() {
     var onup = function downArray(e) {
       e.preventDefault();
       ondownFlag = false;
-      if (player.shapeFlag == 4) {
+
         player.arrowMoveUp = false;
         arrowArrayUp(arrowArrayY, player);
         clearInterval(upInterval);
@@ -473,7 +413,7 @@ $(document).ready(function() {
             arrowArrayY.pop();
           }
         }, 32);
-      }
+      
     };
     document.onmousedown = ondown;
     document.ontouchstart = ondown;
@@ -496,6 +436,7 @@ $(document).ready(function() {
     uiComplete.hide();
     uiPlay.click(function(e) {
       e.preventDefault();
+      context.drawImage(background, backgroundX, 0, 32660, 500);
       uiIntro.hide();
       startGame();
     });
@@ -515,23 +456,8 @@ $(document).ready(function() {
     if (playGame) {
       scoreTimeout = setTimeout(function() {
         uiScore.html(++score);
-        if (score % 6 == 0) {
-          numAsteroids += 1;
-        }
         timer();
       }, 1000);
-    }
-  }
-
-
-  function scaleContext(ctx, x, y, proportion, scaleNum) {
-    ctx.translate(x, y);
-    player.scaleCount += scaleNum;
-    context.scale(proportion, proportion);
-    if (player.scaleCount === 15) {
-      player.big = true;
-    } else if (player.scaleCount === 0) {
-      player.big = false;
     }
   }
 
@@ -574,9 +500,6 @@ $(document).ready(function() {
 
               if (!blackFlag) {
                 context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-
-                // context.drawImage(baisefangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-
               } else {
                 context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
               }
@@ -585,204 +508,14 @@ $(document).ready(function() {
               }
 
             }
-            //地上的三角
-            else if (block === 2) {
-              if (!blackFlag) {
-                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.6) * blockHeight, 0.6 * blockWidth, 0.6 * blockHeight);
-                // context.beginPath();
-
-                //            context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.6) * blockHeight);
-                //            context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
-                //            context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
-
-                //            context.closePath();
-                //            context.fill();
-              } else
-                // context.stroke();
-                context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-
-
-              var hitXYdead = (player.x + player.halfWidth * 0.4 >= blockX1 + (m + 0.4) * blockWidth && player.x - player.halfWidth * 0.4 <= blockX1 + (m + 0.6) * blockWidth) && ((player.y + player.halfHeight * 0.4 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.4 - (blockY1 - k * blockHeight) < -15);
-
-              if (hitXYdead && canDead) {
-                dead();
-              }
-            }
-
-            // 挂着的三角
-            else if (block === 3) {
-
-              if (!blackFlag) {
-                context.drawImage(baisedaoci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth * 0.6, 0.6 * blockHeight);
-                // context.beginPath();
-
-                //               context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
-                //               context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - (k+1) * blockHeight);
-                //               context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - (k+1) * blockHeight);
-
-                //               context.closePath();
-                //               context.fill();
-              } else {
-                // context.stroke();
-                context.drawImage(heidaoci, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-
-              }
-
-              var hitXYdead = (player.x + player.halfWidth * 0.4 >= blockX1 + (m + 0.4) * blockWidth && player.x - player.halfWidth * 0.4 <= blockX1 + (m + 0.6) * blockWidth) && ((player.y + player.halfHeight * 0.4 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.4 - (blockY1 - k * blockHeight) < -15);
-
-              if (hitXYdead && canDead) {
-                dead();
-              }
-            }
-
-            //地上弹簧
-            else if (block === 4) {
-              if (!blackFlag) {
-                context.fillStyle = "yellow";
-                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 0.3) * blockHeight, blockWidth, 0.3 * blockHeight);
-                context.fillStyle = "white";
-              } else {
-                context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 0.3) * blockHeight, blockWidth, 0.3 * blockHeight);
-
-                // context.rect(blockX1 + m * blockWidth, blockY1 - (k + 0.3) * blockHeight, blockWidth, 0.3 * blockHeight);
-                // context.stroke();
-              }
-              var hitXYjumpLand = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-
-              if (hitXYjumpLand) {
-                player.vY = -19;
-                player.squareJump = true;
-              }
-
-            }
-            // 地上半三角
-            else if (block === 5) {
-              // context.beginPath();
-
-              // context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
-              // context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
-              // context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
-
-              // context.closePath();
-              if (!blackFlag) {
-                //   context.beginPath();
-
-                // context.moveTo(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.4) * blockHeight);
-                // context.lineTo(blockX1 + (m + 0.2) * blockWidth, blockY1 - k * blockHeight);
-                // context.lineTo(blockX1 + (m + 0.8) * blockWidth, blockY1 - k * blockHeight);
-
-                // context.closePath();
-                // context.fill();
-                context.drawImage(baiseci, blockX1 + (m + 0.2) * blockWidth, blockY1 - (k + 0.4) * blockHeight, 0.6 * blockWidth, 0.4 * blockHeight);
-
-              } else
-                context.drawImage(heici, blockX1 + m * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth, 0.5 * blockHeight);
-
-
-              var hitXYdead = (player.x + player.halfWidth * 0.4 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.4 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.4 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.4 - (blockY1 - k * blockHeight) < -15);
-
-              if (hitXYdead && canDead) {
-                dead();
-              }
-            }
-
-            // 二段跳
-            else if (block === 6) {
-              var hitXYjumpVoid = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight - (blockY1 - k * blockHeight) < -15);
-
-              if (ondownFlag && hitXYjumpVoid) {
-                if (!gFlag)
-                  player.vY = -12;
-                else
-                  player.vY = 12;
-              }
-
-              if (!blackFlag) {
-                context.beginPath();
-                context.arc(blockX1 + (m + 0.5) * blockWidth, blockY1 - (k + 0.5) * blockHeight, blockWidth / 2, 0, Math.PI * 2, true);
-                context.closePath();
-                context.fillStyle = "yellow";
-                context.fill();
-                context.fillStyle = "white";
-              } else
-                context.drawImage(yuanquan, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, blockHeight);
-
-            }
-            // 半方块
-            else if (block === 7) {
-              if (!blackFlag)
-                // context.drawImage(baisefangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
-                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
-
-
-              else {
-                context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.5 * blockHeight);
-              }
-              var hitXYdead = (player.x + player.halfWidth * 0.5 >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-
-              if (hitXYdead && canDead) {
-                dead();
-              }
-            }
-
-            // 重力
-            else if (block === 8) {
-              var hitXYjumpLand = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth);
-
-              if (hitXYjumpLand) {
-                blocks[k][m] = 0;
-                gFlag = !gFlag;
-                if (!blackFlag) {
-                  draw1 = !draw1;
-                  draw2 = !draw2;
-                }
-              }
-            }
-            //反重力弹簧
-            else if (block === 9) {
-              if (!blackFlag) {
-                context.fillStyle = "yellow";
-                context.fillRect(blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
-
-                context.fillStyle = "white";
-              } else {
-                context.drawImage(heifangkuai, blockX1 + m * blockWidth, blockY1 - (k + 1) * blockHeight, blockWidth, 0.3 * blockHeight);
-
-              }
-              var hitXYjumpLand = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth) && ((player.y + player.halfHeight * 0.5 - (blockY1 - (k + 1) * blockHeight)) > 15 && player.y - player.halfHeight * 0.5 - (blockY1 - k * blockHeight) < -15);
-
-              if (hitXYjumpLand) {
-                player.vY = 19;
-                player.squareJump = true;
-              }
-
-            } else if (block === 10) {
+            // 变黑或变回去
+             else if (block === 10) {
               var hitXYjumpLand = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth);
 
               if (hitXYjumpLand) {
 
                 blocks[k][m] = 0;
-                if (!blackFlag) {
-                  draw1 = false;
-                  draw2 = false;
-                  blackFlag = true;
-                } else {
-                  draw1 = true;
-                  draw2 = false;
-                  blackFlag = false;
-                }
-              }
-
-
-            }
-            // 变色
-            else if (block === 11) {
-              var hitXYjumpLand = (player.x + player.halfWidth >= blockX1 + m * blockWidth && player.x - player.halfWidth * 0.5 <= blockX1 + (m + 1) * blockWidth);
-
-              if (hitXYjumpLand) {
-                blocks[k][m] = 0;
-                draw1 = !draw1;
-                draw2 = !draw2;
+                 blackFlag = !blackFlag;
               }
             }
             // 音乐
@@ -796,32 +529,7 @@ $(document).ready(function() {
                 // soundBackground2.currentTime = 0;
                 // soundBackground2.play();
               }
-            } else if (block === 13) {
-              context.fillStyle = "black";
-              context.fillRect(blockX1 + m * blockWidth, 0, 5 * blockWidth, 32);
-              context.fillRect(blockX1 + m * blockWidth, canvasHeight - 21, 5 * blockWidth, 22);
-              context.fillStyle = "white";
-              if (player.y - player.halfWidth <= 50 && player.x >= blockX1 + m * blockWidth && player.x <= blockX1 + (5 + m) * blockWidth) {
-                gFlag = !gFlag;
-                if (!blackFlag) {
-                  draw1 = !draw1;
-                  draw2 = !draw2;
-                }
-                player.y = canvasHeight - 21 - player.halfWidth;
-                blocks[k][m] = 0;
-
-
-              } else if (player.y >= canvasHeight - 50 - player.halfWidth && player.x >= blockX1 + m * blockWidth && player.x <= blockX1 + (5 + m) * blockWidth) {
-                blocks[k][m] = 0;
-                gFlag = !gFlag;
-                if (!blackFlag) {
-                  draw1 = !draw1;
-                  draw2 = !draw2;
-                }
-                player.y = 20 + player.halfWidth;
-
-              }
-            }
+            } 
           } else if (block < 0) {
             if (block === -1) {
               blocks[k][m] = 0;
@@ -1070,80 +778,7 @@ $(document).ready(function() {
 
     }
 
-    if (player.shapeFlag === 1) {
-      if (ondownFlag) {
 
-        if (!gFlag) {
-          if (!player.squareJump) {
-            player.vY = -14;
-            player.squareJump = true;
-          }
-
-        } else if (gFlag) {
-          if (!player.squareJump) {
-
-            player.vY = 14;
-            player.squareJump = true;
-          }
-
-        }
-      }
-
-
-      if (!borderFlag)
-        player.squareJump = true;
-
-
-      if (player.squareJump) {
-        if (!gFlag) {
-          player.aY = 1;
-
-        } else if (gFlag) {
-
-          player.aY = -1;
-        }
-      }
-      move();
-
-      if (Border(player, blocks)) {
-        player.vY = 0;
-        player.aY = 0;
-        player.squareJump = false;
-      }
-      // borderFlag = false;
-
-      context.fillStyle = "white";
-      // context.fillRect(player.x - player.halfWidth, player.y - player.halfWidth, player.width, player.width);
-      // 旋转方形
-      context.save();
-      context.translate(player.x, player.y);
-      if (player.squareJump || (player.squareAngle % 90 <= 60 && player.squareAngle % 90 >= 30)) {
-        player.squareAngle += 9;
-        if (player.squareAngle === 360) {
-          player.squareAngle = 0;
-        }
-      } else if (player.squareAngle % 90 >= 60) {
-
-        player.squareAngle = (Math.floor(player.squareAngle / 90) + 1) * 90;
-      } else {
-        player.squareAngle = Math.floor(player.squareAngle / 90) * 90;
-
-      }
-      context.rotate(player.squareAngle * Math.PI / 180);
-
-      // context.fillRect(-player.halfWidth, -player.halfWidth, player.width, player.width);
-      if (!blackFlag)
-        context.drawImage(playerImg, -player.halfWidth, -player.halfWidth, player.width, player.width);
-      else {
-        context.drawImage(blackPlayerImg, -player.halfWidth, -player.halfWidth, player.width, player.width);
-        context.drawImage(blackPlayerImg, -player.halfWidth + 9, -player.halfWidth + 9, player.width - 18, player.width - 18);
-
-      }
-      context.restore();
-
-    }
-
-    if (player.shapeFlag == 4) {
 
       player.aY = 0;
       if (player.arrowMoveUp) {
@@ -1204,7 +839,7 @@ $(document).ready(function() {
       context.stroke();
       borderFlag = false;
 
-    }
+    
 
 
 

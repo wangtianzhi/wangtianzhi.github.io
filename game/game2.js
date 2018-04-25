@@ -4,7 +4,6 @@ var downInterval;
 var arrowArrayY = Array(310);
 var arrowArrayLength = 200;
 var player;
-
 var ondownShortFlag = false;
 var resetFlag = true;
 var change = 0;
