@@ -14,7 +14,7 @@ var draw1 = true;
 var draw2 = false;
 var gFlag = false;
 var blackFlag = false;
-var notHorizon = false;
+var notHorizon = true;
 var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
@@ -884,8 +884,8 @@ $(document).ready(function() {
               for (var i = 0; i < blocks.length; i++) {
                 blocks[i].splice(0, len - 22);
               }
-              blockX1 = blockX1 + (len - 22) * blockWidth;
-              len = blocks[0].length;
+             blockX1 = blockX1 + (len - 22) * blockWidth;
+               len = blocks[0].length;
               // 注意第一个0是代表删除0个元素
               blocks[9].splice(len + 1, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -11);
               blocks[8].splice(len + 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
