@@ -18,8 +18,8 @@ p {
 	margin: 0 20px;
 }
 
-#gameCanvas{
-        animation: prompt 3s linear 0s infinite;
+.bgm0 {
+    animation: prompt 3s linear 0s infinite;
     }
     @-webkit-keyframes prompt{
     0%{background:#33CCFF;}
@@ -28,7 +28,16 @@ p {
     75%{background:#3399FF;}
     100%{background:#33CCFF;}
     }
-
+.bgm22 {
+	  animation: prompt 3s linear 0s infinite;
+    }
+    @-webkit-keyframes prompt{
+    0%{background:#00FF00;}
+    25%{background:#00CC00;}
+    50%{background:#009900;}
+    75%{background:#00CC00;}
+    100%{background:#00FF00;}
+}
 .a {
 	margin-bottom: 20px;
 }

@@ -1,3 +1,5 @@
+// 每秒9.92063个格子
+// 218个到第一个点
 var currentUpY = 0;
 var currentDownY = 0;
 var borderFlag = false;
@@ -6,7 +8,7 @@ var downInterval;
 var arrowArrayY = Array(310);
 var arrowArrayLength = 200;
 var player;
-    var color = 0x000000;
+var color = 0x000000;
 
 var ondownShortFlag = false;
 var resetFlag = true;
@@ -48,11 +50,6 @@ baisedaoci.src = "/img/game/baisedaoci.png";
 
 
 // 颜色渐变
-
-
-
-
-    
 
 
 
@@ -325,20 +322,38 @@ $(document).ready(function() {
 
 
   // 游戏UI
-  var upLines = new Array();
+  var upupLines = new Array();
   var downLines = new Array();
-    upLines.push(9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6, 6, 6, 6, 6, 6, 6, 9);
-  downLines.push(0, 6, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 0);
-    upLines.push(9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6, 6, 6, 6, 6, 6, 6, 9);
-  downLines.push(0, 6, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 0);
-    upLines.push(9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6, 6, 6, 6, 6, 6, 6, 9);
-  downLines.push(0, 6, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 0);
-    upLines.push(9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6, 6, 6, 6, 6, 6, 6, 9);
-  downLines.push(0, 6, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 0);
-    upLines.push(9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6, 6, 6, 6, 6, 6, 6, 9);
-  downLines.push(0, 6, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 0);
-    upLines.push(9, 8, 7, 6, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 8, 7, 6, 6, 6, 6, 6, 6, 6, 9);
-  downLines.push(0, 6, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 3, 3, 3, 0);
+  upupLines.push(7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,  // 20
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 
+    5, 5, 5, 5, 6, 7, 6, 5, 5, 4, 5, 5, 6, 7, 6, 5, 4, 5, 6, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+
+    6, 5, 5, 4, 5, 6, 7, 7, 6, 5, 4, 4, 4, 5, 6, 7, 6, 5, 4, 4, 
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 
+
+    5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 5, 7, 5, 5, 7
+    );
+
+  downLines.push(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    1, 1, 1, 1, 2, 3, 2, 1, 0, 0, 1, 2, 2, 3, 2, 2, 1, 2, 3, 3,
+
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    1, 1, 1, 1, 2, 3, 2, 1, 0, 0, 1, 2, 3, 3, 3, 2, 1, 2, 3, 2, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+    1, 2, 2, 1, 1, 1, 2, 2, 1, 2, 3, 2, 1, 1, 1, 1, 1, 2, 3, 2,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+
+    1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1,
+     0);
+
 
   // blocks = new Array();
 
@@ -488,9 +503,6 @@ $(document).ready(function() {
 
 
 
-
-
-
     context.clearRect(0, 0, canvasWidth + 100, canvasHeight + 100);
     context.fillStyle = "white";
 
@@ -504,7 +516,7 @@ $(document).ready(function() {
       context.lineTo(canvasWidth, canvasHeight - 20);
       context.stroke();
     }
- 
+
     // 颜色
 
     // block
@@ -513,29 +525,29 @@ $(document).ready(function() {
     blockY1 += blockVy1;
     context.beginPath();
 
-    for (var i = 0; i < upLines.length; i++) {
-      var cX = i * 49 + blockX1;
-      cUpY = blockY1 - upLines[i] * 49;
+    for (var i = 0; i < upupLines.length; i++) {
+      var cX = i * 63 + blockX1;
+      cUpY = blockY1 - upupLines[i] * 63;
       if (i === 0)
         context.moveTo(cX, cUpY);
       else
         context.lineTo(cX, cUpY);
 
-      if (cX < 350 && cX + 49 > 350) {
-        currentUpY = cUpY + (blockY1 - upLines[i + 1] * 49 - cUpY) / 49 * (350 - cX);
+      if (cX < 350 && cX + 63 > 350) {
+        currentUpY = cUpY + (blockY1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
       }
 
     }
     for (var i = 0; i < downLines.length; i++) {
-      var cX = i * 49 + blockX1;
-      cDownY = blockY1 - downLines[i] * 49;
+      var cX = i * 63 + blockX1;
+      cDownY = blockY1 - downLines[i] * 63;
       if (i === 0)
         context.moveTo(cX, cDownY);
       else
         context.lineTo(cX, cDownY);
 
-      if (cX <= 350 && cX + 49 >= 350) {
-        currentDownY = cDownY + (blockY1 - downLines[i + 1] * 49 - cDownY) / 49 * (350 - cX);
+      if (cX <= 350 && cX + 63 >= 350) {
+        currentDownY = cDownY + (blockY1 - downLines[i + 1] * 63 - cDownY) / 63 * (350 - cX);
 
       }
 
@@ -545,8 +557,6 @@ $(document).ready(function() {
     console.log(currentDownY);
     if (player.y < currentUpY || player.y > currentDownY)
       dead();
-
-
 
 
 
