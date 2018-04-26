@@ -739,6 +739,9 @@ $(document).ready(function() {
     }
 
     context.strokeStyle = "white";
+    if(doubleFlag)
+    context.lineWidth = 5 + 16 * Math.random();
+  else 
     context.lineWidth = 5 + 10 * Math.random();
     context.stroke();
     if(doubleFlag){
@@ -790,7 +793,11 @@ var lineStartx = player.x - player.halfWidth;
     }
 
     context.strokeStyle = "white";
+    if(doubleFlag)
+    context.lineWidth = 5 + 16 * Math.random();
+  else 
     context.lineWidth = 5 + 10 * Math.random();
+
     context.stroke();
 
 
