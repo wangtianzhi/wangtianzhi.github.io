@@ -328,14 +328,14 @@ $(document).ready(function() {
     6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
     4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7,
     6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
+    6.2, 5.8, 5.4, 5, 4.6, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
 
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 6, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6.8, 6.6, 6.4, 5.4, 5, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 6, 7, 6, 5, 6, 7, 7, 7, 7, 7,
+    7, 7, 7, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5.5, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 6, 5, 5, 5, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7,
+    7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7,
+    7, 7, 7, 5, 5, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
 
     5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 5, 7, 5, 5, 7
   );
@@ -350,14 +350,14 @@ $(document).ready(function() {
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 0,
     0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3,
     2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
-    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
+    2.0, 1.6, 1.2, 0.8, 0.4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
     0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 1, 2, 1, 0, 0, 0, 0, 0,
-    0, 0, 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2.5, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,
+    2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0,
+    2, 2, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0,
 
     1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1,
     0);
@@ -371,21 +371,21 @@ $(document).ready(function() {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-   -1, 3.5, 2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 
+    0, -1, 3.5, 3, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-   -1, 3.5, 3, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, -1, 3.5, 2.5, 2.5, 2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-    0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 2.5, 3.5,0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, -1, 3.5, 3, 2.5, 2.5, 2.5, 2.5, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, -1, 3.5, 2.5, 1.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    // 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 2.5, 3.5, 0,
+    // 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    // 0, 0, 0, -1, 3.5, 3, 2.5, 2.5, 2.5, 2.5, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0,
+    // 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    // 0, 0, 0, -1, 3.5, 2.5, 1.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -607,32 +607,31 @@ $(document).ready(function() {
     for (; k < i18; k++) {
       if (middleUpupLines[k] === 0)
         continue;
-      if (middleUpupLines[k] === -1)
-        {
-        context.beginPath();}
-        else{
-      // if(middleUpupLines[k] === -2){
-      //   context.closePath();
-      //   context.fill();}
-      var cX = k * 63 + blockX1;
-      cMiddleY = blockY1 - middleUpupLines[k] * 63;
-      if(middleUpupLines[k+1] === 0) {
-        nextMiddleY = 245;
-      } else 
-      nextMiddleY = blockY1 - middleUpupLines[k + 1] * 63;
+      if (middleUpupLines[k] === -1) {
+        context.beginPath();
+      } else {
+        // if(middleUpupLines[k] === -2){
+        //   context.closePath();
+        //   context.fill();}
+        var cX = k * 63 + blockX1;
+        cMiddleY = blockY1 - middleUpupLines[k] * 63;
+        if (middleUpupLines[k + 1] === 0) {
+          nextMiddleY = 245;
+        } else
+          nextMiddleY = blockY1 - middleUpupLines[k + 1] * 63;
 
-      if (middleUpupLines[k] > 0 && middleUpupLines[k - 1] === 0)
-        context.moveTo(cX, cMiddleY);
-      else
-        context.lineTo(cX, cMiddleY);
-      if (cX <= 350 && cX + 63 >= 350) {
-        currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (350 - cX);
+        if (middleUpupLines[k] > 0 && middleUpupLines[k - 1] === 0)
+          context.moveTo(cX, cMiddleY);
+        else
+          context.lineTo(cX, cMiddleY);
+        if (cX <= 350 && cX + 63 >= 350) {
+          currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (350 - cX);
+        }
       }
-}
     }
     // console.log((middleUpupLines[k + 1] * 63 - cMiddleY) / 63);
-    console.log(currentMiddleDownY);
-    for (; k > i18-25; k--) {
+    // console.log(currentMiddleDownY);
+    for (; k > i18 - 25; k--) {
       if (middleUpupLines[k] === 0)
         continue;
       if (middleUpupLines[k] === -1) {
@@ -646,14 +645,14 @@ $(document).ready(function() {
       var cX = k * 63 + blockX1;
       cMiddleY = blockY1 - (7 - middleUpupLines[k]) * 63;
 
-        context.lineTo(cX, cMiddleY);
+      context.lineTo(cX, cMiddleY);
     }
 
-        currentMiddleUpY = 490 - currentMiddleDownY;
+    currentMiddleUpY = 490 - currentMiddleDownY;
 
 
-    if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
-      dead();
+    // if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
+    //   dead();
 
 
 
@@ -713,11 +712,16 @@ $(document).ready(function() {
     context.stroke();
 
 
-    if(soundBackground.currentTime - 6.8<=0.1&&soundBackground.currentTime - 6.8>=-0.1){
+    if (soundBackground.currentTime - 6.8 <= 0.2 && soundBackground.currentTime - 6.8 >= -0.2) {
       canvas.removeClass('bgm0');
-      canvas.addClass('bgm1')
+      canvas.addClass('bgm1');
     }
-    console.log(soundBackground.currentTime);
+    if (soundBackground.currentTime - 21 <= 0.3 && soundBackground.currentTime - 21 >= -0.3) {
+      console.log("a");
+      canvas.removeClass('bgm1');
+      canvas.addClass('bgm2');
+    }
+    // console.log(soundBackground.currentTime);
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
       setTimeout(animate, 16);

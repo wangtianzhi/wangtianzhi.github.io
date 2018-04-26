@@ -19,29 +19,32 @@ p {
 }
 .bgm0 {
 
-    background:#009900;
+    background:#9933FF;
 
     }
 .bgm1 {
-    animation: prompt 3s linear 0s infinite;
+    animation: prompt1 3s linear 0s infinite;
     }
-    @-webkit-keyframes prompt{
-    0%{background:#009900;}
-    25%{background:#00AA00;}
-    50%{background:#00BB00;}
-    75%{background:#00AA00;}
-    100%{background:#009900;}
+    @-webkit-keyframes prompt1{
+    0%{background:#9933FF;}
+    25%{background:#9966FF;}
+    50%{background:#9999FF;}
+    75%{background:#9966FF;}
+    100%{background:#9933FF;}
     }
-.bgm22 {
-	  animation: prompt 3s linear 0s infinite;
+  
+
+.bgm2 {
+	  animation: prompt2 3s linear 0s infinite;
     }
-    @-webkit-keyframes prompt{
-    0%{background:#00FF00;}
-    25%{background:#00CC00;}
-    50%{background:#009900;}
-    75%{background:#00CC00;}
-    100%{background:#00FF00;}
+    @-webkit-keyframes prompt2{
+    0%{background:#9933FF;}
+    25%{background:#CC3399;}
+    50%{background:#FF99CC;}
+    75%{background:#CC3399;}
+    100%{background:#9933FF;}
 }
+
 .a {
 	margin-bottom: 20px;
 }
