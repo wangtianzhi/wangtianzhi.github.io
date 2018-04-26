@@ -682,8 +682,8 @@ $(document).ready(function() {
     currentMiddleUpY = 490 - currentMiddleDownY;
 
 
-    // if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
-      // dead();
+    if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
+      dead();
 
 
 
@@ -807,7 +807,7 @@ var lineStartx = player.x - player.halfWidth;
       canvas.removeClass('bgm1');
       canvas.addClass('bgm2');
     }
-    if (soundBackground.currentTime - 37 <= 0.3 && soundBackground.currentTime - 37 >= -0.3) {
+    if (soundBackground.currentTime - 37.5 <= 0.3 && soundBackground.currentTime - 37.5 >= -0.3) {
       canvas.removeClass('bgm2');
       canvas.addClass('bgm3');
     }
