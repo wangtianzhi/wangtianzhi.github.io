@@ -9,7 +9,7 @@ var arrowArrayY = Array(310);
 var arrowArrayLength = 200;
 var player;
 var color = 0x000000;
-
+var animateCount = 0;
 var ondownShortFlag = false;
 var resetFlag = true;
 var change = 0;
@@ -19,7 +19,7 @@ var draw1 = true;
 var draw2 = false;
 var gFlag = false;
 var blackFlag = false;
-var notHorizon = true;
+var notHorizon = false;
 var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
@@ -313,11 +313,12 @@ $(document).ready(function() {
   // 游戏UI
   var upupLines = new Array();
   var downLines = new Array();
-  upupLines.push(7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,  // 20
+  upupLines.push(
+    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,  // 20
     6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
     6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 
-    5, 5, 5, 5, 6, 7, 6, 5, 5, 4, 5, 5, 6, 7, 6, 5, 4, 5, 6, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    5, 5, 5, 5, 6, 7, 6, 5, 5, 4, 5, 5, 6, 7, 6, 5, 4, 5, 6, 6,
+    6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
 
     6, 5, 5, 4, 5, 6, 7, 7, 6, 5, 4, 4, 4, 5, 6, 7, 6, 5, 4, 4, 
     7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
@@ -328,10 +329,11 @@ $(document).ready(function() {
     5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 5, 7, 5, 5, 7
     );
 
-  downLines.push(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+  downLines.push(
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 2, 
     1, 1, 1, 1, 2, 3, 2, 1, 0, 0, 1, 2, 2, 3, 2, 2, 1, 2, 3, 3,
 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -490,8 +492,10 @@ $(document).ready(function() {
     currentDownY = 490;
     currentUpY = 0;
 
+    animateCount++;
 
-
+    var i = Math.floor(animateCount/6.3) - 16;
+    var i18 = i+18;
     context.clearRect(0, 0, canvasWidth + 100, canvasHeight + 100);
     context.fillStyle = "white";
 
@@ -513,13 +517,13 @@ $(document).ready(function() {
     blockX1 += blockVx1;
     blockY1 += blockVy1;
     context.beginPath();
-
-    for (var i = 0; i < upupLines.length; i++) {
+    if( i < 0)
+      i = 0
+    var j = i;
+    context.moveTo(-20,0);
+    for (; i < i18; i++) {
       var cX = i * 63 + blockX1;
       cUpY = blockY1 - upupLines[i] * 63;
-      if (i === 0)
-        context.moveTo(cX, cUpY);
-      else
         context.lineTo(cX, cUpY);
 
       if (cX < 350 && cX + 63 > 350) {
@@ -527,23 +531,26 @@ $(document).ready(function() {
       }
 
     }
-    for (var i = 0; i < downLines.length; i++) {
-      var cX = i * 63 + blockX1;
-      cDownY = blockY1 - downLines[i] * 63;
-      if (i === 0)
-        context.moveTo(cX, cDownY);
-      else
+    context.lineTo(1200, 0);
+    context.closePath();
+    context.fill();
+
+
+    context.beginPath();
+    context.moveTo(-20,490);
+    for (; j < i18; j++) {
+      var cX = j * 63 + blockX1;
+      cDownY = blockY1 - downLines[j] * 63;
         context.lineTo(cX, cDownY);
-
       if (cX <= 350 && cX + 63 >= 350) {
-        currentDownY = cDownY + (blockY1 - downLines[i + 1] * 63 - cDownY) / 63 * (350 - cX);
-
+        currentDownY = cDownY + (blockY1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
       }
 
     }
+   context.lineTo(1200, 490);
     context.closePath();
     context.fill();
-    console.log(currentDownY);
+
     if (player.y < currentUpY || player.y > currentDownY)
       dead();
 
