@@ -27,9 +27,9 @@ p {
     }
     @-webkit-keyframes prompt1{
     0%{background:#9933FF;}
-    25%{background:#9966FF;}
-    50%{background:#9999FF;}
-    75%{background:#9966FF;}
+    25%{background:#9900CC;}
+    50%{background:#660099;}
+    75%{background:#9900CC;}
     100%{background:#9933FF;}
     }
   
@@ -38,13 +38,31 @@ p {
 	  animation: prompt2 3s linear 0s infinite;
     }
     @-webkit-keyframes prompt2{
-    0%{background:#9933FF;}
-    25%{background:#CC3399;}
-    50%{background:#FF99CC;}
-    75%{background:#CC3399;}
-    100%{background:#9933FF;}
+    0%{background:#9966FF;}
+    25%{background:#9999FF;}
+    50%{background:#99CCFF;}
+    75%{background:#9999FF;}
+    100%{background:#9966FF;}
 }
 
+.bgm3 {
+	  animation: prompt3 16s linear 0s infinite;
+    }
+    @-webkit-keyframes prompt3{
+    0%{background:#9999FF;}
+    100%{background:#000000;}
+}
+
+.bgm4 {
+	  animation: prompt4 0.93s linear 0s infinite;
+    }
+    @-webkit-keyframes prompt4{
+    0%{background:#000000;}
+    25%{background:#999999;}
+    50%{background:#000000;}
+    75%{background:#666666;}
+    100%{background:#000000;}
+}
 .a {
 	margin-bottom: 20px;
 }

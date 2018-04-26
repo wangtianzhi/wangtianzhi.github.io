@@ -20,7 +20,7 @@ var draw1 = true;
 var draw2 = false;
 var gFlag = false;
 var blackFlag = false;
-var notHorizon = false;
+var notHorizon = true;
 var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
@@ -254,9 +254,10 @@ $(document).ready(function() {
     // soundBackground2.pause();
   }
 
-
-
   var reset = function(e) {
+    doubleFlag = false;
+    canvas.removeClass();
+    canvas.addClass('bgm0');
     animateCount = 0;
     e.preventDefault();
     uiComplete.hide();
@@ -317,50 +318,6 @@ $(document).ready(function() {
   var downLines = new Array();
   var middleUpupLines = new Array();
   // var middleDownLines = new Array();
-
-  upupLines.push(
-    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, // 20
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
-    5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
-    6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
-
-    6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
-    4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7,
-    6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
-    6.2, 5.8, 5.4, 5, 4.6, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-
-    7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 6, 7, 6, 5, 6, 7, 7, 7, 7, 7,
-    7, 7, 7, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 5.5, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 6, 5, 5, 5, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7,
-    7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7,
-    7, 7, 7, 5, 5, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
-
-    5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 5, 7, 5, 5, 7
-  );
-
-  downLines.push(
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 1,
-    1, 1, 1, 1, 2, 2, 2, 1, 0, 0, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
-
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 0,
-    0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3,
-    2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
-    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
-    2.0, 1.6, 1.2, 0.8, 0.4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-
-    0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 1, 2, 1, 0, 0, 0, 0, 0,
-    0, 0, 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2.5, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0,
-    2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0,
-    2, 2, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0,
-
-    1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1,
-    0);
   middleUpupLines.push(
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -374,23 +331,92 @@ $(document).ready(function() {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-
-    0, -1, 3.5, 3, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, -1, 3.5, 2.5, 2.5, 2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-
-    // 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 2.5, 3.5, 0,
-    // 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    // 0, 0, 0, -1, 3.5, 3, 2.5, 2.5, 2.5, 2.5, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0,
-    // 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    // 0, 0, 0, -1, 3.5, 2.5, 1.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-  )
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 0, 0,
+
+    );
+  upupLines.push(
+    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, // 20
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
+    5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
+    6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
+
+    6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
+    4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 7, 6, 5, 6, 7, 7,
+    7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 6, 5,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
+    6.2, 5.8, 5.4, 5, 4.6, 5, 5.2, 5, 4, 5.6, 5.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 6, 5, 4, 3,
+
+    2, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2,
+    1, 1, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6.7, 6.4, 6.1, 5.8, 5.5, 5.2, 4.9,
+    4.6, 4.3, 4, 3.7, 3.4, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7,
+    7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7,
+
+    7, 7, 6, 5, 5, 6, 7, 7, 6, 5, 5, 6, 7, 7, 6, 5, 5, 6, 7, 7,
+    7, 5, 7, 5, 7, 5, 7, 6, 7, 6, 7, 6, 6, 7, 7, 7, 7, 7, 6, 6,
+    6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 7, 7, 7, 7,
+    4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7,
+    6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
+
+    6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
+    6, 7, 6, 7, 6, 7, 6, 5, 5, 7, 7, 7, 7, 6, 7, 6, 7, 6, 7, 7, 
+    7, 7, 7, 7, 7,
+
+    7, 7, 6, 7, 6, 7, 7, 7, 6, 7, 6, 7, 6, 6, 7, 7, 7, 6, 6, 7,
+
+7
+
+  );
+
+  downLines.push(
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 1,
+    1, 1, 1, 1, 2, 2, 2, 1, 0, 0, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
+
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 1, 0, 0, 0,
+    0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3,
+    2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
+    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
+    2.0, 1.6, 1.2, 0.8, 0.4, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 1, 0, 0, 0,
+
+    0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 3.7, 3.3, 3.1, 2.8, 2.5, 2.2, 1.9, 1.6, 1.3,
+    1, 0.7, 0.4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1,
+    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+
+    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+    0, 0, 1, 0, 1, 0, 1, 0, 2, 0, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0,
+    2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0,
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+
+    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+    1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0,
+    0, 0, 0, 0, 0,
+    0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0,
+
+
+
+    0);
+
 
 
   // blocks = new Array();
@@ -651,8 +677,8 @@ $(document).ready(function() {
     currentMiddleUpY = 490 - currentMiddleDownY;
 
 
-    // if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
-    //   dead();
+    if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
+      dead();
 
 
 
@@ -700,7 +726,58 @@ $(document).ready(function() {
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
       if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
-        distanceY = 20;
+        distanceY = 18;
+      }
+      distanceY = Math.abs(distanceY);
+      lineStartx = lineStartx - distanceY;
+      context.lineTo(lineStartx, arrowArrayY[i]);
+    }
+
+    context.strokeStyle = "white";
+    context.lineWidth = 5 + 10 * Math.random();
+    context.stroke();
+    if(doubleFlag){
+    context.save();
+context.translate(0, canvasHeight);
+context.scale(1, -1);
+
+context.fillStyle = "white";
+    context.beginPath();
+    if (Border(player)) {
+      context.moveTo(player.x + player.halfWidth, player.y);
+      context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
+      context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
+    } else if (!player.arrowMoveUp) {
+      context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
+      context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
+      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
+    } else {
+      context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
+      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
+      context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
+    }
+    context.closePath();
+    context.fill();
+
+
+
+var lineStartx = player.x - player.halfWidth;
+    context.beginPath();
+    context.moveTo(player.x - player.halfWidth, player.y);
+
+    var k = 0;
+
+
+
+    for (var i = 0; i < arrowArrayY.length; i++) {
+      var distanceY;
+      if (i == 0 && arrowArrayY[0] > 0) {
+        distanceY = arrowArrayY[0] - player.y;
+      } else {
+        distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
+      }
+      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
+        distanceY = 18;
       }
       distanceY = Math.abs(distanceY);
       lineStartx = lineStartx - distanceY;
@@ -712,14 +789,27 @@ $(document).ready(function() {
     context.stroke();
 
 
+
+
+    context.restore();
+}
     if (soundBackground.currentTime - 6.8 <= 0.2 && soundBackground.currentTime - 6.8 >= -0.2) {
       canvas.removeClass('bgm0');
       canvas.addClass('bgm1');
     }
-    if (soundBackground.currentTime - 21 <= 0.3 && soundBackground.currentTime - 21 >= -0.3) {
-      console.log("a");
+    if (soundBackground.currentTime - 21.4 <= 0.3 && soundBackground.currentTime - 21.4 >= -0.3) {
+
       canvas.removeClass('bgm1');
       canvas.addClass('bgm2');
+    }
+    if (soundBackground.currentTime - 37 <= 0.3 && soundBackground.currentTime - 37 >= -0.3) {
+      canvas.removeClass('bgm2');
+      canvas.addClass('bgm3');
+    }
+    if (soundBackground.currentTime - 52 <= 0.3 && soundBackground.currentTime - 52 >= -0.3) {
+      canvas.removeClass('bgm3');
+      canvas.addClass('bgm4');
+      doubleFlag = true;
     }
     // console.log(soundBackground.currentTime);
     if (playGame) {
