@@ -17,16 +17,20 @@ h1 {
 p {
 	margin: 0 20px;
 }
-
 .bgm0 {
+
+    background:#009900;
+
+    }
+.bgm1 {
     animation: prompt 3s linear 0s infinite;
     }
     @-webkit-keyframes prompt{
-    0%{background:#33CCFF;}
-    25%{background:#3399FF;}
-    50%{background:#3366FF;}
-    75%{background:#3399FF;}
-    100%{background:#33CCFF;}
+    0%{background:#009900;}
+    25%{background:#00AA00;}
+    50%{background:#00BB00;}
+    75%{background:#00AA00;}
+    100%{background:#009900;}
     }
 .bgm22 {
 	  animation: prompt 3s linear 0s infinite;

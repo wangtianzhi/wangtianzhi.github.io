@@ -14,7 +14,8 @@ var ondownShortFlag = false;
 var resetFlag = true;
 var change = 0;
 var ondownFlag = false;
-
+var currentMiddleDownY = 245;
+var currentMiddleUpY = 245;
 var draw1 = true;
 var draw2 = false;
 var gFlag = false;
@@ -24,6 +25,7 @@ var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
 var topLen;
+var nextMiddleY = 245;
 
 var playerImg = new Image();
 playerImg.src = "/img/game/xiaofangkuai.png";
@@ -314,39 +316,81 @@ $(document).ready(function() {
   var upupLines = new Array();
   var downLines = new Array();
   var middleUpupLines = new Array();
-  var middleDownLines = new Array();
+  // var middleDownLines = new Array();
 
   upupLines.push(
-    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,  // 20
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 
+    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, // 20
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
     5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
     6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
 
-    6, 5, 5, 5, 5, 6, 7, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4, 
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 6, 
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
-    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 
+    6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
+    4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7,
+    6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 6, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6.8, 6.6, 6.4, 5.4, 5, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
 
     5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 5, 7, 5, 5, 7
-    );
+  );
 
   downLines.push(
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 2, 
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 1,
     1, 1, 1, 1, 2, 2, 2, 1, 0, 0, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
 
-    1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    1, 1, 1, 1, 2, 3, 2, 1, 0, 0, 1, 2, 3, 3, 3, 2, 1, 2, 3, 2, 
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-    1, 2, 2, 1, 1, 1, 2, 2, 1, 2, 3, 2, 1, 1, 1, 1, 1, 2, 3, 2,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 0,
+    0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3,
+    2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
+    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+    0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 1, 2, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
     1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1,
-     0);
+    0);
+  middleUpupLines.push(
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+   -1, 3.5, 2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+   -1, 3.5, 3, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+    0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 2.5, 3.5,0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, -1, 3.5, 3, 2.5, 2.5, 2.5, 2.5, 2.5, 3, 3.5, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, -1, 3.5, 2.5, 1.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+  )
 
 
   // blocks = new Array();
@@ -355,12 +399,12 @@ $(document).ready(function() {
   // var blockHeight = 44;
   var blockX1 = canvasWidth;
   var blockY1 = canvasHeight - 20;
-  var blockVx1 = -10;
+  var blockVx1 = -9;
   var blockVy1 = 0;
 
   // context.lineWidth = 3;
   // context.strokeStyle = "white";
-  // blocks.unshift([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
+  // blocks.unshift([0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1]);
   // blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   // blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
   // blocks.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -494,11 +538,14 @@ $(document).ready(function() {
   function animate() {
     currentDownY = 490;
     currentUpY = 0;
+    currentMiddleDownY = 245;
+    currentMiddleUpY = 245;
+    nextMiddleY = 245;
 
     animateCount++;
 
-    var i = Math.floor(animateCount/6.3) - 16;
-    var i18 = i+18;
+    var i = Math.floor(animateCount / 7) - 16;
+    var i18 = i + 18;
     context.clearRect(0, 0, canvasWidth + 100, canvasHeight + 100);
     context.fillStyle = "white";
 
@@ -519,15 +566,17 @@ $(document).ready(function() {
 
     blockX1 += blockVx1;
     blockY1 += blockVy1;
-    context.beginPath();
-    if( i < 0)
+    if (i < 0)
       i = 0
     var j = i;
-    context.moveTo(-20,0);
+    var k = i - 10;
+    // 上
+    context.beginPath();
+    context.moveTo(-20, 0);
     for (; i < i18; i++) {
       var cX = i * 63 + blockX1;
       cUpY = blockY1 - upupLines[i] * 63;
-        context.lineTo(cX, cUpY);
+      context.lineTo(cX, cUpY);
 
       if (cX < 350 && cX + 63 > 350) {
         currentUpY = cUpY + (blockY1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
@@ -538,31 +587,80 @@ $(document).ready(function() {
     context.closePath();
     context.fill();
 
-
+    // 下
     context.beginPath();
-    context.moveTo(-20,490);
+    context.moveTo(-20, 490);
     for (; j < i18; j++) {
       var cX = j * 63 + blockX1;
       cDownY = blockY1 - downLines[j] * 63;
-        context.lineTo(cX, cDownY);
+      context.lineTo(cX, cDownY);
       if (cX <= 350 && cX + 63 >= 350) {
         currentDownY = cDownY + (blockY1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
       }
 
     }
-   context.lineTo(1200, 490);
+    context.lineTo(1200, 490);
     context.closePath();
     context.fill();
 
-    if (player.y < currentUpY || player.y > currentDownY)
+    // 中
+    for (; k < i18; k++) {
+      if (middleUpupLines[k] === 0)
+        continue;
+      if (middleUpupLines[k] === -1)
+        {
+        context.beginPath();}
+        else{
+      // if(middleUpupLines[k] === -2){
+      //   context.closePath();
+      //   context.fill();}
+      var cX = k * 63 + blockX1;
+      cMiddleY = blockY1 - middleUpupLines[k] * 63;
+      if(middleUpupLines[k+1] === 0) {
+        nextMiddleY = 245;
+      } else 
+      nextMiddleY = blockY1 - middleUpupLines[k + 1] * 63;
+
+      if (middleUpupLines[k] > 0 && middleUpupLines[k - 1] === 0)
+        context.moveTo(cX, cMiddleY);
+      else
+        context.lineTo(cX, cMiddleY);
+      if (cX <= 350 && cX + 63 >= 350) {
+        currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (350 - cX);
+      }
+}
+    }
+    // console.log((middleUpupLines[k + 1] * 63 - cMiddleY) / 63);
+    console.log(currentMiddleDownY);
+    for (; k > i18-25; k--) {
+      if (middleUpupLines[k] === 0)
+        continue;
+      if (middleUpupLines[k] === -1) {
+        context.closePath();
+        context.fill();
+        break;
+      }
+      // if(middleUpupLines[k] === -2){
+      //   context.closePath();
+      //   context.fill();}
+      var cX = k * 63 + blockX1;
+      cMiddleY = blockY1 - (7 - middleUpupLines[k]) * 63;
+
+        context.lineTo(cX, cMiddleY);
+    }
+
+        currentMiddleUpY = 490 - currentMiddleDownY;
+
+
+    if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
       dead();
 
 
 
     if (player.arrowMoveUp) {
-      player.vY = -10;
+      player.vY = -9;
     } else {
-      player.vY = 10;
+      player.vY = 9;
     }
 
     player.y += player.vY;
@@ -615,7 +713,11 @@ $(document).ready(function() {
     context.stroke();
 
 
-
+    if(soundBackground.currentTime - 6.8<=0.1&&soundBackground.currentTime - 6.8>=-0.1){
+      canvas.removeClass('bgm0');
+      canvas.addClass('bgm1')
+    }
+    console.log(soundBackground.currentTime);
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
       setTimeout(animate, 16);
