@@ -26,6 +26,7 @@ var deadCount = 0;
 var doubleFlag = false;
 var topLen;
 var nextMiddleY = 245;
+var health = 100;
 
 var playerImg = new Image();
 playerImg.src = "/img/game/xiaofangkuai.png";
@@ -67,13 +68,14 @@ var Player = function(x, y) {
   this.arrowMoveUp = false;
   this.arrowSpeed = false;
   this.snakeMoveUp = false;
-
 };
 
 
 var windowHeight = window.innerHeight;
 $("gameCanvas").css("height", windowHeight);
 player = new Player(350, windowHeight / 2);
+
+
 
 var arrowArrayUp = function(a, p) {
 
@@ -255,6 +257,7 @@ $(document).ready(function() {
   }
 
   var reset = function(e) {
+    health = 100;
     doubleFlag = false;
     canvas.removeClass();
     canvas.addClass('bgm0');
@@ -282,7 +285,12 @@ $(document).ready(function() {
 
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
-
+function hurt() {
+  health--;
+  if(health === 0) {
+    dead();
+  }
+}
 
 
   // 游戏设置
@@ -319,14 +327,7 @@ $(document).ready(function() {
   var middleUpupLines = new Array();
   // var middleDownLines = new Array();
   middleUpupLines.push(
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 3, 2.5, 3, 3.5,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -340,6 +341,12 @@ $(document).ready(function() {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 1.5, 2.5, 3.5, 0, 0, -1, 3.5,
+    2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
@@ -349,8 +356,8 @@ $(document).ready(function() {
 
     );
   upupLines.push(
-    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, // 20
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, // 20
+    7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
     6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
     5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
     6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
@@ -364,12 +371,12 @@ $(document).ready(function() {
     2, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2,
     1, 1, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6.7, 6.4, 6.1, 5.8, 5.5, 5.2, 4.9,
     4.6, 4.3, 4, 3.7, 3.4, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7,
-    7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7, 7, 5, 5, 7, 7, 7,
+    7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
+    7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
 
-    7, 7, 6, 5, 5, 6, 7, 7, 6, 5, 5, 6, 7, 7, 6, 5, 5, 6, 7, 7,
-    7, 5, 7, 5, 7, 5, 7, 6, 7, 6, 7, 6, 6, 7, 7, 7, 7, 7, 6, 6,
-    6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7,
+    7, 4, 7, 4, 7, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 7, 7, 7, 7,
     4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7,
     6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
 
@@ -386,14 +393,14 @@ $(document).ready(function() {
   );
 
   downLines.push(
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1, 1,
-    1, 1, 1, 1, 2, 2, 2, 1, 0, 0, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
+    1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
 
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 1, 0, 0, 0,
-    0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 1, 1, 1, 1,
+    1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 1, 1, 1, 2, 3,
     2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
     1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
     2.0, 1.6, 1.2, 0.8, 0.4, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 1, 0, 0, 0,
@@ -405,8 +412,8 @@ $(document).ready(function() {
     2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
 
     2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
-    0, 0, 1, 0, 1, 0, 1, 0, 2, 0, 2, 0, 0, 0, 2, 2, 0, 0, 0, 0,
-    2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0,
     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
 
@@ -578,6 +585,7 @@ $(document).ready(function() {
     var i = Math.floor(animateCount / 7) - 16;
     var i18 = i + 18;
     context.clearRect(0, 0, canvasWidth + 100, canvasHeight + 100);
+
     context.fillStyle = "white";
 
     if (!blackFlag) {
@@ -683,7 +691,7 @@ $(document).ready(function() {
 
 
     if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
-      dead();
+      hurt();
 
 
 
@@ -714,6 +722,9 @@ $(document).ready(function() {
     }
     context.closePath();
     context.fill();
+
+        context.restore();
+
     // 画折线
     var lineStartx = player.x - player.halfWidth;
     context.beginPath();
@@ -731,7 +742,7 @@ $(document).ready(function() {
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
       if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
-        distanceY = 18;
+        distanceY = 16;
       }
       distanceY = Math.abs(distanceY);
       lineStartx = lineStartx - distanceY;
@@ -740,9 +751,9 @@ $(document).ready(function() {
 
     context.strokeStyle = "white";
     if(doubleFlag)
-    context.lineWidth = 5 + 16 * Math.random();
+    context.lineWidth = 5 + 20 * Math.random();
   else 
-    context.lineWidth = 5 + 10 * Math.random();
+    context.lineWidth = 5 + 5 * Math.random();
     context.stroke();
     if(doubleFlag){
     context.save();
@@ -785,7 +796,7 @@ var lineStartx = player.x - player.halfWidth;
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
       if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
-        distanceY = 18;
+        distanceY = 16;
       }
       distanceY = Math.abs(distanceY);
       lineStartx = lineStartx - distanceY;
@@ -794,16 +805,16 @@ var lineStartx = player.x - player.halfWidth;
 
     context.strokeStyle = "white";
     if(doubleFlag)
-    context.lineWidth = 5 + 16 * Math.random();
+    context.lineWidth = 5 + 20 * Math.random();
   else 
-    context.lineWidth = 5 + 10 * Math.random();
+    context.lineWidth = 5 + 5 * Math.random();
 
     context.stroke();
 
 
 
 
-    context.restore();
+
 }
     if (soundBackground.currentTime - 6.8 <= 0.2 && soundBackground.currentTime - 6.8 >= -0.2) {
       canvas.removeClass('bgm0');
@@ -814,7 +825,7 @@ var lineStartx = player.x - player.halfWidth;
       canvas.removeClass('bgm1');
       canvas.addClass('bgm2');
     }
-    if (soundBackground.currentTime - 37.5 <= 0.3 && soundBackground.currentTime - 37.5 >= -0.3) {
+    if (soundBackground.currentTime - 38.2 <= 0.3 && soundBackground.currentTime - 38.2 >= -0.3) {
       canvas.removeClass('bgm2');
       canvas.addClass('bgm3');
     }
@@ -823,6 +834,13 @@ var lineStartx = player.x - player.halfWidth;
       canvas.addClass('bgm4');
       doubleFlag = true;
     }
+    context.rect(10, 2, 100, 25);
+    // context.strokeStyle = "red";
+    // context.stroke();
+    context.fillStyle="red";
+    context.fillRect(10, 2, health, 25);
+    context.fillStyle="white";
+    context.strokeStyle="white";
     // console.log(soundBackground.currentTime);
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
