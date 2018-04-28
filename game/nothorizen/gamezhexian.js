@@ -14,8 +14,8 @@ var ondownShortFlag = false;
 var resetFlag = true;
 var change = 0;
 var ondownFlag = false;
-var currentMiddleDownY;
-var currentMiddleUpY;
+var currentMiddleDownY = 245;
+var currentMiddleUpY = 245;
 var draw1 = true;
 var draw2 = false;
 var gFlag = false;
@@ -25,11 +25,31 @@ var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
 var topLen;
-var nextMiddleY;
+var nextMiddleY = 245;
 var health = 100;
-var t = false;
-var tx = 4;
-var ty = 4;
+
+// var playerImg = new Image();
+// playerImg.src = "/img/game/xiaofangkuai.png";
+// var heici = new Image();
+// heici.src = "/img/game/heici.png";
+// var heidaoci = new Image();
+// heidaoci.src = "/img/game/heidaoci.png";
+// var heifangkuai = new Image();
+// heifangkuai.src = "/img/game/heifangkuai.png"
+// var yuanquan = new Image();
+// yuanquan.src = "/img/game/yuanquan.png"
+
+
+// var blackPlayerImg = new Image();
+// blackPlayerImg.src = "/img/game/wanjiaheibai.png";
+
+
+// var baisefangkuai = new Image();
+// baisefangkuai.src = "/img/game/baisefangkuai.png";
+// var baiseci = new Image();
+// baiseci.src = "/img/game/baiseci.png";
+// var baisedaoci = new Image();
+// baisedaoci.src = "/img/game/baisedaoci.png";
 
 
 // 颜色渐变
@@ -58,24 +78,26 @@ player = new Player(350, windowHeight / 2);
 
 
 var arrowArrayUp = function(a, p) {
-  if (a[0] < p.x) {
+
+  if (a[0] < p.y) {
     a.shift();
-    a.unshift(p.x);
+    a.unshift(p.y);
   } else {
-    a.unshift(p.x);
+    a.unshift(p.y);
   }
   if (a.length > arrowArrayLength) {
     a.pop();
   }
+
 }
 
 var arrowArrayDown = function(a, p) {
 
-  if (a[0] < p.x) {
+  if (a[0] < p.y) {
     a.shift();
-    a.unshift(p.x);
+    a.unshift(p.y);
   } else {
-    a.unshift(p.x);
+    a.unshift(p.y);
   }
   if (a.length > arrowArrayLength) {
     a.pop();
@@ -93,44 +115,33 @@ $(document).ready(function() {
   var uiTestPlay = $("#gameTestPlay");
   var uiDoublePlay = $("#gameDoublePlay");
   var soundBackground = $("#gameSoundBackground").get(0);
-  var henguiPlay = $("#hgamePlay");
+
   var audio1 = document.getElementById("gameSoundBackground");
 
 
 
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
-  // context.
-  var baifangkuaiCanvas = document.getElementById("baifangkuaiCanvas");
-  var offctx = baifangkuaiCanvas.getContext("2d");
 
 
   var canvasWidth = canvas.width();
   var canvasHeight = canvas.height();
-  if(!notHorizon){
-  context.translate(canvasWidth/2,canvasHeight/2);
-  context.scale(1, -1);
-  context.translate(-canvasWidth/2, -canvasHeight/2);
-}
 
 
   var conW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   var conH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-//   if (notHorizon) {
-//     $("body").css({
-//       "transform": "rotate(90deg) translate(" + ((conH - conW) / 2) + "px," + ((conH - conW) / 2) + "px)",
-//       "width": conH + "px",
-//       "height": conW + "px",
-//       //"margin-top":iosTopHe+"px",  
-//       // "border-left":iosTopHe+"px solid #000",  
-//       "transform-origin": "center center",
-//       "-webkit-transform-origin": "center center"
-//       // transform: scale(1,-1)
-// // -moz-transform:scale(1，-1); 
-
-//     });
-//   }
+  if (notHorizon) {
+    $("#gameCanvas").css({
+      "transform": "rotate(90deg) translate(" + ((conH - conW) / 2) + "px," + ((conH - conW) / 2) + "px)",
+      "width": conH + "px",
+      "height": conW + "px",
+      //"margin-top":iosTopHe+"px",  
+      // "border-left":iosTopHe+"px solid #000",  
+      "transform-origin": "center center",
+      "-webkit-transform-origin": "center center"
+    });
+  }
 
   var dead = function() {
 
@@ -293,12 +304,12 @@ function hurt() {
   function Border(player) {
     borderFlag = false;
 
-    if (player.x - player.halfHeight <= 20) {
+    if (player.y - player.halfHeight <= 29) {
       borderFlag = true;
-      player.x = 21 + player.halfHeight;
+      player.y = 30 + player.halfHeight;
 
-    } else if (player.x + player.halfHeight >= canvasWidth - 20) {
-      player.x = canvasWidth - 21 - player.halfHeight;
+    } else if (player.y + player.halfHeight >= canvasHeight - 20) {
+      player.y = canvasHeight - 21 - player.halfHeight;
       borderFlag = true;
     }
 
@@ -311,7 +322,7 @@ function hurt() {
   var upupLines = new Array();
   var downLines = new Array();
   var middleUpupLines = new Array();
-//   // var middleDownLines = new Array();
+  // var middleDownLines = new Array();
   middleUpupLines.push(
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 3, 2.5, 3, 3.5,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -422,9 +433,9 @@ function hurt() {
   // var blockWidth = 44;
   // var blockHeight = 44;
   var blockX1 = canvasWidth;
-  var blockY1 = canvasHeight;
-  var blockVx1 = 0;
-  var blockVy1 = -9;
+  var blockY1 = canvasHeight - 20;
+  var blockVx1 = -9;
+  var blockVy1 = 0;
 
   // context.lineWidth = 3;
   // context.strokeStyle = "white";
@@ -460,7 +471,9 @@ function hurt() {
       ondownFlag = true;
       ondownShortFlag = true;
       e.preventDefault();
-
+      setTimeout(function() {
+        ondownShortFlag = false
+      }, 130);
 
 
       player.arrowMoveUp = true;
@@ -470,11 +483,11 @@ function hurt() {
       clearInterval(downInterval);
       upInterval = setInterval(function() {
 
-        if (arrowArrayY[0] < player.x) {
+        if (arrowArrayY[0] < player.y) {
           arrowArrayY.shift();
-          arrowArrayY.unshift(player.x);
+          arrowArrayY.unshift(player.y);
         } else {
-          arrowArrayY.unshift(player.x);
+          arrowArrayY.unshift(player.y);
         }
         if (arrowArrayY.length > arrowArrayLength) {
           arrowArrayY.pop();
@@ -499,11 +512,11 @@ function hurt() {
 
       downInterval = setInterval(function() {
 
-        if (arrowArrayY[0] > player.x) {
+        if (arrowArrayY[0] > player.y) {
           arrowArrayY.shift();
-          arrowArrayY.unshift(player.x);
+          arrowArrayY.unshift(player.y);
         } else {
-          arrowArrayY.unshift(player.x);
+          arrowArrayY.unshift(player.y);
         }
         if (arrowArrayY.length > arrowArrayLength) {
           arrowArrayY.pop();
@@ -536,12 +549,6 @@ function hurt() {
       uiIntro.hide();
       startGame();
     });
-        henguiPlay.click(function(e) {
-
-      notHorizon = true;
-      uiIntro.hide();
-      startGame();
-    });
     uiTestPlay.click(function(e) {
       e.preventDefault();
       uiIntro.hide();
@@ -564,11 +571,11 @@ function hurt() {
   }
 
   function animate() {
-    currentDownY = 470;
+    currentDownY = 490;
     currentUpY = 0;
-     currentMiddleDownY = blockX1/2;
-    currentMiddleUpY = blockX1/2;
-    nextMiddleY = blockX1/2;
+    currentMiddleDownY = 245;
+    currentMiddleUpY = 245;
+    nextMiddleY = 245;
 
     animateCount++;
 
@@ -578,8 +585,16 @@ function hurt() {
 
     context.fillStyle = "white";
 
-      context.fillRect(0, 0, 20, canvasHeight);
-      context.fillRect(canvasWidth-20, 0, 20, canvasHeight);
+    if (!blackFlag) {
+      context.fillRect(0, canvasHeight - 20, canvasWidth, 20);
+      context.fillRect(0, 0, canvasWidth, 29.2);
+    } else {
+      context.moveTo(0, 29.2);
+      context.lineTo(canvasWidth, 29.2);
+      context.moveTo(0, canvasHeight - 20);
+      context.lineTo(canvasWidth, canvasHeight - 20);
+      context.stroke();
+    }
 
     // 颜色
 
@@ -591,35 +606,36 @@ function hurt() {
       i = 0
     var j = i;
     var k = i - 10;
-    // 下
+    // 上
     context.beginPath();
-    context.moveTo(0, -20);
+    context.moveTo(-20, 0);
     for (; i < i18; i++) {
-      var cX = i * 63 + blockY1;
-      cUpY = blockX1 - upupLines[i] * 63;
-      context.lineTo(cUpY, cX);
+      var cX = i * 63 + blockX1;
+      cUpY = blockY1 - upupLines[i] * 63;
+      context.lineTo(cX, cUpY);
 
       if (cX < 350 && cX + 63 > 350) {
-        currentUpY = cUpY + (blockX1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
+        currentUpY = cUpY + (blockY1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
       }
 
     }
-    context.lineTo(0, 1200);
+    context.lineTo(1200, 0);
     context.closePath();
     context.fill();
 
     // 下
     context.beginPath();
-    context.moveTo(blockX1, -20);
+    context.moveTo(-20, 490);
     for (; j < i18; j++) {
-      var cX = j * 63 + blockY1;
-      cDownY = blockX1 - downLines[j] * 63;
-      context.lineTo(cDownY, cX);
+      var cX = j * 63 + blockX1;
+      cDownY = blockY1 - downLines[j] * 63;
+      context.lineTo(cX, cDownY);
       if (cX <= 350 && cX + 63 >= 350) {
-        currentDownY = cDownY + (blockX1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
+        currentDownY = cDownY + (blockY1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
       }
+
     }
-    context.lineTo(blockX1, 1200);
+    context.lineTo(1200, 490);
     context.closePath();
     context.fill();
 
@@ -633,23 +649,24 @@ function hurt() {
         // if(middleUpupLines[k] === -2){
         //   context.closePath();
         //   context.fill();}
-        var cX = k * 63 + blockY1;
-        cMiddleY = blockX1 - middleUpupLines[k] * 63;
+        var cX = k * 63 + blockX1;
+        cMiddleY = blockY1 - middleUpupLines[k] * 63;
         if (middleUpupLines[k + 1] === 0) {
           nextMiddleY = 245;
         } else
-          nextMiddleY = blockX1 - middleUpupLines[k + 1] * 63;
+          nextMiddleY = blockY1 - middleUpupLines[k + 1] * 63;
 
         if (middleUpupLines[k] > 0 && middleUpupLines[k - 1] === 0)
-          context.moveTo(cMiddleY, cX);
+          context.moveTo(cX, cMiddleY);
         else
-          context.lineTo(cMiddleY, cX);
+          context.lineTo(cX, cMiddleY);
         if (cX <= 350 && cX + 63 >= 350) {
           currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (350 - cX);
         }
       }
     }
-
+    // console.log((middleUpupLines[k + 1] * 63 - cMiddleY) / 63);
+    // console.log(currentMiddleDownY);
     for (; k > i18 - 25; k--) {
       if (middleUpupLines[k] === 0)
         continue;
@@ -658,61 +675,47 @@ function hurt() {
         context.fill();
         break;
       }
+      // if(middleUpupLines[k] === -2){
+      //   context.closePath();
+      //   context.fill();}
+      var cX = k * 63 + blockX1;
+      cMiddleY = blockY1 - (7 - middleUpupLines[k]) * 63;
 
-      var cX = k * 63 + blockY1;
-      cMiddleY = blockX1 - (7 - middleUpupLines[k]) * 63;
-
-      context.lineTo(cMiddleY,cX);
+      context.lineTo(cX, cMiddleY);
     }
 
-    currentMiddleUpY = blockX1 - currentMiddleDownY;
-
-    if (player.x < currentUpY || player.x > currentDownY || (player.x<currentMiddleDownY)&&(player.x>currentMiddleUpY))
-    {  hurt();
-        
-          // tx -= 2;
-        // ty += 2;
-        if(t)
-          {context.translate(tx, ty);
-            t = !t;
-        }
-        else {
-          context.translate(-tx, -ty);
-          t = !t;
-        }
-        // if(tx = -4) tx = 4;
-        // if(ty = 4) ty = -4;
+    currentMiddleUpY = 490 - currentMiddleDownY;
 
 
-    }
+    if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
+      hurt();
+
 
 
     if (player.arrowMoveUp) {
-      player.vX = -9;
+      player.vY = -9;
     } else {
-      player.vX = 9;
+      player.vY = 9;
     }
 
     player.y += player.vY;
-    player.x += player.vX;
 
 
     var w = player.width * 0.26;
     context.fillStyle = "white";
     context.beginPath();
     if (Border(player)) {
-
-      context.moveTo(player.x + player.halfWidth, player.y - player.halfWidth);
+      context.moveTo(player.x + player.halfWidth, player.y);
       context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
-      context.lineTo(player.x, player.y + player.halfWidth);
+      context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
     } else if (!player.arrowMoveUp) {
-      context.moveTo(player.x + player.halfWidth/1.414 + w,  player.y + player.halfWidth/1.414 -w);
-      context.lineTo(player.x - player.halfWidth * 1.3 + w, player.y  -w);
-      context.lineTo(player.x + w, player.y - player.halfWidth * 1.3-w);
+      context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
+      context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
+      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
     } else {
-      context.moveTo(player.x - player.halfWidth / 1.414 -w, player.y + player.halfWidth / 1.414 -w);
-      context.lineTo(player.x -w, player.y - player.halfWidth*1.3 -w);
-      context.lineTo(player.x - w+player.halfWidth*1.3 , player.y-w );
+      context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
+      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
+      context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
     }
     context.closePath();
     context.fill();
@@ -720,9 +723,9 @@ function hurt() {
         context.restore();
 
     // 画折线
-    var lineStarty = player.y - player.halfWidth;
+    var lineStartx = player.x - player.halfWidth;
     context.beginPath();
-    context.moveTo(player.x , player.y- player.halfWidth);
+    context.moveTo(player.x - player.halfWidth, player.y);
 
     var k = 0;
 
@@ -731,16 +734,16 @@ function hurt() {
     for (var i = 0; i < arrowArrayY.length; i++) {
       var distanceY;
       if (i == 0 && arrowArrayY[0] > 0) {
-        distanceY = player.x - arrowArrayY[0];
+        distanceY = arrowArrayY[0] - player.y;
       } else {
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
-      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasWidth - 20 - player.height - 1)) {
-        distanceY = 12.726;
+      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
+        distanceY = 16;
       }
       distanceY = Math.abs(distanceY);
-      lineStarty = lineStarty - distanceY;
-      context.lineTo(arrowArrayY[i], lineStarty);
+      lineStartx = lineStartx - distanceY;
+      context.lineTo(lineStartx, arrowArrayY[i]);
     }
 
     context.strokeStyle = "white";
@@ -749,37 +752,34 @@ function hurt() {
   else 
     context.lineWidth = 5 + 5 * Math.random();
     context.stroke();
-
-
-    // 另一条线
     if(doubleFlag){
     context.save();
-    context.translate(blockX1, 0);
-    context.scale(-1, 1);
-    context.fillStyle = "white";
+context.translate(0, canvasHeight);
+context.scale(1, -1);
+
+context.fillStyle = "white";
     context.beginPath();
-if (borderFlag) {
-      context.moveTo(player.x + player.halfWidth, player.y - player.halfWidth);
+    if (Border(player)) {
+      context.moveTo(player.x + player.halfWidth, player.y);
       context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
-      context.lineTo(player.x, player.y + player.halfWidth);
+      context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
     } else if (!player.arrowMoveUp) {
-      context.moveTo(player.x + player.halfWidth/1.414 + w,  player.y + player.halfWidth/1.414 -w);
-      context.lineTo(player.x - player.halfWidth * 1.3 + w, player.y  -w);
-      context.lineTo(player.x + w, player.y - player.halfWidth * 1.3-w);
+      context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
+      context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
+      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
     } else {
-      context.moveTo(player.x - player.halfWidth / 1.414 -w, player.y + player.halfWidth / 1.414 -w);
-      context.lineTo(player.x -w, player.y - player.halfWidth*1.3 -w);
-      context.lineTo(player.x - w+player.halfWidth*1.3 , player.y-w );
+      context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
+      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
+      context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
     }
     context.closePath();
     context.fill();
 
-        
 
-    // 画折线
-    var lineStarty = player.y - player.halfWidth;
+
+var lineStartx = player.x - player.halfWidth;
     context.beginPath();
-    context.moveTo(player.x , player.y- player.halfWidth);
+    context.moveTo(player.x - player.halfWidth, player.y);
 
     var k = 0;
 
@@ -788,17 +788,16 @@ if (borderFlag) {
     for (var i = 0; i < arrowArrayY.length; i++) {
       var distanceY;
       if (i == 0 && arrowArrayY[0] > 0) {
-        distanceY = player.x - arrowArrayY[0];
+        distanceY = arrowArrayY[0] - player.y;
       } else {
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
-      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasWidth - 20 - player.height - 1)) {
-
-        distanceY = 12.726;
+      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
+        distanceY = 16;
       }
       distanceY = Math.abs(distanceY);
-      lineStarty = lineStarty - distanceY;
-      context.lineTo(arrowArrayY[i], lineStarty);
+      lineStartx = lineStartx - distanceY;
+      context.lineTo(lineStartx, arrowArrayY[i]);
     }
 
     context.strokeStyle = "white";
@@ -806,9 +805,12 @@ if (borderFlag) {
     context.lineWidth = 5 + 20 * Math.random();
   else 
     context.lineWidth = 5 + 5 * Math.random();
+
     context.stroke();
 
-    context.restore()
+
+
+
 
 }
     if (soundBackground.currentTime - 6.8 <= 0.2 && soundBackground.currentTime - 6.8 >= -0.2) {
@@ -841,7 +843,6 @@ if (borderFlag) {
       // Run the animation loop again in 33 milliseconds
       setTimeout(animate, 16);
     }
- 
   }
 
   init();
