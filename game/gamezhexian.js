@@ -14,8 +14,8 @@ var ondownShortFlag = false;
 var resetFlag = true;
 var change = 0;
 var ondownFlag = false;
-var currentMiddleDownY = 245;
-var currentMiddleUpY = 245;
+var currentMiddleDownY;
+var currentMiddleUpY;
 var draw1 = true;
 var draw2 = false;
 var gFlag = false;
@@ -25,31 +25,10 @@ var canDead = true;
 var deadCount = 0;
 var doubleFlag = false;
 var topLen;
-var nextMiddleY = 245;
+var nextMiddleY;
 var health = 100;
 
-var playerImg = new Image();
-playerImg.src = "/img/game/xiaofangkuai.png";
-var heici = new Image();
-heici.src = "/img/game/heici.png";
-var heidaoci = new Image();
-heidaoci.src = "/img/game/heidaoci.png";
-var heifangkuai = new Image();
-heifangkuai.src = "/img/game/heifangkuai.png"
-var yuanquan = new Image();
-yuanquan.src = "/img/game/yuanquan.png"
 
-
-var blackPlayerImg = new Image();
-blackPlayerImg.src = "/img/game/wanjiaheibai.png";
-
-
-var baisefangkuai = new Image();
-baisefangkuai.src = "/img/game/baisefangkuai.png";
-var baiseci = new Image();
-baiseci.src = "/img/game/baiseci.png";
-var baisedaoci = new Image();
-baisedaoci.src = "/img/game/baisedaoci.png";
 
 
 // 颜色渐变
@@ -79,11 +58,11 @@ player = new Player(350, windowHeight / 2);
 
 var arrowArrayUp = function(a, p) {
 
-  if (a[0] < p.y) {
+  if (a[0] < p.x) {
     a.shift();
-    a.unshift(p.y);
+    a.unshift(p.x);
   } else {
-    a.unshift(p.y);
+    a.unshift(p.x);
   }
   if (a.length > arrowArrayLength) {
     a.pop();
@@ -93,11 +72,11 @@ var arrowArrayUp = function(a, p) {
 
 var arrowArrayDown = function(a, p) {
 
-  if (a[0] < p.y) {
+  if (a[0] < p.x) {
     a.shift();
-    a.unshift(p.y);
+    a.unshift(p.x);
   } else {
-    a.unshift(p.y);
+    a.unshift(p.x);
   }
   if (a.length > arrowArrayLength) {
     a.pop();
@@ -122,29 +101,36 @@ $(document).ready(function() {
 
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
-
+  // context.
   var baifangkuaiCanvas = document.getElementById("baifangkuaiCanvas");
   var offctx = baifangkuaiCanvas.getContext("2d");
 
 
   var canvasWidth = canvas.width();
   var canvasHeight = canvas.height();
+  context.translate(canvasWidth/2,canvasHeight/2);
+  context.scale(1, -1);
+  context.translate(-canvasWidth/2, -canvasHeight/2);
+
 
 
   var conW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   var conH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-  if (notHorizon) {
-    $("body").css({
-      "transform": "rotate(90deg) translate(" + ((conH - conW) / 2) + "px," + ((conH - conW) / 2) + "px)",
-      "width": conH + "px",
-      "height": conW + "px",
-      //"margin-top":iosTopHe+"px",  
-      // "border-left":iosTopHe+"px solid #000",  
-      "transform-origin": "center center",
-      "-webkit-transform-origin": "center center"
-    });
-  }
+//   if (notHorizon) {
+//     $("#gameDiv").css({
+//       // "transform": "rotate(180deg) translate(" + ((conH - conW) / 2) + "px," + ((conH - conW) / 2) + "px)",
+//       // "width": conH + "px",
+//       // "height": conW + "px",
+//       // //"margin-top":iosTopHe+"px",  
+//       // // "border-left":iosTopHe+"px solid #000",  
+//       // "transform-origin": "center center",
+//       // "-webkit-transform-origin": "center center"
+//       // transform: scale(1,-1)
+// -moz-transform:scale(1，-1); 
+
+//     });
+//   }
 
   var dead = function() {
 
@@ -307,12 +293,12 @@ function hurt() {
   function Border(player) {
     borderFlag = false;
 
-    if (player.y - player.halfHeight <= 29) {
+    if (player.x - player.halfHeight <= 20) {
       borderFlag = true;
-      player.y = 30 + player.halfHeight;
+      player.x = 21 + player.halfHeight;
 
-    } else if (player.y + player.halfHeight >= canvasHeight - 20) {
-      player.y = canvasHeight - 21 - player.halfHeight;
+    } else if (player.x + player.halfHeight >= canvasWidth - 20) {
+      player.x = canvasWidth - 21 - player.halfHeight;
       borderFlag = true;
     }
 
@@ -325,109 +311,109 @@ function hurt() {
   var upupLines = new Array();
   var downLines = new Array();
   var middleUpupLines = new Array();
-  // var middleDownLines = new Array();
-  middleUpupLines.push(
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 3, 2.5, 3, 3.5,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//   // var middleDownLines = new Array();
+//   middleUpupLines.push(
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 3, 2.5, 3, 3.5,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 1.5, 2.5, 3.5, 0, 0, -1, 3.5,
-    2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 1.5, 2.5, 3.5, 0, 0, -1, 3.5,
+//     2.5, 3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 3.5, 2.5, 3.5, 2.5, 3.5, 0, 0,
 
-    );
-  upupLines.push(
-    7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, // 20
-    7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
-    5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
-    6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
+//     );
+//   upupLines.push(
+//     7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, // 20
+//     7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+//     6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
+//     5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
+//     6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
 
-    6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
-    4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 7, 6, 5, 6, 7, 7,
-    7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 6, 5,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
-    6.2, 5.8, 5.4, 5, 4.6, 5, 5.2, 5, 4, 5.6, 5.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 6, 5, 4, 3,
+//     6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
+//     4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 7, 6, 5, 6, 7, 7,
+//     7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 6, 5,
+//     7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
+//     6.2, 5.8, 5.4, 5, 4.6, 5, 5.2, 5, 4, 5.6, 5.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 6, 5, 4, 3,
 
-    2, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2,
-    1, 1, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6.7, 6.4, 6.1, 5.8, 5.5, 5.2, 4.9,
-    4.6, 4.3, 4, 3.7, 3.4, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
-    7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
+//     2, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2,
+//     1, 1, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6.7, 6.4, 6.1, 5.8, 5.5, 5.2, 4.9,
+//     4.6, 4.3, 4, 3.7, 3.4, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7,
+//     7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
+//     7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
 
-    7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7,
-    7, 4, 7, 4, 7, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 7, 7, 7, 7,
-    4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7,
-    6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
+//     7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7,
+//     7, 4, 7, 4, 7, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
+//     7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 7, 7, 7, 7,
+//     4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7,
+//     6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
 
-    6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
-    6, 7, 6, 7, 6, 7, 6, 5, 5, 7, 7, 7, 7, 6, 7, 6, 7, 6, 7, 7, 
-    7, 7, 7, 7, 7, 7, 7, 6, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
-    7, 7, 7, 7, 7, 6, 7, 6, 7, 6, 7, 6, 5, 5, 7, 7, 7, 7, 6, 7, 
-    6, 7, 6, 7, 7, 6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,5.2,5.4,5.6,5.8,6,
-    6.2,6.4,6.6,6.8,7,6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,5.2,5.4,5.6,5.8,6,
-    6.2,6.4,6.6,6.8,7,
+//     6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
+//     6, 7, 6, 7, 6, 7, 6, 5, 5, 7, 7, 7, 7, 6, 7, 6, 7, 6, 7, 7, 
+//     7, 7, 7, 7, 7, 7, 7, 6, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
+//     7, 7, 7, 7, 7, 6, 7, 6, 7, 6, 7, 6, 5, 5, 7, 7, 7, 7, 6, 7, 
+//     6, 7, 6, 7, 7, 6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,5.2,5.4,5.6,5.8,6,
+//     6.2,6.4,6.6,6.8,7,6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,5.2,5.4,5.6,5.8,6,
+//     6.2,6.4,6.6,6.8,7,
 
-7
+// 7
 
-  );
+//   );
 
-  downLines.push(
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
+//   downLines.push(
+//     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+//     1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1,
+//     1, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2,
 
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 1, 1, 1, 1,
-    1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 1, 1, 1, 2, 3,
-    2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
-    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
-    2.0, 1.6, 1.2, 0.8, 0.4, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 1, 0, 0, 0,
+//     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 1, 1, 1, 1,
+//     1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 1, 1, 1, 2, 3,
+//     2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
+//     1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
+//     2.0, 1.6, 1.2, 0.8, 0.4, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 1, 0, 0, 0,
 
-    0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 3.7, 3.3, 3.1, 2.8, 2.5, 2.2, 1.9, 1.6, 1.3,
-    1, 0.7, 0.4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1,
-    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
-    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+//     0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 3.7, 3.3, 3.1, 2.8, 2.5, 2.2, 1.9, 1.6, 1.3,
+//     1, 0.7, 0.4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1,
+//     2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+//     2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
 
-    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
-    0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0,
-    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+//     2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+//     0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+//     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0,
+//     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
 
-    1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
-    1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 
-    1, 0, 1, 0, 0, 0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,1.8,1.6,1.4,1.2,1,
-    0.8,0.6,0.4,0.2,0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,1.8,1.6,1.4,1.2,1,
-    0.8,0.6,0.4,0.2,
+//     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+//     1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0,
+//     0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+//     0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 
+//     1, 0, 1, 0, 0, 0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,1.8,1.6,1.4,1.2,1,
+//     0.8,0.6,0.4,0.2,0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,1.8,1.6,1.4,1.2,1,
+//     0.8,0.6,0.4,0.2,
 
 
 
-    0);
+//     0);
 
 
 
@@ -436,9 +422,9 @@ function hurt() {
   // var blockWidth = 44;
   // var blockHeight = 44;
   var blockX1 = canvasWidth;
-  var blockY1 = canvasHeight - 20;
-  var blockVx1 = -9;
-  var blockVy1 = 0;
+  var blockY1 = canvasHeight;
+  var blockVx1 = 0;
+  var blockVy1 = -9;
 
   // context.lineWidth = 3;
   // context.strokeStyle = "white";
@@ -474,9 +460,7 @@ function hurt() {
       ondownFlag = true;
       ondownShortFlag = true;
       e.preventDefault();
-      setTimeout(function() {
-        ondownShortFlag = false
-      }, 130);
+
 
 
       player.arrowMoveUp = true;
@@ -486,11 +470,11 @@ function hurt() {
       clearInterval(downInterval);
       upInterval = setInterval(function() {
 
-        if (arrowArrayY[0] < player.y) {
+        if (arrowArrayY[0] < player.x) {
           arrowArrayY.shift();
-          arrowArrayY.unshift(player.y);
+          arrowArrayY.unshift(player.x);
         } else {
-          arrowArrayY.unshift(player.y);
+          arrowArrayY.unshift(player.x);
         }
         if (arrowArrayY.length > arrowArrayLength) {
           arrowArrayY.pop();
@@ -515,11 +499,11 @@ function hurt() {
 
       downInterval = setInterval(function() {
 
-        if (arrowArrayY[0] > player.y) {
+        if (arrowArrayY[0] > player.x) {
           arrowArrayY.shift();
-          arrowArrayY.unshift(player.y);
+          arrowArrayY.unshift(player.x);
         } else {
-          arrowArrayY.unshift(player.y);
+          arrowArrayY.unshift(player.x);
         }
         if (arrowArrayY.length > arrowArrayLength) {
           arrowArrayY.pop();
@@ -535,7 +519,7 @@ function hurt() {
 
     if (!playGame) {
       playGame = true;
-      soundBackground.currentTime = 0;
+      soundBackground.currentTime = 50;
       soundBackground.play();
       animate();
       timer();
@@ -576,9 +560,9 @@ function hurt() {
   function animate() {
     currentDownY = 490;
     currentUpY = 0;
-    currentMiddleDownY = 245;
-    currentMiddleUpY = 245;
-    nextMiddleY = 245;
+     currentMiddleDownY = blockX1/2;
+    currentMiddleUpY = blockX1/2;
+    nextMiddleY = blockX1/2;
 
     animateCount++;
 
@@ -588,16 +572,8 @@ function hurt() {
 
     context.fillStyle = "white";
 
-    if (!blackFlag) {
-      context.fillRect(0, canvasHeight - 20, canvasWidth, 20);
-      context.fillRect(0, 0, canvasWidth, 29.2);
-    } else {
-      context.moveTo(0, 29.2);
-      context.lineTo(canvasWidth, 29.2);
-      context.moveTo(0, canvasHeight - 20);
-      context.lineTo(canvasWidth, canvasHeight - 20);
-      context.stroke();
-    }
+      context.fillRect(0, 0, 20, canvasHeight);
+      context.fillRect(canvasWidth-20, 0, 20, canvasHeight);
 
     // 颜色
 
@@ -609,36 +585,35 @@ function hurt() {
       i = 0
     var j = i;
     var k = i - 10;
-    // 上
+    // 下
     context.beginPath();
-    context.moveTo(-20, 0);
+    context.moveTo(0, -20);
     for (; i < i18; i++) {
-      var cX = i * 63 + blockX1;
-      cUpY = blockY1 - upupLines[i] * 63;
-      context.lineTo(cX, cUpY);
+      var cX = i * 63 + blockY1;
+      cUpY = blockX1 - upupLines[i] * 63;
+      context.lineTo(cUpY, cX);
 
       if (cX < 350 && cX + 63 > 350) {
-        currentUpY = cUpY + (blockY1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
+        currentUpY = cUpY + (blockX1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
       }
 
     }
-    context.lineTo(1200, 0);
+    context.lineTo(0, 1200);
     context.closePath();
     context.fill();
 
     // 下
     context.beginPath();
-    context.moveTo(-20, 490);
+    context.moveTo(blockX1, -20);
     for (; j < i18; j++) {
-      var cX = j * 63 + blockX1;
-      cDownY = blockY1 - downLines[j] * 63;
-      context.lineTo(cX, cDownY);
+      var cX = j * 63 + blockY1;
+      cDownY = blockX1 - downLines[j] * 63;
+      context.lineTo(cDownY, cX);
       if (cX <= 350 && cX + 63 >= 350) {
-        currentDownY = cDownY + (blockY1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
+        currentDownY = cDownY + (blockX1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
       }
-
     }
-    context.lineTo(1200, 490);
+    context.lineTo(blockX1, 1200);
     context.closePath();
     context.fill();
 
@@ -652,24 +627,23 @@ function hurt() {
         // if(middleUpupLines[k] === -2){
         //   context.closePath();
         //   context.fill();}
-        var cX = k * 63 + blockX1;
-        cMiddleY = blockY1 - middleUpupLines[k] * 63;
+        var cX = k * 63 + blockY1;
+        cMiddleY = blockX1 - middleUpupLines[k] * 63;
         if (middleUpupLines[k + 1] === 0) {
           nextMiddleY = 245;
         } else
-          nextMiddleY = blockY1 - middleUpupLines[k + 1] * 63;
+          nextMiddleY = blockX1 - middleUpupLines[k + 1] * 63;
 
         if (middleUpupLines[k] > 0 && middleUpupLines[k - 1] === 0)
-          context.moveTo(cX, cMiddleY);
+          context.moveTo(cMiddleY, cX);
         else
-          context.lineTo(cX, cMiddleY);
+          context.lineTo(cMiddleY, cX);
         if (cX <= 350 && cX + 63 >= 350) {
           currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (350 - cX);
         }
       }
     }
-    // console.log((middleUpupLines[k + 1] * 63 - cMiddleY) / 63);
-    // console.log(currentMiddleDownY);
+
     for (; k > i18 - 25; k--) {
       if (middleUpupLines[k] === 0)
         continue;
@@ -678,47 +652,48 @@ function hurt() {
         context.fill();
         break;
       }
-      // if(middleUpupLines[k] === -2){
-      //   context.closePath();
-      //   context.fill();}
-      var cX = k * 63 + blockX1;
-      cMiddleY = blockY1 - (7 - middleUpupLines[k]) * 63;
 
-      context.lineTo(cX, cMiddleY);
+      var cX = k * 63 + blockY1;
+      cMiddleY = blockX1 - (7 - middleUpupLines[k]) * 63;
+
+      context.lineTo(cMiddleY,cX);
     }
 
-    currentMiddleUpY = 490 - currentMiddleDownY;
+    currentMiddleUpY = blockX1 - currentMiddleDownY;
 
 
-    if (player.y < currentUpY || player.y > currentDownY || (player.y<currentMiddleDownY)&&(player.y>currentMiddleUpY))
-      hurt();
+    if (player.x < currentUpY || player.x > currentDownY || (player.x<currentMiddleDownY)&&(player.x>currentMiddleUpY))
+    {  hurt();
+console.log(currentMiddleDownY+"+"+currentMiddleUpY)}
 
 
 
     if (player.arrowMoveUp) {
-      player.vY = -9;
+      player.vX = -9;
     } else {
-      player.vY = 9;
+      player.vX = 9;
     }
 
     player.y += player.vY;
+    player.x += player.vX;
 
 
     var w = player.width * 0.26;
     context.fillStyle = "white";
     context.beginPath();
     if (Border(player)) {
-      context.moveTo(player.x + player.halfWidth, player.y);
+
+      context.moveTo(player.x + player.halfWidth, player.y - player.halfWidth);
       context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
-      context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
+      context.lineTo(player.x, player.y + player.halfWidth);
     } else if (!player.arrowMoveUp) {
-      context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
-      context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
-      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
+      context.moveTo(player.x + player.halfWidth/1.414 + w,  player.y + player.halfWidth/1.414 -w);
+      context.lineTo(player.x - player.halfWidth * 1.3 + w, player.y  -w);
+      context.lineTo(player.x + w, player.y - player.halfWidth * 1.3-w);
     } else {
-      context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
-      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
-      context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
+      context.moveTo(player.x - player.halfWidth / 1.414 -w, player.y + player.halfWidth / 1.414 -w);
+      context.lineTo(player.x -w, player.y - player.halfWidth*1.3 -w);
+      context.lineTo(player.x - w+player.halfWidth*1.3 , player.y-w );
     }
     context.closePath();
     context.fill();
@@ -726,9 +701,9 @@ function hurt() {
         context.restore();
 
     // 画折线
-    var lineStartx = player.x - player.halfWidth;
+    var lineStarty = player.y - player.halfWidth;
     context.beginPath();
-    context.moveTo(player.x - player.halfWidth, player.y);
+    context.moveTo(player.x , player.y- player.halfWidth);
 
     var k = 0;
 
@@ -737,16 +712,16 @@ function hurt() {
     for (var i = 0; i < arrowArrayY.length; i++) {
       var distanceY;
       if (i == 0 && arrowArrayY[0] > 0) {
-        distanceY = arrowArrayY[0] - player.y;
+        distanceY = player.x - arrowArrayY[0];
       } else {
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
-      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
-        distanceY = 16;
+      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasWidth - 20 - player.height - 1)) {
+        distanceY = 12.726;
       }
       distanceY = Math.abs(distanceY);
-      lineStartx = lineStartx - distanceY;
-      context.lineTo(lineStartx, arrowArrayY[i]);
+      lineStarty = lineStarty - distanceY;
+      context.lineTo(arrowArrayY[i], lineStarty);
     }
 
     context.strokeStyle = "white";
@@ -755,34 +730,37 @@ function hurt() {
   else 
     context.lineWidth = 5 + 5 * Math.random();
     context.stroke();
+
+
+    // 另一条线
     if(doubleFlag){
     context.save();
-context.translate(0, canvasHeight);
-context.scale(1, -1);
-
-context.fillStyle = "white";
+    context.translate(blockX1, 0);
+    context.scale(-1, 1);
+    context.fillStyle = "white";
     context.beginPath();
-    if (Border(player)) {
-      context.moveTo(player.x + player.halfWidth, player.y);
+if (borderFlag) {
+      context.moveTo(player.x + player.halfWidth, player.y - player.halfWidth);
       context.lineTo(player.x - player.halfWidth, player.y - player.halfHeight);
-      context.lineTo(player.x - player.halfWidth, player.y + player.halfWidth);
+      context.lineTo(player.x, player.y + player.halfWidth);
     } else if (!player.arrowMoveUp) {
-      context.moveTo(player.x + player.halfWidth / 1.414 - w, w + player.y + player.halfWidth / 1.411);
-      context.lineTo(player.x - w, player.y - player.halfHeight * 1.3 + w);
-      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y + w);
+      context.moveTo(player.x + player.halfWidth/1.414 + w,  player.y + player.halfWidth/1.414 -w);
+      context.lineTo(player.x - player.halfWidth * 1.3 + w, player.y  -w);
+      context.lineTo(player.x + w, player.y - player.halfWidth * 1.3-w);
     } else {
-      context.moveTo(player.x + player.halfWidth / 1.414 - w, player.y - player.halfWidth / 1.411 - w);
-      context.lineTo(player.x - player.halfWidth * 1.3 - w, player.y - w);
-      context.lineTo(player.x - w, player.y + player.halfWidth * 1.3 - w);
+      context.moveTo(player.x - player.halfWidth / 1.414 -w, player.y + player.halfWidth / 1.414 -w);
+      context.lineTo(player.x -w, player.y - player.halfWidth*1.3 -w);
+      context.lineTo(player.x - w+player.halfWidth*1.3 , player.y-w );
     }
     context.closePath();
     context.fill();
 
+        
 
-
-var lineStartx = player.x - player.halfWidth;
+    // 画折线
+    var lineStarty = player.y - player.halfWidth;
     context.beginPath();
-    context.moveTo(player.x - player.halfWidth, player.y);
+    context.moveTo(player.x , player.y- player.halfWidth);
 
     var k = 0;
 
@@ -791,16 +769,17 @@ var lineStartx = player.x - player.halfWidth;
     for (var i = 0; i < arrowArrayY.length; i++) {
       var distanceY;
       if (i == 0 && arrowArrayY[0] > 0) {
-        distanceY = arrowArrayY[0] - player.y;
+        distanceY = player.x - arrowArrayY[0];
       } else {
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
-      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasHeight - 20 - player.height - 1)) {
-        distanceY = 16;
+      if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasWidth - 20 - player.height - 1)) {
+
+        distanceY = 12.726;
       }
       distanceY = Math.abs(distanceY);
-      lineStartx = lineStartx - distanceY;
-      context.lineTo(lineStartx, arrowArrayY[i]);
+      lineStarty = lineStarty - distanceY;
+      context.lineTo(arrowArrayY[i], lineStarty);
     }
 
     context.strokeStyle = "white";
@@ -808,12 +787,9 @@ var lineStartx = player.x - player.halfWidth;
     context.lineWidth = 5 + 20 * Math.random();
   else 
     context.lineWidth = 5 + 5 * Math.random();
-
     context.stroke();
 
-
-
-
+    context.restore()
 
 }
     if (soundBackground.currentTime - 6.8 <= 0.2 && soundBackground.currentTime - 6.8 >= -0.2) {
@@ -825,7 +801,7 @@ var lineStartx = player.x - player.halfWidth;
       canvas.removeClass('bgm1');
       canvas.addClass('bgm2');
     }
-    if (soundBackground.currentTime - 38.2 <= 0.3 && soundBackground.currentTime - 38.2 >= -0.3) {
+    if (soundBackground.currentTime - 38.7 <= 0.3 && soundBackground.currentTime - 38.7 >= -0.3) {
       canvas.removeClass('bgm2');
       canvas.addClass('bgm3');
     }
@@ -846,6 +822,7 @@ var lineStartx = player.x - player.halfWidth;
       // Run the animation loop again in 33 milliseconds
       setTimeout(animate, 16);
     }
+ 
   }
 
   init();
