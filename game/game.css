@@ -18,17 +18,17 @@ p {
 	margin: 0 20px;
 }
 .bgm0 {
-      background:#9933FF;
+      background:#FFCC66;
     }
 .bgm1 {
     animation: prompt1 3s linear 0s infinite;
     }
     @-webkit-keyframes prompt1{
-    0%{background:#9933FF;}
-    25%{background:#9900CC;}
-    50%{background:#660099;}
-    75%{background:#9900CC;}
-    100%{background:#9933FF;}
+    0%{background:#FFCC66;}
+    25%{background:#FFCCCC;}
+    50%{background:#FF99FF;}
+    75%{background:#FFCCCC;}
+    100%{background:#FFCC66;}
     }
   
 
@@ -48,7 +48,7 @@ p {
     }
     @-webkit-keyframes prompt3{
     0%{background:#9999FF;}
-    100%{background:#DD0000;}
+    100%{background:#000000;}
 }
 
 .bgm4 {

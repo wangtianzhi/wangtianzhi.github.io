@@ -26,7 +26,7 @@ var deadCount = 0;
 var doubleFlag = false;
 var topLen;
 var nextMiddleY;
-var health = 100;
+var health = 255;
 var t = false;
 var tx = 4;
 var ty = 4;
@@ -137,7 +137,7 @@ $(document).ready(function() {
     $("#deadd").hide();
     $("#dead").show();
     deadCount++;
-
+    health = 1;
     var scoreSay = $("#scoreSay");
     // Game over
     playGame = false;
@@ -243,7 +243,7 @@ $(document).ready(function() {
   }
 
   var reset = function(e) {
-    health = 100;
+    health = 255;
     doubleFlag = false;
     canvas.removeClass();
     canvas.addClass('bgm0');
@@ -272,8 +272,9 @@ $(document).ready(function() {
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
 function hurt() {
-  health--;
-  if(health === 0) {
+  health-=8;
+  if(health <= 10) {
+    // health = 10
     dead();
   }
 }
@@ -343,15 +344,15 @@ function hurt() {
     );
   upupLines.push(
     7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, // 20
-    7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5,
-    5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 5, 5, 6, 7, 6, 5, 5, 5, 6, 6,
-    6, 6, 6, 6, 7, 7, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 6, 7, 7, 7,
+    7, 7, 7, 7, 7, 6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4,
+    4, 4, 4, 4, 5, 6, 5, 4, 4, 4, 4, 4, 5, 6, 5, 4, 4, 4, 5, 5,
+    5, 5, 5, 5, 6, 6, 6, 5, 4, 4, 5, 6, 6, 6, 6, 6, 5, 6, 6, 6,
 
-    6, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 7, 6, 5, 4, 4,
-    4, 5, 6, 7, 6, 5, 4, 4, 4, 4, 4, 5, 6, 7, 7, 6, 5, 6, 7, 7,
-    7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 7, 6, 5, 6, 7, 7, 6, 5,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
+    5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 6, 5, 4, 3, 3,
+    3, 4, 5, 6, 5, 4, 3, 3, 3, 3, 3, 4, 5, 6, 6, 5, 4, 5, 6, 6,
+    6, 5, 4, 5, 6, 6, 6, 5, 4, 5, 6, 6, 6, 5, 4, 5, 6, 6, 5, 4,
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 4.6, 5, 5.4, 5.8, 6.2, 6.6, 7, 6.6,
     6.2, 5.8, 5.4, 5, 4.6, 5, 5.2, 5, 4, 5.6, 5.8, 6, 6.2, 6.4, 6.6, 6.8, 7, 6, 5, 4, 3,
 
     2, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2,
@@ -361,9 +362,9 @@ function hurt() {
     7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7, 7, 4, 4, 7, 7, 7,
 
     7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7, 6, 4, 4, 6, 7, 7,
-    7, 4, 7, 4, 7, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 7, 7, 7, 7, 7,
-    4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 7, 7, 7, 7, 7, 7, 7,
+    7, 3, 3, 5, 5, 5, 5, 5, 7, 7, 7, 7, 7, 2, 2, 7, 7, 7, 5, 5,
+    7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 4, 7, 7, 7, 7, 7, 7, 7,
+    3, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 5, 7, 7, 4, 7, 7, 6, 7,
     6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
 
     6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
@@ -371,7 +372,7 @@ function hurt() {
     7, 7, 7, 7, 7, 7, 7, 6, 7, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 
     7, 7, 7, 7, 7, 6, 7, 6, 7, 6, 7, 6, 5, 5, 7, 7, 7, 7, 6, 7, 
     6, 7, 6, 7, 7, 6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,5.2,5.4,5.6,5.8,6,
-    6.2,6.4,6.6,6.8,7,6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,5.2,5.4,5.6,5.8,6,
+    6.2,6.4,6.6,6.8,7,6.8, 6.6,6.4,6.2,6,5.8,5.6,5.4,5.2,5,4.8,4.6,4.6,4.6,4.6,4.6,4.8,5, 5.2,5.4,5.6,5.8,6,
     6.2,6.4,6.6,6.8,7,
 
 7
@@ -388,27 +389,27 @@ function hurt() {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 1, 1, 1, 1,
     1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 1, 1, 1, 2, 3,
     2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1, 0, 1, 2, 3, 2, 1,
-    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 2.4,
-    2.0, 1.6, 1.2, 0.8, 0.4, 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 1, 0, 0, 0,
+    1, 2, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 1.4, 1.8, 2.2, 2.6, 3, 3.4, 3.8, 3.4,
+    3.0, 2.6, 2.2, 1.8, 1.4, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 2, 1, 0, 0,
 
     0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 3.7, 3.3, 3.1, 2.8, 2.5, 2.2, 1.9, 1.6, 1.3,
     1, 0.7, 0.4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 5, 4, 3, 2, 1,
-    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
-    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
+    3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3,
+    3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3,
 
-    2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 2, 2,
-    0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
+    3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 3, 3,
+    0, 0, 1, 1, 3, 3, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4,
+    0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0,
     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
 
     1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
-    1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0,
+    1, 0, 1, 0, 1, 0, 1, 3, 3, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0, 0, 1, 0, 
+    0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 3, 3, 0, 0, 0, 0, 1, 0, 
     1, 0, 1, 0, 0, 0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,1.8,1.6,1.4,1.2,1,
-    0.8,0.6,0.4,0.2,0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,1.8,1.6,1.4,1.2,1,
+    0.8,0.6,0.4,0.2,0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2,2.2,2.4,2.4,2.4,2.4,2.4,2.2,2,  1.8,1.6,1.4,1.2,1,
     0.8,0.6,0.4,0.2,
 
 
@@ -564,7 +565,11 @@ function hurt() {
   }
 
   function animate() {
-    currentDownY = 470;
+    if(health<253)
+    health += 1;
+var oxNum=health.toString(16);
+
+    currentDownY = blockX1;
     currentUpY = 0;
      currentMiddleDownY = blockX1/2;
     currentMiddleUpY = blockX1/2;
@@ -576,11 +581,7 @@ function hurt() {
     var i18 = i + 18;
     context.clearRect(0, 0, canvasWidth + 100, canvasHeight + 100);
 
-    context.fillStyle = "white";
-
-      context.fillRect(0, 0, 20, canvasHeight);
-      context.fillRect(canvasWidth-20, 0, 20, canvasHeight);
-
+  
     // 颜色
 
     // block
@@ -592,6 +593,7 @@ function hurt() {
     var j = i;
     var k = i - 10;
     // 下
+    context.fillStyle = "#CC0000"
     context.beginPath();
     context.moveTo(0, -20);
     for (; i < i18; i++) {
@@ -667,25 +669,7 @@ function hurt() {
 
     currentMiddleUpY = blockX1 - currentMiddleDownY;
 
-    if (player.x < currentUpY || player.x > currentDownY || (player.x<currentMiddleDownY)&&(player.x>currentMiddleUpY))
-    {  hurt();
-        
-          // tx -= 2;
-        // ty += 2;
-        if(t)
-          {context.translate(tx, ty);
-            t = !t;
-        }
-        else {
-          context.translate(-tx, -ty);
-          t = !t;
-        }
-        // if(tx = -4) tx = 4;
-        // if(ty = 4) ty = -4;
-
-
-    }
-
+   
 
     if (player.arrowMoveUp) {
       player.vX = -9;
@@ -698,7 +682,8 @@ function hurt() {
 
 
     var w = player.width * 0.26;
-    context.fillStyle = "white";
+  context.fillStyle = "#FF"+oxNum+oxNum;
+
     context.beginPath();
     if (Border(player)) {
 
@@ -743,11 +728,13 @@ function hurt() {
       context.lineTo(arrowArrayY[i], lineStarty);
     }
 
-    context.strokeStyle = "white";
+
     if(doubleFlag)
     context.lineWidth = 5 + 20 * Math.random();
   else 
     context.lineWidth = 5 + 5 * Math.random();
+    context.strokeStyle = "#FF"+oxNum+oxNum;
+    context.stroke();
     context.stroke();
 
 
@@ -800,12 +787,11 @@ if (borderFlag) {
       lineStarty = lineStarty - distanceY;
       context.lineTo(arrowArrayY[i], lineStarty);
     }
-
-    context.strokeStyle = "white";
     if(doubleFlag)
     context.lineWidth = 5 + 20 * Math.random();
   else 
     context.lineWidth = 5 + 5 * Math.random();
+  context.strokeStyle = "#FF"+oxNum+oxNum;
     context.stroke();
 
     context.restore()
@@ -820,7 +806,7 @@ if (borderFlag) {
       canvas.removeClass('bgm1');
       canvas.addClass('bgm2');
     }
-    if (soundBackground.currentTime - 38.7 <= 0.3 && soundBackground.currentTime - 38.7 >= -0.3) {
+    if (soundBackground.currentTime - 39 <= 0.3 && soundBackground.currentTime - 39 >= -0.3) {
       canvas.removeClass('bgm2');
       canvas.addClass('bgm3');
     }
@@ -829,13 +815,36 @@ if (borderFlag) {
       canvas.addClass('bgm4');
       doubleFlag = true;
     }
-    context.rect(10, 2, 100, 25);
+    context.rect(10, 0, 100, 20);
     // context.strokeStyle = "red";
     // context.stroke();
     context.fillStyle="red";
     context.fillRect(10, 2, health, 25);
     context.fillStyle="white";
     context.strokeStyle="white";
+
+
+      context.fillRect(0, 0, 20, canvasHeight);
+      context.fillRect(canvasWidth-20, 0, 20, canvasHeight);
+ if (player.x < currentUpY || player.x > currentDownY || (player.x<currentMiddleDownY)&&(player.x>currentMiddleUpY))
+    {  hurt();
+        
+          // tx -= 2;
+        // ty += 2;
+        if(t)
+          {context.translate(tx, ty);
+            t = !t;
+        }
+        else {
+          context.translate(-tx, -ty);
+          t = !t;
+        }
+        // if(tx = -4) tx = 4;
+        // if(ty = 4) ty = -4;
+
+
+    }
+
     // console.log(soundBackground.currentTime);
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
