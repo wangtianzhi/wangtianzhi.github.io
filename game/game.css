@@ -25,9 +25,9 @@ p {
     }
     @-webkit-keyframes prompt1{
     0%{background:#FFCC66;}
-    25%{background:#FFCCCC;}
-    50%{background:#FF99FF;}
-    75%{background:#FFCCCC;}
+    25%{background:#9999FF;}
+    50%{background:#CC99FF;}
+    75%{background:#9999FF;}
     100%{background:#FFCC66;}
     }
   

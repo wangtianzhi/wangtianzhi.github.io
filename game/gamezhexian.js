@@ -272,7 +272,7 @@ $(document).ready(function() {
   var canvas = $("#gameCanvas");
   var context = canvas.get(0).getContext("2d");
 function hurt() {
-  health-=8;
+  health-=10;
   if(health <= 10) {
     // health = 10
     dead();
@@ -726,7 +726,7 @@ var oxNum=health.toString(16);
         distanceY = arrowArrayY[i] - arrowArrayY[i - 1];
       }
       if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasWidth - 20 - player.height - 1)) {
-        distanceY = 12.726;
+        distanceY = 18;
       }
       distanceY = Math.abs(distanceY);
       lineStarty = lineStarty - distanceY;
@@ -786,7 +786,7 @@ if (borderFlag) {
       }
       if (distanceY == 0 && (arrowArrayY[i] <= player.height + 20 + 1 || arrowArrayY[i] >= canvasWidth - 20 - player.height - 1)) {
 
-        distanceY = 12.726;
+        distanceY = 18;
       }
       distanceY = Math.abs(distanceY);
       lineStarty = lineStarty - distanceY;
@@ -806,12 +806,12 @@ if (borderFlag) {
       canvas.removeClass('bgm0');
       canvas.addClass('bgm1');
     }
-    if (soundBackground.currentTime - 21.4 <= 0.3 && soundBackground.currentTime - 21.4 >= -0.3) {
+    if (soundBackground.currentTime - 22.5 <= 0.3 && soundBackground.currentTime - 22.5 >= -0.3) {
 
       canvas.removeClass('bgm1');
       canvas.addClass('bgm2');
     }
-    if (soundBackground.currentTime - 39 <= 0.3 && soundBackground.currentTime - 39 >= -0.3) {
+    if (soundBackground.currentTime - 36.7 <= 0.3 && soundBackground.currentTime - 36.7 >= -0.3) {
       canvas.removeClass('bgm2');
       canvas.addClass('bgm3');
     }
@@ -849,7 +849,7 @@ if (borderFlag) {
     // console.log(soundBackground.currentTime);
     if (playGame) {
       // Run the animation loop again in 33 milliseconds
-      setTimeout(animate, 10);
+      setTimeout(animate, 16);
     }
  
   }
