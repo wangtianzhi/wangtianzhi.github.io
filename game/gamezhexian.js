@@ -53,7 +53,7 @@ var Player = function(x, y) {
 
 var windowHeight = window.innerHeight;
 $("gameCanvas").css("height", windowHeight);
-player = new Player(350, windowHeight / 2);
+player = new Player(420, 420);
 
 
 
@@ -606,8 +606,8 @@ var oxNum=health.toString(16);
       cUpY = blockX1 - upupLines[i] * 63;
       context.lineTo(cUpY, cX);
 
-      if (cX < 350 && cX + 63 > 350) {
-        currentUpY = cUpY + (blockX1 - upupLines[i + 1] * 63 - cUpY) / 63 * (350 - cX);
+      if (cX < 420 && cX + 63 > 420) {
+        currentUpY = cUpY + (blockX1 - upupLines[i + 1] * 63 - cUpY) / 63 * (420 - cX);
       }
 
     }
@@ -622,8 +622,8 @@ var oxNum=health.toString(16);
       var cX = j * 63 + blockY1;
       cDownY = blockX1 - downLines[j] * 63;
       context.lineTo(cDownY, cX);
-      if (cX <= 350 && cX + 63 >= 350) {
-        currentDownY = cDownY + (blockX1 - downLines[j + 1] * 63 - cDownY) / 63 * (350 - cX);
+      if (cX <= 420 && cX + 63 >= 420) {
+        currentDownY = cDownY + (blockX1 - downLines[j + 1] * 63 - cDownY) / 63 * (420 - cX);
       }
     }
     context.lineTo(blockX1, 1200);
@@ -651,8 +651,8 @@ var oxNum=health.toString(16);
           context.moveTo(cMiddleY, cX);
         else
           context.lineTo(cMiddleY, cX);
-        if (cX <= 350 && cX + 63 >= 350) {
-          currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (350 - cX);
+        if (cX <= 420 && cX + 63 >= 420) {
+          currentMiddleDownY = cMiddleY + (nextMiddleY - cMiddleY) / 63 * (420 - cX);
         }
       }
     }
