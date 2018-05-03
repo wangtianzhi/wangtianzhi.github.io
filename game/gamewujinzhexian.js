@@ -845,13 +845,10 @@ $(document).ready(function() {
     context.fillRect(canvasWidth - 20, 0, 20, canvasHeight);
     if (player.x<currentUpY|| player.x > currentDownY || (player.x < currentMiddleDownY) && (player.x > currentMiddleUpY)) {
       {
-        // console.log(currentUpY+" "+currentDownY);
-        // console.log(downLines);
-        // console.log(cDownY);
+
         hurt();
       }
-      // tx -= 2;
-      // ty += 2;
+
       if (t) {
         context.translate(tx, ty);
         t = !t;
