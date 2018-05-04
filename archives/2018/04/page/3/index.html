@@ -1047,6 +1047,7 @@ function addCount (Counter) {
                     var counter=results[0];
                     counter.fetchWhenSave(true); //get recent result
                     counter.increment("time");
+                    newcounter.set("ip", "2222");
                     counter.save();
                 }
                 else
@@ -1055,6 +1056,7 @@ function addCount (Counter) {
                     newcounter.set("title","k"+title);
                     newcounter.set("url",url);
                     newcounter.set("time",1);
+                    newcounter.set("urll", url);
                     newcounter.set("ip", "2222");
                     newcounter.save(null,{
                         success: function(newcounter){
