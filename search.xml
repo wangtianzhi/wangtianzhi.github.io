@@ -18,6 +18,15 @@
     </entry>
     
     <entry>
+      <title>今天没有早操 很开心</title>
+      <link href="/2018/05/10/%E4%BB%8A%E5%A4%A9%E6%B2%A1%E6%9C%89%E6%97%A9%E6%93%8D-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/10/%E4%BB%8A%E5%A4%A9%E6%B2%A1%E6%9C%89%E6%97%A9%E6%93%8D-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>早晨没早操，起床比较晚，毛概之后去公司，晚上回来</p><h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>boss给我介绍了一位做视频剪辑的大兄弟，他可以帮我选选背景音乐</p><p>之前就对这位兄弟印象很深，很高，体型巨大，长发，聊了聊发现人挺亲和的</p><p>小壮总监给我介绍了一位设计妹子，以后主要她和我对接小游戏的UI</p><p>晚上日常和亮哥哥抽烟，在吸烟室见到了运维总监和某个游戏的产品经理，聊了聊休闲放置类游戏</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>今天说周五要吃饭 很开心</title>
       <link href="/2018/05/09/%E4%BB%8A%E5%A4%A9%E8%AF%B4%E5%91%A8%E4%BA%94%E8%A6%81%E5%90%83%E9%A5%AD-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
       <url>/2018/05/09/%E4%BB%8A%E5%A4%A9%E8%AF%B4%E5%91%A8%E4%BA%94%E8%A6%81%E5%90%83%E9%A5%AD-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
@@ -442,9 +451,9 @@
       
         <tags>
             
-            <tag> vue </tag>
-            
             <tag> canvas </tag>
+            
+            <tag> vue </tag>
             
         </tags>
       
@@ -1390,16 +1399,16 @@
   
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>links</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
