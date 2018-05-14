@@ -18,6 +18,42 @@
     </entry>
     
     <entry>
+      <title>今天又他妈逼的是星期一了 很开心</title>
+      <link href="/2018/05/14/%E4%BB%8A%E5%A4%A9%E5%8F%88%E4%BB%96%E5%A6%88%E9%80%BC%E7%9A%84%E6%98%AF%E6%98%9F%E6%9C%9F%E4%B8%80%E4%BA%86-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/14/%E4%BB%8A%E5%A4%A9%E5%8F%88%E4%BB%96%E5%A6%88%E9%80%BC%E7%9A%84%E6%98%AF%E6%98%9F%E6%9C%9F%E4%B8%80%E4%BA%86-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>今天看了复联3 很开心</title>
+      <link href="/2018/05/14/%E4%BB%8A%E5%A4%A9%E7%9C%8B%E4%BA%86%E5%A4%8D%E8%81%943-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/14/%E4%BB%8A%E5%A4%A9%E7%9C%8B%E4%BA%86%E5%A4%8D%E8%81%943-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>今天睡到很晚 很开心</title>
+      <link href="/2018/05/14/%E4%BB%8A%E5%A4%A9%E7%9D%A1%E5%88%B0%E5%BE%88%E6%99%9A-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/14/%E4%BB%8A%E5%A4%A9%E7%9D%A1%E5%88%B0%E5%BE%88%E6%99%9A-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>今天吃虾 很开心</title>
+      <link href="/2018/05/11/%E4%BB%8A%E5%A4%A9%E5%90%83%E8%99%BE-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/11/%E4%BB%8A%E5%A4%A9%E5%90%83%E8%99%BE-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<h3 id="流水账"><a href="#流水账" class="headerlink" title="流水账"></a>流水账</h3><p>早晨起来去公司</p><p>公司部门聚餐，去吃虾</p><p>这些开发好有钱，当然这也是意料之中的</p><p>下午和万能的波总讨论了接下来做什么的问题</p><p>关于排行榜，cocos，微信开放作用域</p><p>微信开放作用域只能用webGL渲染，canvas会产生莫名其妙的bug，cocos本身又有混乱渲染的bug，如果用开放作用域查看排行榜，一是这是在另一个工程中，会让背景变得很卡，二是经常会出现显示不出来数据，被黑块顶掉的情况</p><p>所以最好的办法是用公司自己的服务器，跟浩哥说了，他说研究研究</p><p>三个方向，祖玛，放置，rider</p><p>祖玛是最可行的</p><p>晚上回来去健身</p><p>下个星期会有三个小游戏上线，会统计很多数据了</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>今天没有早操 很开心</title>
       <link href="/2018/05/10/%E4%BB%8A%E5%A4%A9%E6%B2%A1%E6%9C%89%E6%97%A9%E6%93%8D-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
       <url>/2018/05/10/%E4%BB%8A%E5%A4%A9%E6%B2%A1%E6%9C%89%E6%97%A9%E6%93%8D-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
@@ -451,9 +487,9 @@
       
         <tags>
             
-            <tag> canvas </tag>
-            
             <tag> vue </tag>
+            
+            <tag> canvas </tag>
             
         </tags>
       
@@ -1399,9 +1435,9 @@
   
     
     <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>timeline</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -1413,9 +1449,9 @@
     </entry>
     
     <entry>
-      <title>timeline</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>links</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
