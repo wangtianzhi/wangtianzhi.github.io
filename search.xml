@@ -18,6 +18,33 @@
     </entry>
     
     <entry>
+      <title>今天学PHP和数据库以及云服务器，很开心</title>
+      <link href="/2018/05/31/%E4%BB%8A%E5%A4%A9%E5%AD%A6PHP%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BB%A5%E5%8F%8A%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/31/%E4%BB%8A%E5%A4%A9%E5%AD%A6PHP%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BB%A5%E5%8F%8A%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<p>卸载重安mysql七八遍，终于改好了</p><p>它一直报一个errno是8位数的错误</p><p>但文档上最多就是一万三的错，试了许多种办法，终于搞好了，我甚至都忘了用的哪种方法</p><p>云服务器和本地服务器的mysql都做好了</p><p>本地用的是apache，也就是LAMP</p><p>但试了试在服务器上创建数据库，仍然行不通</p><p>爬楼梯经过研发和设计的爆肝以及我的精心指导，终于按时提审</p><p>可怜了设计妹子，这两天又要做爬楼梯又要做六角消除又要做贪吃蛇头很铁，身体还不好</p><p>明天爬楼梯要在大号上推，轮不着我写文案，运营专门的人来写写，很开心</p><p>我才明白大号的概念，微派桌游助手，在微信上搜“桌游”，第一个就是</p><p>我还没加几个公司的好友，已经有27个微信好友关注了</p><p>真怕爬楼梯过不了审</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>今天搞了腾讯云服务器，很开心</title>
+      <link href="/2018/05/31/%E4%BB%8A%E5%A4%A9%E6%90%9E%E4%BA%86%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/31/%E4%BB%8A%E5%A4%A9%E6%90%9E%E4%BA%86%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<p>PHP的语法，有了之前几个月的基础，两个小时就可以看完PHP的基础语法</p><p>贪吃蛇头很铁的打点，英文适配，英文logo，爬楼梯的累计登陆，几种皮肤机制</p><p>挺杂的就不写了，如果你想知道我以后讲给你听</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>今天是29号，很开心</title>
+      <link href="/2018/05/31/%E4%BB%8A%E5%A4%A9%E6%98%AF29%E5%8F%B7%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/05/31/%E4%BB%8A%E5%A4%A9%E6%98%AF29%E5%8F%B7%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<p>买了腾讯云服务器，价格和阿里云差不多，一个月10块钱，但对学生的支持比阿里云好一万倍</p><p>配置了nginx+PHP+MariaDB</p><p>在公司做了很多事</p><p>还想写很多，但是没时间，就算有时间也没有实习之前的闲情雅致了</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>今天补了四天的以后天天写，很开心</title>
       <link href="/2018/05/28/%E4%BB%8A%E5%A4%A9%E8%A1%A5%E4%BA%86%E5%9B%9B%E5%A4%A9%E7%9A%84%E4%BB%A5%E5%90%8E%E5%A4%A9%E5%A4%A9%E5%86%99%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/"/>
       <url>/2018/05/28/%E4%BB%8A%E5%A4%A9%E8%A1%A5%E4%BA%86%E5%9B%9B%E5%A4%A9%E7%9A%84%E4%BB%A5%E5%90%8E%E5%A4%A9%E5%A4%A9%E5%86%99%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/</url>
@@ -613,9 +640,9 @@
       
         <tags>
             
-            <tag> canvas </tag>
-            
             <tag> vue </tag>
+            
+            <tag> canvas </tag>
             
         </tags>
       
@@ -812,11 +839,11 @@
       
         <tags>
             
-            <tag> vue </tag>
-            
             <tag> 校园卡充值 </tag>
             
             <tag> jssdk </tag>
+            
+            <tag> vue </tag>
             
         </tags>
       
