@@ -18,6 +18,15 @@
     </entry>
     
     <entry>
+      <title>今天又是平常的一天 很开心</title>
+      <link href="/2018/07/17/%E4%BB%8A%E5%A4%A9%E5%8F%88%E6%98%AF%E5%B9%B3%E5%B8%B8%E7%9A%84%E4%B8%80%E5%A4%A9-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
+      <url>/2018/07/17/%E4%BB%8A%E5%A4%A9%E5%8F%88%E6%98%AF%E5%B9%B3%E5%B8%B8%E7%9A%84%E4%B8%80%E5%A4%A9-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
+      <content type="html"><![CDATA[<h4 id="昨天90坦克商议过后的决定："><a href="#昨天90坦克商议过后的决定：" class="headerlink" title="昨天90坦克商议过后的决定："></a>昨天90坦克商议过后的决定：</h4><ol><li>完全取消钥匙，改为按时间段开启暴力分享，在非审核时间段直接分享至群解锁，审核时间段将文案改的委婉些，效果仍然是分享至群解锁</li><li>规划了体力体系，按关卡来，和开心消消乐类似，总体力上限25，每8分钟自动回复1体力，每关消耗5体力，如果3星过关，则奖励5体力，2星奖励2体力，1星或失败不奖励体力，看视频可以回复10体力，体力满了后无法看视频，每天看视频次数不受限制(除非达到微信设定的次数限制)，无论如何体力不会溢出。</li><li>今天上新版本，包括排行榜，100关，新的分享策略</li><li>接下来的内容，虽然游戏性比体力广告更重要些，但当日活达到很高的水平时，在变现上探索也是有必要的，游戏性内容和广告内容会同步着做<ol><li>新的道具，对应的需要更改游戏难度</li><li>关卡编辑模式</li><li>体力系统</li></ol></li></ol>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>今天开了一下午会，还开了两个，很开心</title>
       <link href="/2018/07/09/%E4%BB%8A%E5%A4%A9%E5%BC%80%E4%BA%86%E4%B8%80%E4%B8%8B%E5%8D%88%E4%BC%9A%EF%BC%8C%E8%BF%98%E5%BC%80%E4%BA%86%E4%B8%A4%E4%B8%AA%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/"/>
       <url>/2018/07/09/%E4%BB%8A%E5%A4%A9%E5%BC%80%E4%BA%86%E4%B8%80%E4%B8%8B%E5%8D%88%E4%BC%9A%EF%BC%8C%E8%BF%98%E5%BC%80%E4%BA%86%E4%B8%A4%E4%B8%AA%EF%BC%8C%E5%BE%88%E5%BC%80%E5%BF%83/</url>
@@ -938,11 +947,11 @@
       
         <tags>
             
+            <tag> vue </tag>
+            
             <tag> 校园卡充值 </tag>
             
             <tag> jssdk </tag>
-            
-            <tag> vue </tag>
             
         </tags>
       
@@ -1687,9 +1696,9 @@
   
     
     <entry>
-      <title>timeline</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>links</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -1701,9 +1710,9 @@
     </entry>
     
     <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>timeline</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
