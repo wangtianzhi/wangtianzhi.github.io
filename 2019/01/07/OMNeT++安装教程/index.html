@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net"/>
+
+
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info"/>
+
+
+
+        <link rel="dns-prefetch" href="https://cdn-city.livere.com"/>
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            OMNet++ 安装教程 | 
+        
+        骂就完事了
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="湖北省武汉市中国地质大学西区53栋604最帅">
+    <meta name="keywords" content=",技术">
+    <meta name="theme-color" content="black">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: black;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: black !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: black !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: black !important;
+  }
+
+  .toTop {
+    background: black !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: black;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: black;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: black;
+  }
+
+  .post-toc a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: black;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="骂就完事了">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/01/07/OMNeT++安装教程/">
+    <meta name="msapplication-navbutton-color" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="骂就完事了">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2019/01/07/OMNeT++安装教程/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="OMNet++ 安装教程 | 骂就完事了">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="湖北省武汉市中国地质大学西区53栋604最帅">
+    <meta property="og:article:tag" content="技术"> 
+
+    
+        <meta property="article:published_time" content="Mon Jan 07 2019 22:11:43 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jan 06 2019 14:21:32 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html",
+    "headline": "OMNet++ 安装教程",
+    "datePublished": "Mon Jan 07 2019 22:11:43 GMT+0800",
+    "dateModified": "Sun Jan 06 2019 14:21:32 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "王八蛋智",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/touxiang.png"
+        },
+        "description": "要不要找找彩蛋？"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "骂就完事了",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",技术",
+    "description": "湖北省武汉市中国地质大学西区53栋604最帅",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for-Ubuntu-16-04-add-extra-GIS-repo"><span class="post-toc-number">1.</span> <span class="post-toc-text">for Ubuntu 16.04 add extra GIS repo</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#install-osgearth-development-package-and-OpenSceneGraph-too"><span class="post-toc-number">2.</span> <span class="post-toc-text">install osgearth development package (and OpenSceneGraph, too)</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                OMNet++ 安装教程
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/touxiang.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>王八蛋智</strong>
+        <span>1月 07, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/技术/">技术</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2019/01/07/OMNeT++安装教程/" class="leancloud-views_num" data-flag-title="OMNet++ 安装教程">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;浏览量
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=OMNet++ 安装教程&url=http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html&title=OMNet++ 安装教程" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=骂就完事了&title=OMNet++ 安装教程&summary=湖北省武汉市中国地质大学西区53栋604最帅&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2019/01/07/OMNeT++安装教程/index.html&text=OMNet++ 安装教程" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>OMNeT++<br>Installation Guide<br>Version 5.4.1<br>Copyright © 2016 András Varga and OpenSim Ltd.<br>Table of Contents</p>
+<ol>
+<li>General Information ……………………………………………………………………………….. 1</li>
+<li>Windows ……………………………………………………………………………………………….. 2</li>
+<li>macOS ………………………………………………………………………………………………….. 5</li>
+<li>Linux ………………………………………………………………………………………………….. 10</li>
+<li>Ubuntu ……………………………………………………………………………………………….. 17</li>
+<li>Fedora 25 ……………………………………………………………………………………………. 21</li>
+<li>Red Hat ………………………………………………………………………………………………. 23</li>
+<li>OpenSUSE ………………………………………………………………………………………….. 25</li>
+<li>Generic Unix ……………………………………………………………………………………….. 27</li>
+<li>Build Options …………………………………………………………………………………….. 34<br>iii<br>Chapter 1. General Information<br>1.1. Introduction<br>This document describes how to install OMNeT++ on various platforms. One chapter<br>is dedicated to each operating system.<br>1.2. Supported Platforms<br>OMNeT++ has been tested and is supported on the following operating systems:<br>• Windows 7 and 10 / 64-bit<br>• MacOS 10.12<br>• Linux distributions covered in this Installation Guide<br>The Simulation IDE is supported on the following platforms:<br>• Linux x86; 64-bit<br>• Windows 7, 10; 64-bit<br>• MacOS 10.12<br>Simulations can be run practically on any unix-like environment with a decent and fairly up-to-date C++ compiler, for example gcc 5.x. Certain OMNeT++ features (Qtenv,<br>parallel simulation, XML support, etc.) depend on the availability of external libraries<br>(Tcl/Tk, MPI, LibXML or Expat, etc.)<br>IDE platforms are restricted because the IDE relies on a native shared library, which<br>we compile for the above platforms and distribute in binary form for convenience.<br>1<br>Chapter 2. Windows<br>2.1. Supported Windows Versions<br>OMNeT++ supports 64-bit versions of Windows 7 and 10.<br>32-bit Windows versions are no longer supported. If you need 32-bit builds on Windows, we recommend using OMNeT++ 5.0<br>2.2. Installing OMNeT++<br>Download the OMNeT++ source code from <a href="http://omnetpp.org" target="_blank" rel="noopener">http://omnetpp.org</a>. Make sure you select<br>the Windows-specific archive, named omnetpp-5.4.1-src-windows.zip.<br>The package is self-contained: in addition to OMNeT++ files it includes a C++ compiler, a command-line build environment, and all libraries and programs required by<br>OMNeT++.<br>Copy the OMNeT++ archive to the directory where you want to install it. Choose a<br>directory whose full path does not contain any space; for example, do not put OMNeT++ under Program Files.<br>Extract the zip file. To do so, right-click the zip file in Windows Explorer, and select<br>Extract All from the menu. You can also use external programs like Winzip or 7zip.<br>When you look into the new omnetpp-5.4.1 directory, should see directories named<br>doc, images, include, tools, etc., and files named mingwenv.cmd, configure,<br>Makefile, and others.<br>2.3. Configuring and Building OMNeT++<br>Start mingwenv.cmd in the omnetpp-5.4.1 directory by double-clicking it in Windows<br>Explorer. It will bring up a console with the MSYS bash shell, where the path is already<br>set to include the omnetpp-5.4.1/bin directory. On the first start of the shell, you<br>may need to wait for the extraction of the tools directory.<br>If you want to start simulations from outside the shell as well (for example from Explorer), you need to add OMNeT++’s bin directory and also the bin directories in the<br>tools folder to the path; instructions are provided later.<br>First, check the contents of the configure.user file to make sure it contains the<br>settings you need. In most cases you don’t need to change anything.<br>notepad configure.user<br>Then enter the following commands:<br>$ ./configure<br>$ make<br>The build process will create both debug and release binaries.<br>2<br>Windows<br>2.4. Verifying the Installation<br>You should now test all samples and check they run correctly. As an example, the aloha<br>example is started by entering the following commands:<br>$ cd samples/aloha<br>$ ./aloha<br>By default, the samples will run using the graphical Qtenv environment. You should<br>see GUI windows and dialogs.<br>2.5. Starting the IDE<br>OMNeT++ comes with an Eclipse-based Simulation IDE. You should be able to start<br>the IDE by typing:<br>$ omnetpp<br>We recommend that you start the IDE from the command-line. Yo can also create a<br>shortcut for starting the IDE. To do so, locate the omnetpp.exe program in the omnetpp-5.4.1/ide directory in Windows Explorer, right-click it, and choose Send To<blockquote>
+<p>Desktop (create shortcut) from the menu. On Windows 7, you can right-click the<br>taskbar icon while the IDE is running, and select Pin this program to taskbar from<br>the context menu.<br>2.6. Environment Variables<br>If you want to start OMNeT++ simulations outside the shell as well (for example<br>from Exlorer), you need to add OMNeT++’s bin, tools/win64/usr/bin and tools/<br>win64/mingw64/bin directories to the path.<br>First, open the Environment Variables dialog.<br>Click the Start button, then start typing environment variables into the search box.<br>Choose Edit environment variables for your account when it appears in the list. The<br>dialog comes up.<br>In the dialog, select path or PATH in the list, click Edit. Append “;<omnetpp-dir><br>\bin” and the other needed directories to the value (without quotes), where <omnetpp-dir> is the name of the OMNeT++ root directory (for example C:\omnetpp-5.4.1). Hit Enter to accept.<br>You need to log-out and then log-in for the changes to take effect.<br>2.7. Reconfiguring the Libraries<br>If you need to recompile the OMNeT++ components with different flags (e.g. different<br>optimization), then change the top-level OMNeT++ directory, edit configure.user<br>accordingly, then type:<br>$ ./configure<br>$ make clean<br>$ make<br>If you want to recompile just a single library, then change to the directory of the library<br>(e.g. cd src/sim) and type:<br>$ make clean<br>$ make<br>3<br>Windows<br>By default, libraries are compiled in both debug and release mode. If you want to make<br>release or debug builds only, use:<br>$ make MODE=release<br>or<br>$ make MODE=debug<br>By default, shared libraries will be created. If you want to build static libraries, set<br>SHARED_LIBS=no in configure.user and re-configure your project.<br>The built libraries and programs are immediately copied to the lib/ and bin/ subdirs.<br>2.8. Portability Issues<br>OMNeT++ has been tested with both the gcc and the clang compiler from the MinGWw64 package.<br>MinGW/Clang 3.8 generates incorrect code when you use multiple inheritance in your<br>code. Because of this, we do not recommend using MinGW/clang at the moment. Later<br>versions of clang my fix this issue.<br>Microsoft Visual C++/ClangC2 is not supported in the Academic Edition.<br>2.9. Additional Packages<br>Note that Doxygen and GraphViz are already included in the OMNeT++ package, and<br>do not need to be downloaded.<br>2.9.1. MPI<br>MPI is only needed if you would like to run parallel simulations.<br>There are several MPI implementations for Windows, and OMNeT++ does not mandate any specific one. We recommend DeinoMPI, which can be downloaded from http://<br>mpi.deino.net.<br>After installing DeinoMPI, adjust the MPI_DIR setting in OMNeT++’s configure.user, and reconfigure and recompile OMNeT++:<br>$ ./configure<br>$ make cleanall<br>$ make<br>In general, if you would like to run parallel simulations, we recommend that you use<br>Linux, macOS, or another unix-like platform.<br>2.9.2. Akaroa<br>Akaroa 2.7.9, which is the latest version at the time of writing, does not support Windows. You may try to port it using the porting guide from the Akaroa distribution.<br>4<br>Chapter 3. macOS<br>3.1. Supported Releases<br>This chapter provides additional information for installing OMNeT++ on macOS.<br>The following releases are covered:<br>• macOS 10.12<br>3.2. Installing the Prerequisite Packages<br>• Install the Java Runtime from <a href="http://support.apple.com/kb/DL1572" target="_blank" rel="noopener">http://support.apple.com/kb/DL1572</a> , because masOS does not provide it by default. Additionally you must install the latest version<br>of Java Runtime Environment from <a href="http://java.com" target="_blank" rel="noopener">http://java.com</a> (version 8 or later.)<br>• Install the command line developer tools for masOS from <a href="http://developer.apple.com/downloads/index.action?=Command%20Line%20Tools" target="_blank" rel="noopener">http://developer.apple.com/downloads/index.action?=Command%20Line%20Tools</a> (you will need a<br>free Apple Developer Account for the download.)<br>Installing additional packages will enable more functionality in OMNeT++; see the<br>Additional packages section at the end of this chapter.<br>3.3. Additional Steps Required on macOS to Use GDB as<br>the Debugger.<br>The Command Line Tools package on macOS no longer contains gcc and gdb; instead<br>it contains the Clang compiler and lldb. (The gcc and g++ commands actually run<br>clang.) OMNeT++ will use Clang automatically. However, the OMNeT++ IDE can only<br>use gdb as the underlying debugger, but not lldb.<br>To be able to debug from the IDE, you have to install gdb from Homebrew. Alternatively,<br>you can use XCode for debugging.<br>To do the former, first install the Homebrew package manager at <a href="http://brew.sh" target="_blank" rel="noopener">http://brew.sh</a>. Follow<br>the instrunctions on the website.<br>Then you can install gdb:<br>$ brew install gdb<br>macOS 10.10 and later requires that you sign the gdb executable with a self-signed<br>certificate (or with your own certificate, if you have one.)<br>Start the Keychain Access application. Choose Keychain Access &gt; Certificate Assistant &gt; Create a Certificate… from the menu.<br>Choose a name (e.g. gdb-cert), set Identity Type to Self Signed Root, set Certificate<br>Type to Code Signing and select the Let me override defaults. Click several times on<br>Continue until you get to the Specify a Location For The Certificate screen, then set<br>Keychain to System.<br>If you can’t store the certificate in the System keychain, create it in the Login keychain,<br>then export it. You can then import it into the System keychain.<br>5<br>macOS<br>Finally, using the context menu for the certificate, select Get Info, open the Trust item,<br>and set Code Signing to Always Trust.<br>You must quit the Keychain Access application in order to use the certificate and restart<br>the system.<br>Now sign the executable:<br>$ sudo codesign -s gdb-cert /usr/local/bin/gdb<br>3.4. Downloading and Unpacking OMNeT++<br>Download OMNeT++ from <a href="http://omnetpp.org" target="_blank" rel="noopener">http://omnetpp.org</a>. Make sure you select to download the<br>generic archive, omnetpp-5.4.1-src-macosx.tgz.<br>Copy the archive to the directory where you want to install it. This is usually your home<br>directory, /Users/<you>. Open a terminal, and extract the archive using the following<br>command:<br>$ tar zxvf omnetpp-5.4.1-src-macosx.tgz<br>A subdirectory called omnetpp-5.4.1 will be created, containing the simulator files.<br>Alternatively, you can also unpack the archive using Finder.<br>The Terminal can be found in the Applications / Utilities folder.<br>3.5. Environment Variables<br>OMNeT++ needs its bin/ and tools/macosx/bin directories to be in the path. To<br>add them to PATH temporarily (in the current shell only), change into the OMNeT++<br>directory and source the setenv script:<br>$ cd omnetpp-5.4.1<br>$ . setenv<br>To set the environment variables permanently, edit .bashrc in your home directory.<br>Use your favourite text editor to edit .bashrc, for example TextEdit:<br>$ touch ~/.bashrc<br>$ open -e ~/.bashrc<br>touch is needed because open -e only opens existing files. Alternatively, you can use<br>the terminal-based pico editor (pico ~/.bashrc)<br>Add the following line at the end of the file, then save it:<br>export PATH=$HOME/omnetpp-5.4.1/bin:$HOME/omnetpp-5.4.1/tools/macosx/bin:$PATH<br>export QT_PLUGIN_PATH=$HOME/omnetpp-5.4.1/tools/macosx/plugins<br>You need to close and re-open the terminal for the changes to take effect.<br>Alternatively, you can put the above line into ~/.bash_profile, but then you need to<br>log out and log in again for the changes to take effect.<br>If you use a shell other than the default one, bash, consult the man page of that shell<br>to find out which startup file to edit, and how to set and export variables.<br>6<br>macOS<br>3.6. Configuring and Building OMNeT++<br>Check configure.user to make sure it contains the settings you need. In most cases<br>you don’t need to change anything in it.<br>In the top-level OMNeT++ directory, type:<br>$ ./configure<br>The configure script detects installed software and configuration of your system.<br>It writes the results into the Makefile.inc file, which will be read by the makefiles<br>during the build process.<br>Normally, the configure script needs to be running under the graphical environment<br>in order to test for wish, the Tcl/Tk shell. If you are logged in via an ssh session or you<br>want to compile OMNeT++ without Tcl/Tk and/or Qtenv, use the command<br>$ ./configure WITH_TKENV=no WITH_QTENV=no<br>instead of plain ./configure.<br>If there is an error during configure, the output may give hints about what went<br>wrong. Scroll up to see the messages. (You may need to increase the scrollback buffer<br>size of the terminal and re-run ./configure.) The script also writes a very detailed<br>log of its operation into config.log to help track down errors. Since config.log is<br>very long, it is recommended that you open it in an editor and search for phrases like<br>error or the name of the package associated with the problem.<br>When ./configure has finished, you can compile OMNeT++. Type in the terminal:<br>$ make<br>To take advantage of multiple processor cores, add the -j4 option to the make command line.<br>The build process will not write anything outside its directory, so no special privileges<br>are needed.<br>The make command will seemingly compile everything twice. This is because both<br>debug and optimized versions of the libraries are built. If you only want to build one<br>set of the libraries, specify MODE=debug or MODE=release:<br>$ make MODE=release<br>3.7. Verifying the Installation<br>You can now verify that the sample simulations run correctly. For example, the dyna<br>simulation is started by entering the following commands:<br>$ cd samples/aloha<br>$ ./aloha<br>By default, the samples will run using the Qtenv environment. You should see nice gui<br>windows and dialogs.<br>7<br>macOS<br>3.8. Starting the IDE<br>OMNeT++ comes with an Eclipse-based Simulation IDE. On macOS 10.10 (Lion) or<br>later, the Java Runtime must be installed (see prerequisites) before you can use the<br>IDE. Start the IDE by typing:<br>$ omnetpp<br>If you would like to be able to launch the IDE via Applications, the Dock or a desktop<br>shortcut, do the following: open the omnetpp-5.4.1 folder in Finder, go into the ide<br>subfolder, create an alias for the omnetpp program there (right-click, Make Alias), and<br>drag the new alias into the Applications folder, onto the Dock, or onto the desktop.<br>Alternatively, run one or both of the commands below:<br>$ make install-menu-item<br>$ make install-desktop-icon<br>which will do roughly the same.<br>3.9. Using the IDE<br>When you try to build a project in the IDE, you may get the following warning message:<br>Toolchain “…” is not supported on this platform or installation. Please<br>go to the Project menu, and activate a different build configuration. (You<br>may need to switch to the C/C++ perspective first, so that the required<br>menu items appear in the Project menu.)<br>If you encounter this message, choose Project &gt; Properties &gt; C/C++ Build &gt; Tool<br>Chain Editor &gt; Current toolchain &gt; GCC for OMNeT++.<br>The IDE is documented in detail in the User Guide.<br>3.10. Reconfiguring the Libraries<br>If you need to recompile the OMNeT++ components with different flags (e.g. different<br>optimization), then change the top-level OMNeT++ directory, edit configure.user<br>accordingly, then type:<br>$ ./configure<br>$ make clean<br>$ make<br>To take advantage of multiple processor cores, add the -j4 option to the make command line.<br>If you want to recompile just a single library, then change to the directory of the library<br>(e.g. cd src/sim) and type:<br>$ make clean<br>$ make<br>By default, libraries are compiled in both debug and release mode. If you want to make<br>release or debug builds only, use:<br>$ make MODE=release<br>or<br>8<br>macOS<br>$ make MODE=debug<br>By default, shared libraries will be created. If you want to build static libraries, set<br>SHARED_LIBS=no in configure.user and re-configure your project.<br>The built libraries and programs are immediately copied to the lib/ and bin/ subdirectories.<br>The Tcl/Tk environment uses the native Aqua version of Tcl/Tk, so you will see native<br>widgets. However, due to problems in the Tk/Aqua port, you may experience minor UI<br>quirks. We recommend using Qtenv whenever it is possible.<br>3.11. Additional Packages<br>3.11.1. OpenMPI<br>MacOS does not come with OpenMPI, so you must install it manually. You can install<br>it from the Homebrew repo (<a href="http://brew.sh" target="_blank" rel="noopener">http://brew.sh</a>) by typing brew install open-mpi. In<br>this case, you have to manually set the MPI_CFLAGS and MPI_LIBS variables in configure.user and re-run ./configure.<br>3.11.2. GraphViz<br>GraphViz is needed if you want to have diagrams in HTML documentation that you generate from NED files in the IDE (Generate NED Documentation… item in the project<br>context menu).<br>You can install it from the Homebrew project (<a href="http://brew.sh" target="_blank" rel="noopener">http://brew.sh</a>) by typing brew install<br>graphviz.<br>After installation, make sure that the dot program is available from the command line.<br>Open a terminal, and type<br>$ dot -V<br>Note the capital V. The command should normally work out of the box. If you get the<br>“command not found” error, you need to put dot into the path. Find the dot program<br>in the GraphViz installation directory, and soft link it into /usr/local/bin (sudo ln<br>-s <path></path>/dot /usr/local/bin).<br>3.11.3. Doxygen<br>Doxygen is needed if you want to generate documentation for C++ code, as part of<br>the HTML documentation that you generate from NED files in the IDE (Generate NED<br>Documentation… item in the project context menu).<br>You can install it from the Homebrew project (<a href="http://brew.sh" target="_blank" rel="noopener">http://brew.sh</a>) by typing homebrew install doxygen.<br>After installation, ensure that the doxygen program is available from the command<br>line. Open a terminal, and type<br>$ doxygen<br>3.11.4. Akaroa<br>Akaroa 2.7.9, which is the latest version at the time of writing, does not support macOS.<br>You may try to port it using the porting guide from the Akaroa distribution.<br>9<br>Chapter 4. Linux<br>4.1. Supported Linux Distributions<br>This chapter provides instructions for installing OMNeT++ on selected Linux distributions:<br>• Ubuntu 16.04 LTS<br>• Fedora Core 25<br>• Red Hat Enterprise Linux Desktop Workstation 7.x<br>• OpenSUSE 42<br>This chapter describes the overall process. Distro-specific information, such as how<br>to install the prerequisite packages, are covered by distro-specific chapters.<br>If your Linux distribution is not listed above, you still may be able to use some distro-specific instructions in this Guide.<br>Ubuntu derivatives (Ubuntu instructions may apply):<br>• Kubuntu, Xubuntu, Edubuntu, …<br>• Linux Mint<br>Some Debian-based distros (Ubuntu instructions may apply, as Ubuntu itself is based<br>on Debian):<br>• Knoppix and derivatives<br>• Mepis<br>Some Fedora-based distros (Fedora instructions may apply):<br>• Simplis<br>• Eeedora<br>4.2. Installing the Prerequisite Packages<br>OMNeT++ requires several packages to be installed on the computer. These packages<br>include the C++ compiler (gcc or clang), the Java runtime, and several other libraries<br>and programs. These packages can be installed from the software repositories of your<br>Linux distribution.<br>See the chapter specific to your Linux distribution for instructions on installing<br>the packages needed by OMNeT++.<br>Generally, you will need superuser permissions to install packages.<br>Not all packages are available from software repositories; some (optional) ones need to<br>be downloaded separately from their web sites, and installed manually. See the section<br>Additional Packages later in this chapter.<br>10<br>Linux<br>4.3. Downloading and Unpacking<br>Download OMNeT++ from <a href="http://omnetpp.org" target="_blank" rel="noopener">http://omnetpp.org</a>. Make sure you select to download the<br>generic archive, omnetpp-5.4.1-src.tgz.<br>Copy the archive to the directory where you want to install it. This is usually your home<br>directory, /home/<you>. Open a terminal, and extract the archive using the following<br>command:<br>$ tar xvfz omnetpp-5.4.1-src.tgz<br>This will create an omnetpp-5.4.1 subdirectory with the OMNeT++ files in it.<br>On how to open a terminal on your Linux installation, see the chapter specific to your<br>Linux distribution.<br>4.4. Environment Variables<br>OMNeT++ needs its bin/ directory to be in the path. To add bin/ to PATH temporarily<br>(in the current shell only), change into the OMNeT++ directory and source the setenv<br>script:<br>$ cd omnetpp-5.4.1<br>$ . setenv<br>The script also adds the lib/ subdirectory to LD_LIBRARY_PATH, which may be necessary on systems that don’t support the rpath mechanism.<br>To set the environment variables permanently, edit .bashrc in your home directory.<br>Use your favourite text editor to edit .bashrc, for example gedit:<br>$ gedit ~/.bashrc<br>Add the following line at the end of the file, then save it:<br>export PATH=$HOME/omnetpp-5.4.1/bin:$PATH<br>You need to close and re-open the terminal for the changes to take effect.<br>Alternatively, you can put the above line into ~/.bash_profile, but then you need to<br>log out and log in again for the changes to take effect.<br>If you use a shell other than bash, consult the man page of that shell to find out which<br>startup file to edit, and how to set and export variables.<br>Note that all Linux distributions covered in this Installation Guide use bash unless<br>the user has explicitly selected another shell.<br>4.5. Configuring and Building OMNeT++<br>In the top-level OMNeT++ directory, type:<br>$ ./configure<br>The configure script detects installed software and configuration of your system.<br>It writes the results into the Makefile.inc file, which will be read by the makefiles<br>during the build process.<br>11<br>Linux<br>Figure 4.1. Configuring OMNeT++<br>Normally, the configure script needs to be running under the graphical environment<br>(X11) in order to test for wish, the Tcl/Tk shell. If you are logged in via an ssh session,<br>or there is some other reason why X is not running, the easiest way to work around<br>the problem is to tell OMNeT++ to build without Tcl/Tk and Qtenv. To do that, use<br>the command<br>$ ./configure WITH_TKENV=no WITH_QTENV=no<br>instead of plain ./configure.<br>If there is an error during configure, the output may give hints about what went<br>wrong. Scroll up to see the messages. (Use Shift+PgUp; you may need to increase the<br>scrollback buffer size of the terminal and re-run ./configure.) The script also writes<br>a very detailed log of its operation into config.log to help track down errors. Since<br>config.log is very long, it is recommended that you open it in an editor and search<br>for phrases like error or the name of the package associated with the problem.<br>When ./configure has finished, you can compile OMNeT++. Type in the terminal:<br>$ make<br>12<br>Linux<br>Figure 4.2. Building OMNeT++<br>To take advantage of multiple processor cores, add the -j8 option to the make command line.<br>The build process will not write anything outside its directory, so no special privileges<br>are needed.<br>The make command will seemingly compile everything twice. This is because both<br>debug and optimized versions of the libraries are built. If you only want to build one<br>set of the libraries, specify MODE=debug or MODE=release:<br>$ make MODE=release<br>4.6. Verifying the Installation<br>You can now verify that the sample simulations run correctly. For example, the dyna<br>simulation is started by entering the following commands:<br>$ cd samples/dyna<br>$ ./dyna<br>By default, the samples will run using the Tcl/Tk environment. You should see nice gui<br>windows and dialogs.<br>4.7. Starting the IDE<br>You can launch the OMNeT++ Simulation IDE by typing the following command in<br>the terminal:<br>$ omnetpp<br>13<br>Linux<br>Figure 4.3. The Simulation IDE<br>If you would like to be able to access the IDE from the application launcher or via a<br>desktop shortcut, run one or both of the commands below:<br>$ make install-menu-item<br>$ make install-desktop-icon<br>Or add a shortcut that points to the omnetpp program in the ide subdirectory by other<br>means, for example using the Linux desktop’s context menu.<br>4.8. Using the IDE<br>When you try to build a project in the IDE, you may get the following warning message:<br>Toolchain “…” is not supported on this platform or installation. Please<br>go to the Project menu, and activate a different build configuration. (You<br>may need to switch to the C/C++ perspective first, so that the required<br>menu items appear in the Project menu.)<br>If you encounter this message, choose Project &gt; Properties &gt; C/C++ Build &gt; Tool<br>Chain Editor &gt; Current toolchain &gt; GCC for OMNeT++.<br>The IDE is documented in detail in the User Guide.<br>4.9. Reconfiguring the Libraries<br>If you need to recompile the OMNeT++ components with different flags (e.g. different<br>optimization), then change the top-level OMNeT++ directory, edit configure.user<br>accordingly, then type:<br>$ ./configure<br>$ make cleanall<br>$ make<br>If you want to recompile just a single library, then change to the directory of the library<br>(e.g. cd src/sim) and type:<br>$ make clean<br>$ make<br>By default, libraries are compiled in both debug and release mode. If you want to make<br>release or debug builds only, use:<br>14<br>Linux<br>$ make MODE=release<br>or<br>$ make MODE=debug<br>By default, shared libraries will be created. If you want to build static libraries, set<br>SHARED_LIBS=no in configure.user and re-configure your project.<br>For detailed description of all options please read the Build Options chapter.<br>4.10. Additional Packages<br>Note that at this point, MPI, Doxygen and GraphViz have been installed as part of the<br>prerequisites.<br>4.10.1. Qtenv<br>OMNeT++ 5 comes with a new Qt based runtime environment that supports also 3D<br>visualization. The new environment can be disabled by the WITH_QTENV=no variable<br>in the configure.user file and then running ./configure.<br>4.10.2. Akaroa<br>Linux distributions do not contain the Akaroa package. It must be downloaded, compiled and installed manually before installing OMNeT++.<br>As of version 2.7.9, Akaroa only supports Linux and Solaris.<br>Download Akaroa 2.7.9 from: <a href="http://www.cosc.canterbury.ac.nz/research/RG/net_sim/" target="_blank" rel="noopener">http://www.cosc.canterbury.ac.nz/research/RG/net_sim/</a><br>simulation_group/akaroa/download.chtml<br>Extract it into a temporary directory:<br>$ tar xfz akaroa-2.7.9.tar.gz<br>Configure, build and install the Akaroa library. By default, it will be installed into the<br>/usr/local/akaroa directory.<br>$ ./configure<br>$ make<br>$ sudo make install<br>Go to the OMNeT++ directory, and (re-)run the configure script. Akaroa will be<br>automatically detected if you installed it to the default location.<br>4.10.3. PCAP<br>The optional Pcap library allows simulation models to capture and transmit network<br>packets bypassing the operating system’s protocol stack. It is not used directly by OMNeT++, but models may need it to support network emulation.<br>4.10.4. Nemiver<br>Nemiver is the default debugger for the OMNeT++ just-in-time debugging facility (see<br>the debugger-attach-on-startup and debugger-attach-on-error configuration<br>15<br>Linux<br>options). Nemiver can be installed via the package manager in most Linux distros. For<br>example, on Ubuntu and other Debian-based distros you can install it by the following<br>command:<br>$ sudo apt-get install nemiver<br>16<br>Chapter 5. Ubuntu<br>5.1. Supported Releases<br>This chapter provides additional information for installing OMNeT++ on Ubuntu Linux installations. The overall installation procedure is described in the Linux chapter.<br>The following Ubuntu releases are covered:<br>• Ubuntu 16.04 LTS or 18.04 LTS<br>They were tested on the following architectures:<br>• Intel 64-bit<br>The instructions below assume that you use the default desktop and the bash shell. If<br>you use another desktop environment or shell, you may need to adjust the instructions<br>accordingly.<br>5.2. Opening a Terminal<br>Type terminal in Dash and click on the Terminal icon.<br>5.3. Installing the Prerequisite Packages<br>You can perform the installation using the graphical user interface or from the terminal,<br>whichever you prefer.<br>5.3.1. Command-Line Installation<br>Before starting the installation, refresh the database of available packages. Type in the<br>terminal:<br>$ sudo apt-get update<br>To install the required packages, type in the terminal:<br>$ sudo apt-get install build-essential gcc g++ bison flex perl \<br>python python3 qt5-default libqt5opengl5-dev tcl-dev tk-dev \<br>libxml2-dev zlib1g-dev default-jre doxygen graphviz libwebkitgtk-1.0<br>To use Qtenv with 3D visualization support, install the development packages for<br>OpenSceneGraph (3.2 or later) and the osgEarth (2.7 or later) packages. (You may<br>need to enable the Universe software repository in Software Sources. In case of Ubuntu 16.04 (Xenial), you have to add the ubuntugis/ppa repository manually to your<br>software sources, because Xenial contains only osgEarth 2.5 which is too old.):</you></you></omnetpp-dir></omnetpp-dir></p>
+</blockquote>
+<h1 id="for-Ubuntu-16-04-add-extra-GIS-repo"><a href="#for-Ubuntu-16-04-add-extra-GIS-repo" class="headerlink" title="for Ubuntu 16.04 add extra GIS repo"></a>for Ubuntu 16.04 add extra GIS repo</h1>$ sudo add-apt-repository ppa:ubuntugis/ppa<br>$ sudo apt-get update<h1 id="install-osgearth-development-package-and-OpenSceneGraph-too"><a href="#install-osgearth-development-package-and-OpenSceneGraph-too" class="headerlink" title="install osgearth development package (and OpenSceneGraph, too)"></a>install osgearth development package (and OpenSceneGraph, too)</h1>$ sudo apt-get install openscenegraph-plugin-osgearth libosgearth-dev<br>17<br>Ubuntu<br>You may opt to use clang and clang++ instead of the gcc and g++ compilers. If you do<br>not need the 3D visualization capabilities, you can disable them in the configure.user<br>file.<br>To enable the optional parallel simulation support you will need to install the MPI<br>packages:<br>$ sudo apt-get install openmpi-bin libopenmpi-dev<br>At the confirmation questions (Do you want to continue? [Y/N]), answer Y.<br>Figure 5.1. Command-Line Package Installation<br>5.3.2. PCAP<br>The optional Pcap library allows simulation models to capture and transmit network<br>packets bypassing the operating system’s protocol stack. It is not used directly by OMNeT++, but models may need it to support network emulation.<br>$ sudo apt-get install libpcap-dev<br>5.3.3. Graphical Installation<br>Open the dash and type Synaptic.<br>Since software installation requires root permissions, Synaptic will ask you to type<br>your password.<br>Search for the following packages in the list, click the squares before the names, then<br>choose Mark for installation or Mark for upgrade.<br>If the Mark additional required changes? dialog comes up, choose the Mark button.<br>The packages:<br>• required: build-essential, gcc, g++, bison, flex, perl, qt5-default, tcl-dev, tk-dev,<br>libxml2-dev, zlib1g-dev, default-jre, doxygen, graphviz, libwebkitgtk-3.0-0<br>• recommended: libopenscenegraph-dev, openscenegraph-plugin-osgearth, libosgearth-dev, openmpi-bin, libopenmpi-dev<br>18<br>Ubuntu<br>Figure 5.2. Synaptic Package Manager<br>Click Apply, then in the Apply the following changes? window, click Apply again. In<br>the Changes applied window, click Close.<br>5.3.4. Post-Installation Steps<br>Fixing Tooltip Colors<br>The default tooltip background color in Ubuntu is black, which causes certain tooltips<br>in the OMNeT++ IDE to become unreadable (black-on-black). This annoyance can be<br>resolved by changing the tooltip colors in Ubuntu.<br>Figure 5.3. Black-on-black text in tooltips<br>Install gnome-color-chooser:<br>$ sudo apt-get install gnome-color-chooser<br>Run it:<br>$ gnome-color-chooser<br>19<br>Ubuntu<br>Find the Tooltips group on the Specific tab, and change the settings to black foreground<br>over pale yellow background. Click Apply.<br>Figure 5.4. Fixing the tooltip color issue<br>Setting Up Debugging<br>By default, Ubuntu does not allow ptracing of non-child processes by non-root users.<br>That is, if you want to be able to debug simulation processes by attaching to them<br>with a debugger, or similar, you want to be able to use OMNeT++ just-in-time debugging (debugger-attach-on-startup and debugger-attach-on-error configuration options), you need to explicitly enable them.<br>To temporarily allow ptracing non-child processes, enter the following command:<br>$ echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope<br>To permanently allow it, edit /etc/sysctl.d/10-ptrace.conf and change the line:<br>kernel.yama.ptrace_scope = 1<br>to read<br>kernel.yama.ptrace_scope = 0<br>Note that the default debugger for OMNeT++ just-in-time debugging is Nemiver, so it<br>also needs to be installed:<br>$ sudo apt-get install nemiver<br>20<br>Chapter 6. Fedora 25<br>6.1. Supported Releases<br>This chapter provides additional information for installing OMNeT++ on Fedora installations. The overall installation procedure is described in the Linux chapter.<br>The following Fedora release is covered:<br>• Fedora 25<br>It was tested on the following architectures:<br>• Intel 64-bit<br>6.2. Opening a Terminal<br>Open the Search bar, and type Terminal.<br>6.3. Installing the Prerequisite Packages<br>You can perform the installation using the graphical user interface or from the terminal,<br>whichever you prefer.<br>6.3.1. Command-Line Installation<br>To install the required packages, type in the terminal:<br>$ sudo dnf install make gcc gcc-c++ bison flex perl \<br>python2 tcl-devel tk-devel qt5-devel libxml2-devel \<br>zlib-devel java doxygen graphviz webkitgtk<br>To use 3D visualization support in Qtenv, you should install OpenSceneGraph 3.2 or<br>later and osgEarth 2.7 or later (recommended):<br>$ sudo dnf install OpenSceneGraph-devel osgearth-devel<br>You may opt to use clang and clang++ instead of the gcc and g++ compilers.<br>To enable the optional parallel simulation support you will need to install the MPI<br>package:<br>$ sudo dnf install openmpi-devel<br>Note that openmpi will not be available by default, it needs to be activated in every<br>session with the<br>$ module load mpi/openmpi-x86_64<br>command. When in doubt, use module avail to display the list of available modules.<br>If you need MPI in every session, you may add the module load command to your<br>startup script (.bashrc).<br>21<br>Fedora 25<br>6.3.2. PCAP<br>The optional Pcap library allows simulation models to capture and transmit network<br>packets bypassing the operating system’s protocol stack. It is not used directly by OMNeT++, but models may need it to support network emulation.<br>6.3.3. Graphical Installation<br>The graphical package manager can be launched by opening the Search bar and typing<br>dnf.<br>Search for the following packages in the list. Select the checkboxes in front of the<br>names, and pick the latest version of each package.<br>The packages:<br>• make, bison, gcc, gcc-c++, flex, perl, tcl-devel, tk-devel, qt5-devel, libxml2-devel, zlib-devel, webkitgtk, java, doxygen, graphviz, openmpi-devel, libpcap-devel,<br>OpenSceneGraph-devel, osgearth-devel<br>Click Apply, then follow the instructions.<br>22<br>Chapter 7. Red Hat<br>7.1. Supported Releases<br>This chapter provides additional information for installing OMNeT++ on Red Hat Enterprise Linux installations. The overall installation procedure is described in the Linux chapter.<br>The following Red Hat release is covered:<br>• Red Hat Enterprise Linux Desktop Workstation 7.x<br>It was tested on the following architectures:<br>• Intel 64-bit<br>7.2. Opening a Terminal<br>Choose Applications &gt; Accessories &gt; Terminal from the menu.<br>7.3. Installing the Prerequisite Packages<br>You can perform the installation using the graphical user interface or from the terminal,<br>whichever you prefer.<br>You will need Red Hat Enterprise Linux Desktop Workstation for OMNeT++. The<br>Desktop Client version does not contain development tools.<br>7.3.1. Command-Line Installation<br>To install the required packages, type in the terminal:<br>$ su -c ‘yum install make gcc gcc-c++ bison flex perl \<br>tcl-devel tk-devel qt-devel libxml2-devel zlib-devel \<br>java doxygen graphviz openmpi-devel libpcap-devel’<br>To use 3D visualization support in Qtenv (recommended), you should install the<br>OpenSceneGraph-devel (3.2 or later) and osgEarth-devel (2.7 or later) packages. These<br>packages are not available from the official RedHat repository so you may need to get<br>them from different sources (e.g. rpmfind.net).<br>You may opt to use clang and clang++ instead of the gcc and g++ compilers.<br>To install additional (optional) packages for parallel simulation and packet capture<br>support, type:<br>$ su -c ‘yum install openmpi-devel libpcap’<br>Note that openmpi will not be available by default, it needs to be activated in every<br>session with the<br>23<br>Red Hat<br>$ module load openmpi_<arch><br>command, where <arch> is your architecture (usually i386 or x86_64). When in<br>doubt, use module avail to display the list of available modules. If you need MPI<br>in every session, you may add the module load command to your startup script<br>(.bashrc).`<br>7.3.2. PCAP<br>The optional Pcap library allows simulation models to capture and transmit network<br>packets bypassing the operating system’s protocol stack. It is not used directly by OMNeT++, but models may need it to support network emulation.<br>7.3.3. Graphical Installation<br>The graphical installer can be launched by choosing Applications &gt; Add/Remove Software from the menu.<br>Search for the following packages in the list. Select the checkboxes in front of the<br>names, and pick the latest version of each package.<br>The packages:<br>• make gcc, gcc-c++, bison, flex, perl, tcl-devel, tk-devel, qt-devel, libxml2-devel, zlibdevel, make, java, doxygen, graphviz, openmpi-devel, libpcap-devel<br>Click Apply, then follow the instructions.<br>7.4. SELinux<br>You may need to turn off SELinux when running certain simulations. To do so, click<br>on System &gt; Administration &gt; Security Level &gt; Firewall, go to the SELinux tab, and<br>choose Disabled.<br>You can verify the SELinux status by typing the sestatus command in a terminal.<br>From OMNeT++ 4.1 on, makefiles that build shared libraries include the chcon -t<br>textrel_shlib_t lib<name>.so command that properly sets the security context<br>for the library. This should prevent the SELinux-related “cannot restore segment prot<br>after reloc: Permission denied” error from occurring, unless you have a shared library<br>which was built using an obsolete or hand-crafted makefile that does not contain the<br>chcon command.<br>24<br>Chapter 8. OpenSUSE<br>8.1. Supported Releases<br>This chapter provides additional information for installing OMNeT++ on openSUSE<br>installations. The overall installation procedure is described in the Linux chapter.<br>The following openSUSE release is covered:<br>• openSUSE 42.2<br>It was tested on the following architectures:<br>• Intel 64-bit<br>8.2. Opening a Terminal<br>Open the Search bar, and type Terminal.<br>8.3. Installing the Prerequisite Packages<br>You can perform the installation using the graphical user interface or from the terminal,<br>whichever you prefer.<br>8.3.1. Command-Line Installation<br>To install the required packages, type in the terminal:<br>$ sudo zypper install make gcc gcc-c++ bison flex perl \<br>tcl-devel tk-devel libqt5-qtbase-devel libxml2-devel zlib-devel \<br>java-1_8_0-openjdk doxygen graphviz libwebkitgtk-3_0-0<br>You may opt to use clang and clang++ instead of the gcc and g++ compilers.<br>To use 3D visualization support in Qtenv (recommended), you should install the<br>OpenSceneGraph-devel (3.2 or later) and osgEarth-devel (2.7 or later) packages. These<br>packages are not available from the official RedHat repository so you may need to get<br>them from different sources (e.g. rpmfind.net).<br>To enable the optional parallel simulation support you will need to install the MPI<br>package:<br>$ sudo zypper install openmpi-devel<br>Note that openmpi will not be available by default, first you need to log out and log in<br>again, or source your .profile script:<br>$ . ~/.profile<br>8.3.2. PCAP<br>The optional Pcap library allows simulation models to capture and transmit network<br>packets bypassing the operating system’s protocol stack. It is not used directly by OMNeT++, but models may need it to support network emulation.<br>25<br>OpenSUSE<br>8.3.3. Graphical Installation<br>The graphical installer can be launched by opening the Search bar and typing Software<br>Management.<br>Figure 8.1. Yast Software Management<br>Search for the following packages in the list. Select the checkboxes in front of the<br>names, and pick the latest version of each package.<br>The packages:<br>• make, gcc, gcc-c++, bison, flex, perl, tcl-devel, tk-devel, libqt5-qtbase-devel, libxml2-<br>devel, zlib-devel, java-1_8_0-openjdk, doxygen, graphviz, libwebkitgtk-3_0-0, openmpi-devel, libpcap-devel<br>Click Accept, then follow the instructions.<br>26<br>Chapter 9. Generic Unix<br>9.1. Introduction<br>This chapter provides additional information for installing OMNeT++ on Unix-like<br>operating systems not specifically covered by this Installation Guide. The list includes<br>FreeBSD, Solaris, and Linux distributions not covered in other chapters.<br>In addition to Windows and macOS, the Simulation IDE will only work on Linux x86<br>64-bit platforms. Other operating systems (FreeBSD, Solaris, etc.) and architectures<br>may still be used as simulation platforms, without the IDE.<br>9.2. Dependencies<br>The following packages are required for OMNeT++ to work:<br>build-essential, GNU make,<br>gcc, g++, bison (2.4+), flex,<br>perl<br>These packages are needed for compiling OMNeT++<br>and simulation models, and also for certain OMNeT++ tools to work. C++ compilers other than g+<br>+, will also be accepted.<br>You may opt to use clang and clang++ instead of the gcc and g++ compilers.<br>The following packages are strongly recommended, because their absence results in<br>severe feature loss:<br>Tcl/Tk 8.5 or later Required by the Tkenv simulation runtime environment. You need the devel packages that include the C<br>header files as well. It is also possible to compile OMNeT++ without Tcl/Tk (and Tkenv), by setting then<br>WITH_TKENV=no variable in configure.user.<br>LibXML2 or Expat Either one of these XML parsers are needed for OMNeT++ to be able to read XML files. The devel<br>packages (that include the header files) are needed.<br>LibXML2 is the preferred one.<br>OpenJDK, version 8.0 or later The Java runtime is required to run the Eclipsebased Simulation IDE. Other implementations, for<br>example Kaffe, have been found to have problems<br>running the IDE. You do not need this package if you<br>do not plan to use the Simulation IDE.<br>Qt 5.4 or later Required by the Qtenv simulation runtime environment. You need the devel packages that include header files as well.<br>OpenSceneGraph (3.2+) and<br>osgEarth (2.7+)<br>These packages will enable 3D visualization in Qtenv.<br>You need the devel packages that include header files<br>as well.<br>27<br>Generic Unix<br>The following packages are required if you want to take advantage of some advanced<br>OMNeT++ features:<br>GraphViz, Doxygen These packages are used by the NED documentation generation feature of the IDE. When they are missing, documentation will have less content.<br>MPI openmpi or some other MPI implementation is required to<br>support parallel simulation execution.<br>Akaroa Implements Multiple Replications In Parallel (MRIP).<br>Akaroa can be downloaded from the project’s website.<br>Pcap The optional Pcap library allows simulation models to capture and transmit network packets bypassing the operating system’s protocol stack. It is not used directly by OMNeT++, but models may need it to support network emulation.<br>The exact names of these packages may differ across distributions.<br>9.3. Determining Package Names<br>If you have a distro unrelated to the ones covered in this Installation Guide, you need<br>to figure out what is the established way of installing packages on your system, and<br>what are the names of the packages you need.<br>9.3.1. Tcl/Tk<br>Tcl/Tk may be present as separate packages (tcl and tk), or in one package (tcltk).<br>The version number (e.g. 8.5) is usually part of the name in some form (85, 8.5, etc).<br>You will need the development packages, which are usually denoted with the -dev or<br>-devel name suffix.<br>Troubleshooting:<br>If your platform does not have suitable Tcl/Tk and/or QT packages, you may still use<br>OMNeT++ to run simulations from the command line. To disable the graphical runtime environment use:<br>$ ./configure WITH_TKENV=no WITH_QTENV=no<br>This will prevent the build system to link with Tcl/Tk or QT libraries. This is required<br>also if you are installing OMNeT++ from a remote terminal session.<br>By default, the configure script expects to find the Tcl/Tk libraries in the standard<br>linker path (without any -Ldirectory linker option) and under the standard names<br>(i.e. with the -ltcl8.5 or -ltcl85 linker option). If you have them in different places<br>or under different names, you have to edit configure.user and explicitly set TK_LIBS<br>there (see the Build Options chapter for further details).<br>If you get the error no display and DISPLAY environment variable not set, then you’re<br>either not running X (the wish command, and thus ./configure won’t work just in<br>the console) or you really need to set the DISPLAY variable (export DISPLAY=:0.0<br>usually does it).<br>If you get the error: Tcl_Init failed: Can’t find a usable init.tcl…<br>The TCL_LIBRARY environment variable should point to the directory which contains<br>init.tcl. That is, you probably want to put a line like<br>28<br>Generic Unix<br>export TCL_LIBRARY=/usr/lib/tcl8.5<br>into your ~/.bashrc.<br>9.3.2. The Java Runtime<br>You need to install the Oracle JRE or OpenJDK. The IDE is not supported on Unix<br>platforms other than Linux, so JRE is not required either. We have tested various other<br>Java runtimes (gcj, kaffe, etc.), and the IDE does not work well with them.<br>Java version 1.8 (i.e. JRE 1.8) or later is required.<br>9.3.3. MPI<br>OMNeT++ is not sensitive to the particular MPI implementation. You may use OpenMPI, or any other standards-compliant MPI package.<br>9.4. Downloading and Unpacking<br>Download OMNeT++ from <a href="http://omnetpp.org" target="_blank" rel="noopener">http://omnetpp.org</a>. Make sure you select to download the<br>generic archive, omnetpp-5.4.1-src.tgz.<br>Copy the archive to the directory where you want to install it. This is usually your home<br>directory, /home/<you>. Open a terminal, and extract the archive using the following<br>command:<br>$ tar xvfz omnetpp-5.4.1-src.tgz<br>This will create an omnetpp-5.4.1 subdirectory with the OMNeT++ files in it.<br>9.5. Environment Variables<br>In general OMNeT++ requires that its bin directory should be in the PATH. You should<br>add a line something like this to your .bashrc:<br>$ export PATH=$HOME/omnetpp-5.4.1/bin:$PATH<br>You may also have to specify the path where shared libraries are loaded from. Use:<br>$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/omnetpp-5.4.1/lib<br>If configure complains about not finding the Tcl library directory, you may specify it<br>by setting the TCL_LIBRARY environment variable.<br>If you use a shell other than bash, consult the man page of that shell to find out which<br>startup file to edit, and how to set and export variables.<br>9.6. Configuring and Building OMNeT++<br>In the top-level OMNeT++ directory, type:<br>$ ./configure<br>The configure script detects installed software and configuration of your system.<br>It writes the results into the Makefile.inc file, which will be read by the makefiles<br>during the build process.<br>29<br>Generic Unix<br>Figure 9.1. Configuring OMNeT++<br>Normally, the configure script needs to be running under the graphical environment<br>(X11) in order to test for wish, the Tcl/Tk shell. If you are logged in via an ssh session,<br>or there is some other reason why X is not running, the easiest way to work around<br>the problem is to tell OMNeT++ to build without Tcl/Tk. To do that, use the command<br>$ ./configure WITH_TKENV=no WITH_QTENV=no<br>instead of plain ./configure.<br>If there is an error during configure, the output may give hints about what went<br>wrong. Scroll up to see the messages. (Use Shift+PgUp; you may need to increase the<br>scrollback buffer size of the terminal and re-run ./configure.) The script also writes<br>a very detailed log of its operation into config.log to help track down errors. Since<br>config.log is very long, it is recommended that you open it in an editor and search<br>for phrases like error or the name of the package associated with the problem.<br>The configure script tries to build and run small test programs that are using specific<br>libraries or features of the system. You can check the config.log file to see which<br>test program has failed and why. In most cases the problem is that the script cannot<br>figure out the location of a specific library. Specifying the include file or library location<br>in the configure.user file and then re-running the configure script usually solves<br>the problem.<br>When ./configure has finished, you can compile OMNeT++. Type in the terminal:<br>$ make<br>30<br>Generic Unix<br>Figure 9.2. Building OMNeT++<br>To take advantage of multiple processor cores, add the -j8 option (for 8 cores) to the<br>make command line.<br>The build process will not write anything outside its directory, so no special privileges<br>are needed.<br>The make command will seemingly compile everything twice. This is because both<br>debug and optimized versions of the libraries are built. If you only want to build one<br>set of the libraries, specify MODE=debug or MODE=release:<br>$ make MODE=release<br>9.7. Verifying the Installation<br>You can now verify that the sample simulations run correctly. For example, the dyna<br>simulation is started by entering the following commands:<br>$ cd samples/aloha<br>$ ./aloha<br>By default, the samples will run using the Qtenv environment. You should see nice gui<br>windows and dialogs.<br>9.8. Starting the IDE<br>The IDE is supported only on 64-bit versions of Windows, macOS X and Linux.<br>You can run the IDE by typing the following command in the terminal:<br>$ omnetpp<br>31<br>Generic Unix<br>Figure 9.3. The Simulation IDE<br>If you would like to be able to access the IDE from the application launcher or via a<br>desktop shortcut, run one or both of the commands below:<br>$ make install-menu-item<br>$ make install-desktop-icon<br>The above commands assume that your system has the xdg commands, which most<br>modern distributions do.<br>9.9. Optional Packages<br>9.9.1. Akaroa<br>If you wish to use Akaroa, it must be downloaded, compiled, and installed manually<br>before installing OMNeT++.<br>As of version 2.7.9, Akaroa only supports Linux and Solaris.<br>Download Akaroa 2.7.9 from: <a href="http://www.cosc.canterbury.ac.nz/research/RG/net_sim/" target="_blank" rel="noopener">http://www.cosc.canterbury.ac.nz/research/RG/net_sim/</a><br>simulation_group/akaroa/download.chtml<br>Extract it into a temporary directory:<br>$ tar xfz akaroa-2.7.9.tar.gz<br>Configure, build and install the Akaroa library. By default, it will be installed into the<br>/usr/local/akaroa directory.<br>$ ./configure<br>$ make<br>$ sudo make install<br>Go to the OMNeT++ directory, and (re-)run the configure script. Akaroa will be<br>automatically detected if you installed it to the default location.<br>9.9.2. PCAP<br>The optional Pcap library allows simulation models to capture and transmit network<br>packets bypassing the operating system’s protocol stack. It is not used directly by OM32<br>Generic Unix<br>NeT++, but OMNeT++ detects the necessary compiler and linker options for models<br>in case they need it.<br>33<br>Chapter 10. Build Options<br>10.1. Configure.user Options<br>The configure.user file contains several options that can be used to fine-tune the<br>simulation libraries.<br>You always need to re-run the configure script in the installation root after changing<br>the configure.user file.<br>$ ./configure<br>After this step, you have to remove all previous libraries and recompile OMNeT++:<br>$ make cleanall<br>$ make<br>Options:<br>PREFER_CLANG=no If both gcc and clang are installed on your system,<br>setting this variable to no will force the configure<br>script to use gcc as C++ compiler.<br><componentname>_CFLAGS,<br><componentname>_LIBS<br>The configure.user file contains variables for<br>defining the compile and link options needed by various external libraries. By default, the configure<br>command detects these automatically, but you may<br>override the auto detection by specifying the values by<br>hand. (e.g. <comp>_CFLAGS=-I/path/to/comp/includedir and <comp>_LIBS=-L/path/to/comp/<br>libdir -lnameoflib.)<br>WITH_PARSIM=no Use this variable to explicitly disable parallel simulation support in OMNeT++.<br>WITH_NETBUILDER=no This option allows you to leave out the NED language<br>parser and the network builder. (This is needed only<br>if you are building your network with C++ API calls<br>and you do not use the built-in NED language parser<br>at all.)<br>WITH_TKENV=no This will prevent the build system to link with Tcl/<br>Tk libraries. Use this option if your platform does not<br>have a suitable Tcl/Tk package or you will run the simulation only in command line mode. (i.e. You want to<br>run OMNeT++ in a remote terminal session.)<br>WITH_QTENV=no This will prevent the build system to link with the Qt<br>libraries. Use this option if your platform does not<br>have a suitable Qt package or you will run the simulation only in command line mode. (i.e. You want to<br>run OMNeT++ in a remote terminal session.)<br>WITH_OSG=no This will prevent the build system to use OpenScreenGraph which is used for 3D visualization in Qtenv.<br>34<br>Build Options<br>WITH_OSGEARTH=no This will prevent the build system to use osgEarth<br>which is used for 2D/3D mapping and visualization<br>in Qtenv.<br>PREFER_QTENV=no Use Tkenv as the default graphical runtime instead<br>of Qtenv.<br>EMBED_TCL_CODE=no Tcl/Tk is a script language and the source of the<br>graphical runtime environment is stored as .tcl files<br>in the src/tkenv directory. By default, these files are<br>not used directly, but are embedded as string literals<br>in the executable file. Setting EMBED_TCL_CODE=yes<br>allows you to move the OMNeT++ installation without caring about the location of the .tcl files. If<br>you want to make changes to the Tcl code, you better switch off the embedding with the EMBED_TCL_CODE=no option. This way you can make changes<br>to the .tcl files and see the changes immediately<br>without recompiling the OMNeT++ libraries.<br>CFLAGS_[RELEASE/DEBUG] To change the compiler command line options the<br>build process is using, you should specify them in<br>the CFLAGS_RELEASE and CFLAGS_DEBUG variables.<br>By default, the flags required for debugging or optimization are detected automatically by the configure script. If you set them manually, you should specify all options you need. It is recommended to check<br>what options are detected automatically (check the<br>Makefile.inc after running configure and look<br>for the CFLAGS_[RELEASE/DEBUG] variables.) and<br>add/modify those options manually in the configure.user file.<br>LDFLAGS Linker command line options can be explicitly set using this variable. It is recommended to check what<br>options are detected automatically (check the Makefile.inc after running configure and look for<br>the LDFLAGS variable.) and add/modify those options<br>manually in the configure.user file.<br>SHARED_LIBS This variable controls whether the OMNeT++ build<br>process will create static or dynamic libraries.<br>By default, the OMNeT++ runtime is built as<br>a set of shared libraries. If you want to build<br>a single executable from your simulation, specify SHARED_LIBS=no in configure.user to create static OMNeT++ libraries and then reconfigure (./configure) and recompile OMNeT++ (make<br>cleanall; make). Once the OMNeT++ static libraries are correctly built, your own project have to<br>be rebuilt, too. You will get a single, statically linked<br>executable, which requires only the NED and INI files<br>to run.<br>It is important to completely delete the OMNeT++ libraries (make cleanall) and<br>then rebuild them, otherwise it cannot be guaranteed that the created simulations are<br>linked against the correct libraries.<br>35<br>Build Options<br>The USE_DOUBLE_SIMTIME and WITHOUT_CPACKET options are no longer supported.<br>They were introduced in OMNeT++ 4.0 to help porting model code from OMNeT++<br>3.x, and having fulfilled their role, they were removed in OMNeT++ 5.0. If you still<br>have old model code to port, use OMNeT++ 4.x.<br>10.2. Moving the Installation<br>When you build OMNeT++ on your machine, several directory names are compiled<br>into the binaries. This makes it easier to set up OMNeT++ in the first place, but if you<br>rename the installation directory or move it to another location in the file system, the<br>built-in paths become invalid and the correct paths have to be supplied via environment<br>variables.<br>The following environment variables are affected (in addition to PATH, which also needs<br>to be adjusted):<br>OMNETPP_IMAGE_PATH This variable contains the list of directories where Tkenv<br>looks for icons. Set it to point to the images/ subdirectory<br>of your OMNeT++ installation.<br>OMNETPP_TKENV_DIR This variable points to the directory that contains the<br>Tcl script parts of Tkenv, which is by default the src/<br>tkenv/ subdirectory of your OMNeT++ installation. Normally you don’t need to set this variable, because the Tkenv<br>shared library contains all Tcl code compiled in as string<br>literals. However, if you compile OMNeT++ with the EMBED_TCL_CODE=no setting and then you move the installation, then you need to set OMNETPP_TKENV_DIR, otherwise<br>Tkenv won’t start.<br>LD_LIBRARY_PATH This variable contains the list of additional directories where shared libraries are looked for. Initially,<br>LD_LIBRARY_PATH is not needed because shared libraries<br>are located via the rpath mechanism. When you move the<br>installation, you need to add the lib/ subdirectory of your<br>OMNeT++ installation to LD_LIBRARY_PATH.<br>On macOS, DYLD_LIBRARY_PATH is used instead of LD_LIBRARY_PATH. On Windows, the PATH variable must contain the directory where shared libraries (DLLs) are<br>present.<br>10.3. Using Different Compilers<br>By default, the configure script detects the following compilers automatically in the<br>path:<br>• Intel compiler (icc, icpc)<br>• GNU C/C++ (gcc, g++)<br>• Clang (clang, clang++)<br>• Clang/C2 (from Microsoft Visual Studio)<br>• Sun Studio (cc, cxx)<br>• IBM compiler (xlc, xlC)<br>36<br>Build Options<br>If you want to use compilers other than the above ones, you should specify the compiler<br>name in the CC and CXX variables, and re-run the configuration script.<br>Different compilers may have different command line options. If you use a compiler<br>other than the default gcc, you may have to revise the CFLAGS_[RELEASE/DEBUG]<br>and LDFLAGS variables.<br>37</comp></comp></componentname></componentname></you></name></arch></arch></li>
+</ol>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTYyNC8xMjE2MA==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/01/13/今天看了腾讯和网易的面经-很开心/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/01/04/【游戏记录】-忍者必须死3-（下）/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/touxiang.png" alt="王八蛋智's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        wtz502206330@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2040/03/">三月 2040<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">14</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">31</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">29</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">21</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/1998/03/">三月 1998<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/links/index.html" title="友情链接">
+                
+                    <i class="material-icons sidebar-material-icons">face</i>
+                
+                友情链接
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/index.html" title="时间线">
+                
+                    <i class="material-icons sidebar-material-icons">schedule</i>
+                
+                时间线
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/index.html" title="标签云">
+                
+                    <i class="material-icons sidebar-material-icons">reorder</i>
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/game/index.html" title="游戏">
+                
+                    <i class="material-icons sidebar-material-icons">games</i>
+                
+                游戏
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/charge/index.html" title="测试">
+                
+                    <i class="material-icons sidebar-material-icons">star rate</i>
+                
+                测试
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">160</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+<!--page counter part-->
+
+<script>
+function addCount (Counter) {
+        url=$('.article-date').attr('href').trim();
+        title = $('.article-title').text().trim();
+        var query=new AV.Query(Counter);
+        //use url as unique idnetfication
+        query.equalTo("url",url);
+        query.find({
+            success: function(results){
+                if(results.length>0)
+                {
+                    var counter=results[0];
+                    counter.fetchWhenSave(true); //get recent result
+                    counter.increment("time");
+                    newcounter.set("ip", "2222");
+                    counter.save();
+                }
+                else
+                {
+                    var newcounter=new Counter();
+                    newcounter.set("title","k"+title);
+                    newcounter.set("url",url);
+                    newcounter.set("time",1);
+                    newcounter.set("urll", url);
+                    newcounter.set("ip", "2222");
+                    newcounter.save(null,{
+                        success: function(newcounter){
+                        alert('New object created');
+                        },
+                        error: function(newcounter,error){
+                        alert('Failed to create');
+                        }
+                        });
+                }
+            },
+            error: function(error){
+                //find null is not a error
+                alert('Error:'+error.code+" "+error.message);
+            }
+        });
+}
+$(function(){
+        var Counter=AV.Object.extend("Counter");
+        //only increse visit counting when intering a page
+        if ($('.article-title').length == 1)
+           addCount(Counter);
+        var query=new AV.Query(Counter);
+        query.descending("time");
+        // the sum of popular posts
+        query.limit(10); 
+        query.find({
+            success: function(results){
+                    for(var i=0;i<results.length;i++)    
+                    {
+                        var counter=results[i];
+                        title=counter.get("title");
+                        url=counter.get("url");
+                        time=counter.get("time");
+                        // add to the popularlist widget
+                        showcontent=title+"：浏览"+time+"次";
+                        //notice the "" in href
+                        $('.popularlist').append('<li><a style="display:block;font-weight:bold;color:#FFFFFF;background-color:#8E8E8E;width:100%;text-align:center;padding:4px;text-decoration:none;text-transform:uppercase;" href="'+url+'">'+showcontent+'</a></li>');
+                    }
+                },
+            error: function(error){
+                alert("Error:"+error.code+" "+error.message);
+            }
+            }
+        )
+        });
+</script>
+                    
+
+                    <!--Footer-->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/wangtianzhi/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/wang-tian-zhi-23/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/32071721/#/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>骂就完事了
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': 'black'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px black, 0 0 15px black'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': 'black',
+        'border-left-color': 'black'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('E4SUL9Uqxrj0CF0cvfun1iHo-gzGzoHsz', '37PoUXbYgPnY8bktdaMSAEfl');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+    <!-- Busuanzi -->
+    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
