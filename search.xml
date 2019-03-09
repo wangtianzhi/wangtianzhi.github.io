@@ -3,6 +3,24 @@
   
     
     <entry>
+      <title>自走棋体验.md</title>
+      <link href="/2019/03/09/%E8%87%AA%E8%B5%B0%E6%A3%8B%E4%BD%93%E9%AA%8C-md/"/>
+      <url>/2019/03/09/%E8%87%AA%E8%B5%B0%E6%A3%8B%E4%BD%93%E9%AA%8C-md/</url>
+      <content type="html"><![CDATA[<p>自走棋</p><p>麻将，用户群基础</p><p>赌博，从头随到尾</p><p>有深度，阵容搭配，经济与运营，连胜连败，装配合成，站位，乃至合成操作，都有进阶的空间</p><p>dota，世界观，用户群基础</p><p>服务器垃圾，匹配体验差，仍有这么多人玩</p><p>棋牌类，对操作要求不高</p><p>策略性极强，获取到的信息越多，越容易，激发玩家寻找攻略，促进玩家之间交流，形成圈子</p><p>8个人，相对100人的大逃杀，8个人更容易拿到前几名，</p><p>反馈，玩家的操作带来的反馈不止像麻将或是斗地主，</p><p>缺点：</p><p>平衡性，强势的种族和职业固定，当大家了解到后，某个英雄或某个种族的强大时，会一拥而上，经常几个人一起抢</p><p>当一个人原本想玩某个搭配，例如地精，却发现炸弹人被别人合了2星，这种感觉是绝望的。</p><p>并不是说需要让玩家之间互不影响，那样就成单机游戏了，失去了博弈的快感</p><p>当发现强力的英雄在别人那时，这种感觉是无助而绝望的，只要另一人不放手，玩家没有任何可能性把英雄从别人那拿走</p><p>建议：</p><p>装备系统强化， 现在装备全靠打怪掉，脸黑了一波野怪一个装备都没有，装备的合成更是只有运气好的高端玩家才能做到。</p><p>装备能不能购买？和英雄一样，每波刷五个英雄的同时，也刷一个装备，装备定价会较贵，因为游戏的核心是英雄合成，装备是附加系统，不希望装备喧宾夺主。随机刷装备，也是让赌博性更强</p><p>战争迷雾。八个人同时打时，既要关注自己阵容、刷商店、站位，又要关注其他7个人的阵容和自己有没有冲突，对于新手来说是非常困难的。因为可获取的信息实在太多了，所有游戏玩家需要做的内容，都可以概括成：获取信息、将信息转化为操作、进行操作，自走棋中，玩家主要做的内容是这里的第一步和第二步。</p><p>简化操作，当然这也是因为自走棋是刀塔的自定义地图，没有太多可发挥空间，在移植手游时这点需要很大的优化，比如，拖动合成。</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/2019/03/07/toon%20blast/"/>
+      <url>/2019/03/07/toon%20blast/</url>
+      <content type="html"><![CDATA[<p>toon blast</p><p>宝箱</p><p>排行榜</p><p>连通奖励</p><p>动效</p><p>进阶技巧<br>不见连起来的就合<br>凑迪斯科球完成目标<br>合成的位置</p><p>难受点<br>任务目标在角落里，死活够不着<br>不知道每次消除得分多少<br>过关后的剩余步骤转换没有很强的爽感<br>体验重复，每局想办法凑迪斯科球</p><p>建议：<br>帮助玩家的地图元素，更高的要求<br>只能用爆炸摧毁的元素<br>结算时，如果有可以合成的地图元素，先让它们合成<br>简单的主线剧情</p><p>疑问：<br>出现的砖块是否有干预<br>开局是否有干预<br>在没有数据时，关卡难度怎么衡量<br>付费点、压力</p>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>今天第一次面试别人 很开心</title>
       <link href="/2019/03/02/%E4%BB%8A%E5%A4%A9%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95%E5%88%AB%E4%BA%BA-%E5%BE%88%E5%BC%80%E5%BF%83/"/>
       <url>/2019/03/02/%E4%BB%8A%E5%A4%A9%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%9D%A2%E8%AF%95%E5%88%AB%E4%BA%BA-%E5%BE%88%E5%BC%80%E5%BF%83/</url>
@@ -207,6 +225,8 @@
       
         <tags>
             
+            <tag> 游戏记录 </tag>
+            
             <tag> 休闲游戏 </tag>
             
             <tag> 移动端 </tag>
@@ -214,8 +234,6 @@
             <tag> 关卡类 </tag>
             
             <tag> 数值深入 </tag>
-            
-            <tag> 游戏记录 </tag>
             
         </tags>
       
@@ -1266,11 +1284,11 @@
       
         <tags>
             
-            <tag> NOBIBI </tag>
+            <tag> 校园卡充值 </tag>
             
             <tag> jssdk </tag>
             
-            <tag> 校园卡充值 </tag>
+            <tag> NOBIBI </tag>
             
         </tags>
       
@@ -1304,11 +1322,11 @@
       
         <tags>
             
-            <tag> jssdk </tag>
+            <tag> vue </tag>
             
             <tag> 校园卡充值 </tag>
             
-            <tag> vue </tag>
+            <tag> jssdk </tag>
             
         </tags>
       
@@ -2053,6 +2071,13 @@
   
     
     <entry>
+      <title>links</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -2063,13 +2088,6 @@
       <title>timeline</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
